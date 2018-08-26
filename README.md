@@ -1,4 +1,4 @@
-Based on [Github Academic Page](https://github.com/academicpages/academicpages.github.io)
+[EthioNLP] (https://ethionlp.github.io/) is based on [Github Academic Page](https://github.com/academicpages/academicpages.github.io)
 
 Go to our [EthioNLP page](https://ethionlp.github.io/)
 Follow us on Twitter: [EthioNLP-Twitter](https://twitter.com/EthioNLP)
