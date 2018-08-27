@@ -28,11 +28,11 @@ In order to be a member to EthioNLP, please fill in the form in this [link]()
 
 * **How to link to an existing resources to EthioNLP**
 
-   If you have any NLP related resources, tools or published works for EthioNLP which are already published and accessible online, you can send us the name of the resource and links to the resources via email (ethionlp at googlegroups.com). We will then include them in EthioNLP.
+   If you have any NLP related resources, tools or published works for EthioNLP which are already published and accessible online, you can send us the name of the resource and links to the resources via email (**ethionlp at googlegroups.com**). We will then include them in EthioNLP.
 
 * **How to upload your resources to EthioNLP**
 
-   If you have any NLP related resources, tools or published works for EthioNLP which are not yet publicly available, send us the resources via email (ethionlp at googlegroups.com) so that we can upload them to EthioNLP.
+   If you have any NLP related resources, tools or published works for EthioNLP which are not yet publicly available, send us the resources via email (**ethionlp at googlegroups.com**) so that we can upload them to EthioNLP.
 
 ## How to collaborate
 
