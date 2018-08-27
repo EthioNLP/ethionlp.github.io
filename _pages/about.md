@@ -24,3 +24,5 @@ General goals
 Follow us on Twitter: [EthioNLP-Twitter](https://twitter.com/EthioNLP) 
 
 Follow us on Facebook: [EthioNLP-Facebook](https://www.facebook.com/groups/1275577692604176/about/)
+
+Share us your thought and question on: [EthioNLP-GoogleGroups](https://groups.google.com/forum/#!forum/ethionlp)
