@@ -85,7 +85,7 @@ author:
   location         : "Global"
   employer         :
   googlescholar    :
-  email            :
+  email            : "ethionlp@googlegroups.com"
   uri              :
   bitbucket        :
   codepen          :
@@ -94,7 +94,8 @@ author:
   facebook         : "groups/1275577692604176/about"
   foursquare       :
   github           : "EthioNLP"
-  google_plus      : "EthioNLP"
+  google_plus      :
+  google_groups    : https://groups.google.com/forum/#!forum/ethionlp
   keybase          :
   instagram        :
   lastfm           :
