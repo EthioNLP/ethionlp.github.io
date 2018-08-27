@@ -36,3 +36,6 @@ In order to be a member to EthioNLP, please fill in the form in this [link]()
 
 ## How to collaborate
 
+## How to write us
+If you have any question, discussion point, research idea, share us [here](https://groups.google.com/forum/#!forum/ethionlp)
+
