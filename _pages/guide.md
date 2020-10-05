@@ -21,8 +21,9 @@ Members
 
 
 
-## How to be a member
-In order to be a member to EthioNLP, please fill in the form in this [link]()
+## How to become a member
+For EthioNLP membership, please feel free to fill out the following [form](https://docs.google.com/forms/d/e/1FAIpQLSeSSMzyTzx69S-kfWvYwmZTAD8SgDL4UL6VUsPIYoca4ETeww/viewform?usp=pp_url)
+
 
 ## How to share resources, tools, or published works
 
