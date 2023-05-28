@@ -1,7 +1,7 @@
 
 - first_name: Seid Muhie 
   last_name: Yimam
-  role: Cofounder, Lead
+  role: Co-Founder, Lead
   img: Seid.jpeg
   is_alumni: 
   website: https://seyyaw.github.io/
@@ -10,14 +10,25 @@
   github: https://github.com/seyyaw
 
 - first_name: Binyam Ephrem 
-  last_name: Seyoums
-  role: Cofounder
-  img: placeholder.jpg
+  last_name: Seyoum
+  role: Co-Founder
+  img: binyam_ephrem.jpeg
   is_alumni: 
-  website: https://seyyaw.github.io/
-  twitter: https://twitter.com/seyyaw
-  google_scholar: https://scholar.google.de/citations?user=rDKEGNgAAAAJ&hl=en
-  github: https://github.com/seyyaw
+  website: https://addisababa.academia.edu/BSeyoum
+  twitter: https://twitter.com/binephrem
+  google_scholar: https://scholar.google.co.jp/citations?user=JBGU_DUAAAAJ&hl=en
+  github: https://addisababa.academia.edu/BSeyoum
+
+- first_name: Surafel M. 
+  last_name: Lakew
+  role: Co-Founder
+  img: surafelml.jpeg
+  is_alumni: 
+  website: https://surafelml.github.io/
+  twitter: https://twitter.com/surafelml
+  google_scholar: https://scholar.google.com/citations?user=GEB4LhgAAAAJ&hl=en
+  github: https://github.com/surafelml
+
 
 - first_name: Michael   
   last_name: Melese
