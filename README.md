@@ -1,7 +1,7 @@
-[EthioNLP](https://ethionlp.github.io/) is based on [Github Academic Page](https://github.com/academicpages/academicpages.github.io)
+# EthioNLP's website!
 
-Go to our [EthioNLP page](https://ethionlp.github.io/)
+This website is built on Jekyll. To run locally, inside the `ethio-nlp.github.io` folder, run `bundle exec jekyll serve`.
 
-Follow us on Twitter: [EthioNLP-Twitter](https://twitter.com/EthioNLP)
+## Jekyll Theme
 
-Follow us on Facebook: [EthioNLP-Facebook](https://www.facebook.com/groups/1275577692604176/about)
+Original [Creative Theme](http://startbootstrap.com/template-overviews/creative/) template by [Start Bootstrap](http://startbootstrap.com). [Jekyll Creative Theme](https://jekyllthemes.io/theme/creative-theme-jekyll) by [volny](https://github.com/volny/creative-theme-jekyll).

@@ -1,0 +1,24 @@
+- title: "Natural Language Processing in Ethiopian Languages: Current State, Challenges, and Opportunities"
+  authors:
+    -
+      name: Atnafu Lambebo Tonja
+      
+    -
+      name: Tadesse Destaw Belay
+    -
+      name: Israel Abebe Azime
+    -
+      name: Abinew Ali Ayele
+    -
+      name: Olga Kolesnikova
+    -
+      name: Seid Muhie Yimam
+     
+
+  year: 2023
+  journal: Fourth workshop on Resources for African Indigenous Languages (RAIL), EACL2023
+  link: https://arxiv.org/abs/2303.14406
+  dataset: https://github.com/EthioNLP/Ethiopian-Language-Survey
+  #award:
+  #video:
+  #poster:
