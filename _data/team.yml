@@ -97,10 +97,10 @@
   role: Role Here
   img: israel.png
   is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github:
+  website: https://israelabebe.github.io/
+  twitter: https://twitter.com/Israel_Abebe
+  google_scholar: https://scholar.google.com/citations?user=PcAQRn0AAAAJ
+  github: https://github.com/IsraelAbebe
 
 - first_name: Hellina Hailu   
   last_name: Nigatu

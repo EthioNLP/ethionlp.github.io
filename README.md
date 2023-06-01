@@ -1,6 +1,11 @@
 # EthioNLP's website!
 
-This website is built on Jekyll. To run locally, inside the `ethio-nlp.github.io` folder, run `bundle exec jekyll serve`.
+There are efforts throughout the world to conduct NLP for Ethiopian languages but without formal communication among researchers.
+At COLING 2018, Santa Fe, USA, three researchers from 1) the University of Hamburg (Seid Muhie Yimam), 2) Addis Ababa University (Binyam Ephrem Seyoum), and 3) University of Trento (SurafelM.Lakew) took an initiative to create a formal NLP society for Ethiopian language NLP research.
+
+## Running Locally
+
+This website is built on Jekyll. To run locally, inside the `ethionlp.github.io` folder, run `bundle install` then `bundle exec jekyll serve`.
 
 ## Jekyll Theme
 
