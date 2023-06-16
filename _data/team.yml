@@ -64,12 +64,23 @@
 - first_name: Tadesse Destaw   
   last_name: Belay
   role: Role Here
-  img: tadesse.jpg
+  img: Tadesse.JPG
   is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github:
+  website: https://tadesse-destaw.github.io/
+  twitter: https://twitter.com/tadesseit
+  google_scholar: https://scholar.google.com/citations?hl=en&user=8S7ilV0AAAAJ 
+  github: https://github.com/tadesse-destaw
+
+- first_name: Israel Abebe  
+  last_name: Azime
+  role: Role Here
+  img: Israel.jpg
+  is_alumni: 
+  website: https://israelabebe.github.io/
+  twitter: https://twitter.com/Israel_Abebe
+  google_scholar: https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AJsN-F5ZygHGfjTTfXaA4lpxIXUAvcpMFA5hmtAgCMoQdX_8bUkTOPyOOpkiTI5E83Ywc-eeWMnVygyVkqQ793j5X5-XXPuzeA&user=PcAQRn0AAAAJ
+  github: https://github.com/IsraelAbebe
+
 
 - first_name: Moges  
   last_name: Ahmed
@@ -80,6 +91,16 @@
   twitter: 
   google_scholar: 
   github:
+
+- first_name: Mesay Gemeda 
+  last_name: Yigezu
+  role: Role Here
+  img: Mesay.jpeg
+  is_alumni: 
+  website: https://github.com/Mesay-G/Mesay_Gemeda
+  twitter: https://twitter.com/Mesay_Gemeda
+  google_scholar: https://scholar.google.com/citations?user=2MzwqbgAAAAJ&hl=es
+  github: https://github.com/Mesay-G
 
 
 - first_name: Tadesse  
@@ -92,25 +113,6 @@
   google_scholar: 
   github:
 
-- first_name: Israel Abebe  
-  last_name: Azime
-  role: Role Here
-  img: israel.png
-  is_alumni: 
-  website: https://israelabebe.github.io/
-  twitter: https://twitter.com/Israel_Abebe
-  google_scholar: https://scholar.google.com/citations?user=PcAQRn0AAAAJ
-  github: https://github.com/IsraelAbebe
-
-- first_name: Hellina Hailu   
-  last_name: Nigatu
-  role: Role Here
-  img: hilina.jpeg
-  is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github:
 
 - first_name: Henok Biadglign
   last_name: Ademtew
@@ -121,6 +123,18 @@
   twitter: https://twitter.com/henokademtew
   google_scholar:
   github: https://github.com/HenokB
+
+- first_name: Yonas
+  last_name: Chanie
+  role: Role Here
+  img: Yonas.jpg
+  is_alumni: 
+  website: https://yonas-g.github.io/
+  twitter: 
+  google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
+  github: https://www.github.com/yonas-g
+
+
 
 
 
