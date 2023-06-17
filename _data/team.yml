@@ -45,10 +45,10 @@
   role: Ph.D candidate, IPN
   img: Lambebo.jpg
   is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github: 
+  website: https://atnafuatx.github.io/
+  twitter: https://twitter.com/AtnafuLambebo
+  google_scholar: https://scholar.google.com.mx/citations?user=rubyApkAAAAJ&hl=en
+  github: https://github.com/atnafuatx
 
 
 - first_name: Abinew Ali 
@@ -102,6 +102,15 @@
   google_scholar: https://scholar.google.com/citations?user=2MzwqbgAAAAJ&hl=es
   github: https://github.com/Mesay-G
 
+- first_name: Hellina Hailu 
+  last_name: Nigatu
+  role: Role Here
+  img: hilina.jpeg
+  is_alumni: 
+  website: https://hhnigatu.github.io/
+  twitter: https://twitter.com/HellinaNigatu
+  google_scholar: https://scholar.google.com/citations?user=Nn56f9cAAAAJ&hl=en
+  github: https://github.com/hhnigatu
 
 - first_name: Tadesse  
   last_name: Kebede
@@ -112,7 +121,6 @@
   twitter: 
   google_scholar: 
   github:
-
 
 - first_name: Henok Biadglign
   last_name: Ademtew
@@ -133,6 +141,18 @@
   twitter: 
   google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
   github: https://www.github.com/yonas-g
+
+
+
+- first_name: Fisseha 
+  last_name: Estifanos
+  role: Role Here
+  img: fisseha.jpg
+  is_alumni: 
+  website: https://sites.google.com/view/fisseha-estifanos/home
+  twitter: https://twitter.com/f0x__tr0t
+  google_scholar: 
+  github: https://github.com/fisseha-Estifanos/
 
 
 
