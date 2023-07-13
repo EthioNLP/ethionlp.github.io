@@ -73,7 +73,7 @@
 
 - first_name: Israel Abebe  
   last_name: Azime
-  role: PhD student, Saarland 
+  role: PhD student, Saarland University 
   img: Israel.jpg
   is_alumni: 
   website: https://israelabebe.github.io/
@@ -84,7 +84,7 @@
 
 - first_name: Moges  
   last_name: Ahmed
-  role: Role Here
+  role: Ph.D student, Wuhan University of Technology
   img: placeholder.jpg
   is_alumni: 
   website: 
@@ -94,7 +94,7 @@
 
 - first_name: Mesay Gemeda 
   last_name: Yigezu
-  role: Role Here
+  role:  Ph.D student, IPN
   img: Mesay.jpeg
   is_alumni: 
   website: https://github.com/Mesay-G/Mesay_Gemeda
