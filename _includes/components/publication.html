@@ -4,7 +4,9 @@
         {% if a.nlp-lab %}<strong>{{a.name}}</strong>{% else %}{{a.name}}{% endif %}{% if forloop.last %} ({{include.pub.year}}).{% else %},{% endif %}
     {% endfor %}
     {{include.pub.journal}}. {% if include.pub.note %}{{include.pub.note}}.{% endif %}</p>
-    {% if include.pub.abstract %}<p class="abstract">Abstract: {{ include.pub.abstract }}</p>{% endif %}
+    {% if include.pub.abstract %}<p class="abstract"><strong>Abstract:</strong> {{ include.pub.abstract }}</p>{% endif %}
+    
+
 
     {% if include.pub.award %}<p class="award">{{include.pub.award}}.</p>{% endif %}
     {% if include.pub.code %}

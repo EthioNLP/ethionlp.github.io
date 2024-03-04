@@ -2,17 +2,21 @@
   authors:
     -
       name: Atnafu Lambebo Tonja
-      
+      nlp-lab: true
     -
       name: Tadesse Destaw Belay
+      nlp-lab: true
     -
       name: Israel Abebe Azime
+      nlp-lab: true
     -
       name: Abinew Ali Ayele
+      nlp-lab: true
     -
       name: Olga Kolesnikova
     -
       name: Seid Muhie Yimam
+      nlp-lab: true
      
 
   year: 2023

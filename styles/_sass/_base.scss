@@ -84,7 +84,7 @@ aside {
         color: $theme-primary;
         @include sans-serif-font;
         font-weight: 700;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         &:hover,
         &:focus {
             color: darken($theme-primary, 10%);
@@ -94,7 +94,7 @@ aside {
         > li {
             > a,
             > a:focus {
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
                 color: $theme-dark;
