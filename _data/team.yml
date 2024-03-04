@@ -111,46 +111,46 @@
   google_scholar: https://scholar.google.com/citations?user=Nn56f9cAAAAJ&hl=en
   github: https://github.com/hhnigatu
 
-- first_name: Tadesse  
-  last_name: Kebede
-  role: Role Here
-  img: placeholder.jpg
-  is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github:
+# - first_name: Tadesse  
+#   last_name: Kebede
+#   role: Role Here
+#   img: placeholder.jpg
+#   is_alumni: 
+#   website: 
+#   twitter: 
+#   google_scholar: 
+#   github:
 
 
 - first_name: Henok Biadglign
   last_name: Ademtew
-  role: Role Here
+  role: Researcher, EAII
   img: henok.jpg
   is_alumni: 
-  website: https://henokademtew.vercel.app/
+  website: https://henokb.github.io/
   twitter: https://twitter.com/henokademtew
   google_scholar:
   github: https://github.com/HenokB
 
-- first_name: Yonas
-  last_name: Chanie
-  role: Role Here
-  img: Yonas.jpg
-  is_alumni: 
-  website: https://yonas-g.github.io/
-  twitter: 
-  google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
-  github: https://www.github.com/yonas-g
+# - first_name: Yonas
+#   last_name: Chanie
+#   role: Role Here
+#   img: Yonas.jpg
+#   is_alumni: 
+#   website: https://yonas-g.github.io/
+#   twitter: 
+#   google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
+#   github: https://www.github.com/yonas-g
 
-- first_name: Fisseha 
-  last_name: Estifanos
-  role: Role Here
-  img: fisseha.jpg
-  is_alumni: 
-  website: https://sites.google.com/view/fisseha-estifanos/home
-  twitter: https://twitter.com/f0x__tr0t
-  google_scholar: 
-  github: https://github.com/fisseha-Estifanos/
+# - first_name: Fisseha 
+#   last_name: Estifanos
+#   role: Role Here
+#   img: fisseha.jpg
+#   is_alumni: 
+#   website: https://sites.google.com/view/fisseha-estifanos/home
+#   twitter: https://twitter.com/f0x__tr0t
+#   google_scholar: 
+#   github: https://github.com/fisseha-Estifanos/
 
 
 
