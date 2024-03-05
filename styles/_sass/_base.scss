@@ -161,7 +161,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, $landing-image-darkening), rgba(0, 0, 0, $landing-image-darkening)), url('../../resources/img/bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, $landing-image-darkening), rgba(0, 0, 0, $landing-image-darkening)), url('../../resources/img/simien_mountains_scenery.jpg');
     text-align: center;
     color: white;
     .header-content {
@@ -206,7 +206,7 @@ header {
     }
 
     @media (min-width: 768px) {
-        min-height: 50%;
+        min-height: 70%;
         .header-content {
             position: absolute;
             top: 50%;
