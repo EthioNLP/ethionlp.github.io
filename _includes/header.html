@@ -18,14 +18,33 @@
     };
     </script>
 
+<style>
+    .text-image-mask {
+        /* Set the background image */
+        background-image: url('../../resources/img/textbg.jpg'); /* Update this path to your image's location */
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+        /* Make the text transparent to show the background image only within the text */
+        color: transparent;
+
+        /* Ensure the background image covers the text properly */
+        background-size: contain;
+        background-position: center;
+
+        display: inline; /* Adjust as needed */
+        font-size: 838px; /* Adjust the font size as needed */
+        font-weight: bold; /* Ensure the font is bold enough */
+
+    }
+
+</style>
+
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Ethio NLP </h1>
-            
+            <h1 class="text-image-mask">Ethio NLP</h1>
             <h3 id="header-text"></h3>
-        
-        
         </div>
     </div>
 </header>

@@ -21,6 +21,11 @@
         <a href="{{include.pub.dataset | replace: 'EPFL_NLP_URL!', site.url }}" class="btn btn-primary"><i class="fa fa-database" aria-hidden="true"></i>Dataset</a>
       </div>
     {% endif %}
+    {% if include.pub.model %}
+    <div>
+      <a href="{{include.pub.model | replace: 'EPFL_NLP_URL!', site.url }}" class="btn btn-primary"><i class="fa fa-database" aria-hidden="true"></i>Model</a>
+    </div>
+  {% endif %}
     {% if include.pub.project %}
       <div>
         <a href="{{include.pub.project | replace: 'EPFL_NLP_URL!', site.url }}" class="btn btn-primary"><i class="fa fa-terminal" aria-hidden="true"></i>Project</a>
