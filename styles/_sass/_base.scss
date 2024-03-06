@@ -5,8 +5,8 @@ body {
 }
 
 body {
-    @include serif-font;
-}
+    font-family: 'Times New Roman', serif;
+  }
 
 hr {
     border-color: $theme-primary;
@@ -206,7 +206,7 @@ header {
     }
 
     @media (min-width: 768px) {
-        min-height: 70%;
+        min-height: 50%;
         .header-content {
             position: absolute;
             top: 50%;
@@ -219,7 +219,7 @@ header {
                 margin-left: auto;
                 margin-right: auto;
                 p {
-                    font-size: 30px;
+                    font-size: 50px;
                     max-width: 100%;
                     text-align: left;
                     margin-left: auto;
