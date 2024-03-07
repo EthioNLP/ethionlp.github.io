@@ -6,8 +6,9 @@
   is_alumni: 
   website: https://seyyaw.github.io/
   twitter: https://twitter.com/seyyaw
-  google_scholar: https://scholar.google.de/citations?user=rDKEGNgAAAAJ&hl=en
   github: https://github.com/seyyaw
+  google_scholar: https://scholar.google.de/citations?user=rDKEGNgAAAAJ&hl=en
+
 
 - first_name: Binyam Ephrem 
   last_name: Seyoum
@@ -53,11 +54,11 @@
 - first_name: Abinew Ali 
   last_name: Ayele
   role: Ph.D Candidate, BDU, UHH
-  img: placeholder.jpg
+  img: Abinew_Ali.jpg
   is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
+  website: https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/abinew-ali.html
+  twitter: https://twitter.com/abinewaliayele
+  google_scholar: https://scholar.google.com/citations?user=g2m1wH4AAAAJ&hl=en
   github:
 
 - first_name: Tadesse Destaw   
@@ -81,10 +82,10 @@
   github: https://github.com/IsraelAbebe
 
 
-- first_name: Moges  
-  last_name: Ahmed
-  role: Ph.D student, Wuhan University
-  img: placeholder.jpg
+- first_name: Moges Ahmed
+  last_name: Mehamed
+  role: Ph.D student, WUT
+  img: Moges.jpeg
   is_alumni: 
   website: 
   twitter: 
