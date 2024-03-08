@@ -70,6 +70,9 @@ aside {
 .ai {
     font-weight: 700 !important;
 }
+.fa {
+    font-weight: 700 !important;
+}
 
 
 
@@ -889,7 +892,7 @@ section#contact, section#publications {
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant(rgb(255, 255, 255), $theme-primary, $theme-primary);
 }
 
 .btn {
