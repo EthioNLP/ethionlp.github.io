@@ -32,12 +32,12 @@
 
 - first_name: Michael   
   last_name: Melese
-  role: Researcher, AAU
+  role: Co-Founder, AAU
   img: michael.jpg
   is_alumni: 
   website: 
-  twitter: 
-  google_scholar: 
+  twitter: https://twitter.com/michaelmelesew
+  google_scholar: https://scholar.google.com/citations?user=me6O1_4AAAAJ&hl=en
   github: 
 
 
