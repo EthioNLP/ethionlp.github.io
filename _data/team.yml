@@ -6,8 +6,9 @@
   is_alumni: 
   website: https://seyyaw.github.io/
   twitter: https://twitter.com/seyyaw
-  google_scholar: https://scholar.google.de/citations?user=rDKEGNgAAAAJ&hl=en
   github: https://github.com/seyyaw
+  google_scholar: https://scholar.google.de/citations?user=rDKEGNgAAAAJ&hl=en
+
 
 - first_name: Binyam Ephrem 
   last_name: Seyoum
@@ -31,12 +32,12 @@
 
 - first_name: Michael   
   last_name: Melese
-  role: Researcher, AAU
-  img: placeholder.jpg
+  role: Co-Founder, AAU
+  img: michael.jpg
   is_alumni: 
   website: 
-  twitter: 
-  google_scholar: 
+  twitter: https://twitter.com/michaelmelesew
+  google_scholar: https://scholar.google.com/citations?user=me6O1_4AAAAJ&hl=en
   github: 
 
 
@@ -53,11 +54,11 @@
 - first_name: Abinew Ali 
   last_name: Ayele
   role: Ph.D Candidate, BDU, UHH
-  img: placeholder.jpg
+  img: Abinew_Ali.jpg
   is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
+  website: https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/abinew-ali.html
+  twitter: https://twitter.com/abinewaliayele
+  google_scholar: https://scholar.google.com/citations?user=g2m1wH4AAAAJ&hl=en
   github:
 
 - first_name: Tadesse Destaw   
@@ -81,10 +82,10 @@
   github: https://github.com/IsraelAbebe
 
 
-- first_name: Moges  
-  last_name: Ahmed
-  role: Ph.D student, Wuhan University
-  img: placeholder.jpg
+- first_name: Moges Ahmed
+  last_name: Mehamed
+  role: Ph.D student, WUT
+  img: Moges.jpeg
   is_alumni: 
   website: 
   twitter: 
@@ -111,46 +112,46 @@
   google_scholar: https://scholar.google.com/citations?user=Nn56f9cAAAAJ&hl=en
   github: https://github.com/hhnigatu
 
-- first_name: Tadesse  
-  last_name: Kebede
-  role: Role Here
-  img: placeholder.jpg
-  is_alumni: 
-  website: 
-  twitter: 
-  google_scholar: 
-  github:
+# - first_name: Tadesse  
+#   last_name: Kebede
+#   role: Role Here
+#   img: placeholder.jpg
+#   is_alumni: 
+#   website: 
+#   twitter: 
+#   google_scholar: 
+#   github:
 
 
 - first_name: Henok Biadglign
   last_name: Ademtew
-  role: Role Here
+  role: Researcher, EAII
   img: henok.jpg
   is_alumni: 
-  website: https://henokademtew.vercel.app/
+  website: https://henokb.github.io/
   twitter: https://twitter.com/henokademtew
   google_scholar:
   github: https://github.com/HenokB
 
-- first_name: Yonas
-  last_name: Chanie
-  role: Role Here
-  img: Yonas.jpg
-  is_alumni: 
-  website: https://yonas-g.github.io/
-  twitter: 
-  google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
-  github: https://www.github.com/yonas-g
+# - first_name: Yonas
+#   last_name: Chanie
+#   role: Role Here
+#   img: Yonas.jpg
+#   is_alumni: 
+#   website: https://yonas-g.github.io/
+#   twitter: 
+#   google_scholar: https://scholar.google.com/citations?user=dr0ArckAAAAJ&hl=en
+#   github: https://www.github.com/yonas-g
 
-- first_name: Fisseha 
-  last_name: Estifanos
-  role: Role Here
-  img: fisseha.jpg
-  is_alumni: 
-  website: https://sites.google.com/view/fisseha-estifanos/home
-  twitter: https://twitter.com/f0x__tr0t
-  google_scholar: 
-  github: https://github.com/fisseha-Estifanos/
+# - first_name: Fisseha 
+#   last_name: Estifanos
+#   role: Role Here
+#   img: fisseha.jpg
+#   is_alumni: 
+#   website: https://sites.google.com/view/fisseha-estifanos/home
+#   twitter: https://twitter.com/f0x__tr0t
+#   google_scholar: 
+#   github: https://github.com/fisseha-Estifanos/
 
 
 

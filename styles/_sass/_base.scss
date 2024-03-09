@@ -5,8 +5,8 @@ body {
 }
 
 body {
-    @include serif-font;
-}
+    font-family: 'Times New Roman', serif;
+  }
 
 hr {
     border-color: $theme-primary;
@@ -70,6 +70,9 @@ aside {
 .ai {
     font-weight: 700 !important;
 }
+.fa {
+    font-weight: 700 !important;
+}
 
 
 
@@ -84,7 +87,7 @@ aside {
         color: $theme-primary;
         @include sans-serif-font;
         font-weight: 700;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         &:hover,
         &:focus {
             color: darken($theme-primary, 10%);
@@ -94,9 +97,9 @@ aside {
         > li {
             > a,
             > a:focus {
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 font-weight: 700;
-                font-size: 13px;
+                font-size: 16px;
                 color: $theme-dark;
                 &:hover {
                     color: $theme-primary;
@@ -136,7 +139,7 @@ aside {
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
                 color: $theme-primary;
-                font-size: 14px;
+                font-size: 16px;
                 &:hover,
                 &:focus {
                     color: darken($theme-primary, 10%);
@@ -161,7 +164,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: linear-gradient(rgba(0, 0, 0, $landing-image-darkening), rgba(0, 0, 0, $landing-image-darkening)), url('../../resources/img/bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, $landing-image-darkening), rgba(0, 0, 0, $landing-image-darkening)), url('../../resources/img/simien_mountains_scenery.jpg');
     text-align: center;
     color: white;
     .header-content {
@@ -171,7 +174,10 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 700;
+                // font-weight: 1200;
+                font-size: 1900;
+                
+                font-weight: bold;
                 margin-top: 0;
                 margin-bottom: 0;
             }
@@ -219,7 +225,7 @@ header {
                 margin-left: auto;
                 margin-right: auto;
                 p {
-                    font-size: 30px;
+                    font-size: 50px;
                     max-width: 100%;
                     text-align: left;
                     margin-left: auto;
@@ -886,7 +892,7 @@ section#contact, section#publications {
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant(rgb(255, 255, 255), $theme-primary, $theme-primary);
 }
 
 .btn {

@@ -22,7 +22,7 @@
       {% assign oldest_paper_year = pub_years | sort | first %}
       {% assign newest_paper_year = pub_years | sort | last %}
       
-      {% for year in (2021..newest_paper_year) reversed %}
+      {% for year in (2023..newest_paper_year) reversed %}
         <li>
           <input type="checkbox">
           <i></i>
@@ -43,7 +43,7 @@
           {% endfor %}
         </li>
       {% endfor %}
-      <li>
+      <!-- <li>
         <input type="checkbox">
         <i></i>
         <h3>Selected 2020 and earlier papers</h3>
@@ -64,7 +64,7 @@
             {% endfor %}
           {% endfor %}
         {% endfor %}
-      </li>
+      </li> -->
     </ul>
   </div>
 </section>

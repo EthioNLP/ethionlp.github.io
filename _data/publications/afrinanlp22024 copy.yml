@@ -1,0 +1,35 @@
+- title: "Evaluating Gender Bias in Machine Translation for Low-Resource Languages"
+  authors:
+
+    -
+      name: Walelign Tewabe Sewunetie
+      nlp-lab: true
+    -
+      name: Atnafu Lambebo Tonja
+      nlp-lab: true
+    -
+      name: Tadesse Destaw Belay
+      nlp-lab: true
+    -
+      name: Hellina Hailu Nigatu
+      nlp-lab: true
+    -
+      name: Gashaw Kidanu
+    -
+      name: Zewdie Mossie
+    -
+      name: Hussien Seid
+    -
+      name: Eshete Derb
+    -
+      name: Seid Muhie Yimam   
+      nlp-lab: true 
+
+  year: 2024
+  journal: 5th Workshop on African Natural Language Processing (AfricaNLP 2024),  ICLR 2024 workshop
+  # abstract: "While Machine Translation (MT) research has progressed over the years, translation systems still suffer from exhibiting biases, including gender bias. While an active line of research studies the existence and mitigation strategies of gender bias in machine translation systems, there is limited research exploring this phenomenon for low-resource languages. The limited availability of linguistic and computational resources confounded with the lack of benchmark datasets makes studying bias for low-resourced languages that much more difficult. In this paper, we construct benchmark datasets for evaluating gender bias in machine translation for three low-resourced languages: Afan Oromo (orm), Amharic (amh), and Tigrinya (tig). Building on prior work, we collected 2400 gender-balanced sentences parallelly translated into the three languages. From our human evaluations on the dataset we collected, we found that about 93% of Afan Oromo, 80% of Tigrigna, and 72% of Amharic sentences exhibited gender bias. In addition to providing benchmarks for improving gender bias mitigation research in the three languages, we hope the careful documentation of our work will help other low-resourced language researchers extend our approach to their languages."
+  link: https://openreview.net/group?id=ICLR.cc/2024/Workshop/AfricaNLP
+  dataset: https://github.com/uhh-lt/ethiopicmodels/wiki/Datasets
+  #award:
+  #video:
+  #poster: 

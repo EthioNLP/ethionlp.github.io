@@ -1,10 +1,11 @@
 <script>
     window.onload = function() {
         var sentences = [
-            'Lets work together',
-            'አብረን እንስራ',
-            'ብሓባር ንሰርሕ',
-            'Waliin haa hojjennu',
+            'Join us in advancing NLP technologies in Ethiopia.',
+            "በኢትዮጵያ የኤንኤልፒ ቴክኖሎጂዎችን በማሳደግ ይቀላቀሉን።",
+            'ኣብ ኢትዮጵያ ቴክኖሎጂታት ኤንኤልፒ ኣብ ምምዕባል ተጸንበሩና።',
+            "Teeknooloojiiwwan NLP Itoophiyaa keessatti ceesisuuf nu waliin ta'aa.",
+            'Nagu soo biir horumarinta tignoolajiyada NLP ee Itoobiya.'
         ];
         var currentIndex = 0;
         var headerElement = document.getElementById('header-text');
@@ -18,14 +19,37 @@
     };
     </script>
 
+<style>
+    .text-image-mask {
+        /* Set the background image */
+        background-image: url('../../resources/img/textbg.jpg'); /* Update this path to your image's location */
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+        /* Make the text transparent to show the background image only within the text */
+        color: transparent;
+
+        /* Ensure the background image covers the text properly */
+        background-size: contain;
+        background-position: center;
+        text-shadow: 1px  rgb(255, 255, 255);
+
+        display: inline; /* Adjust as needed */
+        font-size: 1800px; /* Adjust the font size as needed */
+        font-weight: bold; /* Ensure the font is bold enough */
+        
+
+        
+
+    }
+
+</style>
+
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Ethio NLP </h1>
-            
-            <h3 id="header-text"></h3>
-        
-        
+            <h1 class="text-image-mask">Ethio NLP</h1>
+            <h3 id="header-text" ></h3>
         </div>
     </div>
 </header>
