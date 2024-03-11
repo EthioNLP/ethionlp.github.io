@@ -1,0 +1,50 @@
+- title: "EthioLM: Language Models for Ethiopian Languages with Task Evaluation"
+  authors:
+    -
+      name: Atnafu Lambebo Tonja
+      nlp-lab: true 
+    -
+      name: Israel Abebe Azime
+      nlp-lab: true 
+    -
+      name: Tadesse Destaw Belay
+      nlp-lab: true 
+    -
+      name: Mesay Gemeda Yigezu
+      nlp-lab: true 
+    -
+      name: Moges Ahmed Mehamed
+      nlp-lab: true 
+    -
+      name: Abinew Ali Ayele
+      nlp-lab: true 
+    -
+      name: Tadesse Kebede Guge
+      nlp-lab: true 
+    -
+      name: Ebrahim Chekol Jibril
+      nlp-lab: true 
+    -
+      name: Michael Melese Woldeyohannis
+      nlp-lab: true 
+    -
+      name: Olga Kolesnikova
+    -
+      name: Philipp Slusallek
+    -
+      name: Dietrich Klakow
+    -
+      name: Shengwu Xiong
+    -
+      name: Seid Muhie Yimam
+      nlp-lab: true 
+     
+
+  year: 2024
+  journal: The 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)
+  # abstract: "Language models (LMs) have become more popular in recent years due to their outstanding performance on various downstream Natural Language Processing (NLP) tasks. However, low-resource languages are still left behind by the current state-of-the-art developments in NLP fields due to insufficient resources to train LMs. In this paper, we introduce LMs for 17 Ethiopian languages, 13 of which had not previously been included in any LM development initiatives. We evaluate the performance of the LMs in four selected languages for different downstream NLP tasks. We conducted an error analysis for the downstream task to identify areas where the model falls short and provide actionable insights for future research."
+  link: https://openreview.net/group?id=ICLR.cc/2024/Workshop/AfricaNLP
+  dataset: https://huggingface.co/EthioNLP
+  #award:
+  #video:
+  #poster:Atnafu Lambebo Tonja
