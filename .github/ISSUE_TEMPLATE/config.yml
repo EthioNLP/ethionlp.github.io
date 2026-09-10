@@ -1,4 +1,10 @@
-blank_issues_enabled: true
+# No blank issues. Every form here is parsed by scripts/from_issue.py, which
+# needs the "### Field name" headings a template produces; a blank issue with a
+# pasted image looks fine to a person and is unreadable to the workflow, which
+# then skips because a blank issue also carries no label. Turning this off puts
+# the templates in front of everyone. Bug reports and anything else that does
+# not fit a form go to the contact links below.
+blank_issues_enabled: false
 contact_links:
   - name: Ask on Telegram
     url: https://t.me/+f_5gMa4KhtU2NWUy
