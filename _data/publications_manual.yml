@@ -120,3 +120,47 @@
     - name: Moges Ahmed Mehamed
     - name: Olga Kolesnikova
     - name: Seid Muhie Yimam
+
+# Author names corrected against the ACL Anthology: the fetched record
+# named "Noam Abadi" where the Anthology and the paper say
+# "Negasi Haile Abadi". Curated entries win over the sync.
+- title: 'A Case Against Implicit Standards: Homophone Normalization in Machine Translation for Languages
+    that use the Ge''ez Script'
+  authors:
+  - name: Hellina Hailu Nigatu
+  - name: Atnafu Lambebo Tonja
+  - name: Henok Biadglign Ademtew
+  - name: Hizkiel Mitiku Alemayehu
+  - name: Negasi Haile Abadi
+  - name: Tadesse Destaw Belay
+  - name: Seid Muhie Yimam
+  year: 2025
+  venue: Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing
+  doi: 10.18653/v1/2025.emnlp-main.523
+  anthology: 2025.emnlp-main.523
+  url: https://aclanthology.org/2025.emnlp-main.523/
+
+# Author names corrected against the ACL Anthology: the fetched record
+# named "Noam Abadi" where the Anthology and the paper say
+# "Negasi Haile Abadi". Curated entries win over the sync.
+- title: 'ProverbEval: Exploring LLM Evaluation Challenges for Low-resource Language Understanding'
+  authors:
+  - name: Israel Abebe Azime
+  - name: Atnafu Lambebo Tonja
+  - name: Tadesse Destaw Belay
+  - name: Yonas Chanie
+  - name: Bontu Fufa Balcha
+  - name: Negasi Haile Abadi
+  - name: Henok Biadglign Ademtew
+  - name: Mulubrhan Abebe Nerea
+  - name: Debela Desalegn Yadeta
+  - name: Derartu Dagne Geremew
+  - name: Assefa Atsbiha Tesfu
+  - name: Philipp Slusallek
+  - name: Thamar Solorio
+  - name: Dietrich Klakow
+  year: 2025
+  venue: 'Findings of the Association for Computational Linguistics: NAACL 2025'
+  doi: 10.18653/v1/2025.findings-naacl.350
+  anthology: 2025.findings-naacl.350
+  url: https://aclanthology.org/2025.findings-naacl.350/

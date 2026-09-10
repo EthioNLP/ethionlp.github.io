@@ -1,0 +1,111 @@
+name: Publications from a member
+
+# Member-driven, two-step, with the member's approval in the middle.
+#
+#   1. They open an "Add my publications" issue with links to their papers.
+#   2. This fetches each one from the publisher -- the ACL Anthology's own
+#      .bib, or the DOI's Crossref record -- and comments with exactly what it
+#      found: title, venue, year and the full author list.
+#   3. Nothing is written. They read the author lists, and add the `approved`
+#      label when they are right.
+#   4. That opens a pull request adding the papers to
+#      _data/publications_manual.yml, which the sync treats as curated.
+#
+# The reason for the middle step: OpenAlex gave "Noam Abadi" for an author the
+# ACL Anthology and the paper itself call "Negasi Haile Abadi". Names are
+# claims about real people, so a person checks them before they are published.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: publications-issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    # On open, or on any label that is not the approval itself.
+    if: >-
+      contains(join(github.event.issue.labels.*.name, ','), 'publications') &&
+      !contains(join(github.event.issue.labels.*.name, ','), 'approved')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Save the issue body
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/issue.md
+
+      - name: Resolve the links
+        id: preview
+        run: |
+          {
+            echo 'text<<PREVIEW_EOF'
+            python3 scripts/publications_from_issue.py \
+              --body-file /tmp/issue.md --preview 2>/dev/null
+            echo PREVIEW_EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Post what was found
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `${{ steps.preview.outputs.text }}`,
+            });
+
+  publish:
+    if: >-
+      contains(join(github.event.issue.labels.*.name, ','), 'publications') &&
+      contains(join(github.event.issue.labels.*.name, ','), 'approved')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Save the issue body
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/issue.md
+
+      - name: Write the curated entries
+        id: apply
+        run: |
+          python3 scripts/publications_from_issue.py \
+            --body-file /tmp/issue.md --apply
+
+      - name: Open the pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: pubs/issue-${{ github.event.issue.number }}
+          delete-branch: true
+          commit-message: "publications: from #${{ github.event.issue.number }}"
+          title: "${{ github.event.issue.title }}"
+          labels: from-issue
+          body: |
+            Approved by @${{ github.event.issue.user.login }} on
+            #${{ github.event.issue.number }}.
+
+            Adds curated entries to `_data/publications_manual.yml`. Author
+            names come from the ACL Anthology or the publisher's Crossref
+            record, not from an aggregator, and the submitter has checked them
+            on the issue.
+
+            Closes #${{ github.event.issue.number }}

@@ -1,0 +1,53 @@
+name: Add my publications
+description: Paste links to your papers; the bot fetches them and you approve before anything is published
+title: "Publications: "
+labels: ["publications", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paste one link per line. The bot reads each one from the publisher
+        rather than from an aggregator, posts back exactly what it found, and
+        **publishes nothing until you approve it**.
+
+        Anything with an identifier works:
+
+        - ACL Anthology — `https://aclanthology.org/2025.emnlp-main.523/`
+        - DOI — `10.18653/v1/2024.lrec-main.561`
+        - arXiv — `https://arxiv.org/abs/2403.13737`
+        - OpenAlex or Semantic Scholar links
+
+        Author names come from the ACL Anthology or the publisher's own DOI
+        record wherever possible. Aggregators get names wrong, and a name is a
+        claim about a real person.
+
+  - type: input
+    id: member
+    attributes:
+      label: Your profile
+      description: >-
+        Your slug on this site — the filename in `_members/` without `.md`,
+        e.g. `hellina-hailu-nigatu`. Leave blank if you are not listed yet.
+      placeholder: hellina-hailu-nigatu
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links to your papers
+      description: One per line.
+      placeholder: |
+        https://aclanthology.org/2025.emnlp-main.523/
+        https://arxiv.org/abs/2403.13737
+        10.18653/v1/2024.lrec-main.561
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmation
+      options:
+        - label: >-
+            These are my papers, or papers I am an author on. I will check the
+            author lists the bot posts back before approving them.
+          required: true

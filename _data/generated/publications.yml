@@ -1043,7 +1043,7 @@ publications:
   - name: Henok Biadglign Ademtew
     member: henok-biadglign-ademtew
   - name: Hizkiel Mitiku Alemayehu
-  - name: Noam Abadi
+  - name: Negasi Haile Abadi
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
   - name: Seid Muhie Yimam
@@ -1071,7 +1071,7 @@ publications:
   - openalex
   ethiopian: false
   author_line: Hellina Hailu Nigatu, Atnafu Lambebo Tonja, Henok Biadglign Ademtew, Hizkiel Mitiku Alemayehu,
-    Noam Abadi, Tadesse Destaw Belay, Seid Muhie Yimam
+    Negasi Haile Abadi, Tadesse Destaw Belay, Seid Muhie Yimam
   tracks:
   - applications
 - key: a-unified-framework-with-novel-metrics-for-evaluating-the-effectiveness-of-xai-t
@@ -2335,7 +2335,7 @@ publications:
   - name: Yonas Chanie
     member: yonas-chanie
   - name: Bontu Fufa Balcha
-  - name: Noam Abadi
+  - name: Negasi Haile Abadi
   - name: Henok Biadglign Ademtew
     member: henok-biadglign-ademtew
   - name: Mulubrhan Abebe Nerea
@@ -2369,8 +2369,8 @@ publications:
   - openalex
   ethiopian: false
   author_line: Israel Abebe Azime, Atnafu Lambebo Tonja, Tadesse Destaw Belay, Yonas Chanie, Bontu Fufa
-    Balcha, Noam Abadi, Henok Biadglign Ademtew, Mulubrhan Abebe Nerea, Debela Desalegn Yadeta, Derartu
-    Dagne Geremew, Assefa Atsbiha Tesfu, Philipp Slusallek, Thamar Solorio, Dietrich Klakow
+    Balcha, Negasi Haile Abadi, Henok Biadglign Ademtew, Mulubrhan Abebe Nerea, Debela Desalegn Yadeta,
+    Derartu Dagne Geremew, Assefa Atsbiha Tesfu, Philipp Slusallek, Thamar Solorio, Dietrich Klakow
   tracks:
   - models
   - evaluation
