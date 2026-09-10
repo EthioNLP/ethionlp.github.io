@@ -15,7 +15,11 @@ permissions:
 
 jobs:
   convert:
-    if: contains(join(github.event.issue.labels.*.name, ','), 'join') || contains(join(github.event.issue.labels.*.name, ','), 'event') || contains(join(github.event.issue.labels.*.name, ','), 'team') || contains(join(github.event.issue.labels.*.name, ','), 'news') || contains(join(github.event.issue.labels.*.name, ','), 'gallery') || contains(join(github.event.issue.labels.*.name, ','), 'resource') || contains(join(github.event.issue.labels.*.name, ','), 'topic')
+    # Runs for every issue and decides below. The gate used to require one of
+    # the form labels, but GitHub only attaches a template's labels when the
+    # issue is actually created from that template: an issue opened any other
+    # way arrives unlabelled, the gate never matched, and the run was skipped
+    # with no explanation. Detection now falls back to the body.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,20 +35,41 @@ jobs:
         id: kind
         env:
           LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+          BODY: ${{ github.event.issue.body }}
         run: |
-          if [[ "$LABELS" == *join* ]]; then
-            echo "kind=member" >> "$GITHUB_OUTPUT"
-          elif [[ "$LABELS" == *team* ]]; then
-            echo "kind=team" >> "$GITHUB_OUTPUT"
-          elif [[ "$LABELS" == *news* ]]; then
-            echo "kind=news" >> "$GITHUB_OUTPUT"
-          elif [[ "$LABELS" == *gallery* ]]; then
-            echo "kind=photo" >> "$GITHUB_OUTPUT"
-          elif [[ "$LABELS" == *topic* ]]; then
-            echo "kind=topic" >> "$GITHUB_OUTPUT"
-          else
-            echo "kind=event" >> "$GITHUB_OUTPUT"
+          BODY_FILE=/tmp/issue-detect.md
+          printf '%s' "$BODY" > "$BODY_FILE"
+
+          kind=""
+          # A label is the reliable signal when the template applied one.
+          case "$LABELS" in
+            *join*)    kind=member ;;
+            *team*)    kind=team ;;
+            *news*)    kind=news ;;
+            *gallery*) kind=photo ;;
+            *topic*)   kind=topic ;;
+            *event*)   kind=event ;;
+          esac
+
+          # No usable label: read the body. Each template writes its own field
+          # headings, so they identify the form even with no label at all.
+          if [ -z "$kind" ]; then
+            if   grep -qF '### The photograph' "$BODY_FILE"; then kind=photo
+            elif grep -qF '### Title' "$BODY_FILE" && grep -qF '### Who would supervise it' "$BODY_FILE"; then kind=topic
+            elif grep -qF '### Headline' "$BODY_FILE"; then kind=news
+            elif grep -qF '### What is the team called' "$BODY_FILE"; then kind=team
+            elif grep -qF '### When is it' "$BODY_FILE"; then kind=event
+            # Last resort: an image pasted into an issue with nothing else.
+            # The attachment is the content and the title describes it, which
+            # is the one case worth accepting without a form.
+            elif grep -qE 'user-attachments|user-images\.githubusercontent\.com' "$BODY_FILE"; then kind=photo
+            fi
           fi
+
+          if [ -z "$kind" ]; then
+            echo "No form fields and no attachment; nothing to build." >&2
+          fi
+          echo "kind=${kind}" >> "$GITHUB_OUTPUT"
 
       - name: Save the issue body
         env:
@@ -53,6 +78,7 @@ jobs:
 
       - name: Build the file
         id: build
+        if: steps.kind.outputs.kind != ''
         run: |
           set -o pipefail
           if path=$(python3 scripts/from_issue.py --kind "${{ steps.kind.outputs.kind }}" --body-file /tmp/issue.md 2>/tmp/err.txt); then
