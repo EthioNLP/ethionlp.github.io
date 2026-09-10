@@ -68,7 +68,7 @@ publications:
 - key: afri-mcqa-multimodal-cultural-question-answering-for-african-languages
   title: 'Afri-MCQA: Multimodal Cultural Question Answering for African Languages'
   authors:
-  - name: Negasi Abadi
+  - name: Negasi Haile Abadi
   - name: Idris Abdulmumin
   - name: David Ifeoluwa Adelani
   - name: Alham Aji
@@ -117,10 +117,10 @@ publications:
   sources:
   - openalex
   ethiopian: false
-  author_line: Negasi Abadi, Idris Abdulmumin, David Ifeoluwa Adelani, Alham Aji, Jesujoba Alabi, Muhidin
-    A. Mohamed, Srija Anand, Israel Abebe Azime, Nnaemeka Casmir Obiefuna, Debela Desalegn Yadeta, Imanigirimbabazi
-    Emmanuel, Naome Etori, Gabofetswe Malema, Abigail Oppong, Kanda Patrick Tshinu, Eric Peter Wairagala,
-    Thamar Solorio, Atnafu Tonja, Emilio Villa Cueva
+  author_line: Negasi Haile Abadi, Idris Abdulmumin, David Ifeoluwa Adelani, Alham Aji, Jesujoba Alabi,
+    Muhidin A. Mohamed, Srija Anand, Israel Abebe Azime, Nnaemeka Casmir Obiefuna, Debela Desalegn Yadeta,
+    Imanigirimbabazi Emmanuel, Naome Etori, Gabofetswe Malema, Abigail Oppong, Kanda Patrick Tshinu, Eric
+    Peter Wairagala, Thamar Solorio, Atnafu Tonja, Emilio Villa Cueva
   tracks:
   - data
   - models
@@ -1483,7 +1483,7 @@ publications:
   - name: Idris Abdulmumin
   - name: Hadiza Ali Umar
   - name: Muhammad Yahuza Bello
-  - name: Joyce Nakatumba‐Nabende
+  - name: Joyce Nakatumba-Nabende
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Shamsuddeen Hassan Muhammad
@@ -1516,7 +1516,7 @@ publications:
   - openalex
   ethiopian: false
   author_line: Sukairaj Hafiz Imam, Tadesse Destaw Belay, Kedir Yassin Husse, Ibrahim Said Ahmad, Idris
-    Abdulmumin, Hadiza Ali Umar, Muhammad Yahuza Bello, Joyce Nakatumba‐Nabende, Seid Muhie Yimam, Shamsuddeen
+    Abdulmumin, Hadiza Ali Umar, Muhammad Yahuza Bello, Joyce Nakatumba-Nabende, Seid Muhie Yimam, Shamsuddeen
     Hassan Muhammad
   tracks:
   - data
@@ -1864,7 +1864,7 @@ publications:
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Hassan Shakil
-  - name: Samer Iskandar
+  - name: Samer Iskander
   - name: Olga Kolesnikova
   - name: Jugal Kalita
   year: 2025
@@ -1884,7 +1884,7 @@ publications:
   sources:
   - openalex
   ethiopian: false
-  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskandar,
+  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskander,
     Olga Kolesnikova, Jugal Kalita
   tracks: []
 - key: exploring-transliteration-based-zero-shot-transfer-for-amharic-asr
@@ -2466,7 +2466,7 @@ publications:
   - name: Graham Morrissey
   - name: Fadel Thior
   - name: Luandrie Potgieter
-  - name: Jessico Ojo
+  - name: Jessica Ojo
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Maushami Chetty
@@ -2495,7 +2495,7 @@ publications:
   - openalex
   ethiopian: false
   author_line: Jenalea Rajab, Anuoluwapo Aremu, Everlyn Asiko Chimoto, Dale Dunbar, Graham Morrissey,
-    Fadel Thior, Luandrie Potgieter, Jessico Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina Nekoto,
+    Fadel Thior, Luandrie Potgieter, Jessica Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina Nekoto,
     Pelonomi Moiloa, Jade Abbott, Vukosi Marivate, Benjamin Rosman
   tracks:
   - data
@@ -2507,15 +2507,15 @@ publications:
     member: tadesse-destaw-belay
   - name: Kedir Yassin Hussen
   - name: Sukairaj Hafiz Imam
-  - name: I. Ahmad
+  - name: Ibrahim Said Ahmad
   - name: Isa Inuwa-Dutse
   - name: Abrham Belete Haile
-  - name: G. Sidorov
+  - name: Grigori Sidorov
   - name: Eusebio Ricárdez Vázquez
   - name: Iqra Ameer
   - name: Idris Abdulmumin
-  - name: T. Gwadabe
-  - name: V. Marivate
+  - name: Tajuddeen Gwadabe
+  - name: Vukosi Marivate
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Shamsuddeen Hassan Muhammad
@@ -2548,9 +2548,9 @@ publications:
   - semantic_scholar
   - openalex
   ethiopian: false
-  author_line: Tadesse Destaw Belay, Kedir Yassin Hussen, Sukairaj Hafiz Imam, I. Ahmad, Isa Inuwa-Dutse,
-    Abrham Belete Haile, G. Sidorov, Eusebio Ricárdez Vázquez, Iqra Ameer, Idris Abdulmumin, T. Gwadabe,
-    V. Marivate, Seid Muhie Yimam, Shamsuddeen Hassan Muhammad
+  author_line: Tadesse Destaw Belay, Kedir Yassin Hussen, Sukairaj Hafiz Imam, Ibrahim Said Ahmad, Isa
+    Inuwa-Dutse, Abrham Belete Haile, Grigori Sidorov, Eusebio Ricárdez Vázquez, Iqra Ameer, Idris Abdulmumin,
+    Tajuddeen Gwadabe, Vukosi Marivate, Seid Muhie Yimam, Shamsuddeen Hassan Muhammad
   tracks:
   - data
   - models
@@ -2761,7 +2761,7 @@ publications:
   - name: Rifki Afina Putri
   - name: Dimosthenis Antypas
   - name: Hsuvas Borkakoty
-  - name: Eun‐Su Kim
+  - name: Eun-Su Kim
   - name: Carla Perez-Almendros
   - name: Abinew Ali Ayele
     member: abinew-ali-ayele
@@ -2807,7 +2807,7 @@ publications:
   - openalex
   ethiopian: true
   author_line: Junho Myung, Nayeon Lee, Yi Zhou, Jiho Jin, Rifki Afina Putri, Dimosthenis Antypas, Hsuvas
-    Borkakoty, Eun‐Su Kim, Carla Perez-Almendros, Abinew Ali Ayele, Víctor Gutiérrez-Basulto, Yazmín Ibáñez-García,
+    Borkakoty, Eun-Su Kim, Carla Perez-Almendros, Abinew Ali Ayele, Víctor Gutiérrez-Basulto, Yazmín Ibáñez-García,
     Hwaran Lee, Shamsuddeen Hassan Muhammad, Kiwoong Park, Anar Rzayev, Nina White, Seid Muhie Yimam,
     Mohammad Taher Pilehvar, Nedjma Ousidhoum, José Camacho-Collados, Alice Oh
   tracks:
@@ -2832,7 +2832,7 @@ publications:
   - name: Christian Salamea
   - name: Dan John Velasco
   - name: David Ifeoluwa Adelani
-  - name: D. Le Meur
+  - name: David Le Meur
   - name: Emilio Villa-Cueva
   - name: Fajri Koto
   - name: Fauzan Farooqui
@@ -2857,7 +2857,7 @@ publications:
   - name: Laura Alonso Alemany
   - name: Kumaranage Ravindu Yasas Nagasinghe
   - name: Luciana Benotti
-  - name: Luis Fernando D’Haro
+  - name: Luis Fernando D'Haro
   - name: Marcelo Viridiano
   - name: Marcos Estecha-Garitagoitia
   - name: María Camila Buitrago Cabrera
@@ -2865,12 +2865,12 @@ publications:
   - name: Mélanie Jouitteau
   - name: Mihail Mihaylov
   - name: Naome A. Etori
-  - name: Mohamed A. Imam
+  - name: Mohamed Fazli Mohamed Imam
   - name: Muhammad Farid Adilazuarda
   - name: Munkhjargal Gochoo
   - name: Munkh-Erdene Otgonbold
   - name: Olivier Niyomugisha
-  - name: P. Silva
+  - name: Paula Mónica Silva
   - name: Pranjal A. Chitale
   - name: Raj Dabre
   - name: Rendi Chevi
@@ -2926,18 +2926,18 @@ publications:
   ethiopian: false
   author_line: David Romero, Chenyang Lyu, Haryo Akbarianto Wibowo, Teresa Lynn, Injy Hamed, Aditya Nanda
     Kishore, Aishik Mandal, Alina Dragonetti, Artem Abzaliev, Atnafu Tonja, Bontu Fufa Balcha, Chenxi
-    Whitehouse, Christian Salamea, Dan John Velasco, David Ifeoluwa Adelani, D. Le Meur, Emilio Villa-Cueva,
+    Whitehouse, Christian Salamea, Dan John Velasco, David Ifeoluwa Adelani, David Le Meur, Emilio Villa-Cueva,
     Fajri Koto, Fauzan Farooqui, Frederico Belcavello, Ganzorig Batnasan, Gisela Vallejo, Grainne Caulfield,
     Guido Ivetta, Haiyue Song, Henok Biadglign Ademtew, Hernán Maina, Holy Lovenia, Israel Abebe Azime,
     Jan Christian Blaise Cruz, Jay Gala, Jiahui Geng, Jesus-German Ortiz-Barajas, Jinheon Baek, Jocelyn
     Dunstan, Laura Alonso Alemany, Kumaranage Ravindu Yasas Nagasinghe, Luciana Benotti, Luis Fernando
-    D’Haro, Marcelo Viridiano, Marcos Estecha-Garitagoitia, María Camila Buitrago Cabrera, Mario Rodríguez-Cantelar,
-    Mélanie Jouitteau, Mihail Mihaylov, Naome A. Etori, Mohamed A. Imam, Muhammad Farid Adilazuarda, Munkhjargal
-    Gochoo, Munkh-Erdene Otgonbold, Olivier Niyomugisha, P. Silva, Pranjal A. Chitale, Raj Dabre, Rendi
-    Chevi, Ruochen Zhang, Ryandito Diandaru, Samuel Cahyawijaya, Santiago Góngora, Soyeong Jeong, Sukannya
-    Purkayastha, Tatsuki Kuribayashi, Teresa Clifford, Thanmay Jayakumar, Tiago Timponi Torrent, Toqeer
-    Ehsan, Vladimir Araujo, Yova Kementchedjhieva, Zara Burzo, Zheng Lim, Zheng Yong, Oana Ignat, Joan
-    Nwatu, Rada Mihalcea, Thamar Solorio, Alham Fikri Aji
+    D'Haro, Marcelo Viridiano, Marcos Estecha-Garitagoitia, María Camila Buitrago Cabrera, Mario Rodríguez-Cantelar,
+    Mélanie Jouitteau, Mihail Mihaylov, Naome A. Etori, Mohamed Fazli Mohamed Imam, Muhammad Farid Adilazuarda,
+    Munkhjargal Gochoo, Munkh-Erdene Otgonbold, Olivier Niyomugisha, Paula Mónica Silva, Pranjal A. Chitale,
+    Raj Dabre, Rendi Chevi, Ruochen Zhang, Ryandito Diandaru, Samuel Cahyawijaya, Santiago Góngora, Soyeong
+    Jeong, Sukannya Purkayastha, Tatsuki Kuribayashi, Teresa Clifford, Thanmay Jayakumar, Tiago Timponi
+    Torrent, Toqeer Ehsan, Vladimir Araujo, Yova Kementchedjhieva, Zara Burzo, Zheng Lim, Zheng Yong,
+    Oana Ignat, Joan Nwatu, Rada Mihalcea, Thamar Solorio, Alham Fikri Aji
   tracks:
   - data
   - models
@@ -4005,7 +4005,7 @@ publications:
   authors:
   - name: Nedjma Ousidhoum
   - name: Shamsuddeen Hassan Muhammad
-  - name: Mahmoud A. Abdalla
+  - name: Mohamed Abdalla
   - name: Idris Abdulmumin
   - name: Ibrahim Said Ahmad
   - name: Sanchit Ahuja
@@ -4050,7 +4050,7 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: true
-  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mahmoud A. Abdalla, Idris Abdulmumin, Ibrahim
+  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim
     Said Ahmad, Sanchit Ahuja, Alham Fikri Aji, Vladimir Araujo, Meriem Beloucif, Christine de Kock, Oumaima
     Hourrane, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Krishnapriya Vishnubhotla, Seid Muhie
     Yimam, Saif M. Mohammad
@@ -4062,7 +4062,7 @@ publications:
   authors:
   - name: Nedjma Ousidhoum
   - name: Shamsuddeen Hassan Muhammad
-  - name: Mahmoud A. Abdalla
+  - name: Mohamed Abdalla
   - name: Idris Abdulmumin
   - name: Ibrahim Said Ahmad
   - name: Sanchit Ahuja
@@ -4112,7 +4112,7 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: false
-  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mahmoud A. Abdalla, Idris Abdulmumin, Ibrahim
+  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim
     Said Ahmad, Sanchit Ahuja, Alham Aji, Vladimir Araujo, Abinew Ali Ayele, Pavan Baswani, Meriem Beloucif,
     Chris Biemann, Sofia Bourhim, Christine de Kock, Genet Shanko Dekebo, Oumaima Hourrane, Gopichand
     Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw
@@ -4518,7 +4518,7 @@ publications:
   - name: Saif M. Mohammad
   - name: Sebastian Ruder
   - name: Oumaima Hourrane
-  - name: Alí­pio Jorge
+  - name: Alípio Jorge
   - name: Pavel Brazdil
   - name: Felermino Ali
   - name: Davis David
@@ -4534,7 +4534,7 @@ publications:
   - name: Sisay Adugna Chala
   - name: Hagos Tesfahun Gebremichael
   - name: Bernard Opoku
-  - name: Stephen M. Arthur
+  - name: Stephen Arthur
   year: 2023
   venue: arXiv (Cornell University)
   type: conference
@@ -4561,10 +4561,10 @@ publications:
   ethiopian: false
   author_line: Shamsuddeen Hassan Muhammad, Idris Abdulmumin, Abinew Ali Ayele, Nedjma Ousidhoum, David
     Ifeoluwa Adelani, Seid Muhie Yimam, Ibrahim Said Ahmad, Meriem Beloucif, Saif M. Mohammad, Sebastian
-    Ruder, Oumaima Hourrane, Alí­pio Jorge, Pavel Brazdil, Felermino Ali, Davis David, Salomey Osei, Bello
+    Ruder, Oumaima Hourrane, Alípio Jorge, Pavel Brazdil, Felermino Ali, Davis David, Salomey Osei, Bello
     Shehu-Bello, Falalu Ibrahim Lawan, Tajuddeen Gwadabe, Samuel Rutunda, Tadesse Belay, Wendimu Baye
     Messelle, Hailu Beshada Balcha, Sisay Adugna Chala, Hagos Tesfahun Gebremichael, Bernard Opoku, Stephen
-    M. Arthur
+    Arthur
   tracks:
   - applications
   - evaluation
@@ -4779,7 +4779,7 @@ publications:
     member: seid-muhie-yimam
   - name: Fynn Petersen-Frey
   - name: Gerret von Nordheim
-  - name: Katharina Kleinen‐von Königslöw
+  - name: Katharina Kleinen-von Königslöw
   - name: Chris Biemann
   year: 2023
   venue: Conference of the European Chapter of the Association for Computational Linguistics
@@ -4801,7 +4801,7 @@ publications:
   - semantic_scholar
   ethiopian: false
   author_line: Florian Schneider, Seid Muhie Yimam, Fynn Petersen-Frey, Gerret von Nordheim, Katharina
-    Kleinen‐von Königslöw, Chris Biemann
+    Kleinen-von Königslöw, Chris Biemann
   tracks:
   - data
 - key: creating-spoken-dialog-systems-in-ultra-low-resourced-settings
@@ -4853,7 +4853,7 @@ publications:
   - name: Sebastian Ruder
   - name: David Ifeoluwa Adelani
   - name: Bonaventure F. P. Dossou
-  - name: Abdou Khadre Diop
+  - name: Abdou Aziz Diop
   - name: Claytone Sikasote
   - name: Gilles Hacheme
   - name: Happy Buzaaba
@@ -4875,7 +4875,7 @@ publications:
   - name: Chiamaka Chukwuneke
   - name: Christine Mwase
   - name: Clemencia Siro
-  - name: Stephen M. Arthur
+  - name: Stephen Arthur
   - name: Tunde Ajayi
   - name: Verrah Otiende
   - name: Andre Niyongabo Rubungo
@@ -4915,11 +4915,11 @@ publications:
   - openalex
   ethiopian: false
   author_line: Odunayo Ogundepo, Tajuddeen Gwadabe, Clara Rivera, Jonathan Clark, Sebastian Ruder, David
-    Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Khadre Diop, Claytone Sikasote, Gilles Hacheme,
-    Happy Buzaaba, Ignatius Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert Njoroge
-    Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Owodunni, Atnafu Lambebo Tonja, Iyanuoluwa
+    Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Aziz Diop, Claytone Sikasote, Gilles Hacheme, Happy
+    Buzaaba, Ignatius Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert Njoroge Kahira,
+    Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Owodunni, Atnafu Lambebo Tonja, Iyanuoluwa
     Shode, Akari Asai, Anuoluwapo Aremu, Ayodele Awokoya, Bernard Opoku, Chiamaka Chukwuneke, Christine
-    Mwase, Clemencia Siro, Stephen M. Arthur, Tunde Ajayi, Verrah Otiende, Andre Niyongabo Rubungo, Boyd
+    Mwase, Clemencia Siro, Stephen Arthur, Tunde Ajayi, Verrah Otiende, Andre Niyongabo Rubungo, Boyd
     Sinkala, Daniel Ajisafe, Emeka Onwuegbuzia, Falalu Ibrahim Lawan, Ibrahim Ahmad, Jesujoba O. Alabi,
     Chinedu Emmanuel Mbonu, Mofetoluwa Adeyemi, Mofya Phiri, Orevaoghene Ahia, Ruqayya Nasir Iro, Sonia
     Adhiambo
@@ -5011,6 +5011,7 @@ publications:
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
   - name: Chris Biemann
+  - name: Tesfa Asfaw
   year: 2023
   venue: Recent Advances in Natural Language Processing
   type: conference
@@ -5038,7 +5039,7 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: true
-  author_line: Abinew Ali Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Chris Biemann
+  author_line: Abinew Ali Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Chris Biemann, Tesfa Asfaw
   tracks:
   - data
   - models
@@ -5245,7 +5246,7 @@ publications:
   - name: Chris Chinenye Emezue
   - name: Shamsuddeen Hassan Muhammad
   - name: Muhammad Musa Isa
-  - name: Mus’ab Banat
+  - name: Mus'ab Banat
   - name: Mohamed Ben Aouicha
   year: 2023
   venue: Preprints.org
@@ -5278,7 +5279,7 @@ publications:
   author_line: Houcemeddine Turki, Houda Sekkal, Anastassios Pouris, Francis-Alfred Michaelangelo Ifeanyichukwu,
     Catherine Namayega, Hanae Lrhoul, Mohamed Ali Hadj Taieb, Sadiq Adewale Adedayo, Chris Fourie, Christopher
     Brian Currin, Mercy Asiedu, Atnafu Lambebo Tonja, Abraham Toluwase Owodunni, Abdulhameed Dere, Chris
-    Chinenye Emezue, Shamsuddeen Hassan Muhammad, Muhammad Musa Isa, Mus’ab Banat, Mohamed Ben Aouicha
+    Chinenye Emezue, Shamsuddeen Hassan Muhammad, Muhammad Musa Isa, Mus'ab Banat, Mohamed Ben Aouicha
   tracks: []
 - key: masakhane-afrisenti-at-semeval-2023-task-12-sentiment-analysis-using-afro-centri
   title: 'Masakhane-Afrisenti at SemEval-2023 Task 12: Sentiment Analysis using Afro-centric Language
@@ -5526,12 +5527,12 @@ publications:
   authors:
   - name: Robert Geislinger
   - name: Ali Ebrahimi Pourasad
-  - name: D. Gül
+  - name: Deniz Gül
   - name: Daniel Djahangir
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Steffen Remus
-  - name: Christian Biemann
+  - name: Chris Biemann
   year: 2023
   venue: LIMO
   type: other
@@ -5548,8 +5549,8 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: false
-  author_line: Robert Geislinger, Ali Ebrahimi Pourasad, D. Gül, Daniel Djahangir, Seid Muhie Yimam, Steffen
-    Remus, Christian Biemann
+  author_line: Robert Geislinger, Ali Ebrahimi Pourasad, Deniz Gül, Daniel Djahangir, Seid Muhie Yimam,
+    Steffen Remus, Chris Biemann
   tracks: []
 - key: multilingual-racial-hate-speech-detection-using-transfer-learning
   title: Multilingual Racial Hate Speech Detection Using Transfer Learning
@@ -5912,7 +5913,7 @@ publications:
 - key: challenges-of-amharic-hate-speech-data-annotation-using-yandex-toloka-crowdsourc
   title: Challenges of Amharic Hate Speech Data Annotation Using Yandex Toloka Crowdsourcing Platform
   authors:
-  - name: A. Ayele
+  - name: Abinew Ali Ayele
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
   - name: Seid Muhie Yimam
@@ -5937,8 +5938,8 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: A. Ayele, Tadesse Destaw Belay, Seid Muhie Yimam, Skadi Dinter, Tesfa Tegegne Asfaw, Chris
-    Biemann
+  author_line: Abinew Ali Ayele, Tadesse Destaw Belay, Seid Muhie Yimam, Skadi Dinter, Tesfa Tegegne Asfaw,
+    Chris Biemann
   tracks:
   - data
   - applications
@@ -6132,7 +6133,7 @@ publications:
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Steffen Stahlhacke
-  - name: Christian Biemann
+  - name: Chris Biemann
   year: 2022
   venue: International Conference on Language Resources and Evaluation
   type: conference
@@ -6157,7 +6158,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: false
-  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Christian Biemann
+  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Chris Biemann
   tracks:
   - data
   - models
@@ -6406,7 +6407,7 @@ publications:
   - name: Mathias Müller
   - name: André Müller
   - name: Shamsuddeen Hassan Muhammad
-  - name: N Sakib Muhammad
+  - name: Nanda Muhammad
   - name: Ayanda Mnyakeni
   - name: Jamshidbek Mirzakhalov
   - name: Tapiwanashe Matangira
@@ -6461,7 +6462,7 @@ publications:
     Allahsera Auguste Tapo, Nishant Subramani, Artem Sokolov, Claytone Sikasote, Monang Setyawan, Supheakmungkol
     Sarin, Sokhar Samb, Benoît Sagot, Clara E. Rivera, Annette Rios, Isabel Papadimitriou, Salomey Osei,
     Pedro Ortiz Suárez, Iroro Orife, Kelechi Ogueji, Andre Niyongabo Rubungo, Toan Nguyen, Mathias Müller,
-    André Müller, Shamsuddeen Hassan Muhammad, N Sakib Muhammad, Ayanda Mnyakeni, Jamshidbek Mirzakhalov,
+    André Müller, Shamsuddeen Hassan Muhammad, Nanda Muhammad, Ayanda Mnyakeni, Jamshidbek Mirzakhalov,
     Tapiwanashe Matangira, Colin Leong, Nze Lawson, Sneha Kudugunta, Yacine Jernite, Mathias Jenny, Orhan
     Fırat, Bonaventure F. P. Dossou, Sakhile Dlamini, Nisansa de Silva, Sakine Çabuk Ballı, Stella Biderman,
     Alessia Battisti, Ahmed Baruwa, Ankur Bapna, Pallavi Baljekar, Israel Abebe Azime, Ayodele Awokoya,
@@ -6478,7 +6479,7 @@ publications:
     member: tadesse-destaw-belay
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
-  - name: A. Ayele
+  - name: Abinew Ali Ayele
   - name: Chris Biemann
   year: 2022
   venue: SIGUL
@@ -6497,7 +6498,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: Tadesse Destaw Belay, Seid Muhie Yimam, A. Ayele, Chris Biemann
+  author_line: Tadesse Destaw Belay, Seid Muhie Yimam, Abinew Ali Ayele, Chris Biemann
   tracks:
   - applications
 - key: the-5js-in-ethiopia-amharic-hate-speech-data-annotation-using-toloka-crowdsourci
@@ -7152,7 +7153,7 @@ publications:
   - name: David Ifeoluwa Adelani
   - name: Jade Abbott
   - name: Graham Neubig
-  - name: Daniel D’souza
+  - name: Daniel D'souza
   - name: Julia Kreutzer
   - name: Constantine Lignos
   - name: Chester Palen-Michel
@@ -7164,7 +7165,7 @@ publications:
     member: israel-abebe-azime
   - name: Shamsuddeen Hassan Muhammad
   - name: Chris Chinenye Emezue
-  - name: Joyce Nakatumba‐Nabende
+  - name: Joyce Nakatumba-Nabende
   - name: Perez Ogayo
   - name: Anuoluwapo Aremu
   - name: Catherine Gitau
@@ -7236,9 +7237,9 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: false
-  author_line: David Ifeoluwa Adelani, Jade Abbott, Graham Neubig, Daniel D’souza, Julia Kreutzer, Constantine
+  author_line: David Ifeoluwa Adelani, Jade Abbott, Graham Neubig, Daniel D'souza, Julia Kreutzer, Constantine
     Lignos, Chester Palen-Michel, Happy Buzaaba, Shruti Rijhwani, Sebastian Ruder, Stephen Mayhew, Israel
-    Abebe Azime, Shamsuddeen Hassan Muhammad, Chris Chinenye Emezue, Joyce Nakatumba‐Nabende, Perez Ogayo,
+    Abebe Azime, Shamsuddeen Hassan Muhammad, Chris Chinenye Emezue, Joyce Nakatumba-Nabende, Perez Ogayo,
     Anuoluwapo Aremu, Catherine Gitau, Derguène Mbaye, Jesujoba O. Alabi, Seid Muhie Yimam, Tajuddeen
     Gwadabe, Ignatius Ezeani, Rubungo Andre Niyongabo, Jonathan Mukiibi, Verrah Otiende, Iroro Orife,
     Davis David, Samba Ngom, Tosin Adewumi, Paul Rayson, Mofetoluwa Adeyemi, Gerald Muriuki, Emmanuel
@@ -7368,7 +7369,7 @@ publications:
   title: The Development of Pre-processing Tools and Pre-trained Embedding Models for Amharic
   authors:
   - name: Tadesse Destaw
-  - name: A. Ayele
+  - name: Abinew Ali Ayele
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   year: 2021
@@ -7387,7 +7388,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: Tadesse Destaw, A. Ayele, Seid Muhie Yimam
+  author_line: Tadesse Destaw, Abinew Ali Ayele, Seid Muhie Yimam
   tracks:
   - models
 - key: word-complexity-is-in-the-eye-of-the-beholder

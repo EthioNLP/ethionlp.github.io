@@ -117,16 +117,46 @@ def bib_authors(raw: str | None) -> list[str]:
         if "," in part:
             last, first = part.split(",", 1)
             part = f"{first.strip()} {last.strip()}"
-        part = re.sub(r"[{}\\]", "", part)
-        names.append(" ".join(part.split()))
+        names.append(debrace(part))
     return names
 
 
+# BibTeX writes accents as control sequences. Left undecoded they produce
+# names like 'Deniz G"ul' and "Felermino D'ario Ali", which are wrong in a
+# different way from the aggregator names this module exists to avoid.
+_ACCENTS = {
+    '"': "\u0308", "'": "\u0301", "`": "\u0300", "^": "\u0302", "~": "\u0303",
+    "=": "\u0304", ".": "\u0307", "u": "\u0306", "v": "\u030c", "H": "\u030b",
+    "c": "\u0327", "k": "\u0328", "r": "\u030a",
+}
+_LIGATURES = {
+    r"\\ss": "\u00df", r"\\ae": "\u00e6", r"\\AE": "\u00c6",
+    r"\\oe": "\u0153", r"\\OE": "\u0152", r"\\o": "\u00f8", r"\\O": "\u00d8",
+    r"\\aa": "\u00e5", r"\\AA": "\u00c5", r"\\l": "\u0142", r"\\L": "\u0141",
+    r"\\i": "i", r"\\j": "j",
+}
+
+
 def debrace(text: str | None) -> str:
-    """Strip BibTeX brace protection: "{G}e{'}ez" -> "Ge'ez"."""
+    """Decode BibTeX escapes and strip brace protection.
+
+    "{G}e{'}ez" -> "Ge'ez";  'G{\\"u}l' -> 'Gül';  "D{\\'a}rio" -> "Dário".
+    """
     if not text:
         return ""
-    return " ".join(re.sub(r"[{}]", "", text).replace("\n", " ").split())
+    import unicodedata
+
+    t = text.replace("\n", " ")
+    # \"{u} / \"u / {\"u}  ->  u + combining diaeresis, then compose.
+    for mark, combining in _ACCENTS.items():
+        esc = re.escape(mark)
+        t = re.sub(rf"\\{esc}\{{(\w)\}}", lambda m: m.group(1) + combining, t)
+        t = re.sub(rf"\\{esc}\s*(\w)", lambda m: m.group(1) + combining, t)
+    for pattern, ch in _LIGATURES.items():
+        t = re.sub(pattern + r"(?![A-Za-z])", ch, t)
+    t = unicodedata.normalize("NFC", t)
+    t = re.sub(r"[{}]", "", t)
+    return " ".join(t.split())
 
 
 def from_anthology(ident: str) -> dict | None:
