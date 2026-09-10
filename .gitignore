@@ -1,1 +1,49 @@
-_site/*
+# Jekyll build output
+_site/
+_site_prod/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby
+vendor/
+.bundle/
+# Gemfile.lock is deliberately NOT ignored. .github/workflows/deploy.yml builds
+# the site from the Gemfile, so without a committed lockfile CI and a local
+# machine can resolve different gem versions and produce different output.
+
+# Python (data-sync scripts under scripts/)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+scripts/.cache/
+
+# Nextcloud sync artefacts. This working copy lives inside a synced folder, and
+# conflict files land beside the originals, where Jekyll happily builds them
+# into the site as duplicate pages.
+*conflicted copy*
+*conflicted-copy*
+
+# Secrets. Never commit an API key: this repository is public, and _data/*.yml
+# is compiled into the published site, so a key there leaks twice over.
+.env
+.env.*
+!.env.example
+
+# The list of people a maintainer might invite, from scripts/sweep_literature.py.
+# Deliberately not committed: everything in it is public bibliographic record,
+# but a file called "people to invite" is a claim about those people that they
+# have not agreed to. The invitation goes through the join form instead, and
+# _data/generated/elsewhere.yml carries the part that is safe to publish: the
+# papers themselves.
+_data/invite_list.md
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Editor and local tooling scratch
+.claude/
+node_modules/

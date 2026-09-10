@@ -1,39 +1,70 @@
-<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b5e43" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{site.description}}">
-    <meta name="author" content="">
+{%- comment -%}
+Collection documents fall back to a title derived from their filename, so every
+one of them declares `title` explicitly, a person's page should be titled with
+their name, not with a slug.
+{%- endcomment -%}
+{%- assign page_title = page.title | default: site.title -%}
+{%- assign page_desc = page.description | default: site.description | strip_newlines | truncate: 200 -%}
+<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}, {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ page_desc }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
-    <title>Ethio NLP</title>
-    <link rel="icon" type="image/png" href="resources/img/Ethiopia.png">
+<meta property="og:type" content="{% if page.layout == 'news-item' or page.layout == 'event' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_desc }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ page.image | default: site.image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
 
+{%- comment -%}
+An SVG favicon alone leaves out Safari and older browsers, so a PNG sits behind
+it; the apple-touch-icon is what iOS uses when a reader adds the site to their
+home screen, and without it iOS screenshots the page instead.
+{%- endcomment -%}
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/assets/img/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{url}}/styles/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%- comment -%}
+The theme is applied before first paint so a dark-mode visitor never sees a
+white flash. This has to be inline and blocking; it is the only script in the
+document head.
+{%- endcomment -%}
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ethionlp-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) {}
+  })();
+</script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Sans+Ethiopic:wght@400;600&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    <!-- Custom Fonts -->
-    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
-    <!-- <link rel="stylesheet" href="{{url}}/styles/font-awesome/css/font-awesome.min.css" type="text/css"> -->
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="{{url}}/styles/css/animate.min.css" type="text/css">
-
-    <!-- Academicons CSS-->
-    <link rel="stylesheet" href="{{url}}/styles/font-academicons/css/academicons.min.css"/>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{url}}/styles/css/main.css" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "EthioNLP",
+  "url": "{{ site.url }}",
+  "description": {{ site.description | strip_newlines | jsonify }},
+  "sameAs": [
+    "{{ site.social.github }}",
+    "{{ site.social.huggingface }}",
+    "{{ site.social.linkedin }}"
+  ]
+}
+</script>

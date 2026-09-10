@@ -1,55 +1,103 @@
-<script>
-    window.onload = function() {
-        var sentences = [
-            'Join us in advancing NLP technologies in Ethiopia.',
-            "በኢትዮጵያ የኤንኤልፒ ቴክኖሎጂዎችን በማሳደግ ይቀላቀሉን።",
-            'ኣብ ኢትዮጵያ ቴክኖሎጂታት ኤንኤልፒ ኣብ ምምዕባል ተጸንበሩና።',
-            "Teeknooloojiiwwan NLP Itoophiyaa keessatti ceesisuuf nu waliin ta'aa.",
-            'Nagu soo biir horumarinta tignoolajiyada NLP ee Itoobiya.'
-        ];
-        var currentIndex = 0;
-        var headerElement = document.getElementById('header-text');
-        function updateHeaderText() {
-            headerElement.textContent = sentences[currentIndex];
-            currentIndex = (currentIndex + 1) % sentences.length;
-            setTimeout(updateHeaderText, 2500);
-        }
-    
-        updateHeaderText();
-    };
-    </script>
+<header class="site-header" id="site-header">
+  <div class="wrap wrap--wide">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="EthioNLP, home">
+        {% include lockup.html class="brand__lockup" %}
+        <span class="brand__tagline">NLP for Ethiopian languages</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        {%- for item in site.data.navigation.main -%}
+
+        {%- comment -%}
+        A parent counts as current when the page is inside any of its children,
+        so "Gallery" lights up "Events" rather than nothing.
+        {%- endcomment -%}
+        {%- assign is_current = false -%}
+        {%- if item.match and page.url contains item.match %}{% assign is_current = true %}{% endif -%}
+        {%- for child in item.children -%}
+          {%- if child.match and page.url contains child.match %}{% assign is_current = true %}{% endif -%}
+        {%- endfor -%}
+
+        {%- if item.children -%}
+        <li class="nav__group">
+          {%- comment -%}
+          A real <button> rather than a hover-only link: this has to open by
+          click and by keyboard, and the parent's own page stays reachable as
+          the first item in the menu.
+          {%- endcomment -%}
+          <button class="nav__parent" type="button"
+                  aria-expanded="false"
+                  aria-controls="menu-{{ item.title | slugify }}"
+                  {% if is_current %}aria-current="page"{% endif %}>
+            {{ item.title }}
+            <svg class="nav__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+          {%- comment -%}
+          Two columns once there are more than two entries: a three- or
+          four-item menu in a single column is a tall thin strip that pushes the
+          last entry far from the cursor.
+          {%- endcomment -%}
+          <ul class="nav__menu{% if item.children.size > 2 %} nav__menu--wide{% endif %}"
+              id="menu-{{ item.title | slugify }}">
+            {%- for child in item.children -%}
+            {%- assign child_current = false -%}
+            {%- if child.match and page.url contains child.match %}{% assign child_current = true %}{% endif -%}
+            <li>
+              <a href="{{ child.url | relative_url }}"{% if child_current %} aria-current="page"{% endif %}>
+                <span class="nav__menu-title">{{ child.title }}</span>
+                {%- if child.note %}<span class="nav__menu-note">{{ child.note }}</span>{% endif -%}
+              </a>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </li>
+        {%- else -%}
+        <li>
+          <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        </li>
+        {%- endif -%}
+
+        {%- endfor -%}
+        <li class="nav__cta-mobile">
+          <a href="{{ '/contribute/' | relative_url }}"><strong>Contribute</strong></a>
+        </li>
+        <li class="nav__cta-mobile">
+          <a href="{{ '/join/' | relative_url }}"><strong>Join the community</strong></a>
+        </li>
+      </ul>
+
+      <div class="nav__actions">
+        {%- comment -%}
+        The header's one button is Contribute, not Join. Joining is one of the
+        ways to contribute and is the first route on that page, but most people
+        arriving with something to add are not asking to be listed.
+        {%- endcomment -%}
+        <a class="btn btn--sm nav__cta" href="{{ '/contribute/' | relative_url }}">Contribute</a>
+        <button class="theme-toggle" type="button" id="theme-toggle"
+                aria-label="Switch between light and dark theme">
+          <span class="icon-moon">{% include icon.html name="moon" %}</span>
+          <span class="icon-sun">{% include icon.html name="sun" %}</span>
+        </button>
+        <button class="nav__burger" type="button" id="nav-burger"
+                aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+          {% include icon.html name="menu" %}
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
 
 <style>
-    .text-image-mask {
-        /* Set the background image */
-        background-image: url('../../resources/img/textbg.jpg'); /* Update this path to your image's location */
-        -webkit-background-clip: text;
-        background-clip: text;
-        
-        /* Make the text transparent to show the background image only within the text */
-        color: transparent;
-
-        /* Ensure the background image covers the text properly */
-        background-size: contain;
-        background-position: center;
-        text-shadow: 1px  rgb(255, 255, 255);
-
-        display: inline; /* Adjust as needed */
-        font-size: 1800px; /* Adjust the font size as needed */
-        font-weight: bold; /* Ensure the font is bold enough */
-        
-
-        
-
-    }
-
+  /* The mobile-only "Join" row inside the drawer duplicates the header button,
+     so each is hidden at the other's breakpoint. */
+  .nav__cta-mobile { display: none; }
+  @media (max-width: 1120px) {
+    .nav__cta { display: none; }
+    .nav__cta-mobile { display: block; }
+  }
 </style>
-
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1 class="text-image-mask">Ethio NLP</h1>
-            <h3 id="header-text" ></h3>
-        </div>
-    </div>
-</header>

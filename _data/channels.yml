@@ -1,0 +1,35 @@
+# Where the community actually talks. Edit here; the join page and footer read
+# from this file.
+
+- name: Telegram
+  icon: telegram
+  url: https://t.me/+f_5gMa4KhtU2NWUy
+  blurb: Day-to-day chat, quick questions, dataset and paper links.
+  qr: /resources/img/telegram.png
+
+- name: Discord
+  icon: discord
+  url: https://discord.gg/tJAWXDJQ
+  blurb: Topic channels, reading groups and voice meetups.
+  qr: /resources/img/discord.png
+
+- name: Mailing list
+  icon: mail
+  url: https://groups.google.com/forum/#!forum/ethionlp/join
+  blurb: Announcements, calls for papers and meeting invitations.
+  qr: /resources/img/Groups.png
+
+- name: LinkedIn group
+  icon: linkedin
+  url: https://www.linkedin.com/groups/10060447/
+  blurb: 'Professional network: jobs, industry links and public updates.'
+
+- name: GitHub
+  icon: github
+  url: https://github.com/EthioNLP
+  blurb: Code, data pipelines and the source of this site.
+
+- name: Hugging Face
+  icon: huggingface
+  url: https://huggingface.co/EthioNLP
+  blurb: Models and datasets, published under the EthioNLP organisation.

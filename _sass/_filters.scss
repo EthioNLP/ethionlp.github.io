@@ -1,0 +1,167 @@
+// ─── Filter bar ──────────────────────────────────────────────────────────────
+//
+// Shared by the community, ecosystem, publications and events pages. The
+// markup is the same everywhere; assets/js/filter.js binds any element with
+// [data-filter-root] and works purely on data-* attributes, so a page can add a
+// facet without touching JS.
+
+.filterbar {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  padding-block: var(--sp-4);
+  margin-bottom: var(--sp-6);
+
+  @supports not (backdrop-filter: blur(1px)) { background: var(--paper); }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+
+  // Sits in the flow instead of pinning to the top. This modifier has to live
+  // here, next to the rule it overrides: it was previously defined in another
+  // partial that is imported earlier, so the base `position: sticky` won on
+  // source order and the bar stayed pinned. On the language catalogue that put
+  // a 193-pixel bar at the same offset as the table's own sticky header, with a
+  // higher z-index, which hid the first row of the table permanently.
+  &--inline {
+    position: static;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--rule);
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-5);
+    background: var(--surface);
+    backdrop-filter: none;
+  }
+}
+
+.search {
+  position: relative;
+  flex: 1 1 15rem;
+  min-width: 0;
+
+  input {
+    width: 100%;
+    padding: 0.55rem 2.2rem 0.55rem 2.35rem;
+    font-size: var(--t-base);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius);
+    color: var(--ink);
+
+    &::placeholder { color: var(--ink-3); }
+    &:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--green-soft); }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--ink-3);
+    cursor: pointer;
+    &:hover { background: var(--surface-2); color: var(--ink); }
+    svg { width: 0.85rem; height: 0.85rem; }
+  }
+  &.has-value .search__clear { display: grid; }
+}
+
+.facets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: center;
+}
+
+.facet {
+  font-size: var(--t-sm);
+  font-weight: 500;
+  padding: 0.42rem 0.8rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.14s var(--ease);
+
+  &:hover { border-color: var(--ink-3); color: var(--ink); }
+
+  &[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  &__count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.6;
+    margin-left: 0.35em;
+    font-size: 0.9em;
+  }
+}
+
+.facet-group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+
+  &__label {
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+}
+
+.filter-status {
+  margin-left: auto;
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sort-select {
+  font-size: var(--t-sm);
+  padding: 0.42rem 1.8rem 0.42rem 0.7rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23736d62'%3E%3Cpath d='M4.5 6.5 8 10l3.5-3.5z'/%3E%3C/svg%3E") no-repeat right 0.45rem center / 1rem;
+  color: var(--ink-2);
+  appearance: none;
+  cursor: pointer;
+}
+
+// Rows/cards hidden by the filter.
+[data-filter-item].is-hidden { display: none !important; }
+
+// Year headings on the publications page collapse when everything under them
+// is filtered out.
+[data-filter-group].is-empty { display: none !important; }

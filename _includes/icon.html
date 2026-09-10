@@ -1,0 +1,119 @@
+{%- comment -%}
+Inline SVG icon set. Usage: {% include icon.html name="github" %}
+
+Everything is a 24×24 stroke icon except the brand marks, which are filled
+because their official paths are. Keeping them here (rather than pulling an
+icon font) means no network request and no FOUT, and the icons inherit
+currentColor so they follow the theme.
+{%- endcomment -%}
+{%- assign n = include.name -%}
+{%- capture svg_open -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{%- endcapture -%}
+{%- capture svg_fill -%}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">{%- endcapture -%}
+{%- case n -%}
+
+{%- when "github" -%}
+{{ svg_fill }}<path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+
+{%- when "huggingface" -%}
+{{ svg_fill }}<path d="M12 2.5c-4.7 0-8.5 3.8-8.5 8.5 0 1.3.3 2.5.8 3.6a2.3 2.3 0 0 0-1.4 2.1c0 .8.4 1.5 1 1.9-.1.3-.2.6-.2.9 0 1 .8 1.7 1.8 1.7.4 0 .7-.1 1-.3.6.4 1.4.6 2.1.4.6 1.1 1.9 1.7 3.4 1.7s2.8-.6 3.4-1.7c.7.2 1.5 0 2.1-.4.3.2.6.3 1 .3 1 0 1.8-.8 1.8-1.7 0-.3-.1-.6-.2-.9.6-.4 1-1.1 1-1.9 0-.9-.6-1.7-1.4-2.1.5-1.1.8-2.3.8-3.6 0-4.7-3.8-8.5-8.5-8.5Zm-3.4 6.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Zm6.8 0a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Zm-7 5.2h7.2c.4 0 .7.4.6.8-.5 1.9-2.2 3.2-4.2 3.2s-3.7-1.3-4.2-3.2c-.1-.4.2-.8.6-.8Z"/></svg>
+
+{%- when "scholar" -%}
+{{ svg_fill }}<path d="M12 2 1 8.5l11 6.5 8.6-5.1v6.9H23V8.5L12 2ZM5.2 13.4v3.9c0 2 3 3.7 6.8 3.7s6.8-1.7 6.8-3.7v-3.9L12 17.4l-6.8-4Z"/></svg>
+
+{%- when "orcid" -%}
+{{ svg_fill }}<path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24ZM7.4 6.1a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Zm-.8 3.3h1.6v8.3H6.6V9.4Zm3.7 0h3.3c3.1 0 4.5 2.2 4.5 4.2 0 2.1-1.7 4.1-4.5 4.1h-3.3V9.4Zm1.6 1.5v5.4h1.6c2.2 0 2.9-1.4 2.9-2.7 0-2-1.3-2.7-2.9-2.7h-1.6Z"/></svg>
+
+{%- when "linkedin" -%}
+{{ svg_fill }}<path d="M20.4 0H3.6A3.6 3.6 0 0 0 0 3.6v16.8A3.6 3.6 0 0 0 3.6 24h16.8a3.6 3.6 0 0 0 3.6-3.6V3.6A3.6 3.6 0 0 0 20.4 0ZM7.3 20.4H3.7V9h3.6v11.4ZM5.5 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.2Z"/></svg>
+
+{%- when "twitter" -%}
+{{ svg_fill }}<path d="M18.9 2h3.4l-7.4 8.5L23.6 22h-6.8l-5.3-7-6.1 7H2l7.9-9.1L1.7 2h6.9l4.8 6.4L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20Z"/></svg>
+
+{%- when "globe" -%}
+{{ svg_open }}<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+
+{%- when "mail" -%}
+{{ svg_open }}<rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 6.5L21 6"/></svg>
+
+{%- when "search" -%}
+{{ svg_open }}<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+
+{%- when "close" -%}
+{{ svg_open }}<path d="M6 6l12 12M18 6 6 18"/></svg>
+
+{%- when "menu" -%}
+{{ svg_open }}<path d="M3 6h18M3 12h18M3 18h18"/></svg>
+
+{%- when "sun" -%}
+{{ svg_open }}<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+
+{%- when "moon" -%}
+{{ svg_open }}<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+
+{%- when "download" -%}
+{{ svg_open }}<path d="M12 3v12m0 0 4-4m-4 4-4-4M4 20h16"/></svg>
+
+{%- when "heart" -%}
+{{ svg_open }}<path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9Z"/></svg>
+
+{%- when "star" -%}
+{{ svg_open }}<path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8L12 3.5Z"/></svg>
+
+{%- when "database" -%}
+{{ svg_open }}<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+
+{%- when "cpu" -%}
+{{ svg_open }}<rect x="6.5" y="6.5" width="11" height="11" rx="2"/><path d="M10 3v3.5M14 3v3.5M10 17.5V21M14 17.5V21M3 10h3.5M3 14h3.5M17.5 10H21M17.5 14H21"/></svg>
+
+{%- when "app" -%}
+{{ svg_open }}<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>
+
+{%- when "users" -%}
+{{ svg_open }}<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16.5 5.2a3.5 3.5 0 0 1 0 5.6M18 20a6.4 6.4 0 0 0-1.8-4.5"/></svg>
+
+{%- when "book" -%}
+{{ svg_open }}<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5v-15Z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3"/></svg>
+
+{%- when "chart" -%}
+{{ svg_open }}<path d="M4 20V4M4 20h16"/><path d="M8 16V11M12.5 16V7M17 16v-3"/></svg>
+
+{%- when "calendar" -%}
+{{ svg_open }}<rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+
+{%- when "pin" -%}
+{{ svg_open }}<path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+
+{%- when "link" -%}
+{{ svg_open }}<path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L11.5 6.3"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 1 0 5.7 5.7l1.4-1.4"/></svg>
+
+{%- when "arrow" -%}
+{{ svg_open }}<path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg>
+
+{%- when "check" -%}
+{{ svg_open }}<path d="m5 12.5 4.5 4.5L19 7"/></svg>
+
+{%- when "plus" -%}
+{{ svg_open }}<path d="M12 5v14M5 12h14"/></svg>
+
+{%- when "sparkle" -%}
+{{ svg_open }}<path d="M12 3.5 13.9 9l5.6 1.9-5.6 2L12 18.5 10.1 13l-5.6-2L10.1 9 12 3.5Z"/></svg>
+
+{%- when "quote" -%}
+{{ svg_open }}<path d="M9 7H5.5A2.5 2.5 0 0 0 3 9.5V12h4v5H3M20 7h-3.5A2.5 2.5 0 0 0 14 9.5V12h4v5h-4"/></svg>
+
+{%- when "graduation" -%}
+{{ svg_open }}<path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 11.5V17c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5.5"/></svg>
+
+{%- when "telegram" -%}
+{{ svg_fill }}<path d="M23.1 3.8 19.6 20c-.3 1.2-1 1.5-2 .9l-5.5-4-2.6 2.6c-.3.3-.6.6-1.2.6l.4-6 10.9-9.8c.5-.4-.1-.7-.7-.3L4.4 12.4l-5.8-1.8c-1.3-.4-1.3-1.3.3-1.9L21.4 1.9c1.1-.4 2 .3 1.7 1.9Z" transform="translate(1.4)"/></svg>
+
+{%- when "discord" -%}
+{{ svg_fill }}<path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5a18.3 18.3 0 0 1 4.3 2.1 17.6 17.6 0 0 0-14.9 0A18.3 18.3 0 0 1 8.9 3.5L8.6 3a19.8 19.8 0 0 0-5 1.4C.6 9 0 13.3.3 17.6a19.9 19.9 0 0 0 6 3l1.2-1.7a12.9 12.9 0 0 1-2-1l.4-.3a14.2 14.2 0 0 0 12.2 0l.4.3c-.6.4-1.3.7-2 1l1.2 1.7a19.9 19.9 0 0 0 6-3c.4-5-.6-9.3-3.4-13.2ZM8.3 15c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.2 2.4S9.5 15 8.3 15Zm7.4 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
+
+{%- when "rss" -%}
+{{ svg_open }}<path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/></svg>
+
+{%- else -%}
+{{ svg_open }}<circle cx="12" cy="12" r="9"/></svg>
+
+{%- endcase -%}

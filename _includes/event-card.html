@@ -1,0 +1,46 @@
+{%- assign e = include.e -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign finish = e.end | default: e.start | date: "%Y-%m-%d" -%}
+{%- assign is_past = false -%}
+{%- if finish < today %}{% assign is_past = true %}{% endif -%}
+
+<article class="event {% if is_past %}is-past{% endif %}" data-filter-item
+         data-kind="{{ e.kind }}"
+         data-when="{% if is_past %}past{% else %}upcoming{% endif %}"
+         data-status="{{ e.status | default: 'confirmed' }}"
+         data-focus="{{ e.focus | join: ' ' }}"
+         data-search="{{ e.title }} {{ e.short_title }} {{ e.kind }} {{ e.location }} {{ e.summary }}"
+         data-sort-date="{{ e.start | date: '%Y%m%d' }}">
+  <time class="event__date" datetime="{{ e.start | date_to_xmlschema }}">
+    <span class="m">{{ e.start | date: "%b" }}</span>
+    <span class="d">{{ e.start | date: "%-d" }}</span>
+    <span class="y">{{ e.start | date: "%Y" }}</span>
+  </time>
+
+  <div>
+    <h3 class="event__title">
+      <a href="{{ e.url | relative_url }}" class="stretched">{{ e.short_title | default: e.title }}</a>
+    </h3>
+
+    <div class="event__meta">
+      <span class="badge badge--{% if e.kind == 'workshop' %}rust{% elsif e.kind == 'seminar' %}blue{% elsif e.kind == 'conference' %}violet{% else %}green{% endif %}">{{ e.kind }}</span>
+      {%- if e.status == 'open' %}<span class="badge badge--green">Slot open</span>{% endif -%}
+      {%- if e.status == 'cancelled' %}<span class="badge badge--rust">Cancelled</span>{% endif -%}
+      {%- if e.location %}<span>{% include icon.html name="pin" %}{{ e.location }}</span>{% endif -%}
+      {%- if e.end and e.end != e.start %}
+      <span>{% include icon.html name="calendar" %}{{ e.start | date: "%-d %b" }} – {{ e.end | date: "%-d %b %Y" }}</span>
+      {%- elsif e.time %}
+      <span>{% include icon.html name="calendar" %}{{ e.time }} {{ e.timezone | default: 'EAT' }}</span>
+      {%- endif -%}
+      {%- if e.papers.size > 0 %}<span>{{ e.papers | size }} paper{% unless e.papers.size == 1 %}s{% endunless %}</span>{% endif -%}
+    </div>
+
+    {%- if e.summary %}<p class="card__body">{{ e.summary }}</p>{% endif %}
+
+    {%- if e.status == 'open' %}
+    <p style="margin: var(--sp-3) 0 0">
+      <a class="btn btn--sm" href="{{ site.data.seminar.propose_url }}" rel="noopener">Claim this slot</a>
+    </p>
+    {%- endif %}
+  </div>
+</article>

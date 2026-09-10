@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <ul class="breadcrumb">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/ecosystem/' | relative_url }}">Ecosystem</a></li>
+      <li>{{ page.title }}</li>
+    </ul>
+    <p class="eyebrow">{{ page.status | default: "project" }}</p>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+
+    <div class="row" style="margin-top: var(--sp-5)">
+      {%- if page.paper %}<a class="btn" href="{{ page.paper }}" rel="noopener">Paper</a>{% endif -%}
+      {%- if page.model %}<a class="btn btn--ghost" href="{{ page.model }}" rel="noopener">Models</a>{% endif -%}
+      {%- if page.dataset %}<a class="btn btn--ghost" href="{{ page.dataset }}" rel="noopener">Datasets</a>{% endif -%}
+      {%- if page.code %}<a class="btn btn--ghost" href="{{ page.code }}" rel="noopener">Code</a>{% endif -%}
+    </div>
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    <div class="split split--sidebar">
+      <div class="prose">{{ content }}</div>
+      <aside class="stack">
+        {%- if page.languages.size > 0 %}
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Languages</h3>
+          <div class="tag-row">{% for l in page.languages %}<span class="badge">{{ l }}</span>{% endfor %}</div>
+        </div>
+        {%- endif %}
+        {%- if page.people.size > 0 %}
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">People</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: var(--t-sm)">
+            {%- for slug in page.people -%}
+              {%- assign m = site.members | where: "slug", slug | first -%}
+              <li style="margin-bottom: .4em">
+                {%- if m %}<a href="{{ m.url | relative_url }}">{{ m.name }}</a>{% else %}{{ slug }}{% endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endif %}
+      </aside>
+    </div>
+  </div>
+</div>

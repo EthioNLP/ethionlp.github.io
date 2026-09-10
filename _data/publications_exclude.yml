@@ -1,0 +1,120 @@
+# Records the automatic sync picks up but that do not belong to this community.
+#
+# The indexes resolve authorship by author identifier, and those identifiers are
+# occasionally merged: one OpenAlex or Semantic Scholar id ends up covering two
+# different researchers who share a name. The result is a paper attributed on a
+# member's profile that they did not write, which is a claim about a real person
+# and the reason this file exists.
+#
+# Entries are matched on DOI (case-insensitive, bare — no https://doi.org/
+# prefix). Removing a paper here is not a judgement about the paper; it only
+# says this community is not its author.
+#
+#   - doi: 10.xxxx/yyyy
+#     why: one line, so the next person does not re-add it
+
+- doi: 10.1038/s41598-026-56831-9
+  why: >-
+    Optical communication / cyber security paper in Scientific Reports, six
+    unrelated co-authors and no NLP content. Reached michael-melese through
+    OpenAlex A5077821129, which appears to merge two researchers of the same
+    name. Confirm that identifier before trusting anything else it returns.
+
+# ─── OpenAlex A5039544387 / Semantic Scholar 3084761 (seid-muhie-yimam) ───────
+# Both of this member's identifiers are contaminated. The three IFPRI/ICTD
+# development-economics papers below are by a different researcher publishing as
+# "Seid Yimam"; because author names are taken from the index's own display
+# name, the records were printing "Seid Muhie Yimam" as the byline on a
+# stranger's work. Verify both identifiers before trusting anything else they
+# return.
+
+- doi: 10.19088/ictd.2024.045
+  why: >-
+    Women in Ethiopian Tax Administration (ICTD working paper). Tax
+    administration and gender representation, no NLP content; co-author Yalew
+    Mekonnen. Not this community's author.
+
+- doi: 10.2499/p15738coll2.134152
+  why: >-
+    Are smallholder farmers credit constrained? (IFPRI). Agricultural
+    economics, IFPRI co-author set. Reached the site through Semantic Scholar
+    3084761.
+
+- doi: 10.2499/p15738coll2.133847
+  why: >-
+    The Diffusion of Small-Scale Irrigation Technologies in Ethiopia (IFPRI).
+    Same merged Semantic Scholar identifier as the entry above.
+
+# ─── Not papers ───────────────────────────────────────────────────────────────
+# Indexes occasionally return a proceedings front page, a table of contents or
+# somebody's publication list as though it were a work. Matched on title, since
+# none of these carries a DOI worth keying on.
+
+- title: >-
+    ANDREAS HOLZINGER – FIVE PUBLICATIONS AND WHY THEY ARE RELEVANT The
+    interactive machine learning concept and four experimental
+    proofs-of-concept
+  why: >-
+    Andreas Holzinger's own publication list, not a paper, and not by anyone
+    here. No DOI, no year.
+
+- title: >-
+    Table of Contents Learning Paraphrasing for Multiword Expressions Lexical
+    Variability and Compositionality: Investigating Idiomaticity with
+    Distributional Semantic Mod- Els Graph-based Clustering of Synonym Senses
+    for German Particle Verbs Top a Splitter: Using Distributional Semantics
+    for Improving
+  why: >-
+    A proceedings table of contents. Its author list is scraped from the front
+    page and includes non-name fragments ("Preslav Nakov Co-Organizers").
+
+- doi: 10.18653/v1/2024.winlp-1.0
+  why: >-
+    WiNLP 2024 front matter, not a paper. Also attributed to
+    atnafu-lambebo-tonja, who does not appear in the record's own editor list.
+
+# The 2023 sibling of the ICTD paper above. Same series, same development-
+# economics subject, same real co-author; reached seid-muhie-yimam through the
+# same merged identifiers, and printed his name as the byline.
+- doi: 10.19088/ictd.2023.034
+  why: >-
+    Women in Ethiopian Tax Administration (ICTD 2023). Gender and taxation in
+    low-income countries, no NLP content. Excluding one DOI of this pair and
+    not the other left the same false byline on the site.
+
+# ─── Records whose author list is a scraped bibliography ─────────────────────
+# Semantic Scholar occasionally returns a reference list as an author list. The
+# giveaway is unrelated famous authors interleaved with fragments of citations
+# ("A. Vaswani", "Klaus Krippendorff. 2011", "Animesh Mukher-668"). The byline
+# these produce is fabricated, so the record cannot stay.
+
+- title: "Hate Speech and Counter Speech Detection: Context Does Matter"
+  why: >-
+    63 "authors" comprising the RoBERTa author list, Vaswani, a truncated
+    citation and page-number fragments. No DOI, no venue.
+
+- title: Sentiment Analysis Hate Speech Detection On Twitter Using NLP
+  why: >-
+    Author list is three separate cited papers' authors concatenated. No DOI,
+    no venue, and no evidence the paper exists as described.
+
+# ─── Deposits and front matter, not papers ───────────────────────────────────
+
+- doi: 10.18653/v1/2020.loresmt-1.0
+  why: >-
+    LoResMT 2020 proceedings front matter. Its "authors" are the organising
+    committee, same class as the WiNLP 2024 front matter above.
+
+- doi: 10.57967/hf/9031
+  why: >-
+    afri-aya, a Hugging Face dataset repository deposit. Title is the bare repo
+    slug and the first "author" is an organisation, Cohere Labs Community.
+
+- doi: 10.57702/tmdqp0vh
+  why: >-
+    A TIB Data Manager dataset deposit, not a paper.
+
+- doi: 10.5281/zenodo.160367
+  why: >-
+    Zenodo deposit of a talk, not a journal article. Its abstract opens "In the
+    first part of my talk, I will discuss".

@@ -1,0 +1,320 @@
+---
+layout: default
+title: Join
+permalink: /join/
+description: >-
+  How to join EthioNLP, add your work to the ecosystem, and contribute datasets,
+  models, papers and events.
+---
+
+{%- assign repo = site.repository -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Join</p>
+    <h1 class="page-head__title">Joining as a member</h1>
+    <p class="lede">
+      Researchers, students and practitioners interested in NLP for Ethiopian
+      languages are welcome. There is no vetting step and no fee. Members are
+      asked to contribute to the community's work, attend events when they can,
+      and keep to the
+      <a href="{{ '/standards/' | relative_url }}">community standards</a>.
+    </p>
+    <div class="row" style="margin-top: var(--sp-5)">
+      <a class="btn btn--lg" href="https://github.com/{{ repo }}/issues/new?template=join-community.yml" rel="noopener">
+        {% include icon.html name="github" %} Add me to the community
+      </a>
+      <a class="btn btn--lg btn--ghost" href="#teams">I'm registering a team</a>
+      <a class="btn btn--lg btn--ghost" href="#channels">Community channels</a>
+      <a class="btn btn--lg btn--ghost"
+         href="https://github.com/{{ repo }}/blob/master/CONTRIBUTING.md"
+         rel="noopener">All the ways to contribute</a>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} ── Membership categories ────────────────────────────────────── {%- endcomment -%}
+<section class="band band--tight" id="categories">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Two kinds of membership</h2>
+      <p class="section-head__note">{{ site.data.membership.note }}</p>
+    </div>
+    <div class="grid grid--2">
+      {%- for c in site.data.membership.categories -%}
+      <article class="card">
+        <h3 class="card__title">{{ c.title }}</h3>
+        <div class="card__body">
+          <p><strong>{{ c.who }}</strong></p>
+          <p>{{ c.detail }}</p>
+          <ul>
+            {%- for r in c.rights %}
+            <li>{{ r }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+    <p class="muted" style="margin-top: var(--sp-4)">
+      If it is unclear which applies, choose either; a maintainer will say if
+      the other fits better.
+    </p>
+  </div>
+</section>
+
+<!-- ── Teams ─────────────────────────────────────────────────────────────── -->
+<section class="band band--alt" id="teams">
+  <div class="wrap wrap--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">For groups</p>
+        <h2>Registering a lab, project or student group</h2>
+        <p class="lede">
+          A team registers its Hugging Face and GitHub <em>organisations</em>
+          rather than individual models. From then on, work the team publishes
+          that covers an Ethiopian language is listed on this site
+          automatically, and work outside those languages is not included.
+        </p>
+        <p class="lede">
+          Team members do not have to be listed here first.
+        </p>
+      </div>
+      {%- if site.team_form_url %}
+      <a class="btn btn--lg" href="{{ site.team_form_url }}" rel="noopener">
+        Register a team
+      </a>
+      {%- endif %}
+      <a class="btn btn--lg{% if site.team_form_url %} btn--ghost{% endif %}" href="https://github.com/{{ repo }}/issues/new?template=register-team.yml" rel="noopener">
+        {% include icon.html name="github" %} {% if site.team_form_url %}Or use GitHub{% else %}Register a team{% endif %}
+      </a>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3 class="card__title">What we ask for</h3>
+        <ul class="ticks">
+          <li>The team name, and a sentence on what it works on.</li>
+          <li>Your Hugging Face organisation, your GitHub organisation, or both.</li>
+          <li>A contact person, so we know who to ask.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="card__title">What happens next</h3>
+        <ul class="ticks">
+          <li>The form opens a pull request adding your team to <code>_data/organisations.yml</code>.</li>
+          <li>A maintainer reviews the entry and merges it.</li>
+          <li>The nightly sync reads both organisations and lists what it finds.</li>
+          <li>Your team appears on the <a href="{{ '/ecosystem/' | relative_url }}">ecosystem page</a> with a live count.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The flow ──────────────────────────────────────────────────────────── -->
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Being listed</p>
+      <h2>What happens after you submit the form</h2>
+      <p class="lede">
+        You supply public identifiers once; the profile is generated from them.
+      </p>
+    </div>
+
+    <div class="split split--sidebar">
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>You give us your links</h3>
+            <p>
+              A personal site, a GitHub account, a Hugging Face account, a Google
+              Scholar or ORCID page, whichever of those you have. One is enough;
+              more means a fuller profile. You also pick which of the six
+              research tracks you work on.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>A workflow builds your profile</h3>
+            <p>
+              It reads those profiles, works out your name, affiliation
+              and photo, resolves your OpenAlex author record, and opens a pull
+              request adding a single file: <code>_members/your-name.md</code>.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>A maintainer merges it</h3>
+            <p>
+              Usually within a day or two. You get a page at
+              <code>/community/your-name/</code>.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Your work is listed automatically from then on</h3>
+            <p>
+              The nightly sync picks up your new papers from OpenAlex, Semantic
+              Scholar and DBLP, your Ethiopian-language models and datasets from
+              Hugging Face, and your relevant repositories from GitHub. Work you
+              publish later is listed without a further submission.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <aside class="stack">
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Without a GitHub account</h3>
+          <p class="card__body">
+            Email your links to
+            <a href="mailto:{{ site.email }}?subject=Join%20EthioNLP">{{ site.email }}</a>
+            and a member will file it for you.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">What we do with your data</h3>
+          <p class="card__body">
+            The site stores only what you give us, and only what is already
+            public. Each record is a plain text file in a public repository; you
+            can read it, edit it or delete it with a pull request.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">After you join</h3>
+          <p class="card__body">
+            You will be sent two documents: the community membership rules and
+            the research guidelines. Ask in one of the channels below if you have
+            not received them.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── Channels ──────────────────────────────────────────────────────────── -->
+<section class="band band--alt" id="channels">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Where the community talks</p>
+      <h2>Community channels</h2>
+      <p class="lede">
+        The channels do not require you to be listed on the site first. They are
+        covered by the <a href="{{ '/standards/' | relative_url }}">community
+        standards</a>, and the Telegram group has
+        <a href="{{ '/standards/#channels' | relative_url }}">rules of its
+        own</a> to read before posting.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {%- for c in site.data.channels %}
+      <article class="card card--link">
+        <span class="focus__cell-icon" style="margin-bottom: var(--sp-3)">{% include icon.html name=c.icon %}</span>
+        <h3 class="card__title">{{ c.name }}</h3>
+        <p class="card__body">{{ c.blurb }}</p>
+        <div class="card__foot">
+          <a class="btn btn--sm btn--ghost stretched" href="{{ c.url }}" rel="noopener">
+            Open {{ c.name }} {% include icon.html name="arrow" %}
+          </a>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ── Contributing ──────────────────────────────────────────────────────── -->
+<section class="band" id="contribute">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Contributing</p>
+      <h2>What members add</h2>
+      <p class="lede">
+        Each part of this site comes from a file in one repository. The six
+        below are the ones members ask about most often; the
+        <a href="{{ '/contribute/' | relative_url }}">contribute page</a> lists
+        the other ways, with the effort each takes.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card">
+        <span class="badge badge--gold">Dataset or model</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">Datasets and models</h3>
+        <p class="card__body">
+          Push it to the <a href="{{ site.social.huggingface }}" rel="noopener">EthioNLP
+          organisation on Hugging Face</a>, or to your own account with the
+          language tagged (<code>am</code>, <code>ti</code>, <code>om</code>,
+          <code>gez</code>…). The nightly sync finds it and lists it on the
+          ecosystem page. Ask in a channel for write access to the organisation.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="badge badge--blue">Paper</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">Papers and identifiers</h3>
+        <p class="card__body">
+          If your member file carries an <code>orcid</code>,
+          <code>openalex</code>, <code>semantic_scholar</code> or
+          <code>dblp</code> id, your papers are added automatically, including
+          ACL Anthology entries. For records the indexes miss, add them to
+          <a href="https://github.com/{{ repo }}/blob/master/_data/publications_manual.yml"><code>_data/publications_manual.yml</code></a>.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="badge badge--rust">Event or talk</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">Talks and events</h3>
+        <p class="card__body">
+          The monthly seminar is for work in progress. Choose a date in the
+          form, give a title, and a pull request is opened for you. Workshops,
+          tutorials and hackathons use the same form.
+        </p>
+        <div class="card__foot">
+          <a class="btn btn--sm" href="{{ site.data.seminar.propose_url }}" rel="noopener">Propose a talk</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <span class="badge badge--green">News</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">News items</h3>
+        <p class="card__body">
+          Coverage, an award, a release, a defended thesis. Add
+          <code>_news/YYYY-MM-DD-slug.md</code> with a title and a date, or send
+          it to the mailing list and someone will add it for you.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="badge badge--violet">A language with no work yet</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">Languages with no work yet</h3>
+        <p class="card__body">
+          Many of Ethiopia's languages have no corpus, no annotation guidelines
+          and no baseline. If you speak one, say so in a channel and members will
+          help you scope the work.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="badge">This website</span>
+        <h3 class="card__title" style="margin-top: var(--sp-3)">This website</h3>
+        <p class="card__body">
+          Every page, script and data file is in
+          <a href="https://github.com/{{ repo }}" rel="noopener">{{ repo }}</a>.
+          Corrections to a person's affiliation, a broken link or a badly worded
+          sentence are all welcome pull requests.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+

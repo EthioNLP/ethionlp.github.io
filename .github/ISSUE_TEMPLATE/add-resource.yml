@@ -1,0 +1,69 @@
+name: Add a dataset, model or paper
+description: Something that should be on the site but is not being picked up automatically.
+title: "Resource: "
+labels: ["resource"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Read this first, it may already be automatic.**
+
+        - A **model or dataset** on Hugging Face appears by itself if it is under
+          the [EthioNLP organisation](https://huggingface.co/EthioNLP), or under
+          your own account with an Ethiopian language tag (`am`, `ti`, `om`,
+          `so`, `gez`, `wal`, `sid`, …). Tagging it is usually the whole fix.
+        - A **paper** appears by itself once your member file carries an ORCID,
+          OpenAlex, Semantic Scholar or DBLP identifier.
+        - A **repository** appears by itself if it is under the EthioNLP GitHub
+          organisation, or under your account with an Ethiopian language named
+          in its description or topics.
+
+        Use this form for anything that falls outside those, or that the sync
+        gets wrong.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is it
+      options:
+        - Dataset
+        - Model
+        - Paper
+        - Repository or tool
+        - A correction to something already listed
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: Name or title
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      placeholder: https://…
+    validations:
+      required: true
+
+  - type: input
+    id: languages
+    attributes:
+      label: Languages covered
+      placeholder: Amharic, Tigrinya, Ge'ez
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What it is, in two sentences
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Related links
+      description: Paper, code, model or dataset that goes with it.

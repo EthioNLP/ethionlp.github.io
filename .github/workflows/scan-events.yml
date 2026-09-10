@@ -1,0 +1,94 @@
+name: Scan events for community participation
+
+# Weekly, and on demand. This never writes to the default branch: it opens a
+# pull request with draft news items, which is the admin verification step.
+# Every draft also carries `published: false`, so even if one were merged
+# unreviewed it would still not appear on the site.
+on:
+  schedule:
+    # Mondays, 06:00 UTC, a week's worth of programmes have gone up by then.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      year:
+        description: Which edition to scan for (defaults to the current year)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Scan the watched events
+        id: scan
+        run: |
+          YEAR="${{ inputs.year }}"
+          if [ -n "$YEAR" ]; then
+            python3 scripts/scan_events.py --year "$YEAR" | tee /tmp/scan.log
+          else
+            python3 scripts/scan_events.py | tee /tmp/scan.log
+          fi
+          {
+            echo 'summary<<EOF'
+            cat /tmp/scan.log
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Anything new?
+        id: diff
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain _news)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open a pull request for review
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: news/event-scan
+          commit-message: "news: draft items from the weekly event scan"
+          title: "Draft news from the weekly event scan"
+          labels: needs-review, automated
+          body: |
+            The weekly scan found community participation in one or more watched
+            events and drafted a news item for each.
+
+            **These are drafts.** Every file added here carries
+            `published: false`, so Jekyll leaves it out of the site. Merging this
+            PR does not publish anything.
+
+            To publish an item:
+
+            1. Check the finding. A name on a programme page is evidence, not
+               proof, namesakes exist, and a paper at a venue does not always
+               mean someone travelled.
+            2. Rewrite the body. What the scanner writes is a statement of what
+               it found, not something anyone would want to read.
+            3. Add a photograph if there is one, and delete the comment block.
+            4. Delete the `published: false` line.
+
+            If a draft is wrong, just delete the file; the scanner will not
+            recreate one for an event it has already written about, and you can
+            adjust `_data/watched_events.yml` if the match was bad.
+
+            <details><summary>Scanner output</summary>
+
+            ```
+            ${{ steps.scan.outputs.summary }}
+            ```
+
+            </details>

@@ -1,0 +1,188 @@
+---
+layout: default
+title: Work by others
+permalink: /publications/elsewhere/
+description: >-
+  Papers on Ethiopian languages by researchers who are not listed in this
+  directory, found by searching OpenAlex and Semantic Scholar by subject.
+---
+
+{%- assign data = site.data.generated.elsewhere -%}
+{%- assign works = data.works -%}
+{%- assign authors = data.authors -%}
+{%- assign counts = data.counts -%}
+
+{%- comment -%}
+  A clone that has not run scripts/sweep_literature.py yet has no data file,
+  and a page that assumed one broke the whole build rather than just itself.
+
+  Counted with the `size` filter rather than `.size`: on a missing key the
+  property gives nil, and `nil == 0` is false in Liquid, so a `.size` test
+  passes the guard and reaches the sort it was meant to prevent.
+{%- endcomment -%}
+{%- assign work_count = works | size -%}
+{%- if work_count == 0 -%}
+<section class="band band--tight">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="section-head__title">Work by others</h1>
+      <p class="section-head__note">
+        This page is built by <code>scripts/sweep_literature.py</code>, which has
+        not been run yet. Run it to search OpenAlex and Semantic Scholar for
+        Ethiopian-language research published outside this community.
+      </p>
+    </div>
+  </div>
+</section>
+{%- else -%}
+
+{%- comment -%}
+  /publications/ works outward from the members: it takes each person's ORCID
+  or DBLP id and collects what they published. This page is the complement, the
+  same literature searched by subject with the members subtracted. Most work on
+  these languages was not done by this community, and a site that only showed
+  its own output would leave a reader believing otherwise.
+{%- endcomment -%}
+
+<section class="band band--tight">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="section-head__title">Work by others</h1>
+      <p class="section-head__note">
+        {{ counts.works_without_member }} papers on Ethiopian languages with no
+        EthioNLP member among the authors. Found by searching OpenAlex and
+        Semantic Scholar for a language and a language-technology topic
+        together. Models and datasets from outside the community are on
+        <a href="{{ '/ecosystem/related/' | relative_url }}">work by the wider community</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── The people ───────────────────────────────────────────────── {%- endcomment -%}
+{%- assign frequent = authors | where_exp: "a", "a.works >= 3" -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Researchers who are not members</h2>
+      <p class="section-head__note">
+        {{ frequent.size }} people have three or more of these papers, ordered by
+        how many. A further
+        {{ counts.authors_not_members | minus: frequent.size }} have one or two.
+        This is a count of papers only: appearing here means a person has
+        published on these languages, not that they have been approached or
+        wish to join. Anyone who does is welcome to add themselves.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {%- for a in frequent -%}
+      <article class="card">
+        <h3 class="card__title">{{ a.name }}</h3>
+        <p class="card__meta">
+          {{ a.works }} papers{% if a.last_year %} · {% if a.first_year == a.last_year %}{{ a.last_year }}{% else %}{{ a.first_year }}–{{ a.last_year }}{% endif %}{% endif %}
+        </p>
+        {%- if a.affiliation %}
+        <div class="card__body"><p>{{ a.affiliation }}</p></div>
+        {%- endif %}
+        <div class="card__foot">
+          {%- if a.coauthored_with_member %}
+          <span class="badge badge--outline">Has published with a member</span>
+          {%- endif -%}
+          {%- if a.orcid %}
+          <a class="pill" href="https://orcid.org/{{ a.orcid }}" rel="noopener">ORCID</a>
+          {%- endif -%}
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Add me ───────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--ink" id="add-me">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-head__title">Add me to EthioNLP</h2>
+      <p class="section-head__note">
+        Fill in one form and a maintainer reviews it. Give an ORCID, Google
+        Scholar, DBLP or Hugging Face link and your papers, models and
+        repositories are collected from then on, so the listing does not need
+        updating by hand. You can also use it to add a colleague, having asked
+        them first.
+      </p>
+    </div>
+    <p>
+      <a class="btn btn--lg" rel="noopener"
+         href="https://github.com/{{ site.repository }}/issues/new?template=join-community.yml">
+        Add me to EthioNLP
+      </a>
+    </p>
+    <p>
+      No GitHub account? Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      with the same details and a maintainer will fill the form in for you.
+    </p>
+  </div>
+</section>
+
+{%- comment -%} ── The papers ───────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--flush">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">The papers</h2>
+      <p class="section-head__note">
+        Newest first, folded by year. The two most recent years are open.
+      </p>
+    </div>
+
+    {%- comment -%}
+      Folded for the same reason /publications/ is: unfolded, a thousand papers
+      make a page nobody reaches the bottom of.
+    {%- endcomment -%}
+    <div class="pubs">
+      {%- assign by_year = works | group_by: "year" | sort: "name" | reverse -%}
+      {%- for group in by_year -%}
+      {%- if group.name != "" -%}
+      <details class="pubyear"{% if forloop.index <= 2 %} open{% endif %}>
+        <summary class="pubyear__summary">
+          <span class="pubyear__y">{{ group.name }}</span>
+          <span class="pubyear__n">{{ group.items.size }} paper{% if group.items.size != 1 %}s{% endif %}</span>
+        </summary>
+        {%- for w in group.items %}{% include pub-item.html p=w %}{% endfor -%}
+      </details>
+      {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Method ───────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-head__title">How this list was built</h2>
+    </div>
+    <div class="prose">
+      <p>{{ data.method }}</p>
+      <p>
+        A paper is kept only when its title or abstract names both an Ethiopian
+        language and a language-technology topic, and only when the field it is
+        filed under is one where that combination means what it appears to mean.
+        Several Ethiopian languages share a name with an administrative zone, so
+        an unfiltered search returns a great deal of public-health research.
+      </p>
+      {%- if data.topic_check %}
+      <p>{{ data.topic_check }}</p>
+      {%- endif %}
+      <p>
+        Two limits worth stating. Author matching uses name, ORCID and OpenAlex
+        identifier, so two researchers who share a name are counted as one
+        person, and a member who publishes under a spelling this site does not
+        know will appear here by mistake. Both are correctable: add the spelling
+        to <code>aliases</code> in the member file, or
+        <a href="https://github.com/{{ site.repository }}/issues/new" rel="noopener">open an issue</a>.
+      </p>
+    </div>
+  </div>
+</section>
+{%- endif -%}

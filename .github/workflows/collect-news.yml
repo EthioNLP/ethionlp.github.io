@@ -1,0 +1,96 @@
+name: Collect community submissions
+
+# Daily. Reads the news form, the Telegram channel and the team-registration
+# form, then opens a pull request. Never publishes: news drafts carry
+# `published: false`, which Jekyll honours by leaving the file out of the site,
+# and team entries are appended commented out.
+#
+# Both sources are optional. With neither secret set the job runs, finds nothing
+# and exits, so this is safe to merge before anything is configured.
+on:
+  schedule:
+    # 07:00 UTC, ten o'clock in Addis. Anything submitted overnight is waiting
+    # in a PR when people start the day.
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Read the submission channels
+        id: collect
+        env:
+          # Publish your form's responses sheet to the web as CSV and put the
+          # URL here. Nothing about it is secret, but it lives in Secrets so the
+          # sheet is not advertised in a public repository.
+          NEWS_FORM_CSV: ${{ secrets.NEWS_FORM_CSV }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TEAM_FORM_CSV: ${{ secrets.TEAM_FORM_CSV }}
+        run: |
+          python3 scripts/from_submissions.py | tee /tmp/collect.log
+          python3 scripts/from_team_form.py | tee -a /tmp/collect.log
+          {
+            echo 'summary<<EOF'
+            cat /tmp/collect.log
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Anything new?
+        id: diff
+        run: |
+          if [ -z "$(git status --porcelain _news _data/organisations.yml _data/generated)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open a pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: community/submissions
+          commit-message: "submissions from the community"
+          title: "Community submissions awaiting review"
+          labels: needs-review, automated
+          body: |
+            Someone submitted news, or registered a team, through one of the
+            forms or the Telegram channel.
+
+            A registered team is appended to `_data/organisations.yml`
+            **commented out**. Check that the Hugging Face and GitHub handles
+            are organisations rather than personal accounts, then uncomment it.
+            From the next sync the team's Ethiopian-language work appears on the
+            site by itself.
+
+            **No news here is published.** Every news file carries
+            `published: false`, so it is invisible on the site. To publish one:
+
+            1. Read it, and check the link goes where it says.
+            2. Tidy the wording, people submit in a hurry, and a headline
+               written on a phone is rarely the one you want on the site.
+            3. Add an image if there is one.
+            4. Delete the `published: false` line and the comment above it.
+
+            To reject one, delete the file. It will not be recreated: the
+            submission id is recorded in `_data/generated/news_seen.json`.
+
+            <details><summary>Collector output</summary>
+
+            ```
+            ${{ steps.collect.outputs.summary }}
+            ```
+
+            </details>

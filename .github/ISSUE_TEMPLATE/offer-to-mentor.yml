@@ -1,0 +1,105 @@
+name: Offer to mentor
+description: Supervise a student, or take questions in an area you know
+title: "Mentor: "
+labels: ["mentorship", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Mentors are not required to be senior.** If you have finished a thesis
+        in this area you know more than the person starting one, and a
+        second-year PhD student is often a better first mentor than a professor.
+
+        A maintainer makes the edit for you and replies on this issue. You do
+        not need to be listed on the site first; say so below and both happen
+        together.
+
+        To offer a specific thesis topic rather than general supervision, use
+        [Post a thesis topic](https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=post-topic.yml)
+        instead — that one writes the file and opens a pull request.
+
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: areas
+    attributes:
+      label: What would you mentor in?
+      description: The six tracks the site is organised around. Pick any.
+      options:
+        - label: Datasets and corpora
+        - label: Language models
+        - label: Applications
+        - label: Evaluation and benchmarks
+        - label: Capacity building
+        - label: Language and linguistics
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: levels
+    attributes:
+      label: Who would you take?
+      options:
+        - label: BSc
+        - label: MSc
+        - label: PhD
+        - label: Interns
+        - label: People changing career
+    validations:
+      required: true
+
+  - type: input
+    id: capacity
+    attributes:
+      label: How many students could you take this cycle?
+      description: >-
+        Shown publicly, so nobody is asked for more than you offered. One is a
+        perfectly good answer, and zero is fine if you only want to answer
+        questions.
+      placeholder: "1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: note
+    attributes:
+      label: What are you happy to be asked about?
+      placeholder: >-
+        Amharic morphology, and getting a first annotation project off the
+        ground. Happy to read drafts.
+    validations:
+      required: false
+
+  - type: input
+    id: languages
+    attributes:
+      label: Languages you work on
+      placeholder: Amharic, Awngi
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: listed
+    attributes:
+      label: Are you already listed on the site?
+      options:
+        - label: >-
+            I am not listed yet. Please add me as a member at the same time; I
+            will give my links in a comment or you can take them from my
+            profile.
+          required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: >-
+            I agree to my name, areas and capacity being shown publicly on
+            ethionlp.github.io.
+          required: true

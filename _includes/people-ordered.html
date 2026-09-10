@@ -1,0 +1,21 @@
+{%- comment -%}
+Put a list of expertise entries into the community's own order.
+
+sync_expertise.py ranks people by how much it detected, which is a measure of
+what a crawler found rather than anything about the community. Everywhere a
+person appears they should appear in the same sequence as /community/, which is
+the `order` field on each member file.
+
+Takes:  include.people   list of {slug: ...} from the expertise data
+Sets:   ordered          the matching member documents, in canonical order
+{%- endcomment -%}
+{%- assign ordered = "" | split: "" -%}
+{%- assign slugs = include.people | map: "slug" | join: "," -%}
+{%- assign roster = site.members | sort: "order" -%}
+{%- for m in roster -%}
+  {%- assign probe = "," | append: slugs | append: "," -%}
+  {%- assign needle = "," | append: m.slug | append: "," -%}
+  {%- if probe contains needle -%}
+    {%- assign ordered = ordered | push: m -%}
+  {%- endif -%}
+{%- endfor -%}

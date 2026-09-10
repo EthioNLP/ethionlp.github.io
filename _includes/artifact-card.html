@@ -1,0 +1,51 @@
+{%- comment -%}
+One Hugging Face model or dataset. {% include artifact-card.html a=item %}
+{%- endcomment -%}
+{%- assign a = include.a -%}
+<article class="artifact" data-filter-item
+         data-kind="{{ a.kind }}"
+         data-focus="{{ a.focus }}"
+         data-source="{% if a.owned %}community{% else %}related{% endif %}"
+         data-tier="{{ a.tier }}"
+         {%- if a.languages.size > 0 %} data-lang="{{ a.languages | join: ' ' | slugify }}"{% endif %}
+         data-search="{{ a.id }} {{ a.task }} {{ a.languages | join: ' ' }} {{ a.topics | join: ' ' }}"
+         data-sort-downloads="{{ a.downloads }}"
+         data-sort-updated="{{ a.modified | default: a.created | remove: '-' }}"
+         data-sort-name="{{ a.name }}">
+  <div class="artifact__top">
+    <h3 class="artifact__name">
+      <a href="{{ a.url }}" rel="noopener">{% if a.owner != 'EthioNLP' %}<span class="owner">{{ a.owner }}/</span>{% endif %}{{ a.name }}</a>
+    </h3>
+    <span class="badge badge--{% if a.kind == 'dataset' %}gold{% else %}blue{% endif %}">
+      {{ a.kind }}
+    </span>
+  </div>
+
+  {%- comment -%}
+  Provenance on the card itself. Cards travel between pages and get filtered, so
+  "who published this" has to be legible from the card alone.
+  {%- endcomment -%}
+  {%- if a.tier == 'ethionlp' %}
+  <p class="artifact__by artifact__by--ours">EthioNLP{% if a.team and a.team != 'ethionlp' %} · {{ a.team }}{% endif %}</p>
+  {%- elsif a.tier == 'member' %}
+  <p class="artifact__by">By an EthioNLP member</p>
+  {%- elsif a.via_member %}
+  <p class="artifact__by artifact__by--loose">Org a member belongs to, not EthioNLP work</p>
+  {%- endif %}
+
+  {%- if a.task or a.languages.size > 0 or a.size %}
+  <div class="tag-row">
+    {%- if a.task %}<span class="badge badge--outline">{{ a.task | replace: '-', ' ' }}</span>{% endif -%}
+    {%- for l in a.languages limit: 4 %}<span class="badge">{{ l }}</span>{% endfor -%}
+    {%- if a.size %}<span class="badge badge--outline">{{ a.size }}</span>{% endif -%}
+  </div>
+  {%- endif %}
+
+  <div class="artifact__stats">
+    <span>{% include icon.html name="download" %}{{ a.downloads }} download{% unless a.downloads == 1 %}s{% endunless %}</span>
+    <span>{% include icon.html name="heart" %}{{ a.likes }}</span>
+    {%- if a.modified %}<span>updated {{ a.modified | date: "%b %Y" }}</span>{% endif -%}
+    {%- if a.license %}<span>{{ a.license }}</span>{% endif -%}
+    {%- if a.arxiv %}<span><a href="https://arxiv.org/abs/{{ a.arxiv }}" rel="noopener">arXiv:{{ a.arxiv }}</a></span>{% endif -%}
+  </div>
+</article>

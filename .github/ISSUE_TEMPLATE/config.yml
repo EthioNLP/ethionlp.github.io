@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask on Telegram
+    url: https://t.me/+f_5gMa4KhtU2NWUy
+    about: Quickest way to reach the community for anything that is not a change to the site.
+  - name: Mailing list
+    url: https://groups.google.com/forum/#!forum/ethionlp/join
+    about: Announcements, calls for papers and meeting invitations.
+  - name: Email the community
+    url: mailto:ethionlp@googlegroups.com
+    about: No GitHub account? Send your links here and a member will file it for you.

@@ -1,0 +1,145 @@
+---
+layout: default
+title: Gallery
+permalink: /gallery/
+needs_filter: true
+description: >-
+  Photographs from EthioNLP workshops, conferences and community gatherings.
+---
+
+{%- assign photos = site.data.gallery | sort: "date" | reverse -%}
+{%- assign tags = photos | map: "tags" | join: "," | split: "," | uniq | sort -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Gallery</p>
+    <h1 class="page-head__title">Photographs from EthioNLP events</h1>
+    <p class="lede">
+      Posters, conferences, workshops and community gatherings. To add one,
+      upload the file through the form and a maintainer completes the entry.
+    </p>
+    <div class="page-head__actions">
+      <a class="btn btn--primary" href="https://github.com/{{ site.repository }}/issues/new?template=add-photo.yml" rel="noopener">
+        {% include icon.html name="plus" %} Upload a photograph
+      </a>
+      <a class="btn" href="mailto:{{ site.email }}?subject=Gallery%20photographs">Send by email instead</a>
+    </div>
+  </div>
+</div>
+
+{%- if photos.size > 0 %}
+<div data-filter-root>
+  {%- if tags.size > 1 %}
+  <div class="filterbar">
+    <div class="wrap wrap--wide filterbar__inner">
+      <div class="search">
+        <span class="search__icon">{% include icon.html name="search" %}</span>
+        <input type="search" data-filter-search placeholder="Search captions, places and people"
+               aria-label="Search the gallery">
+        <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+          {% include icon.html name="close" %}
+        </button>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Tag</span>
+        <div class="facets">
+          {%- for tag in tags -%}
+          {%- assign n = 0 -%}
+          {%- for ph in photos %}{% if ph.tags contains tag %}{% assign n = n | plus: 1 %}{% endif %}{% endfor -%}
+          <button class="facet" type="button" data-facet="tag" data-value="{{ tag }}" aria-pressed="false">
+            {{ tag }}<span class="facet__count">{{ n }}</span>
+          </button>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <span class="filter-status" data-filter-count data-noun="photographs">{{ photos | size }} photographs</span>
+    </div>
+  </div>
+  {%- endif %}
+
+  <div class="band band--flush">
+    <div class="wrap wrap--wide">
+      <ul class="gallery">
+        {%- for ph in photos %}
+        <li class="gallery__item" data-filter-item
+            data-tag="{{ ph.tags | join: ' ' }}"
+            data-search="{{ ph.caption | strip_newlines }} {{ ph.place }} {{ ph.people }} {{ ph.tags | join: ' ' }}">
+          <figure class="shot">
+            <button class="shot__open" type="button"
+                    data-lightbox="{{ ph.src | relative_url }}"
+                    data-lightbox-caption="{{ ph.caption | strip_newlines | strip | escape }}"
+                    aria-label="View larger: {{ ph.caption | strip_newlines | strip | truncate: 80 | escape }}">
+              <img src="{{ ph.src | relative_url }}" alt="{{ ph.caption | strip_newlines | strip | escape }}"
+                   loading="lazy" decoding="async">
+            </button>
+            <figcaption class="shot__cap">
+              <p class="shot__text">{{ ph.caption }}</p>
+              <p class="shot__meta">
+                {%- if ph.date %}<span>{{ ph.date | date: "%B %Y" }}</span>{% endif -%}
+                {%- if ph.place %}<span>{{ ph.place }}</span>{% endif -%}
+                {%- if ph.credit %}<span>Photo: {{ ph.credit }}</span>{% endif -%}
+                {%- if ph.link %}<span><a href="{{ ph.link }}" rel="noopener">More</a></span>{% endif -%}
+                {%- if ph.event %}
+                  {%- assign ev = site.events | where: "slug", ph.event | first -%}
+                  {%- if ev %}<span><a href="{{ ev.url | relative_url }}">{{ ev.short_title | default: ev.title }}</a></span>{% endif -%}
+                {%- endif -%}
+              </p>
+              {%- if ph.people %}<p class="shot__people">{{ ph.people }}</p>{% endif %}
+            </figcaption>
+          </figure>
+        </li>
+        {%- endfor %}
+      </ul>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-6)">
+        <p>No photographs match that.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{%- else %}
+<div class="band">
+  <div class="wrap wrap--wide">
+    <div class="empty"><p>No photographs yet.</p></div>
+  </div>
+</div>
+{%- endif %}
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <h2>Contributing a photograph</h2>
+    <div class="prose">
+      <p>
+        <strong>Upload the photograph through the form.</strong>
+        GitHub takes the upload, and a workflow copies the image into the
+        repository, writes the gallery entry and opens it for review. No Git
+        knowledge is required, and the image is stored in the repository rather
+        than linked from elsewhere.
+      </p>
+      <p>
+        <a class="btn btn--primary" href="https://github.com/{{ site.repository }}/issues/new?template=add-photo.yml" rel="noopener">
+          {% include icon.html name="plus" %} Upload a photograph
+        </a>
+      </p>
+      <p>
+        If you would rather do it by hand, add the image to
+        <code>resources/img/gallery/</code> and append an entry to
+        <a href="https://github.com/{{ site.repository }}/blob/master/_data/gallery.yml"><code>_data/gallery.yml</code></a>.
+        Only <code>src</code> and <code>caption</code> are required. Use plain
+        ASCII filenames.
+      </p>
+      <p>
+        Write a caption that says what is happening, not just where. Name
+        only people who are happy to be named; leave <code>people</code> out if
+        you are not sure.
+      </p>
+      <p>
+        No GitHub account? Mail the photographs to
+        <a href="mailto:{{ site.email }}?subject=Gallery%20photographs">{{ site.email }}</a>
+        with a sentence about each.
+      </p>
+    </div>
+  </div>
+</section>

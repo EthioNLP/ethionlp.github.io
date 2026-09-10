@@ -1,0 +1,17 @@
+{%- comment -%}
+The focus areas to show for one member.
+
+Derived by scripts/derive_focus.py from that person's own publications, models,
+datasets and repositories. A member who fills in `focus:` in their own file
+overrides it completely; that field is the editable one, and it is empty by
+default so the derived value shows.
+
+Takes:  include.m   the member document
+Sets:   focus       list of track keys, most evidence first
+{%- endcomment -%}
+{%- if include.m.focus and include.m.focus.size > 0 -%}
+  {%- assign focus = include.m.focus -%}
+{%- else -%}
+  {%- assign ex = site.data.generated.expertise.per_member | where: "slug", include.m.slug | first -%}
+  {%- assign focus = ex.tracks | default: include.m.focus -%}
+{%- endif -%}

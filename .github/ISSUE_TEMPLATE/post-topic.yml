@@ -1,0 +1,114 @@
+name: Post a thesis topic
+description: Offer a BSc, MSc or PhD topic for a student to take up
+title: "Topic: "
+labels: ["topic", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form writes the file for you and opens a pull request. A
+        maintainer reviews it before it goes live.
+
+        A good topic says three things: what the gap is, what a student would
+        actually do, and what a finished result looks like. It is read by
+        someone deciding whether to spend a year on it.
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: What the work is, not the area it sits in.
+      placeholder: Low-footprint speech recognition for Tigrinya
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: One-sentence summary
+      description: What a student reads in the listing before opening the topic.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: level
+    attributes:
+      label: Level
+      options:
+        - BSc project
+        - MSc thesis
+        - PhD topic
+        - Internship / research assistantship
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Research area
+      options:
+        - Datasets & corpora
+        - Language models
+        - Applications
+        - Evaluation & benchmarks
+        - Capacity building
+        - Language & linguistics
+    validations:
+      required: true
+
+  - type: input
+    id: mentor
+    attributes:
+      label: Who would supervise it
+      description: >-
+        Your name, or the community profile slug if you have one (the filename
+        in _members/ without .md). Only offer yourself, or someone who has
+        agreed.
+    validations:
+      required: true
+
+  - type: input
+    id: languages
+    attributes:
+      label: Languages
+      description: Comma-separated. Leave blank if it is not language-specific.
+      placeholder: Tigrinya, Amharic
+
+  - type: input
+    id: effort
+    attributes:
+      label: How long it would take
+      placeholder: 6–9 months
+
+  - type: input
+    id: prerequisites
+    attributes:
+      label: What a student needs to know first
+      description: Better to lose someone here than in month four.
+
+  - type: textarea
+    id: body
+    attributes:
+      label: The topic itself
+      description: >-
+        The gap, what you would do, what finished looks like, and anything a
+        student should know before starting. Markdown is fine.
+      value: |
+        ## The gap
+
+        ## What you would do
+
+        ## What finished looks like
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmation
+      options:
+        - label: >-
+            I am offering to supervise this topic, or the person named above
+            has agreed to. I understand their name will be shown publicly
+            beside it.
+          required: true

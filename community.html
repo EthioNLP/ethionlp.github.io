@@ -1,0 +1,106 @@
+---
+layout: default
+title: Community
+permalink: /community/
+needs_filter: true
+description: >-
+  The people building Ethiopian language technology, students, linguists,
+  researchers and engineers across Ethiopia and the diaspora.
+---
+
+{%- comment -%}
+Ordered by the explicit `order:` key: the roster carried over from the
+previous site keeps its sequence, everyone imported from the Hugging Face
+organisation follows, and anyone who joins later lands at the end.
+{%- endcomment -%}
+{%- assign members = site.members | sort: "order" -%}
+{%- assign active = members | where_exp: "m", "m.alumni != true" -%}
+{%- assign alumni = members | where_exp: "m", "m.alumni" -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Community</p>
+    <h1 class="page-head__title">{{ members | size }} community members</h1>
+    <p class="lede">
+      EthioNLP has no membership fee and no application form. Researchers,
+      students and practitioners working on Ethiopian language technology can be
+      listed here.
+    </p>
+    <div class="row" style="margin-top: var(--sp-5)">
+      <a class="btn" href="{{ '/join/' | relative_url }}">Add yourself</a>
+      <a class="btn btn--ghost" href="{{ site.social.linkedin }}" rel="noopener">LinkedIn group</a>
+    </div>
+  </div>
+</div>
+
+<div data-filter-root>
+  <div class="filterbar">
+    <div class="wrap wrap--wide filterbar__inner">
+      <div class="search">
+        <span class="search__icon">{% include icon.html name="search" %}</span>
+        <input type="search" data-filter-search placeholder="Search by name, affiliation or topic"
+               aria-label="Search members">
+        <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+          {% include icon.html name="close" %}
+        </button>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Focus</span>
+        <div class="facets">
+          {%- for area in site.data.focus_areas -%}
+          {%- assign n = 0 -%}
+          {%- for m in members -%}{%- include focus-of.html m=m -%}{%- if focus contains area.key %}{% assign n = n | plus: 1 %}{% endif -%}{%- endfor -%}
+          {%- if n > 0 %}
+          <button class="facet" type="button" data-facet="focus" data-value="{{ area.key }}" aria-pressed="false">
+            {{ area.title }}<span class="facet__count">{{ n }}</span>
+          </button>
+          {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <span class="filter-status" data-filter-count data-noun="members">{{ members | size }} members</span>
+    </div>
+  </div>
+
+  <div class="band band--flush">
+    <div class="wrap wrap--wide">
+      <div class="grid grid--tight" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr))">
+        {%- for m in active %}{% include member-card.html m=m %}{% endfor %}
+      </div>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-6)">
+        <p>No members match those filters.</p>
+        <p><a href="{{ '/join/' | relative_url }}">Add yourself or someone you know →</a></p>
+      </div>
+
+      {%- if alumni.size > 0 %}
+      <h2 style="margin-top: var(--sp-8)">Alumni</h2>
+      <div class="grid grid--tight" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr))">
+        {%- for m in alumni %}{% include member-card.html m=m %}{% endfor %}
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</div>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Listing</p>
+      <h2>Being listed</h2>
+      <p class="lede">
+        Send us a GitHub, Hugging Face, ORCID or Google Scholar URL and the rest
+        is generated: the profile page, the publication list, the models and
+        the repositories.
+      </p>
+    </div>
+    <div class="row">
+      <a class="btn" href="{{ '/join/' | relative_url }}">How it works</a>
+      <a class="btn btn--ghost" href="https://github.com/{{ site.repository }}/issues/new?template=join-community.yml" rel="noopener">
+        {% include icon.html name="github" %} Open the join form
+      </a>
+    </div>
+  </div>
+</section>

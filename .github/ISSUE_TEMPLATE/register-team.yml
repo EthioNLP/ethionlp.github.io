@@ -1,0 +1,106 @@
+name: Register a team or lab
+description: >-
+  Put your group's models, datasets and code on the site. Everything you publish
+  from then on appears automatically.
+title: "Team: "
+labels: [team]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is for a **group**, a research lab, a project, a student club, a
+        company team. To add yourself as an individual, use *Join EthioNLP*
+        instead.
+
+        Once your team is registered, the nightly sync sweeps your Hugging Face
+        and GitHub organisations and lists anything that covers an Ethiopian
+        language. You never have to submit a model or dataset by hand again, and
+        nothing you publish outside those languages is touched.
+
+        You do not need anyone from your team to be listed on the site first.
+
+  - type: input
+    id: name
+    attributes:
+      label: Team name
+      description: As you want it shown on the site.
+      placeholder: Universität Hamburg, Language Technology
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of group
+      options:
+        - Research lab
+        - Project or consortium
+        - Community or student group
+        - Company team
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Where your work lives
+
+        Give us the **organisation**, not a single model; the whole org is
+        swept. At least one of the two is needed for anything to appear.
+
+  - type: input
+    id: huggingface
+    attributes:
+      label: Hugging Face organisation
+      description: The org name or its URL.
+      placeholder: uhhlt
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub organisation
+      placeholder: uhh-lt
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      placeholder: https://www.inf.uni-hamburg.de/en/inst/ab/lt/
+
+  - type: input
+    id: linkedin
+    attributes:
+      label: LinkedIn page
+      description: >-
+        Optional, and shown as a link only. LinkedIn has no public API, so
+        nothing can be imported from it.
+
+  - type: input
+    id: lead
+    attributes:
+      label: Contact person
+      description: >-
+        Their name, or their page on this site if they are already listed. Used
+        to attribute the team's work and to know who to ask about it.
+      placeholder: Seid Muhie Yimam
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What the team works on
+      description: One or two sentences. This is shown beside the team's name.
+      placeholder: >-
+        The lab behind AmRoBERTa, one of the first RoBERTa models pretrained
+        from scratch for Amharic, and a long line of Amharic hate-speech work.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before you submit
+      options:
+        - label: >-
+            I am part of this team, or have asked them. We are happy for the
+            group's Ethiopian-language work to be listed here.
+          required: true

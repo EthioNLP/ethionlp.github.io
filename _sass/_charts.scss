@@ -1,0 +1,212 @@
+// ─── Charts ──────────────────────────────────────────────────────────────────
+//
+// Every chart on the site is inline SVG generated at build time from data in
+// _data/generated/. No chart library, no runtime fetch: the numbers are in the
+// HTML, so they are readable, searchable and printable.
+
+.chart {
+  --chart-pad: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--chart-pad);
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__sub { font-size: var(--t-sm); color: var(--ink-3); margin: 0.2em 0 0; }
+
+  &__body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  &__note {
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--rule);
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  svg { display: block; width: 100%; height: auto; min-width: 26rem; overflow: visible; }
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--t-sm);
+  color: var(--ink-2);
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+  }
+  i {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 2px;
+    flex: none;
+  }
+}
+
+// SVG primitives, themed through tokens so charts follow dark mode.
+.c-grid   { stroke: var(--viz-grid); stroke-width: 1; }
+.c-axis   { stroke: var(--rule-strong); stroke-width: 1; }
+.c-label  { fill: var(--ink-3); font-family: var(--font-sans); font-size: 11px; }
+.c-label--y { text-anchor: end; }
+.c-value  { fill: var(--ink-2); font-family: var(--font-sans); font-size: 11px; font-variant-numeric: tabular-nums; }
+.c-line   { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.c-area   { opacity: 0.10; }
+.c-dot    { stroke: var(--surface); stroke-width: 1.5; }
+
+.c-1 { stroke: var(--viz-1); } .f-1 { fill: var(--viz-1); }
+.c-2 { stroke: var(--viz-2); } .f-2 { fill: var(--viz-2); }
+.c-3 { stroke: var(--viz-3); } .f-3 { fill: var(--viz-3); }
+.c-4 { stroke: var(--viz-4); } .f-4 { fill: var(--viz-4); }
+.c-5 { stroke: var(--viz-5); } .f-5 { fill: var(--viz-5); }
+.c-6 { stroke: var(--viz-6); } .f-6 { fill: var(--viz-6); }
+
+// ─── Horizontal bar list (language coverage, task coverage) ──────────────────
+
+// Families, with their languages named rather than drawn as a bar. The row is
+// two columns: the family and its counts on the left, the names filling the
+// width on the right. Alignment is `baseline` so a family whose names wrap to
+// four lines still reads level with its heading.
+.famlist {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0;
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(7rem, 11rem) 1fr;
+    align-items: baseline;
+    gap: var(--sp-3) var(--sp-5);
+    padding-bottom: var(--sp-4);
+    border-bottom: 1px solid var(--rule);
+  }
+  &__row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  &__name {
+    color: var(--ink);
+    font-weight: 600;
+    font-size: var(--t-base);
+  }
+  &__sub {
+    display: block;
+    font-size: var(--t-xs);
+    font-weight: 400;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__langs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.4rem;
+    margin: 0;
+  }
+
+  // A plain name for a language with nothing released, a filled one where
+  // there is a model or a dataset. The difference is the whole point of the
+  // section, so it is carried by fill rather than by a small marker.
+  &__lang {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--rule);
+    background: var(--surface-2);
+    color: var(--ink-2);
+    font-size: var(--t-sm);
+    line-height: 1.35;
+    text-decoration: none;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--green);
+      color: var(--ink);
+    }
+
+    &.is-covered {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--ink-inverse);
+      font-weight: 500;
+    }
+    &.is-covered:hover,
+    &.is-covered:focus-visible { background: var(--green-strong); color: var(--ink-inverse); }
+  }
+
+  @media (max-width: 640px) {
+    &__row { grid-template-columns: 1fr; gap: var(--sp-2); }
+  }
+}
+
+
+// ─── Timeline ────────────────────────────────────────────────────────────────
+
+.timeline {
+  position: relative;
+  list-style: none;
+  padding: 0 0 0 var(--sp-6);
+  margin: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.44rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: linear-gradient(var(--rule), var(--rule-strong), var(--rule));
+  }
+
+  > li {
+    position: relative;
+    margin: 0 0 var(--sp-5);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--sp-6) * -1 + 0.14rem);
+      top: 0.55rem;
+      width: 0.62rem;
+      height: 0.62rem;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--track-color, var(--viz-1));
+    }
+  }
+
+  &__year {
+    font-family: var(--font-mono);
+    font-size: var(--t-xs);
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-md);
+    font-weight: 600;
+    margin: 0.15em 0 0.25em;
+  }
+  &__desc { font-size: var(--t-base); color: var(--ink-2); margin: 0; }
+
+  li[data-track="ethiopia"] { --track-color: var(--viz-1); }
+  li[data-track="africa"]   { --track-color: var(--viz-2); }
+}

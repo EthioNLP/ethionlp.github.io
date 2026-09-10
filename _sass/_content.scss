@@ -1,0 +1,561 @@
+// ─── Focus areas ─────────────────────────────────────────────────────────────
+
+// Six cells, so the column count is pinned rather than left to auto-fit, // otherwise wide viewports give four across and leave two orphans on a second
+// row next to a hole.
+.focus {
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 620px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1000px) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.focus__cell {
+  position: relative;
+  background: var(--surface);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: background 0.16s var(--ease);
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover { background: var(--surface-2); }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--focus-color, var(--accent));
+    opacity: 0;
+    transition: opacity 0.16s var(--ease);
+  }
+  &:hover::before { opacity: 1; }
+
+  &-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius);
+    background: var(--focus-tint, var(--green-soft));
+    color: var(--focus-color, var(--accent));
+    svg { width: 1.15rem; height: 1.15rem; }
+  }
+
+  h3 {
+    font-size: var(--t-md);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  p { font-size: var(--t-base); color: var(--ink-2); margin: 0; }
+
+  &-count {
+    margin-top: auto;
+    padding-top: var(--sp-3);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+}
+
+// ─── People ──────────────────────────────────────────────────────────────────
+
+.person {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: flex-start;
+  padding: var(--sp-4);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  position: relative;
+  transition: border-color 0.16s var(--ease), box-shadow 0.16s var(--ease),
+              transform 0.16s var(--ease);
+
+  &:hover {
+    border-color: var(--rule-strong);
+    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+  }
+
+  .avatar { --size: 3.4rem; }
+
+  &__body { min-width: 0; flex: 1; }
+
+  &__name {
+    font-family: var(--font-serif);
+    font-size: var(--t-md);
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 0.15em;
+    a { color: var(--ink); text-decoration: none; }
+  }
+
+  &__role {
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+    margin: 0 0 var(--sp-3);
+    line-height: 1.4;
+  }
+
+  &__links { position: relative; z-index: 1; }
+}
+
+// Member profile page
+.profile {
+  display: grid;
+  gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  align-items: start;
+
+  @media (min-width: 800px) { grid-template-columns: 14rem minmax(0, 1fr); }
+
+  // The aside sits second in the DOM so the person's name is the first heading
+  // on the page; a screen reader met an h3 ("Languages") before the h1
+  // otherwise. Grid placement puts it back on the left for sighted readers.
+  @media (min-width: 800px) {
+    > *:first-child { grid-column: 2; grid-row: 1; }
+    &__aside { grid-column: 1; grid-row: 1; }
+  }
+
+  &__aside {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--sp-5));
+    display: grid;
+    gap: var(--sp-4);
+    justify-items: start;
+
+    @media (max-width: 799px) { position: static; }
+  }
+
+  .avatar { --size: 9rem; border-radius: var(--radius-lg); }
+  .avatar-fallback { border-radius: var(--radius-lg); }
+}
+
+// ─── Artifacts (models / datasets / repos) ───────────────────────────────────
+
+.artifact {
+  position: relative;
+  display: grid;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition: border-color 0.16s var(--ease), box-shadow 0.16s var(--ease);
+
+  &:hover { border-color: var(--rule-strong); box-shadow: var(--shadow-2); }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+
+  &__name {
+    font-family: var(--font-mono);
+    font-size: var(--t-base);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+    word-break: break-word;
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--link); }
+    .owner { color: var(--ink-3); }
+  }
+
+  &__desc {
+    font-size: var(--t-sm);
+    color: var(--ink-2);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-4);
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+
+    span { display: inline-flex; align-items: center; gap: 0.35em; }
+    svg { width: 0.85rem; height: 0.85rem; }
+  }
+}
+
+// ─── Publications ────────────────────────────────────────────────────────────
+
+.pubs { display: grid; gap: var(--sp-6); }
+
+.pub-year {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  font-weight: 600;
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  small { font-family: var(--font-sans); font-size: var(--t-sm); font-weight: 400; color: var(--ink-3); }
+}
+
+.pub {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--rule);
+
+  &:last-child { border-bottom: 0; }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-md);
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+    a { color: var(--ink); }
+    a:hover { color: var(--link); }
+  }
+
+  &__authors {
+    font-size: var(--t-sm);
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin: 0;
+
+    // Members are picked out in blue rather than the site's green, because
+    // green is the link colour everywhere else and these are already links;
+    // colouring them green would make them read as ordinary references.
+    .is-member {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration-color: color-mix(in srgb, var(--blue) 40%, transparent);
+
+      &:hover {
+        color: var(--blue);
+        text-decoration-color: currentColor;
+      }
+    }
+  }
+
+  &__venue {
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+  }
+}
+
+// ─── Events ──────────────────────────────────────────────────────────────────
+
+.event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: var(--sp-5);
+  padding: var(--sp-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition: border-color 0.16s var(--ease), box-shadow 0.16s var(--ease);
+
+  &:hover { border-color: var(--rule-strong); box-shadow: var(--shadow-2); }
+
+  &.is-past { opacity: 0.72; }
+  &.is-past:hover { opacity: 1; }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  &__date {
+    text-align: center;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+    align-self: start;
+
+    @media (max-width: 560px) {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 0.2em 0.6em;
+      text-align: left;
+      justify-self: start;
+    }
+
+    .m {
+      display: block;
+      background: var(--surface-2);
+      font-size: var(--t-xs);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      padding: 0.25em 0;
+      @media (max-width: 560px) { background: none; padding: 0; }
+    }
+    .d {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: var(--t-xl);
+      font-weight: 600;
+      line-height: 1.3;
+      @media (max-width: 560px) { font-size: var(--t-base); line-height: 1; }
+    }
+    .y { display: block; font-size: var(--t-xs); color: var(--ink-3); padding-bottom: 0.35em;
+      @media (max-width: 560px) { padding: 0; } }
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 var(--sp-2);
+    a { color: var(--ink); text-decoration: none; }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-4);
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+    margin-bottom: var(--sp-3);
+    span { display: inline-flex; align-items: center; gap: 0.4em; }
+    svg { width: 0.9rem; height: 0.9rem; flex: none; }
+  }
+}
+
+// ─── News ────────────────────────────────────────────────────────────────────
+
+.newsitem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: var(--sp-5);
+  padding-block: var(--sp-5);
+  border-bottom: 1px solid var(--rule);
+
+  @media (max-width: 620px) { grid-template-columns: 1fr; gap: var(--sp-3); }
+
+  &__thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    @media (max-width: 620px) { width: 5rem; }
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-md);
+    font-weight: 600;
+    margin: 0.15em 0 var(--sp-2);
+    a { color: var(--ink); text-decoration: none; }
+  }
+
+  &__body { font-size: var(--t-base); color: var(--ink-2); }
+  &__body > :last-child { margin-bottom: 0; }
+}
+
+// ─── Accordion (accepted papers, FAQ) ────────────────────────────────────────
+
+.accordion {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow: hidden;
+
+  details + details { border-top: 1px solid var(--rule); }
+
+  summary {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    cursor: pointer;
+    list-style: none;
+    font-size: var(--t-base);
+    font-weight: 500;
+    color: var(--ink);
+    transition: background 0.14s var(--ease);
+
+    &::-webkit-details-marker { display: none; }
+    &:hover { background: var(--surface-2); }
+
+    &::after {
+      content: "+";
+      margin-left: auto;
+      font-family: var(--font-mono);
+      color: var(--ink-3);
+      flex: none;
+    }
+  }
+
+  details[open] > summary {
+    background: var(--surface-2);
+    &::after { content: "\2212"; }
+  }
+
+  &__n {
+    font-family: var(--font-mono);
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+    flex: none;
+    min-width: 1.6em;
+  }
+
+  &__panel {
+    padding: 0 var(--sp-5) var(--sp-5);
+    padding-left: calc(var(--sp-5) + 1.6em + var(--sp-3));
+    font-size: var(--t-base);
+    color: var(--ink-2);
+
+    @media (max-width: 620px) { padding-left: var(--sp-5); }
+    > :last-child { margin-bottom: 0; }
+  }
+}
+
+// ─── Steps (how to contribute) ───────────────────────────────────────────────
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-5);
+
+  > li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0 var(--sp-4);
+    margin: 0;
+
+    // The ::before counter takes column one; everything else belongs in column
+    // two. Without this, auto-placement drops the second child (the paragraph)
+    // into the 2.25rem counter column, where it wraps one word per line.
+    > * { grid-column: 2; }
+
+    &::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 1px solid var(--rule-strong);
+      background: var(--surface);
+      font-family: var(--font-serif);
+      font-size: var(--t-base);
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+  }
+
+  h3 { font-size: var(--t-md); margin: 0.25em 0 var(--sp-2); }
+  p  { font-size: var(--t-base); color: var(--ink-2); margin: 0 0 var(--sp-3); }
+}
+
+// ─── A closed call for contributions ─────────────────────────────────────────
+
+.cfp-closed {
+  // A plain paragraph with an inline tag, not a flex row: as a flex container
+  // the sentence after the tag becomes one anonymous item and wraps as a block,
+  // which stranded the last clause on its own line.
+  margin: 0 0 var(--sp-4);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+  color: var(--ink-3);
+
+  &__tag {
+    display: inline-block;
+    margin-right: 0.5em;
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--rust);
+    background: var(--rust-soft);
+    padding: 0.2em 0.5em;
+    border-radius: var(--radius-sm);
+  }
+}
+
+// A deadline that has passed is still worth showing, but should not read as
+// though it is still ahead.
+.deflist dd.is-past { color: var(--ink-3); }
+
+// ─── Publications, folded by year ────────────────────────────────────────────
+//
+// The same shape as the events archive. See the comment in publications.html
+// for why the list is folded at all.
+
+.pubyear {
+  border-top: 1px solid var(--rule);
+
+  &__summary {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+    padding: var(--sp-4) 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    font-weight: 600;
+    color: var(--ink);
+
+    &::-webkit-details-marker { display: none; }
+
+    // Drawn rather than a marker glyph, so it is identical in every browser.
+    &::before {
+      content: "";
+      flex: none;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-right: 2px solid var(--ink-3);
+      border-bottom: 2px solid var(--ink-3);
+      transform: rotate(-45deg);
+      transition: transform 0.2s var(--ease);
+    }
+    &:hover { color: var(--green); }
+  }
+
+  &[open] > &__summary::before { transform: rotate(45deg); }
+  &__n { font-family: var(--font-sans); font-size: var(--t-sm); font-weight: 400; color: var(--ink-3); }
+  &[open] { padding-bottom: var(--sp-5); }
+}

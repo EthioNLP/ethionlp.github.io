@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    {%- if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif -%}
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {%- if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif -%}
+    {%- if page.actions %}
+    <div class="row" style="margin-top: var(--sp-5)">
+      {%- for a in page.actions %}
+      <a class="btn {% unless forloop.first %}btn--ghost{% endunless %}" href="{{ a.url }}">{{ a.title }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    {% if page.prose %}<div class="prose">{{ content }}</div>{% else %}{{ content }}{% endif %}
+  </div>
+</div>

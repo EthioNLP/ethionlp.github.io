@@ -1,0 +1,241 @@
+---
+layout: default
+title: Coverage
+permalink: /languages/coverage/
+description: >-
+  Which Ethiopian languages have a dataset, a model or a paper, and which have
+  none recorded.
+---
+
+{%- assign cat = site.data.generated.catalog -%}
+{%- assign show_speakers = site.data.speakers_census.show_numbers -%}
+{%- assign hf = site.data.generated.huggingface -%}
+{%- comment -%}
+Tier-filtered, like every other place that says "the community's own". The
+figures in hf.totals count related-tier work too, which is not what the heading
+above this claims.
+{%- endcomment -%}
+{%- assign ours = hf.artifacts
+      | where: "breadth", "focused"
+      | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+{%- assign ours_models = ours | where: "kind", "model" | size -%}
+{%- assign ours_datasets = ours | where: "kind", "dataset" | size -%}
+{%- assign langs = cat.languages -%}
+{%- assign covered = cat.totals.with_artifacts -%}
+{%- assign uncovered = cat.totals.languages | minus: covered -%}
+{%- assign studied = 0 -%}
+{%- for l in langs %}{% if l.research_works and l.research_works > 0 %}{% assign studied = studied | plus: 1 %}{% endif %}{% endfor -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Languages</p>
+    <h1 class="page-head__title">Coverage by language</h1>
+    <p class="lede">
+      {%- comment -%}
+        Every figure in this sentence is counted from the data rather than
+        typed, because a hand-written breakdown of the exclusions does not stay
+        true. The categories overlap: a language can be both extinct and
+        unattested, so adding the buckets together overstates the total. The
+        sign language is recorded as living and so belongs inside the count,
+        not among the exclusions.
+      {%- endcomment -%}
+      {%- assign extinct = langs | where: "status", "extinct" | size -%}
+      {%- assign pidgins = langs | where: "family", "Pidgin" | size -%}
+      Ethiopia has more than 80 languages. The catalogue lists
+      {{ cat.totals.languages }} entries, every language Glottolog records for
+      the country, of which
+      {{ langs | where_exp: "l", "l.status == 'living' or l.status == 'endangered'" | size }}
+      are living or endangered. The remainder go beyond the familiar
+      "more than 80": {{ extinct }} extinct languages, {{ pidgins }} pidgins,
+      and a few whose classification or status Glottolog does not record.
+      <a href="{{ '/languages/#sources' | relative_url }}">Full method</a>.
+    </p>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2>Languages with a model or dataset</h2>
+      <p class="section-head__note">
+        Ethiopian languages with a model or dataset from this community, and
+        what each has. Papers are indexed works matching the language name;
+        a <abbr title="the language name over-matches in a plain text search, so the count is an upper bound">≈</abbr>
+        marks a count that over-matches.
+      </p>
+    </div>
+
+    {%- comment -%}
+    The per-language figures in catalog.yml come from hf.per_language, which is
+    not tier-filtered: it counts masakhane/*, textdetox/* and bigscience/mt0-*
+    alongside the community's own work. The heading above says "from this
+    community", so the counts are recomputed here from `ours` (focused breadth,
+    ethionlp or member tier) — the same filter /ecosystem/ uses. Amharic reads
+    22/9 rather than 24/12 as a result.
+    {%- endcomment -%}
+    {%- assign ours_m = ours | where: "kind", "model" -%}
+    {%- assign ours_d = ours | where: "kind", "dataset" -%}
+    <div class="table-scroll">
+      <table class="langtable">
+        <thead>
+          <tr>
+            <th scope="col">Language</th>
+            <th scope="col">Family</th>
+            <th scope="col" class="num">Models</th>
+            <th scope="col" class="num">Datasets</th>
+            <th scope="col" class="num">Papers</th>
+            {%- if show_speakers %}<th scope="col" class="num">Speakers</th>{% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {%- comment -%}
+          Matched on artifact_names, not on l.name: the artifacts spell Oromo
+          "Afaan Oromo" and Geez "Ge'ez", so joining on the catalogue name
+          alone silently dropped both languages out of this table. Each
+          artifact language string matches exactly one alias, so summing over
+          the list does not double-count.
+          {%- endcomment -%}
+          {%- for l in langs %}
+          {%- assign lm = 0 -%}
+          {%- assign ld = 0 -%}
+          {%- for alias in l.artifact_names -%}
+            {%- assign hm = ours_m | where_exp: "a", "a.languages contains alias" | size -%}
+            {%- assign hd = ours_d | where_exp: "a", "a.languages contains alias" | size -%}
+            {%- assign lm = lm | plus: hm -%}
+            {%- assign ld = ld | plus: hd -%}
+          {%- endfor -%}
+          {%- if lm > 0 or ld > 0 %}
+          <tr>
+            <th scope="row" class="langtable__name">
+              <span class="langtable__label">{{ l.name }}</span>
+              {%- if l.endonym %}<span class="langtable__endonym" lang="{{ l.iso }}">{{ l.endonym }}</span>{% endif -%}
+              {%- if l.iso %}<code class="langtable__iso">{{ l.iso }}</code>{% endif -%}
+            </th>
+            <td>{{ l.family }}</td>
+            <td class="num">{% if lm > 0 %}<span class="langtable__count">{{ lm }}</span>{% else %}<span class="muted">0</span>{% endif %}</td>
+            <td class="num">{% if ld > 0 %}<span class="langtable__count">{{ ld }}</span>{% else %}<span class="muted">0</span>{% endif %}</td>
+            <td class="num">
+              {%- if l.research_works -%}
+                {{ l.research_works }}{% unless l.count_reliable %}<abbr class="langtable__flag" title="Over-matches in a plain text search; read as an upper bound">≈</abbr>{% endunless %}
+              {%- else -%}<span class="muted">not recorded</span>{%- endif -%}
+            </td>
+            {%- if show_speakers %}
+            <td class="num">
+              {%- if l.speakers -%}
+                {%- if l.speakers >= 1000000 -%}{{ l.speakers | divided_by: 100000 | divided_by: 10.0 }}M
+                {%- else -%}{{ l.speakers | divided_by: 1000 }}k{%- endif -%}
+              {%- else -%}<span class="muted">not recorded</span>{%- endif -%}
+            </td>
+            {%- endif %}
+          </tr>
+          {%- endif %}
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="muted" style="margin-top: var(--sp-4)">
+      {{ covered }} of {{ cat.totals.languages }} catalogue entries.
+      Ge'ez is liturgical rather than spoken, and Wolaytta's coverage is a single
+      tokenizer, so the smaller counts here should be read with care.
+    </p>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2>Languages with research but no released resources</h2>
+      <p class="section-head__note">
+        Languages that have a research literature but no open model or
+        dataset. These are possible next targets.
+      </p>
+    </div>
+
+    {%- assign studied_only = langs
+          | where_exp: "l", "l.research_works > 0"
+          | where_exp: "l", "l.models == 0"
+          | where_exp: "l", "l.datasets == 0" -%}
+    <ul class="gaplist">
+      {%- for l in studied_only %}
+      <li class="gaplist__row">
+        <span class="gaplist__name">
+          {{ l.name }}
+          {%- if l.iso %}<code class="langtable__iso">{{ l.iso }}</code>{% endif -%}
+        </span>
+        <span class="gaplist__stat">
+          {{ l.research_works }} paper{% if l.research_works != 1 %}s{% endif %}
+          {%- unless l.count_reliable %}<abbr class="langtable__flag" title="Over-matches in a plain text search; read as an upper bound">≈</abbr>{% endunless %}
+        </span>
+        <span class="gaplist__stat">
+          {%- if show_speakers %}{%- if l.speakers -%}
+            {%- if show_speakers %}{%- if l.speakers >= 1000000 -%}{{ l.speakers | divided_by: 100000 | divided_by: 10.0 }}M speakers
+            {%- else -%}{{ l.speakers | divided_by: 1000 }}k speakers{%- endif -%}{% endif -%}
+          {%- else -%}speakers unrecorded{%- endif -%}{% endif -%}
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2>Languages with no model, dataset or indexed paper</h2>
+      <p class="section-head__note">
+        The ten with the largest recorded speaker populations. Those figures
+        are not shown at present, because the available sources are not good
+        enough to publish; the ordering still uses them.
+      </p>
+    </div>
+
+    {%- comment -%}
+    Two lists, deliberately. `nothing` is every language with nothing built and
+    nothing published, and is what the count below reports. `nothing_ranked`
+    adds the speaker filter, because the list is ordered by speaker population
+    and an entry with no figure cannot be placed in that order. Filtering the
+    count as well is what made this sentence say 31 when the answer was 85: the
+    catalogue holds 54 entries with no speaker figure at all.
+    {%- endcomment -%}
+    {%- assign nothing = langs
+          | where_exp: "l", "l.models == 0"
+          | where_exp: "l", "l.datasets == 0"
+          | where_exp: "l", "l.research_works == nil or l.research_works == 0" -%}
+    {%- assign nothing_ranked = nothing | where_exp: "l", "l.speakers > 0" -%}
+    <ul class="gaplist gaplist--quiet">
+      {%- for l in nothing_ranked limit: 10 %}
+      <li class="gaplist__row">
+        <span class="gaplist__name">
+          {{ l.name }}
+          {%- if l.iso %}<code class="langtable__iso">{{ l.iso }}</code>{% endif -%}
+        </span>
+        <span class="gaplist__stat">{{ l.family }}</span>
+        <span class="gaplist__stat">
+          {%- if show_speakers %}{%- if l.speakers >= 1000000 -%}{{ l.speakers | divided_by: 100000 | divided_by: 10.0 }}M speakers
+          {%- else -%}{{ l.speakers | divided_by: 1000 }}k speakers{%- endif -%}{% endif -%}
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="muted" style="margin-top: var(--sp-4)">
+      {{ nothing | size }} of the {{ cat.totals.languages }} languages in the
+      catalogue have nothing built and nothing published.
+      <a href="{{ '/languages/' | relative_url }}">See the full catalogue</a>.
+    </p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="prose">
+      <p>
+        Coverage counts work built <em>for</em> a language. A hundred-language
+        model that lists Amharic among its tags is not counted here; see
+        <a href="{{ '/ecosystem/related/' | relative_url }}">the note on multilingual work</a>
+        for why that distinction is kept.
+      </p>
+      <p><a href="{{ '/languages/' | relative_url }}">Back to the full catalogue →</a></p>
+    </div>
+  </div>
+</section>

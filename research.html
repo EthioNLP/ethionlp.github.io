@@ -1,0 +1,177 @@
+---
+layout: default
+title: Research
+permalink: /research/
+description: >-
+  The six tracks EthioNLP organises its work around, datasets, models,
+  applications, evaluation, capacity building and linguistics.
+---
+
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign gh = site.data.generated.github -%}
+{%- assign pubs = site.data.generated.publications.publications -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Research</p>
+    <h1 class="page-head__title">Research tracks</h1>
+    <p class="lede">
+      The tracks follow a sequence: text, then annotation, then a model, then
+      applications built on it, then evaluation, alongside the training of
+      people for each stage.
+    </p>
+  </div>
+</div>
+
+{%- for area in site.data.focus_areas -%}
+{%- comment -%}
+Same filter as /ecosystem/: focused breadth, ethionlp or member tier. Without
+it the "open resources" slots below filled with bigscience/mt0-small and
+masakhane/afrimgsm — the exact mistake /ecosystem/ documents at the top of the
+file — and the "All N resources" link counted every artifact plus repos
+against a destination page that renders neither.
+{%- endcomment -%}
+{%- assign ours = hf.artifacts
+      | where: "breadth", "focused"
+      | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+{%- assign arts = ours | where: "focus", area.key -%}
+{%- assign repos = gh.repos | where: "focus", area.key -%}
+{%- comment -%}
+Members carry `focus: []` by default; the real value is derived by
+derive_focus.py and reached through focus-of.html, exactly as /community/ does
+it. Filtering site.members on m.focus directly matched nobody, so this panel
+rendered on none of the six tracks.
+{%- endcomment -%}
+{%- comment -%}
+Canonical community order, the `order` field on each member file -- the same
+sequence /community/, /mentorship/ and people-ordered.html use. Iterating
+site.members unsorted gave Jekyll's own order, which for these files is their
+slug, so the panel read as an alphabetical list. Members imported rather than
+founded carry a high order number and so land at the end, which is where
+later joiners belong.
+{%- endcomment -%}
+{%- assign roster = site.members | sort: "order" -%}
+{%- assign people = "" | split: "" -%}
+{%- for m in roster -%}
+  {%- include focus-of.html m=m -%}
+  {%- if focus contains area.key -%}{%- assign people = people | push: m -%}{%- endif -%}
+{%- endfor -%}
+
+{%- assign alt = forloop.index0 | modulo: 2 -%}
+<section class="band{% if alt == 1 %} band--alt{% endif %}" id="{{ area.key }}">
+  <div class="wrap wrap--wide">
+    <div class="split split--sidebar">
+      <div>
+        <span class="focus__cell-icon" style="--focus-color: var(--{{ area.color }}); --focus-tint: var(--{{ area.color }}-soft); margin-bottom: var(--sp-4)">
+          {% include icon.html name=area.icon %}
+        </span>
+        <h2>{{ area.title }}</h2>
+        <p class="lede">{{ area.summary }}</p>
+
+        {%- if area.examples %}
+        <ul style="margin-top: var(--sp-4)">
+          {%- for ex in area.examples %}<li>{{ ex }}</li>{% endfor %}
+        </ul>
+        {%- endif %}
+
+        {%- if arts.size > 0 or repos.size > 0 %}
+        <h3 style="margin-top: var(--sp-6); font-size: var(--t-md)">Open resources in this track</h3>
+        <div class="grid grid--2 grid--tight">
+          {%- for a in arts limit: 4 %}{% include artifact-card.html a=a %}{% endfor %}
+          {%- for r in repos limit: 2 %}{% include repo-card.html r=r %}{% endfor %}
+        </div>
+        {%- comment -%}
+        Both halves of a track: what has been released, and what has been
+        written. The publications link carries the same ?track= the facet on
+        /publications/ reads, so the two stay in step.
+        {%- endcomment -%}
+        {%- assign track_pubs = site.data.generated.publications.publications
+              | where_exp: "p", "p.tracks contains area.key" -%}
+        {%- if track_pubs.size > 0 %}
+        <p style="margin-top: var(--sp-4)">
+          <a href="{{ '/publications/?track=' | append: area.key | relative_url }}">
+            {{ track_pubs | size }} paper{% unless track_pubs.size == 1 %}s{% endunless %} in {{ area.title | downcase }} →
+          </a>
+        </p>
+        {%- endif %}
+        {%- comment -%}
+        Repos are deliberately not added in: /ecosystem/ renders artifacts only,
+        so counting repositories here sent the reader to a page showing fewer
+        items than the link promised. Suppressed entirely at zero, which is what
+        evaluation, capacity and linguistics are — they each linked to
+        "Nothing matches those filters."
+        {%- endcomment -%}
+        {%- if arts.size > 0 %}
+        <p style="margin-top: var(--sp-4)">
+          <a href="{{ '/ecosystem/?focus=' | append: area.key | relative_url }}">
+            All {{ arts.size }} resource{% unless arts.size == 1 %}s{% endunless %} in {{ area.title | downcase }} →
+          </a>
+        </p>
+        {%- endif %}
+        {%- endif %}
+      </div>
+
+      <aside class="stack">
+        {%- if people.size > 0 %}
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Who works on this</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: var(--t-sm)">
+            {%- for m in people limit: 8 %}
+            <li style="margin-bottom: .45em"><a href="{{ m.url | relative_url }}">{{ m.name }}</a></li>
+            {%- endfor %}
+          </ul>
+          <div class="card__foot">
+            {%- comment -%}
+            The list is capped at 8, so say how many there are: otherwise a
+            track with 15 people looks like a track with 8, and the members at
+            the end of the canonical order are invisible from here.
+            {%- endcomment -%}
+            <a class="btn btn--sm btn--ghost btn--block" href="{{ '/community/?focus=' | append: area.key | relative_url }}">
+              {% if people.size > 8 %}See all {{ people.size }}{% else %}See all{% endif %}
+            </a>
+          </div>
+        </div>
+        {%- endif %}
+
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Joining this track</h3>
+          <div class="card__foot">
+            <a class="btn btn--sm btn--block" href="{{ '/join/' | relative_url }}">Get involved</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{%- endfor -%}
+
+<!-- ── Mission ───────────────────────────────────────────────────────────── -->
+<section class="band band--ink">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div>
+        <p class="eyebrow" style="color: rgba(252,251,249,.6)">Why EthioNLP</p>
+        <h2>Origins and goals</h2>
+        <p class="lede" style="color: rgba(252,251,249,.8)">
+          There are efforts throughout the world to conduct NLP for Ethiopian
+          languages, but without formal communication among researchers. At
+          COLING 2018 in Santa Fe, researchers from Addis Ababa
+          University, the University of Hamburg and the University of Trento
+          took the initiative to create a formal society for Ethiopian-language
+          NLP research.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size: var(--t-md)">Our goals</h3>
+        <ul style="color: rgba(252,251,249,.82)">
+          <li>Identify, prioritise and focus NLP research topics for Ethiopian languages.</li>
+          <li>Organise workshops, seminars and conferences for Ethiopic NLP research.</li>
+          <li>Join efforts among Ethiopian NLP researchers around the world.</li>
+          <li>Support and mentor students in NLP and data science research.</li>
+          <li>Coordinate resources for Ethiopian language research.</li>
+          <li>Collaborate with Ethiopian universities and assist education quality.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

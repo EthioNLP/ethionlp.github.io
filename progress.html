@@ -1,0 +1,213 @@
+---
+layout: default
+title: Progress
+permalink: /progress/
+description: >-
+  How NLP research on Ethiopian languages has grown since 2010, set beside four
+  widely-studied African languages.
+---
+
+{%- assign p = site.data.generated.progress -%}
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign years = p.years -%}
+{%- assign last_full = years | size | minus: 1 -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Progress · {{ years | first }}–{{ years | last }}</p>
+    <h1 class="page-head__title">Research output for Ethiopian languages</h1>
+    <p class="lede">
+      Published NLP research on four Ethiopian languages, counted and set
+      beside four widely-studied African languages measured by the same query
+      against the same source, alongside a timeline of milestones. The totals
+      are close, while the distribution across languages is uneven.
+    </p>
+  </div>
+</div>
+
+<!-- ── Headline numbers ──────────────────────────────────────────────────── -->
+<section class="band band--tight">
+  <div class="wrap wrap--wide">
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__value num">{{ p.totals.ethiopia_total }}</span>
+        <span class="stat__label">NLP papers on Ethiopian languages since {{ years | first }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ p.totals.ethiopia_growth }}×</span>
+        <span class="stat__label">growth, first three years to last three</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ p.totals.top_language_share }}%</span>
+        <span class="stat__label">of that is {{ p.totals.top_language }} alone</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ hf.totals.languages }}</span>
+        <span class="stat__label">Ethiopian languages with an EthioNLP model or dataset</span>
+        <span class="stat__note">of {{ site.data.generated.catalog.totals.languages }} in the catalogue</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── The comparison ────────────────────────────────────────────────────── -->
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">The comparison</p>
+      <h2>Volume and growth against four African languages</h2>
+      <p class="lede">
+        Across
+        the whole period the totals are close, {{ p.totals.ethiopia_total }}
+        papers against {{ p.totals.africa_total }}, so the gap is not simply a
+        continent-wide effect. The comparison group is growing faster:
+        it grew {{ p.totals.africa_growth }}× over the period against Ethiopia's
+        {{ p.totals.ethiopia_growth }}×, and in {{ p.totals.last_year }} the
+        Ethiopian four accounted for {{ p.totals.ethiopia_share_now }}% of the
+        pair.
+      </p>
+    </div>
+
+    {% include chart-line.html
+       series=p.chart.aggregate
+       labels=years
+       title="NLP papers per year"
+       subtitle="Indexed works classified under Natural Language Processing" %}
+  </div>
+</section>
+
+<!-- ── Per language ──────────────────────────────────────────────────────── -->
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Inside Ethiopia</p>
+      <h2>Concentration on Amharic</h2>
+      <p class="lede">
+        {{ p.totals.top_language_share }}% of the indexed NLP research on these
+        four languages is on {{ p.totals.top_language }}. Tigrinya, Afaan Oromo
+        and Somali share the remainder between them, and fourteen of the
+        {{ site.data.generated.catalog.totals.languages }} catalogue entries
+        have at least one indexed paper.
+      </p>
+    </div>
+
+    {% include chart-line.html
+       series=p.chart.ethiopian
+       labels=years
+       title="NLP papers per year, by Ethiopian language"
+       subtitle="Same source and method as above" %}
+
+    <div class="table-scroll" style="margin-top: var(--sp-6)">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Language</th>
+            <th class="num">{{ years | first }}</th>
+            <th class="num">{{ years[last_full] }}</th>
+            <th class="num">Total since {{ years | first }}</th>
+            <th>Group</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for s in p.series -%}
+          <tr>
+            <td>{{ s.label }}</td>
+            <td class="num">{{ s.points | first }}</td>
+            <td class="num">{{ s.points[last_full] }}</td>
+            <td class="num">{{ s.total }}</td>
+            <td>
+              <span class="badge badge--{% if s.track == 'ethiopia' %}green{% else %}gold{% endif %}">
+                {% if s.track == 'ethiopia' %}Ethiopia{% else %}comparison{% endif %}
+              </span>
+            </td>
+          </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Timeline ──────────────────────────────────────────────────────────── -->
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <h2>Milestones</h2>
+        <p class="lede">
+          EthioNLP milestones, interleaved with the AfricaNLP milestones the
+          community grew out of and contributes to. Each entry links to a source.
+        </p>
+      </div>
+      <div class="chart-legend">
+        <span><i style="background: var(--viz-1)"></i>Ethiopia</span>
+        <span><i style="background: var(--viz-2)"></i>Africa-wide</span>
+      </div>
+    </div>
+
+    {%- comment -%}
+    From the curated file, not from p.milestones. The generated copy is a
+    snapshot taken when sync_progress.py last ran, so a correction made in the
+    source data stays invisible on this page until the next sync.
+    {%- endcomment -%}
+    {%- assign milestones = site.data.milestones | sort: "year" | reverse -%}
+    <ol class="timeline">
+      {%- for m in milestones %}
+      <li data-track="{{ m.track }}">
+        <span class="timeline__year">{{ m.year }}</span>
+        <h3 class="timeline__title">
+          {%- if m.source -%}<a href="{{ m.source }}" rel="noopener">{{ m.title }}</a>{%- else -%}{{ m.title }}{%- endif -%}
+        </h3>
+        <p class="timeline__desc">{{ m.description }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+
+    <p class="chart__note" style="max-width: 60ch">
+      Add a milestone by appending to
+      <a href="https://github.com/{{ site.repository }}/blob/master/_data/milestones.yml"><code>_data/milestones.yml</code></a>.
+      Entries need a year, a track, a one-sentence description and a source URL.
+    </p>
+  </div>
+</section>
+
+<!-- ── Method ────────────────────────────────────────────────────────────── -->
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <h2>How these numbers are produced</h2>
+    <div class="prose">
+      <p>{{ p.method }}</p>
+      <p>
+        The intersection is what makes the count meaningful: an unfiltered
+        search for <em>Amharic</em> also returns clinical studies of
+        Amharic-speaking patients and sociolinguistic work, which would roughly
+        double the apparent figure without adding any NLP papers.
+      </p>
+      <p>Three limitations:</p>
+      <ul>
+        <li>
+          A paper is counted when the language name appears in its title or
+          abstract. Work that covers Ethiopian languages inside a
+          hundred-language multilingual benchmark, without naming them, is
+          missed.
+        </li>
+        <li>
+          OpenAlex indexes the ACL Anthology well but not perfectly, and local
+          Ethiopian venues and theses are largely absent, so the true figure is
+          higher than the one plotted, in both directions of the comparison.
+        </li>
+        <li>
+          The running year is excluded: it is incomplete, and OpenAlex
+          indexes in bursts, so including it produces a spike that is a
+          collection artefact rather than a finding.
+        </li>
+      </ul>
+      <p>
+        These figures come from one script,
+        <a href="https://github.com/{{ site.repository }}/blob/master/scripts/sync_progress.py"><code>scripts/sync_progress.py</code></a>,
+        and re-running it reproduces this page.
+      </p>
+      <p class="muted">Source: <a href="{{ p.source_url }}" rel="noopener">OpenAlex</a>. Generated {{ p.generated | date: "%-d %B %Y" }}.</p>
+    </div>
+  </div>
+</section>

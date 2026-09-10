@@ -1,0 +1,376 @@
+// ─── Language catalogue ──────────────────────────────────────────────────────
+
+// A waffle of one square per language. The point is the ratio, read at a
+// glance, before any table asks the reader to do arithmetic.
+.coverage {
+  display: grid;
+  gap: var(--sp-6);
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+
+  @media (min-width: 860px) { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1.15rem, 1fr));
+    gap: 0.3rem;
+  }
+
+  &__cell {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    background: var(--surface-3);
+    box-shadow: inset 0 0 0 1px var(--rule);
+
+    &.is-covered {
+      background: var(--green);
+      box-shadow: none;
+    }
+  }
+
+  &__stat {
+    font-family: var(--font-serif);
+    font-size: var(--t-3xl);
+    line-height: 1;
+    margin: 0 0 var(--sp-3);
+    color: var(--ink-3);
+
+    strong { color: var(--green); font-weight: 600; }
+  }
+
+  &__note {
+    margin: 0 0 var(--sp-4);
+    color: var(--ink-2);
+    font-size: var(--t-base);
+    line-height: 1.6;
+  }
+
+  &__key { margin: 0; display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+
+  &__swatch,
+  &__dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 2px;
+    background: var(--surface-3);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    &.is-covered { background: var(--green); box-shadow: none; }
+  }
+  &__dot { border-radius: 50%; }
+}
+
+// ─── Map ─────────────────────────────────────────────────────────────────────
+
+.langmap {
+  margin: 0;
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+  }
+
+  // The neighbouring countries are context, not content: they sit a shade off
+  // the background and carry no interaction.
+  &__neighbour {
+    fill: var(--surface-3);
+    fill-opacity: 0.55;
+    stroke: var(--rule);
+    stroke-width: 1;
+  }
+
+  &__country {
+    fill: var(--paper);
+    stroke: var(--rule-strong);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+  }
+
+  &__dot {
+    fill: var(--ink-3);
+    fill-opacity: 0.32;
+    stroke: var(--surface-2);
+    stroke-width: 1;
+    transition: fill-opacity 0.15s var(--ease);
+
+    &.is-covered { fill: var(--green); fill-opacity: 0.75; }
+    &:hover { fill-opacity: 1; }
+  }
+
+  &__cap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-3);
+  }
+}
+
+// ─── The table ───────────────────────────────────────────────────────────────
+
+.langtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-sm);
+
+  th, td {
+    text-align: left;
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  thead th {
+    // Deliberately not sticky. Pinned to the top of the viewport it painted
+    // over whatever row was beneath it, and because cell text sits at the top
+    // of its cell, a covered row looked blank rather than merely clipped. The
+    // first row, Oromo, is the one that sits under it at the natural landing
+    // position, so the largest language in the country appeared to be missing.
+    // A sticky header is worth something over a hundred rows; a row you cannot
+    // see at all is worth less.
+    background: var(--surface);
+    border-bottom: 2px solid var(--rule-strong);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    white-space: nowrap;
+
+    &[data-sort] {
+      cursor: pointer;
+      user-select: none;
+      &:hover { color: var(--ink); }
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 0.45em;
+        vertical-align: middle;
+        border-left: 3.5px solid transparent;
+        border-right: 3.5px solid transparent;
+        border-top: 4px solid currentColor;
+        opacity: 0.25;
+      }
+      &[aria-sort="ascending"]::after { opacity: 1; transform: rotate(180deg); }
+      &[aria-sort="descending"]::after { opacity: 1; }
+    }
+  }
+
+  tbody tr:hover { background: var(--surface-2); }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  &__name { font-weight: 400; }
+
+  &__label { display: block; color: var(--ink); font-weight: 600; }
+
+  &__endonym {
+    display: block;
+    font-family: var(--font-ethi);
+    color: var(--ink-2);
+    margin-top: 0.1rem;
+  }
+
+  &__iso {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--ink-3);
+    background: var(--surface-2);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+
+  &__sub {
+    display: block;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    margin-top: 0.1rem;
+  }
+
+  &__script { color: var(--ink-2); }
+
+  // Marks a count the source cannot be trusted to have got right.
+  &__flag {
+    margin-left: 0.15em;
+    color: var(--ink-3);
+    text-decoration: none;
+    cursor: help;
+  }
+
+  &__count {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    background: var(--green-soft);
+    color: var(--green);
+    font-weight: 600;
+    text-decoration: none;
+    &:hover { background: var(--green); color: var(--ink-inverse); }
+  }
+}
+
+// The people column expands in place rather than opening a dialog: the list is
+// short, and a reader comparing several languages should not have to close one
+// before opening the next.
+.langwho {
+  summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    background: var(--surface-2);
+    color: var(--ink-2);
+    font-weight: 600;
+
+    &::-webkit-details-marker { display: none; }
+    &:hover { background: var(--rule); color: var(--ink); }
+  }
+
+  &[open] summary { background: var(--green-soft); color: var(--green); }
+
+  .langpeople {
+    text-align: left;
+    max-width: 16rem;
+    margin-left: auto;
+  }
+}
+
+// ─── Gap lists ───────────────────────────────────────────────────────────────
+//
+// Languages named with the one or two numbers that matter for them. A waffle of
+// anonymous squares gave a ratio and nothing a reader could act on; these say
+// which language, and how much.
+
+.gaplist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+
+  &__row {
+    display: grid;
+    gap: 0.15rem var(--sp-4);
+    grid-template-columns: 1fr;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--rule);
+
+    @media (min-width: 640px) {
+      grid-template-columns: minmax(0, 1fr) max-content max-content;
+      align-items: baseline;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  &__stat {
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  // The "nothing at all" list is context rather than a call to action.
+  &--quiet &__name { font-weight: 400; color: var(--ink-2); }
+}
+
+// ─── Quantity bars ───────────────────────────────────────────────────────────
+//
+// A log-scaled bar behind each number. Widths are computed in
+// scripts/sync_catalog.py; see there for why the scale is what it is.
+
+.qbar {
+  display: block;
+  height: 3px;
+  width: var(--w, 0%);
+  margin: 0 0 0 auto;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--green) 45%, transparent);
+
+  &--papers { background: color-mix(in srgb, var(--blue) 45%, transparent); }
+}
+
+// ─── Expandable rows ─────────────────────────────────────────────────────────
+
+.langtable tbody tr[data-expand] { cursor: pointer; }
+
+.langtable__name.is-expandable {
+  position: relative;
+  padding-left: var(--sp-6);
+
+  // A disclosure triangle, drawn so it is identical in every browser.
+  &::before {
+    content: "";
+    position: absolute;
+    left: var(--sp-4);
+    top: 1.15em;
+    width: 0;
+    height: 0;
+    border-left: 5px solid currentColor;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    color: var(--ink-3);
+    transition: transform 0.18s var(--ease);
+    transform-origin: 25% 50%;
+  }
+
+  &[aria-expanded="true"]::before { transform: rotate(90deg); color: var(--green); }
+}
+
+.langtable tbody tr.is-open { background: var(--surface-2); }
+
+.langdetail {
+  background: var(--surface-2);
+
+  > td { padding: 0 var(--sp-4) var(--sp-5) var(--sp-6); }
+
+  &__grid {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+
+  &__h {
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--sp-3);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--sp-2);
+    font-size: var(--t-sm);
+
+    a { color: var(--ink-2); }
+    a:hover { color: var(--green); }
+  }
+}

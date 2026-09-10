@@ -1,0 +1,744 @@
+---
+layout: default
+title: Language catalogue
+permalink: /languages/
+needs_filter: true
+needs_compare: true
+description: >-
+  The languages of Ethiopia: family, speakers, script and what language
+  technology exists for each, with sources for each figure.
+---
+
+{%- assign cat = site.data.generated.catalog -%}
+{%- assign langs = cat.languages -%}
+{%- assign families = cat.families -%}
+{%- assign expertise = site.data.generated.expertise -%}
+{%- assign show_speaker_numbers = site.data.speakers_census.show_numbers -%}
+{%- assign ours_focused = site.data.generated.huggingface.artifacts
+      | where: "breadth", "focused"
+      | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+
+{%- comment -%}
+Every per-language figure below; the artifact counts, the map coordinates, is
+computed by scripts/sync_catalog.py and read straight off the record. Liquid
+cannot do floating-point arithmetic, and a name-based join in a template
+silently drops any language the two sources spell differently.
+{%- endcomment -%}
+{%- assign covered = cat.totals.with_artifacts -%}
+{%- assign uncovered = cat.totals.languages | minus: covered -%}
+{%- comment -%}
+Counted from the data rather than written into the copy, so the headline
+figures cannot drift away from the catalogue they describe.
+{%- endcomment -%}
+{%- assign living = langs | where_exp: "l", "l.status == 'living' or l.status == 'endangered'" | size -%}
+{%- assign extinct = langs | where: "status", "extinct" | size -%}
+{%- assign gen_families = 0 -%}
+{%- for f in families -%}
+  {%- unless f.name contains "Pidgin" or f.name contains "Unattested"
+        or f.name contains "Unclassifiable" or f.name contains "Sign" -%}
+    {%- assign gen_families = gen_families | plus: 1 -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign studied = 0 -%}
+{%- for l in langs %}{% if l.research_works and l.research_works > 0 %}{% assign studied = studied | plus: 1 %}{% endif %}{% endfor -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Catalogue</p>
+    <h1 class="page-head__title">The languages of Ethiopia</h1>
+    <p class="lede">
+      Ethiopia has more than 80 languages. This catalogue has
+      {{ cat.totals.languages }} entries, following Glottolog's wider
+      definition: {{ living }} living or endangered languages,
+      plus 6 extinct, 2 pidgins, 2 unattested and 2 unclassifiable varieties and
+      1 sign language, some of those counted in more than one of those
+      categories. Oromo's 3 varieties are folded into it rather than listed
+      separately. Counts elsewhere on this site are drawn from this list.
+      <a href="#sources">How the list is built</a>.
+    </p>
+
+    <ul class="statline">
+      <li><strong>{{ living }}</strong> living or endangered languages</li>
+      <li><strong>{{ cat.totals.languages }}</strong> entries in all</li>
+      <li><strong>{{ gen_families }}</strong> language families &amp; branches</li>
+      <li><strong>{{ covered }}</strong> with an EthioNLP model or dataset</li>
+      <li><strong>{{ cat.totals.with_iso }}</strong> with an ISO&nbsp;639-3 code</li>
+    </ul>
+  </div>
+</div>
+
+{%- comment -%} ── Pointers to the coverage and researcher pages ───────────── {%- endcomment -%}
+<section class="band band--tight">
+  <div class="wrap wrap--wide">
+    <div class="row">
+      <a class="btn" href="{{ '/languages/coverage/' | relative_url }}">
+        Coverage, {{ cat.totals.with_artifacts }} of {{ cat.totals.languages }} entries have anything
+      </a>
+      <a class="btn" href="{{ '/languages/researchers/' | relative_url }}">Who works on what</a>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Compare ──────────────────────────────────────────────────── {%- endcomment -%}
+{%- comment -%}
+A hundred rows of numbers is a reference, not a picture. This is the picture:
+pick a handful of languages and see their four figures side by side.
+
+The bars are scaled to the largest value *in the current selection*, not to the
+catalogue, because the question being asked here is "how do these compare with
+each other". Amharic against the catalogue maximum is a full bar and everything
+else is a sliver; Amharic against Tigrinya is a comparison. JavaScript does the
+rescaling on every change; the widths in the markup are scaled to the catalogue
+so the default selection still reads correctly with JavaScript off.
+{%- endcomment -%}
+{%- assign max_papers = langs | map: "research_works" | compact | sort | last | default: 1 -%}
+{%- comment -%}
+The maximum has to come from the same source as the values plotted against it.
+`langs | map: "speakers"` is the raw Wikidata column, while every bar below is
+drawn from speakers.html, which applies the 2007 census and the suppression
+list. Mixing the two scales a census numerator against a Wikidata denominator,
+which can put a bar past 100%. Recomputed here through the same include.
+{%- endcomment -%}
+{%- assign max_speakers = 1 -%}
+{%- for l in langs -%}
+  {%- include speakers.html l=l -%}
+  {%- if sp and sp > max_speakers %}{% assign max_speakers = sp %}{% endif -%}
+{%- endfor -%}
+{%- assign max_people = expertise.per_language | map: "count" | compact | sort | last | default: 1 -%}
+{%- comment -%}
+`l.models` / `l.datasets` in catalog.yml come from hf.per_language, which is
+not tier-filtered. The column here is labelled "EthioNLP", so it is recomputed
+from ours_focused, matched on artifact_names because the artifacts spell Oromo
+"Afaan Oromo" and Geez "Ge'ez". The counts come out lower than the raw column
+as a result, and match what /languages/coverage/ shows.
+{%- endcomment -%}
+{%- assign ours_m = ours_focused | where: "kind", "model" -%}
+{%- assign ours_d = ours_focused | where: "kind", "dataset" -%}
+{%- assign max_arts = 1 -%}
+{%- for l in langs -%}
+  {%- assign n = 0 -%}
+  {%- for alias in l.artifact_names -%}
+    {%- assign hm = ours_m | where_exp: "a", "a.languages contains alias" | size -%}
+    {%- assign hd = ours_d | where_exp: "a", "a.languages contains alias" | size -%}
+    {%- assign n = n | plus: hm | plus: hd -%}
+  {%- endfor -%}
+  {%- if n > max_arts %}{% assign max_arts = n %}{% endif -%}
+{%- endfor -%}
+
+<section class="band" id="compare">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Language comparison</h2>
+      <p class="section-head__note">
+        Four figures for any languages you pick. Opens on the {{ covered }}
+        with an EthioNLP model or dataset; add any of the other
+        {{ uncovered }}.
+      </p>
+    </div>
+
+    <div class="compare" data-compare>
+      {%- comment -%}
+      Hidden until JavaScript takes it over: without the script the checkboxes
+      would change nothing. The chart below stays, showing the default set.
+      {%- endcomment -%}
+      <div class="picker" data-compare-picker hidden>
+        <div class="picker__field">
+          <ul class="picker__chips" data-compare-chips aria-label="Selected languages"></ul>
+          <button class="picker__open" type="button" data-compare-open
+                  aria-expanded="false" aria-controls="compare-menu">
+            Add a language
+            <svg class="picker__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="picker__panel" id="compare-menu" data-compare-panel hidden>
+          <div class="picker__searchwrap">
+            <span class="picker__searchicon">{% include icon.html name="search" %}</span>
+            <input type="search" class="picker__search" data-compare-search
+                   placeholder="Search {{ cat.totals.languages }} entries"
+                   aria-label="Search languages to compare">
+          </div>
+          <div class="picker__list" data-compare-list role="group" aria-label="Languages">
+            {%- for l in langs -%}
+            {%- assign arts = 0 -%}
+        {%- for alias in l.artifact_names -%}
+          {%- assign hm = ours_m | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign hd = ours_d | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign arts = arts | plus: hm | plus: hd -%}
+        {%- endfor -%}
+            <label class="picker__opt" data-picker-opt
+                   data-search="{{ l.name }} {{ l.endonym }} {{ l.iso }} {{ l.family }}">
+              <input type="checkbox" value="{{ l.name | slugify }}"{% if arts > 0 %} checked{% endif %}>
+              <span class="picker__optname">{{ l.name }}</span>
+              {%- comment -%}
+              `> 0` rather than a plain truth test: Liquid counts zero as true,
+              so `if l.research_works` labels an unstudied language "0 papers".
+              {%- endcomment -%}
+              <span class="picker__optmeta">
+                {%- if arts > 0 -%}
+                  {{ arts }} released
+                {%- elsif l.research_works > 0 -%}
+                  {{ l.research_works }} paper{% unless l.research_works == 1 %}s{% endunless %}
+                {%- else -%}
+                  nothing yet
+                {%- endif -%}
+              </span>
+            </label>
+            {%- endfor -%}
+          </div>
+          <p class="picker__none" data-compare-none hidden>No language matches that.</p>
+        </div>
+      </div>
+
+      <div class="cmp" data-compare-chart>
+        {%- comment -%}
+        The headings double as the sort control. They are real buttons, so this
+        is reachable by keyboard; with JavaScript off they are inert labels,
+        which is what a heading is anyway.
+        {%- endcomment -%}
+        <div class="cmp__head">
+          <span class="cmp__headname">Language</span>
+          <button type="button" data-cmp-sort="speakers" aria-pressed="false">Speakers</button>
+          <button type="button" data-cmp-sort="papers" aria-pressed="true">Papers</button>
+          <button type="button" data-cmp-sort="artifacts" aria-pressed="false">EthioNLP</button>
+          <button type="button" data-cmp-sort="people" aria-pressed="false">Researchers</button>
+        </div>
+
+        {%- for l in langs -%}
+        {%- assign arts = 0 -%}
+        {%- for alias in l.artifact_names -%}
+          {%- assign hm = ours_m | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign hd = ours_d | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign arts = arts | plus: hm | plus: hd -%}
+        {%- endfor -%}
+        {%- assign who = expertise.per_language | where: "catalogue_name", l.name | first -%}
+        {%- assign people = who.count | default: 0 -%}
+        {%- include speakers.html l=l -%}
+        {%- assign pa = l.research_works | default: 0 -%}
+        <div class="cmp__row" data-cmp-row data-key="{{ l.name | slugify }}"
+             data-speakers="{{ sp }}" data-papers="{{ pa }}"
+             data-artifacts="{{ arts }}" data-people="{{ people }}"
+             {% unless arts > 0 %}hidden{% endunless %}>
+          <div class="cmp__name">
+            <a href="#{{ l.name | slugify }}">{{ l.name }}</a>
+            <span class="cmp__sub">{{ l.family }}{% if l.script %} &middot; {{ l.script | replace: " script", "" }}{% endif %}</span>
+          </div>
+
+          {%- comment -%}
+          Each metric is a bar and its number. The number is always shown, so a
+          bar too short to see is still readable, and a missing figure says so
+          rather than reading as a zero.
+          {%- endcomment -%}
+                    <div class="cmp__metric" data-metric="speakers" data-label="Speakers">
+            <span class="cmp__track"><span class="cmp__bar" style="--w: {% if sp > 0 %}{{ sp | times: 100 | divided_by: max_speakers | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+            {%- comment -%}
+            The bar and the sort use the figure; the digits are withheld until
+            there is a source worth quoting. See _data/speakers_census.yml.
+            Millions to one decimal, done in integers: Liquid has no float
+            arithmetic, so the tenths are carried whole and the point written in.
+            {%- endcomment -%}
+            <span class="cmp__val">
+              {%- if show_speaker_numbers -%}
+                {%- if sp > 0 -%}
+                  {%- if sp >= 10000000 -%}{{ sp | divided_by: 1000000 }}M
+                  {%- elsif sp >= 1000000 -%}
+                    {%- assign tenths = sp | divided_by: 100000 -%}
+                    {{ tenths | divided_by: 10 }}.{{ tenths | modulo: 10 }}M
+                  {%- elsif sp >= 1000 -%}{{ sp | divided_by: 1000 }}k
+                  {%- else -%}{{ sp }}{%- endif -%}
+                {%- else -%}<span class="muted">no figure</span>{%- endif -%}
+              {%- endif -%}
+            </span>
+          </div>
+
+          <div class="cmp__metric" data-metric="papers" data-label="Papers">
+            <span class="cmp__track"><span class="cmp__bar" style="--w: {% if pa > 0 %}{{ pa | times: 100 | divided_by: max_papers | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+            <span class="cmp__val">{% if pa > 0 %}{{ pa }}{% unless l.count_reliable %}<abbr title="This name over-matches in a plain text search, so the count is an upper bound.">&#8776;</abbr>{% endunless %}{% else %}<span class="muted">0</span>{% endif %}</span>
+          </div>
+
+          <div class="cmp__metric" data-metric="artifacts" data-label="EthioNLP">
+            <span class="cmp__track"><span class="cmp__bar" style="--w: {% if arts > 0 %}{{ arts | times: 100 | divided_by: max_arts | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+            <span class="cmp__val">
+              {%- if arts > 0 -%}
+              {%- comment -%}
+              ?q, not ?lang: the ecosystem page has no language facet, so a
+              ?lang= link landed there unfiltered. Its search does cover the
+              language names, in the artifacts' own spelling, which is what
+              artifact_names holds.
+              {%- endcomment -%}
+              <a href="{{ '/ecosystem/' | relative_url }}?q={{ l.artifact_names | first | uri_escape }}">{{ arts }}</a>
+              {%- else -%}<span class="muted">0</span>{%- endif -%}
+            </span>
+          </div>
+
+          <div class="cmp__metric" data-metric="people" data-label="Researchers">
+            <span class="cmp__track"><span class="cmp__bar" style="--w: {% if people > 0 %}{{ people | times: 100 | divided_by: max_people | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+            <span class="cmp__val">{% if people > 0 %}{{ people }}{% else %}<span class="muted">0</span>{% endif %}</span>
+          </div>
+        </div>
+        {%- endfor -%}
+
+        <p class="cmp__empty" data-compare-empty hidden>
+          No language is selected. Pick one above.
+        </p>
+      </div>
+
+      <p class="cmp__foot">
+        Bars are scaled to the largest value among the languages shown, so they
+        compare those languages with each other and not with the catalogue.
+        See <a href="#sources">where these figures come from</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Families ─────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">By family and branch</h2>
+      <p class="section-head__note">
+        Classification follows Glottolog. Cushitic and Omotic between them are
+        about half the list. Omotic languages have little research: apart
+        from Wolaytta, the Omotic entries here have paper counts below
+        ten. Languages with a model or a dataset are
+        marked; select any name for its full entry.
+      </p>
+    </div>
+
+    {%- comment -%}
+      Names rather than a bar per family. A bar would encode only what the
+      count beside it already states, and these counts are small enough to read
+      directly, so the width is better spent on the languages themselves: a
+      reader looking at "Ta-Ne-Omotic, 19, 1 covered" wants to know which
+      nineteen.
+
+      Within a family the covered ones lead, then the rest by paper count, so
+      the reading order matches the point being made about coverage.
+    {%- endcomment -%}
+    <dl class="famlist">
+      {%- for f in families -%}
+      {%- assign fam_langs = langs | where: "family", f.name | sort: "research_works" | reverse -%}
+      {%- assign fam_covered = 0 -%}
+      {%- for l in fam_langs -%}
+        {%- assign n = l.models | plus: l.datasets -%}
+        {%- if n > 0 %}{% assign fam_covered = fam_covered | plus: 1 %}{% endif -%}
+      {%- endfor -%}
+      <div class="famlist__row">
+        <dt class="famlist__name">
+          {{ f.name }}
+          <span class="famlist__sub">{{ f.count }} · {% if fam_covered > 0 %}{{ fam_covered }} covered{% else %}none covered{% endif %}</span>
+        </dt>
+        <dd class="famlist__langs">
+          {%- for pass in (1..2) -%}
+            {%- for l in fam_langs -%}
+              {%- assign n = l.models | plus: l.datasets -%}
+              {%- if pass == 1 and n == 0 %}{% continue %}{% endif -%}
+              {%- if pass == 2 and n > 0 %}{% continue %}{% endif -%}
+              <a class="famlist__lang{% if n > 0 %} is-covered{% endif %}"
+                 href="#{{ l.name | slugify }}"
+                 {% if n > 0 %}title="{{ l.name }}: {{ l.models }} models, {{ l.datasets }} datasets"{% endif %}>{{ l.name }}</a>
+            {%- endfor -%}
+          {%- endfor -%}
+        </dd>
+      </div>
+      {%- endfor -%}
+    </dl>
+  </div>
+</section>
+
+{%- comment -%} ── The full list ────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt" id="all">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">
+        All {{ cat.totals.languages }} entries, including extinct and signed
+      </h2>
+      <p class="section-head__note">
+        The full reference, in the same form as the comparison above. These
+        are separate languages, not dialects of each other;
+        <a href="#sources">why the count runs past “80+”</a>.
+      </p>
+      <p class="section-head__note">
+        Bars are scaled to the whole catalogue. Open a row for its sources,
+        its models and datasets, and who has published on it.
+      </p>
+    </div>
+
+    {%- comment -%}
+    The whole catalogue as one chart, before the list.
+
+    A hundred rows is a lot to scroll to learn one thing, and the one thing is
+    stark: a handful of entries have a model or dataset, a few more have a
+    paper, and the large majority have nothing. Numbering the bars rather than labelling them is what makes that
+    fit on a screen; the legend below carries the names, and either one opens
+    the full row.
+
+    Bars are models and datasets stacked. Papers are not added to the height,
+    because Amharic's 1248 would flatten every other bar to nothing; a language
+    with papers but no released resource gets a marker on the baseline instead,
+    so it is distinguishable from a true zero.
+    {%- endcomment -%}
+    {%- assign ranked = langs | sort: "models" | reverse -%}
+    {%- assign by_res = "" | split: "" -%}
+    {%- for l in langs -%}
+      {%- assign tot = l.models | plus: l.datasets -%}
+      {%- assign by_res = by_res | push: l -%}
+    {%- endfor -%}
+    {%- assign top_res = 1 -%}
+    {%- for l in langs -%}
+      {%- assign t = l.models | plus: l.datasets -%}
+      {%- if t > top_res %}{% assign top_res = t %}{% endif -%}
+    {%- endfor -%}
+
+    <figure class="rank" aria-labelledby="rank-cap">
+      <figcaption id="rank-cap" class="rank__cap">
+        Every entry, ordered by what has been released for it. Select a bar or a
+        name to open its row.
+      </figcaption>
+
+      <div class="rank__bars" role="list">
+        {%- assign ordered = langs | sort_natural: "name" -%}
+        {%- assign shown = 0 -%}
+        {%- for l in langs -%}
+        {%- assign res = l.models | plus: l.datasets -%}
+        {%- assign pa = l.research_works | default: 0 -%}
+        {%- assign shown = shown | plus: 1 -%}
+        <button class="rank__bar{% if res == 0 and pa > 0 %} rank__bar--paper{% endif %}"
+                type="button" role="listitem"
+                data-rank-open="{{ l.name | slugify }}"
+                data-sort-res="{{ res }}" data-sort-pa="{{ pa }}"
+                style="--models: {{ l.models | times: 100 | divided_by: top_res }}%; --datasets: {{ l.datasets | times: 100 | divided_by: top_res }}%"
+                title="{{ l.name }}: {{ l.models }} model{% unless l.models == 1 %}s{% endunless %}, {{ l.datasets }} dataset{% unless l.datasets == 1 %}s{% endunless %}, {{ pa }} paper{% unless pa == 1 %}s{% endunless %}">
+          <span class="rank__stack"><span class="rank__m"></span><span class="rank__d"></span></span>
+          <span class="rank__n">{{ shown }}</span>
+        </button>
+        {%- endfor -%}
+      </div>
+
+      <p class="rank__key">
+        <span><i class="rank__sw rank__sw--m"></i>Models</span>
+        <span><i class="rank__sw rank__sw--d"></i>Datasets</span>
+        <span><i class="rank__sw rank__sw--p"></i>Papers only, nothing released</span>
+        <span><i class="rank__sw rank__sw--0"></i>Nothing yet</span>
+      </p>
+
+      {%- comment -%}
+      Where a selected entry's detail appears. Filled by cloning the row's own
+      panel from the list below, so there is one copy of that markup and the
+      two cannot drift. Empty and hidden until something is chosen.
+      {%- endcomment -%}
+      <div class="rank__detail" hidden aria-live="polite"></div>
+
+      <ol class="rank__legend">
+        {%- for l in langs -%}
+        <li><button type="button" data-rank-open="{{ l.name | slugify }}">{{ l.name }}</button></li>
+        {%- endfor -%}
+      </ol>
+    </figure>
+
+    {%- comment -%}
+    A <details> rather than a script-driven toggle, so the list is still
+    reachable with JavaScript off, and so browser find-in-page can open it.
+    {%- endcomment -%}
+    <details class="disclosure">
+      <summary class="disclosure__summary">
+        Show the full list
+        <span class="disclosure__count">{{ cat.totals.languages }} entries</span>
+      </summary>
+
+    <div data-filter-root>
+      <div class="filterbar filterbar--inline">
+        <div class="search">
+          <span class="search__icon">{% include icon.html name="search" %}</span>
+          <input type="search" data-filter-search
+                 placeholder="Search by name, endonym, ISO code or region"
+                 aria-label="Search the language catalogue">
+          <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+            {% include icon.html name="close" %}
+          </button>
+        </div>
+
+        <div class="facet-group">
+          <span class="facet-group__label">Family</span>
+          <div class="facets">
+            {%- for f in families limit: 10 %}
+            <button class="facet" type="button" data-facet="family" data-value="{{ f.name | slugify }}" aria-pressed="false">
+              {{ f.name }}<span class="facet__count">{{ f.count }}</span>
+            </button>
+            {%- endfor %}
+          </div>
+        </div>
+
+        <div class="facet-group">
+          <span class="facet-group__label">Coverage</span>
+          <div class="facets">
+            <button class="facet" type="button" data-facet="coverage" data-value="covered" aria-pressed="false">
+              Has a model or dataset<span class="facet__count">{{ covered }}</span>
+            </button>
+            <button class="facet" type="button" data-facet="coverage" data-value="none" aria-pressed="false">
+              Nothing yet<span class="facet__count">{{ uncovered }}</span>
+            </button>
+          </div>
+        </div>
+
+        <span class="filter-status" data-filter-count data-noun="entries">{{ langs | size }} entries</span>
+      </div>
+
+      {%- comment -%}
+      The same chart as the comparison above, over the whole catalogue. It was a
+      table until it was not: the table put six numbers in a row and left the
+      reader to hold the scale in their head, which nobody does across a hundred
+      rows. The bars carry the scale instead.
+
+      Each row is a <details>, so opening one needs no JavaScript and the
+      keyboard gets it for free. Sorting does need JavaScript, and the list is
+      already in speaker order without it.
+      {%- endcomment -%}
+      <div class="cmp cmp--full" data-cmp-static>
+        <div class="cmp__head">
+          <span class="cmp__headname">Language</span>
+          <button type="button" data-cmp-sort="speakers" aria-pressed="true">Speakers</button>
+          <button type="button" data-cmp-sort="papers" aria-pressed="false">Papers</button>
+          <button type="button" data-cmp-sort="artifacts" aria-pressed="false">EthioNLP</button>
+          <button type="button" data-cmp-sort="people" aria-pressed="false">Researchers</button>
+        </div>
+
+        {%- for l in langs -%}
+        {%- assign arts = 0 -%}
+        {%- for alias in l.artifact_names -%}
+          {%- assign hm = ours_m | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign hd = ours_d | where_exp: "a", "a.languages contains alias" | size -%}
+          {%- assign arts = arts | plus: hm | plus: hd -%}
+        {%- endfor -%}
+        {%- assign who = expertise.per_language | where: "catalogue_name", l.name | first -%}
+        {%- assign people = who.count | default: 0 -%}
+        {%- include speakers.html l=l -%}
+        {%- assign pa = l.research_works | default: 0 -%}
+        {%- comment -%}
+        Joined on the names the artifacts themselves use, not on the catalogue
+        name. The two sources disagree for Oromo ("Afaan Oromo") and Geez
+        ("Ge'ez"); sync_catalog.py reconciles them for the counts and records
+        the raw names here so this list can be reconciled the same way.
+        {%- endcomment -%}
+        {%- assign lang_arts = "" | split: "" -%}
+        {%- for alias in l.artifact_names -%}
+          {%- assign hits = ours_focused | where_exp: "a", "a.languages contains alias" -%}
+          {%- assign lang_arts = lang_arts | concat: hits -%}
+        {%- endfor -%}
+        {%- assign lang_arts = lang_arts | uniq -%}
+        {%- comment -%}
+        The spelled-out figure for the facts panel; the bar beside it carries
+        the same number abbreviated. Millions to one decimal, done in integers:
+        Liquid has no float arithmetic, so the tenths are carried as a whole
+        number and the point is written in by hand. A trailing .0 is dropped.
+        {%- endcomment -%}
+        {%- capture speaker_text -%}
+          {%- if sp > 0 -%}
+            {%- if sp >= 1000000 -%}
+              {%- assign tenths = sp | divided_by: 100000 -%}
+              {{ tenths | divided_by: 10 }}
+              {%- assign frac = tenths | modulo: 10 -%}
+              {%- if frac > 0 %}.{{ frac }}{% endif %} million
+            {%- elsif sp >= 1000 -%}{{ sp | divided_by: 1000 }} thousand
+            {%- else -%}{{ sp }}{%- endif -%}
+          {%- endif -%}
+        {%- endcapture -%}
+
+        <details class="cmp__item" id="{{ l.name | slugify }}" data-filter-item data-cmp-item
+                 data-family="{{ l.family | slugify }}"
+                 data-coverage="{% if arts > 0 %}covered{% else %}none{% endif %}"
+                 data-speakers="{{ sp }}" data-papers="{{ pa }}"
+                 data-artifacts="{{ arts }}" data-people="{{ people }}"
+                 data-search="{{ l.name }} {{ l.endonym }} {{ l.iso }} {{ l.family }} {{ l.family_top }}">
+          <summary class="cmp__row">
+            <div class="cmp__name">
+              <span class="cmp__langname">
+                {{ l.name }}
+                {%- if l.endonym %}<span class="cmp__endonym" lang="{{ l.iso }}">{{ l.endonym }}</span>{% endif -%}
+              </span>
+              <span class="cmp__sub">
+                {{ l.family }}{% if l.script %} &middot; {{ l.script | replace: " script", "" }}{% endif %}
+                {%- if l.iso %} &middot; <code>{{ l.iso }}</code>{% endif -%}
+              </span>
+            </div>
+
+                        <div class="cmp__metric" data-metric="speakers" data-label="Speakers">
+            <span class="cmp__track"><span class="cmp__bar" style="--w: {% if sp > 0 %}{{ sp | times: 100 | divided_by: max_speakers | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+            {%- comment -%}
+            The bar and the sort use the figure; the digits are withheld until
+            there is a source worth quoting. See _data/speakers_census.yml.
+            Millions to one decimal, done in integers: Liquid has no float
+            arithmetic, so the tenths are carried whole and the point written in.
+            {%- endcomment -%}
+            <span class="cmp__val">
+              {%- if show_speaker_numbers -%}
+                {%- if sp > 0 -%}
+                  {%- if sp >= 10000000 -%}{{ sp | divided_by: 1000000 }}M
+                  {%- elsif sp >= 1000000 -%}
+                    {%- assign tenths = sp | divided_by: 100000 -%}
+                    {{ tenths | divided_by: 10 }}.{{ tenths | modulo: 10 }}M
+                  {%- elsif sp >= 1000 -%}{{ sp | divided_by: 1000 }}k
+                  {%- else -%}{{ sp }}{%- endif -%}
+                {%- else -%}<span class="muted">no figure</span>{%- endif -%}
+              {%- endif -%}
+            </span>
+          </div>
+
+            <div class="cmp__metric" data-metric="papers" data-label="Papers">
+              <span class="cmp__track"><span class="cmp__bar" style="--w: {% if pa > 0 %}{{ pa | times: 100 | divided_by: max_papers | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+              <span class="cmp__val">{% if pa > 0 %}{{ pa }}{% unless l.count_reliable %}<abbr title="This name over-matches in a plain text search, so the count is an upper bound.">&#8776;</abbr>{% endunless %}{% else %}<span class="muted">0</span>{% endif %}</span>
+            </div>
+
+            <div class="cmp__metric" data-metric="artifacts" data-label="EthioNLP">
+              <span class="cmp__track"><span class="cmp__bar" style="--w: {% if arts > 0 %}{{ arts | times: 100 | divided_by: max_arts | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+              <span class="cmp__val">{% if arts > 0 %}{{ arts }}{% else %}<span class="muted">0</span>{% endif %}</span>
+            </div>
+
+            <div class="cmp__metric" data-metric="people" data-label="Researchers">
+              <span class="cmp__track"><span class="cmp__bar" style="--w: {% if people > 0 %}{{ people | times: 100 | divided_by: max_people | at_least: 1 }}{% else %}0{% endif %}%"></span></span>
+              <span class="cmp__val">{% if people > 0 %}{{ people }}{% else %}<span class="muted">0</span>{% endif %}</span>
+            </div>
+          </summary>
+
+          {%- comment -%}
+          Rendered with the page rather than fetched, so it is in the HTML for
+          search and for anyone reading without JavaScript.
+          {%- endcomment -%}
+          <div class="cmp__detail">
+            <div class="langdetail__grid">
+              <div>
+                <h3 class="langdetail__h">Facts</h3>
+                <dl class="facts">
+                  {%- if l.family_top %}<dt>Branch</dt><dd>{{ l.family }}, {{ l.family_top }}</dd>{% endif -%}
+                  {%- if l.script %}<dt>Script</dt><dd>{{ l.script }}</dd>{% endif -%}
+                  {%- if l.status %}<dt>Status</dt><dd>{{ l.status }}</dd>{% endif -%}
+                  {%- if sp > 0 and show_speaker_numbers %}<dt>Speakers</dt><dd>{{ speaker_text | strip }}{% if sp_src %}, per the {{ sp_src }}{% endif %}{%- if sp_today > 0 %}<span class="croute__note">Roughly {{ sp_today | divided_by: 100000 | divided_by: 10.0 }} million on the same share of today's population, which is an estimate rather than a count.</span>{% endif -%}{% if sp_note %}<span class="croute__note">{{ sp_note }}</span>{% endif %}</dd>{% endif -%}
+                  {%- comment -%} Regions removed: the Wikidata-derived field
+                  put Sidaama, Hadiyya, Kafa, Gedeo, Hamer-Banna and eleven
+                  more in Oromia, and never once named Sidama, Central
+                  Ethiopia, South West Ethiopia, South Ethiopia or SNNPR. See
+                  the note in scripts/sync_catalog.py. {%- endcomment -%}
+                  {%- if l.includes %}<dt>Includes</dt><dd>{{ l.includes | join: ", " }}</dd>{% endif -%}
+                  {%- if l.glottocode %}<dt>Glottolog</dt>
+                  <dd><a href="https://glottolog.org/resource/languoid/id/{{ l.glottocode }}" rel="noopener">{{ l.glottocode }}</a></dd>{% endif -%}
+                </dl>
+              </div>
+
+              <div>
+                <h3 class="langdetail__h">Models and datasets</h3>
+                {%- if lang_arts.size > 0 %}
+                <ul class="langdetail__list">
+                  {%- for a in lang_arts limit: 8 %}
+                  <li><a href="{{ a.url }}" rel="noopener">{{ a.id }}</a> <span class="badge badge--outline">{{ a.kind }}</span></li>
+                  {%- endfor %}
+                  {%- if lang_arts.size > 8 %}
+                  <li><a href="{{ '/ecosystem/' | relative_url }}?q={{ l.artifact_names | first | uri_escape }}">and {{ lang_arts.size | minus: 8 }} more</a></li>
+                  {%- endif %}
+                </ul>
+                {%- else %}
+                <p class="muted">Nothing released for this language yet.</p>
+                {%- endif %}
+              </div>
+
+              <div>
+                <h3 class="langdetail__h">Who works on it</h3>
+                {%- if who and who.count > 0 %}
+                {%- include people-ordered.html people=who.people -%}
+                <ul class="langdetail__list">
+                  {%- for m in ordered %}
+                  <li><a href="{{ m.url | relative_url }}">{{ m.name }}</a></li>
+                  {%- endfor %}
+                </ul>
+                {%- else %}
+                <p class="muted">No member listed here has published on it.</p>
+                {%- endif %}
+              </div>
+            </div>
+          </div>
+        </details>
+        {%- endfor -%}
+      </div>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-5)">
+        <p>No languages match that.</p>
+      </div>
+    </div>
+    </details>
+  </div>
+</section>
+
+{%- comment -%} ── Provenance and contribution ──────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <h2 id="sources">Where these figures come from</h2>
+    <div class="prose">
+      <p>{{ cat.method }}</p>
+      <p>
+        <strong>Why this is more than the “80+” quoted elsewhere on the
+        site.</strong> That figure is the familiar one, from the census and from
+        Ethnologue, and it counts living indigenous languages. This table counts
+        Glottolog languoids, its own unit for a language variety, which is a
+        wider net: of the
+        {{ cat.totals.languages }} here, six are extinct, two are recorded only
+        as unattested, two are unclassifiable, two are pidgins and one is a sign
+        language. Those categories overlap, so they cover
+        {{ cat.totals.languages | minus: living }} rows rather than thirteen;
+        setting them aside leaves {{ living }} living or endangered languages,
+        which is what the catalogue's own status field gives.
+        Neither number is wrong; they count different things.
+      </p>
+      <p>
+        Two corrections are applied to the source data. ISO macrolanguages are
+        folded into one row rather than listed alongside their varieties: Oromo
+        appeared four times, once as the macrolanguage carrying the whole-language speaker figure and once for each of its three varieties. The
+        varieties are recorded on the macrolanguage instead. And a country
+        attribution is dropped where it is clearly wrong, which at present means
+        one entry: Adamawa Fulfulde, a language of Cameroon, Nigeria and Chad.
+        Cross-border languages with speakers inside Ethiopia, such as Nuer and
+        Sudanese Arabic, are kept.
+      </p>
+      <p>
+        <strong>Speaker figures are not shown at present.</strong> The available
+        sources are not good enough to publish: an independent check of the
+        Wikidata column found five of the fifteen largest figures wrong, one of
+        them sourced to a blog post, and several others were worldwide counts
+        rather than counts of speakers in Ethiopia. The alternative, the 2007
+        census, is citable but nearly two decades old, and Ethiopia's next
+        census has been postponed with no date. Ethnologue has current numbers
+        and its licence forbids republishing them. The column will be restored
+        when a reliable source is available.
+      </p>
+      <p>
+        The paper counts are indexed works matching the language name in a
+        title-and-abstract search, intersected with the natural-language-processing
+        concept. Short or ambiguous names (Afar, Kafa, Harari, Me'en) over-match
+        badly, and those are marked with a <abbr title="approximate">≈</abbr>.
+        Read them as upper bounds.
+      </p>
+      <ul>
+        {%- for s in cat.sources %}
+        <li><a href="{{ s.url }}" rel="noopener">{{ s.name }}</a></li>
+        {%- endfor %}
+      </ul>
+      <p class="muted">
+        Last built
+        {{ cat.generated | date: "%-d %B %Y" }}.
+      </p>
+
+      <h3>Correcting an entry</h3>
+      <p>
+        This file is generated, so corrections go upstream: fix the language in
+        <a href="https://glottolog.org/" rel="noopener">Glottolog</a> or
+        <a href="https://www.wikidata.org/" rel="noopener">Wikidata</a> and the next
+        sync picks it up, which helps other projects using those sources, not
+        just this page. For anything the upstream sources cannot express, or if a
+        language is missing entirely,
+        <a href="https://github.com/{{ site.repository }}/issues/new">open an issue</a>.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+# The two ways to belong to EthioNLP.
+#
+# The distinction is about who the community is accountable to, not about who
+# is welcome. Both categories join the same Telegram group, read the same
+# mailing list, come to the same events and are listed the same way in the
+# directory. What differs is that decisions about the direction of the
+# community (which languages get priority, what gets released and how) rest
+# with the people whose languages they are.
+#
+# This exists because "everyone is welcome" and "Ethiopians lead the work on
+# Ethiopian languages" are both true, and a site that states only the first
+# leaves the second to be inferred.
+
+note: >-
+  Both categories join the same groups and events. The difference is in who
+  decides the community's direction.
+
+categories:
+  - id: member
+    title: Member
+    who: >-
+      Ethiopians and Ethiopian diaspora, and anyone working extensively on
+      Ethiopian languages.
+    detail: >-
+      "Extensively" means a sustained body of work rather than one paper:
+      datasets, models, supervision, or years of linguistic fieldwork. Speakers
+      of Ethiopian languages are members whatever their field, and students
+      count from their first project.
+    rights:
+      - Listed in the community directory with a profile page
+      - A voice in what the community prioritises and publishes
+      - Can propose talks, mentor students and register a team
+    featured: true
+
+  - id: affiliate
+    title: Affiliate member
+    who: >-
+      Researchers, engineers and organisations elsewhere who work with this
+      community or want to support it.
+    detail: >-
+      Collaborators on a paper, people building multilingual systems that
+      include Ethiopian languages, and anyone who found this site and wants to
+      help. There is no quota and no waiting period.
+    rights:
+      - Listed in the directory, marked as an affiliate
+      - The same access to the groups, seminars, mailing list and events
+      - Can co-author, contribute data and code, and offer mentorship
+    featured: false

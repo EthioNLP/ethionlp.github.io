@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <ul class="breadcrumb">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/news/' | relative_url }}">News</a></li>
+    </ul>
+    <p class="eyebrow">{{ page.kind | default: "update" }} · {{ page.date | date: "%-d %B %Y" }}</p>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    {%- if page.image %}
+    <img src="{{ page.image | relative_url }}" alt=""
+         style="border-radius: var(--radius-lg); border: 1px solid var(--rule); margin-bottom: var(--sp-6); max-height: 22rem; object-fit: cover; width: 100%">
+    {%- endif %}
+    <div class="prose">
+      {{ content }}
+      {%- if page.link %}
+      <p><a class="btn" href="{{ page.link }}" rel="noopener">{{ page.link_text | default: "Read more" }}</a></p>
+      {%- endif %}
+    </div>
+  </div>
+</div>

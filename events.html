@@ -1,0 +1,247 @@
+---
+layout: default
+title: Events
+permalink: /events/
+needs_filter: true
+description: >-
+  Workshops, seminars, tutorials and hackathons across the EthioNLP community, and a standing monthly slot for anyone who wants to present their work.
+---
+
+{%- assign seminar = site.data.seminar -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign all = site.events | where_exp: "e", "e.draft != true" | sort: "start" -%}
+
+{%- assign upcoming = "" | split: "" -%}
+{%- assign open_slots = "" | split: "" -%}
+{%- assign past = "" | split: "" -%}
+{%- for e in all -%}
+  {%- assign finish = e.end | default: e.start | date: "%Y-%m-%d" -%}
+  {%- if finish >= today -%}
+    {%- if e.status == "open" -%}
+      {%- assign open_slots = open_slots | push: e -%}
+    {%- else -%}
+      {%- assign upcoming = upcoming | push: e -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- assign past = past | push: e -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign past = past | reverse -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Events</p>
+    <h1 class="page-head__title">Events and workshops</h1>
+    <p class="lede">
+      The community runs a monthly seminar, occasional tutorials and
+      hackathons, and a workshop series. These are open to attend, and speakers
+      are drawn from the community.
+    </p>
+    <div class="row" style="margin-top: var(--sp-5)">
+      <a class="btn btn--lg" href="{{ seminar.propose_url }}" rel="noopener">
+        {% include icon.html name="calendar" %} Propose a talk
+      </a>
+      <a class="btn btn--lg btn--ghost" href="{{ '/events/calendar.ics' | relative_url }}">
+        Subscribe to the calendar
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── The seminar ───────────────────────────────────────────────────────── -->
+<section class="band band--tight" id="seminar">
+  <div class="wrap wrap--wide">
+    <div class="split split--sidebar">
+      <div>
+        <p class="eyebrow">{{ seminar.cadence }} · {{ seminar.time }} {{ seminar.timezone }}</p>
+        <h2>{{ seminar.name }}</h2>
+        <p class="lede">{{ seminar.description }}</p>
+        <ul>
+          {%- for line in seminar.what_to_expect %}<li>{{ line }}</li>{% endfor %}
+        </ul>
+      </div>
+
+      <aside class="card">
+        <h3 class="card__title" style="font-size: var(--t-md)">Taking a slot</h3>
+        <p class="card__body">
+          Give a date and a title. You receive a pull request to review; a
+          GitHub account is all that is required.
+        </p>
+        <div class="card__foot">
+          <a class="btn btn--block" href="{{ seminar.propose_url }}" rel="noopener">Propose a talk</a>
+          <p class="muted" style="font-size: var(--t-xs); margin: var(--sp-3) 0 0">
+            No GitHub account? Mail
+            <a href="mailto:{{ site.email }}?subject=EthioNLP%20seminar%20slot">{{ site.email }}</a>
+            and someone will file it for you.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ── Open slots ────────────────────────────────────────────────────────── -->
+{%- if open_slots.size > 0 %}
+<section class="band band--tight band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Unclaimed</p>
+      <h2>Dates with no speaker yet</h2>
+      <p class="lede">Work in progress is welcome.</p>
+    </div>
+    <div class="grid grid--2">
+      {%- for e in open_slots %}{% include event-card.html e=e %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ── Everything else ───────────────────────────────────────────────────── -->
+<div data-filter-root>
+  <div class="filterbar">
+    <div class="wrap wrap--wide filterbar__inner">
+      <div class="search">
+        <span class="search__icon">{% include icon.html name="search" %}</span>
+        <input type="search" data-filter-search placeholder="Search events" aria-label="Search events">
+        <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+          {% include icon.html name="close" %}
+        </button>
+      </div>
+
+      <div class="facet-group" data-mode="single">
+        <span class="facet-group__label">When</span>
+        <div class="facets">
+          <button class="facet" type="button" data-facet="when" data-value="upcoming" aria-pressed="false">
+            Upcoming<span class="facet__count">{{ upcoming | size }}</span>
+          </button>
+          <button class="facet" type="button" data-facet="when" data-value="past" aria-pressed="false">
+            Past<span class="facet__count">{{ past | size }}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Kind</span>
+        <div class="facets">
+          {%- assign kinds = all | map: "kind" | uniq | sort -%}
+          {%- for k in kinds -%}
+          {%- assign n = all | where: "kind", k | size -%}
+          <button class="facet" type="button" data-facet="kind" data-value="{{ k }}" aria-pressed="false">
+            {{ k }}<span class="facet__count">{{ n }}</span>
+          </button>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <span class="filter-status" data-filter-count data-noun="events">{{ all | size }} event{% unless all.size == 1 %}s{% endunless %}</span>
+    </div>
+  </div>
+
+  <div class="band band--flush">
+    <div class="wrap wrap--wide">
+      {%- if upcoming.size > 0 %}
+      <h2 class="pub-year">Upcoming</h2>
+      <div class="grid grid--2" style="margin-bottom: var(--sp-7)">
+        {%- for e in upcoming %}{% include event-card.html e=e %}{% endfor %}
+      </div>
+      {%- endif %}
+
+      {%- comment -%}
+      The archive, grouped by year and collapsed.
+
+      Past events are the bulk of this page and they grow without limit, so
+      showing them all as cards means the two dates a visitor actually came for
+      are pushed under a wall of things that already happened. Each year is a
+      <details>, the most recent one open, everything older shut. No JavaScript
+      is needed to open them; filter.js opens any year containing a match so a
+      search still reaches inside.
+      {%- endcomment -%}
+      {%- if past.size > 0 %}
+      <h2 class="pub-year" id="archive">Archive</h2>
+      {%- assign years = past | map: "start" | map: "year" -%}
+      {%- assign year_list = "" | split: "" -%}
+      {%- for e in past -%}
+        {%- assign y = e.start | date: "%Y" -%}
+        {%- unless year_list contains y %}{% assign year_list = year_list | push: y %}{% endunless -%}
+      {%- endfor -%}
+
+      <div class="archive">
+        {%- for y in year_list -%}
+        {%- assign in_year = past | where_exp: "e", "e.start contains y" -%}
+        <details class="archive__year" data-filter-group {% if forloop.first %}open{% endif %}>
+          <summary class="archive__summary">
+            <span class="archive__y">{{ y }}</span>
+            <span class="archive__n">{{ in_year | size }} event{% if in_year.size != 1 %}s{% endif %}</span>
+          </summary>
+          <ul class="archive__list">
+            {%- for e in in_year %}{% include event-row.html e=e %}{% endfor %}
+          </ul>
+        </details>
+        {%- endfor -%}
+      </div>
+      {%- endif %}
+
+      {%- if all.size == 0 %}
+      <div class="empty">
+        <p>No events scheduled yet.</p>
+        <p><a href="{{ seminar.propose_url }}" rel="noopener">Propose one →</a></p>
+      </div>
+      {%- endif %}
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-6)">
+        <p>No events match those filters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── How to add one ────────────────────────────────────────────────────── -->
+<section class="band band--alt" id="propose">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Organisers</p>
+      <h2>Putting an event on this page</h2>
+      <p class="lede">By form, or by adding the file yourself.</p>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <h3>Event submission form</h3>
+          <p>
+            The issue form asks for a title, a date, a kind and a one-line
+            summary. A workflow turns your answers into the right file and opens
+            a pull request; a maintainer merges it and the event is live.
+          </p>
+          <a class="btn btn--sm" href="{{ seminar.propose_url }}" rel="noopener">Open the form</a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Adding the file yourself</h3>
+          <p>
+            Copy <code>_events/EXAMPLE-community-seminar.md</code>, rename it to
+            <code>_events/YYYY-MM-DD-your-slug.md</code>, delete the
+            <code>published: false</code> line and fill in the fields. Every field is
+            documented in that file. Only <code>title</code>, <code>kind</code>
+            and <code>start</code> are required.
+          </p>
+          <a class="btn btn--sm btn--ghost" href="https://github.com/{{ site.repository }}/blob/master/_events/EXAMPLE-community-seminar.md" rel="noopener">
+            {% include icon.html name="github" %} See the template
+          </a>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h3>Cancelling or changing an event</h3>
+          <p>
+            Edit the file. Set <code>status: cancelled</code> to keep it on the
+            record with a strike through it, or delete the file to remove it
+            entirely. Changing the date is changing one line, nothing else
+            references it.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

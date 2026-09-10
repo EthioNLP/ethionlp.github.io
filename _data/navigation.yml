@@ -1,0 +1,191 @@
+# The main navigation.
+#
+# Six top-level sections, each opening a menu on hover. The rule for what earns
+# a top-level slot: it is a place someone arrives wanting to go, not a thing
+# they discover on the way. Everything else lives one level down, where a menu
+# with a one-line description does a better job than a long page.
+#
+# `match` is the URL prefix that marks the current section. A parent is marked
+# current when any of its children match.
+main:
+  - title: About
+    url: /about/
+    match: /about
+
+  - title: Languages
+    url: /languages/
+    match: /languages
+    children:
+      - title: The catalogue
+        url: /languages/
+        match: /languages
+        note: Languages, with their sources
+      - title: Coverage
+        url: /languages/coverage/
+        match: /languages/coverage
+        note: What has a dataset, a model, a paper
+      - title: Who works on what
+        url: /languages/researchers/
+        match: /languages/researchers
+        note: Researchers mapped to languages
+
+  - title: Models & data
+    url: /ecosystem/
+    match: /ecosystem
+    children:
+      - title: By EthioNLP
+        url: /ecosystem/
+        match: /ecosystem
+        note: What this community built
+      - title: By the wider community
+        url: /ecosystem/related/
+        match: /ecosystem/related
+        note: Ethiopian-language work by others
+      - title: Code
+        url: /ecosystem/code/
+        match: /ecosystem/code
+        note: Repositories
+
+  - title: Research
+    url: /research/
+    match: /research
+    children:
+      - title: Research areas
+        url: /research/
+        match: /research
+        note: The six tracks we organise work around
+      - title: Publications by members
+        url: /publications/
+        match: /publications
+        note: Papers co-authored by listed members
+      - title: Publications by others
+        url: /publications/elsewhere/
+        match: /publications/elsewhere
+        note: Ethiopian-language research from outside the community
+      - title: Research projects
+        url: /projects/
+        match: /projects
+        note: Named work, who is on it, and what it produced
+      - title: Open thesis topics
+        url: /mentorship/#topics
+        note: BSc, MSc and PhD topics with a supervisor
+      - title: Progress dashboard
+        url: /progress/
+        match: /progress
+        note: Ethiopian-language research over sixteen years
+      - title: Datasets & models
+        url: /ecosystem/
+        note: The artifacts this community has released
+      - title: Add a paper
+        url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=add-resource.yml
+        note: Submit a dataset, model or paper through a form
+
+  - title: Community
+    url: /community/
+    match: /community
+    children:
+      - title: People
+        url: /community/
+        match: /community
+        note: Everyone listed here
+      - title: Teams & labs
+        url: /teams/
+        match: /teams
+        note: Groups whose output we track
+      - title: Communities we work with
+        url: /teams/#collaborators
+        note: Masakhane, HausaNLP and others
+      - title: Mentorship
+        url: /mentorship/
+        match: /mentorship
+        note: Mentors and open thesis topics
+      - title: Community standards
+        url: /standards/
+        match: /standards
+        note: Conduct, group rules and research ethics
+      - title: Join EthioNLP
+        url: /join/
+        match: /join
+        note: Membership, affiliate membership and how to be listed
+      - title: How to contribute
+        url: /contribute/
+        match: /contribute
+        note: Ways to contribute and the effort each takes
+
+  - title: Events
+    url: /events/
+    match: /events
+    children:
+      - title: Events & workshops
+        url: /events/
+        match: /events
+        note: Upcoming and past events
+      - title: News
+        url: /news/
+        match: /news
+        note: Announcements and coverage
+      - title: Share news
+        url: /news/submit/
+        match: /news/submit
+        note: Two sentences and a link
+      - title: Propose a talk
+        url: /events/#propose
+        note: Claim a seminar slot
+      - title: Gallery
+        url: /gallery/
+        match: /gallery
+        note: Photographs from the community
+
+footer:
+  explore:
+    - title: About EthioNLP
+      url: /about/
+    - title: Language catalogue
+      url: /languages/
+    - title: Research areas
+      url: /research/
+    - title: Models & datasets
+      url: /ecosystem/
+    - title: Publications
+      url: /publications/
+    - title: Work by others
+      url: /publications/elsewhere/
+    - title: Progress dashboard
+      url: /progress/
+  community:
+    - title: People
+      url: /community/
+    - title: Teams & collaborators
+      url: /teams/
+    - title: Mentorship
+      url: /mentorship/
+    - title: Events & workshops
+      url: /events/
+    - title: News
+      url: /news/
+    - title: Gallery
+      url: /gallery/
+  contribute:
+    - title: All the ways in
+      url: /contribute/
+    - title: Community standards
+      url: /standards/
+    - title: Join EthioNLP
+      url: /join/
+    - title: Share news
+      url: /news/submit/
+    - title: Propose a talk
+      url: /events/#propose
+    - title: Add a paper or model
+      url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=add-resource.yml
+    - title: Contributor guide
+      url: https://github.com/EthioNLP/ethionlp.github.io/blob/master/CONTRIBUTING.md
+  elsewhere:
+    - title: GitHub
+      url: https://github.com/EthioNLP
+    - title: Hugging Face
+      url: https://huggingface.co/EthioNLP
+    - title: LinkedIn group
+      url: https://www.linkedin.com/groups/10060447/
+    - title: Mailing list
+      url: https://groups.google.com/forum/#!forum/ethionlp/join

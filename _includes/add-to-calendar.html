@@ -1,0 +1,29 @@
+{%- comment -%}
+"Add to calendar" links for one event.
+
+Google Calendar takes an all-day range whose end is exclusive, so a one-day
+event on the 12th is 20260312/20260313. The .ics link points at the site-wide
+feed, which is the one users actually want to subscribe to, a single-event file
+would need its own generated page per event for no real gain.
+{%- endcomment -%}
+{%- assign e = include.e -%}
+{%- assign starts = e.start | date: "%Y%m%d" -%}
+{%- assign finish = e.end | default: e.start -%}
+{%- assign ends = finish | date: "%s" | plus: 86400 | date: "%Y%m%d" -%}
+{%- capture details -%}{{ e.summary | strip_newlines | truncate: 240 }}, {{ page.url | absolute_url }}{%- endcapture -%}
+
+<div class="row">
+  <a class="btn btn--ghost btn--sm" rel="noopener"
+     href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text={{ e.title | url_encode }}&amp;dates={{ starts }}/{{ ends }}&amp;details={{ details | url_encode }}&amp;location={{ e.location | default: 'Online' | url_encode }}">
+    {% include icon.html name="calendar" %} Google Calendar
+  </a>
+  <a class="btn btn--ghost btn--sm" href="{{ '/events/calendar.ics' | relative_url }}">
+    {% include icon.html name="download" %} Subscribe (.ics)
+  </a>
+  {%- if e.register %}
+  <a class="btn btn--sm" href="{{ e.register }}" rel="noopener">Register</a>
+  {%- endif %}
+  {%- if e.join_url %}
+  <a class="btn btn--sm" href="{{ e.join_url }}" rel="noopener">{% include icon.html name="link" %} Join online</a>
+  {%- endif %}
+</div>

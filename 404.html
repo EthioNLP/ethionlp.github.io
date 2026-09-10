@@ -1,4 +1,21 @@
 ---
+layout: default
+title: Page not found
 permalink: /404.html
-layout: 404
+sitemap: false
 ---
+<div class="band">
+  <div class="wrap wrap--wide" style="padding-block: var(--sp-8)">
+    <p class="eyebrow eyebrow--plain">404</p>
+    <h1>Page not found</h1>
+    <p class="lede">
+      The site was rebuilt and some old addresses moved. Try one of these.
+    </p>
+    <div class="row" style="margin-top: var(--sp-6)">
+      <a class="btn" href="{{ '/' | relative_url }}">Home</a>
+      <a class="btn btn--ghost" href="{{ '/community/' | relative_url }}">Community</a>
+      <a class="btn btn--ghost" href="{{ '/ecosystem/' | relative_url }}">Models &amp; datasets</a>
+      <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Publications</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,276 @@
+---
+layout: default
+title: Contribute
+permalink: /contribute/
+description: >-
+  The ways to add to EthioNLP, the effort each one takes, and what happens
+  after you submit.
+---
+
+{%- assign c = site.data.contribute -%}
+{%- assign ways = c.ways -%}
+{%- assign no_account = ways | where_exp: "w", "w.account == 'none'" -%}
+{%- assign form_ways = ways | where_exp: "w", "w.account != 'git'" -%}
+{%- assign file_ways = ways | where_exp: "w", "w.account == 'git'" -%}
+{%- assign cat = site.data.generated.catalog -%}
+{%- assign uncovered = cat.totals.languages | minus: cat.totals.with_artifacts -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Contribute</p>
+    <h1 class="page-head__title">How to contribute</h1>
+    <p class="lede">
+      The ways of adding to this site, with the time each one takes, the
+      account it needs, and what happens after you submit.
+    </p>
+
+    <ul class="statline">
+      <li><strong>{{ ways | size }}</strong> ways</li>
+      <li><strong>{{ form_ways | size }}</strong> are a form</li>
+      <li><strong>{{ no_account | size }}</strong> needs no account at all</li>
+      <li><strong>Reviewed</strong> before publishing</li>
+    </ul>
+  </div>
+</div>
+
+{%- comment -%} ── The directory ────────────────────────────────────────────── {%- endcomment -%}
+{%- comment -%}
+A table of "I want to…" first, because someone arriving here already knows what
+they want and is looking for where to click, not for an explanation. The
+explanations are below, and the reader who needs them will scroll.
+{%- endcomment -%}
+<section class="band band--tight">
+  <div class="wrap wrap--wide">
+    <div class="crouteindex">
+      {%- for r in ways -%}
+      <a class="crouteindex__item" href="#{{ r.id }}">
+        <span class="crouteindex__title">{{ r.title }}</span>
+        <span class="crouteindex__meta">{{ r.effort }}</span>
+      </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── How it works ─────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Forms and pull requests</h2>
+      <p class="section-head__note">
+        Which applies depends on what you are adding, not on how technical
+        you are.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card">
+        <h3 class="card__title">Through a form</h3>
+        <p>
+          You fill in a few fields. A workflow turns your answers into a
+          proposed change to the site, and a maintainer merges it.
+        </p>
+        <p>
+          Many of them are GitHub issue forms, which need a free account.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Through a pull request</h3>
+        <p>
+          If Git is something you already use, edit the files directly. It is
+          faster for changes the forms do not cover, and it is required for
+          changes to the code itself.
+        </p>
+        <p>
+          The <a href="{{ c.guide }}" rel="noopener">contributor guide</a> has
+          the local setup: two commands, and the site runs on your machine with
+          live reload.
+        </p>
+      </article>
+    </div>
+
+    <p class="prose" style="margin-top: var(--sp-6)">
+      In both cases <strong>a maintainer reviews the change before it is
+      published</strong>.
+    </p>
+  </div>
+</section>
+
+{%- comment -%} ── Every way in full ────────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Ways to contribute</h2>
+    </div>
+
+    {%- comment -%}
+    What each "Needs" value means, stated once rather than inside all ten
+    cards, which would be three sentences of boilerplate rendered ten times.
+    {%- endcomment -%}
+    <dl class="croute__legend">
+      {%- for a in c.accounts -%}
+      <div><dt>{{ a[1].label }}</dt><dd>{{ a[1].note }}</dd></div>
+      {%- endfor -%}
+    </dl>
+
+    <div class="croutes">
+      {%- for r in ways -%}
+      {%- assign acct = c.accounts[r.account] -%}
+      <article class="croute" id="{{ r.id }}">
+        <div class="croute__head">
+          <span class="croute__icon" aria-hidden="true">{% include icon.html name=r.icon %}</span>
+          <h3 class="croute__title">{{ r.title }}</h3>
+        </div>
+
+        <p class="croute__blurb">{{ r.blurb }}</p>
+
+        <dl class="croute__facts">
+          <dt>Takes</dt><dd>{{ r.effort }}</dd>
+          <dt>Needs</dt><dd>{{ acct.label }}</dd>
+        </dl>
+
+        <p class="croute__actions">
+          <a class="btn btn--primary btn--sm" href="{{ r.url | relative_url }}"{% if r.url contains '//' %} rel="noopener"{% endif %}>{{ r.action }}</a>
+          {%- if r.secondary %}
+          <a class="btn btn--sm" href="{{ r.secondary.url | relative_url }}">{{ r.secondary.title }}</a>
+          {%- endif %}
+          <a class="croute__docs" href="{{ c.guide }}{{ r.docs }}" rel="noopener">The long version</a>
+        </p>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── What happens next ────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt" id="what-happens">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">What happens after you submit</h2>
+      <p class="section-head__note">
+        The same four steps for every form.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h3>Your answers become a proposed change</h3>
+        <p>
+          A workflow reads the form and writes the file it describes, then opens
+          it as a pull request against this site. This is automatic and usually
+          takes under a minute.
+        </p>
+      </li>
+      <li>
+        <h3>A maintainer reads it</h3>
+        <p>
+          Usually within a few days. Questions come back in the same thread.
+        </p>
+      </li>
+      <li>
+        <h3>It is merged and the site rebuilds</h3>
+        <p>
+          Publishing is automatic on merge, so the change is live a few minutes
+          after a maintainer merges it.
+        </p>
+      </li>
+      <li>
+        <h3>From then on it is updated automatically</h3>
+        <p>
+          If you gave a Hugging Face, GitHub, Scholar or ORCID identifier, a
+          nightly sync picks up the work you publish afterwards.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+{%- comment -%} ── The things that stop people ──────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Common obstacles</h2>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card">
+        <h3 class="card__title">Without a GitHub account</h3>
+        <p>
+          Sharing news works over
+          <a href="{{ '/news/submit/' | relative_url }}">a plain web form, email
+          or Telegram</a>, none of which need one. For anything else, write to
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a> and a maintainer
+          will file it for you.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Unsure whether it is worth adding</h3>
+        <p>
+          {{ uncovered }} of the {{ cat.totals.languages }} catalogue entries
+          have no model or dataset, so a few thousand sentences in one of them
+          add a resource that does not yet exist. Negative results and
+          approaches that did not work are also in scope. Submit it and a
+          maintainer decides.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Early in your career</h3>
+        <p>
+          Many of the ways listed here do not depend on seniority. Fixing a
+          wrong affiliation, adding a paper the sync missed, or writing a caption
+          for a photograph all improve the site, and
+          <a href="{{ '/mentorship/' | relative_url }}">mentoring</a> is open to
+          those a step ahead of the person asking.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── House rules ──────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <h2 id="rules">What we ask</h2>
+    <div class="prose">
+      <p>
+        <strong>Only add people who have agreed to it.</strong> Being in an
+        organisation is not consent to appearing on a public website. Anyone
+        imported automatically is held unpublished until they confirm, and the
+        same standard applies to anything you submit: name a person only if they
+        are happy to be named. That covers photograph captions too.
+      </p>
+      <p>
+        <strong>Link to the thing, do not attach it.</strong> Publish a dataset
+        or a model where it belongs, on Hugging Face, Zenodo or a repository,
+        and give us the identifier. It then stays findable if this site is
+        withdrawn, and the nightly sync keeps its record current without manual
+        editing.
+      </p>
+      <p>
+        <strong>Say where a figure came from.</strong> Every number on this site
+        is meant to be traceable to a source. If you add one, add where it is
+        from, and prefer an upstream fix, in Glottolog or Wikidata, over a
+        correction that only helps this page.
+      </p>
+      <p>
+        <strong>Write plainly.</strong> Describe what a thing is and what it
+        contains, rather than why it matters. Everything on this site is
+        licensed
+        <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC&nbsp;BY&nbsp;4.0</a>,
+        so what you add is reusable by anyone.
+      </p>
+
+      <h3>Getting help</h3>
+      <p>
+        Ask on the
+        <a href="https://groups.google.com/forum/#!forum/ethionlp/join" rel="noopener">mailing list</a>
+        or open
+        <a href="https://github.com/{{ site.repository }}/issues/new" rel="noopener">an issue</a>.
+        A half-formed question is fine.
+      </p>
+    </div>
+  </div>
+</section>

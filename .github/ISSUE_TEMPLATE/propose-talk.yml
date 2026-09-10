@@ -1,0 +1,119 @@
+name: Propose a talk or event
+description: Book a seminar slot, or put a workshop, tutorial or hackathon on the calendar.
+title: "Event: "
+labels: ["event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The community seminar runs on the **second Thursday of each month at
+        17:00 EAT**, online. Nothing has to be finished, work in progress,
+        a thesis chapter; a dataset you are annotating and a model that is not
+        working yet are all exactly what the series is for.
+
+        Submitting this opens a pull request adding the event. You will be able
+        to review it before anything appears on the site.
+
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: What you would put on the first slide.
+      placeholder: Building a Ge'ez part-of-speech treebank from scratch
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - seminar
+        - workshop
+        - tutorial
+        - hackathon
+        - reading group
+        - conference
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: "YYYY-MM-DD. For the monthly seminar, pick a second Thursday, but any date that suits you is fine; we will find a slot."
+      placeholder: "2026-03-12"
+    validations:
+      required: true
+
+  - type: input
+    id: end_date
+    attributes:
+      label: End date
+      description: Only for events running more than one day. YYYY-MM-DD.
+      placeholder: "2026-03-14"
+
+  - type: input
+    id: time
+    attributes:
+      label: Start time
+      description: 24-hour, East Africa Time. Leave blank to use the standard 17:00 seminar slot.
+      placeholder: "17:00"
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: "\"Online\", or a venue for something in person."
+      placeholder: Online
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Two or three sentences. This is what people read when deciding whether to come.
+      placeholder: >-
+        Ge'ez has no annotated syntactic data. I will walk through the annotation
+        guidelines we wrote, what broke when we applied them to liturgical text,
+        and where we need help.
+    validations:
+      required: true
+
+  - type: input
+    id: speaker
+    attributes:
+      label: Speaker
+      description: Your name, or the name of whoever is presenting.
+      placeholder: Almaz Tesfaye
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: Speaker affiliation
+      placeholder: Bahir Dar University
+
+  - type: checkboxes
+    id: research
+    attributes:
+      label: Research tracks
+      options:
+        - label: Datasets & corpora
+        - label: Language models
+        - label: Applications
+        - label: Evaluation & benchmarks
+        - label: Capacity building
+        - label: Language & linguistics
+
+  - type: input
+    id: link
+    attributes:
+      label: Meeting or registration link
+      description: If you already have one. Otherwise the organisers will add it.
+      placeholder: https://meet.example.org/ethionlp
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Anything else
+      description: Schedule, prerequisites, links to read beforehand. Markdown.

@@ -1,0 +1,96 @@
+name: Confirm my listing
+description: >-
+  You were invited to appear on the EthioNLP site. Use this to say yes, and to
+  correct anything that is wrong.
+title: "Confirm: "
+labels: [join, confirm]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You are a member of the EthioNLP organisation on Hugging Face, so we have
+        your handle, but we have not published a profile for you, because nobody
+        should be listed as a member of a research community without being asked.
+
+        Fill this in and a maintainer will publish your profile. Everything except
+        your name is optional; the more you give, the more the site can keep
+        current on its own.
+
+        **Not interested?** Ignore this. Nothing is published, and we will not ask
+        again.
+
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+      description: As you want it shown.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: >-
+            I would like to be listed as a member of EthioNLP, with the details
+            below shown publicly on ethionlp.github.io.
+          required: true
+
+  - type: input
+    id: role
+    attributes:
+      label: Role
+      placeholder: PhD student
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: Affiliation
+      placeholder: Addis Ababa University
+
+  - type: input
+    id: huggingface
+    attributes:
+      label: Hugging Face
+      description: Confirm or correct the handle we have.
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub
+
+  - type: input
+    id: scholar
+    attributes:
+      label: Google Scholar
+      description: >-
+        This, or ORCID, is what lets the site keep your publication list current
+        without you touching it.
+
+  - type: input
+    id: orcid
+    attributes:
+      label: ORCID
+
+  - type: input
+    id: personal
+    attributes:
+      label: Personal site
+
+  - type: checkboxes
+    id: research
+    attributes:
+      label: Research tracks
+      options:
+        - label: Datasets & corpora
+        - label: Language models
+        - label: Applications
+        - label: Evaluation & benchmarks
+        - label: Capacity building
+        - label: Language & linguistics
+
+  - type: textarea
+    id: about
+    attributes:
+      label: A sentence or two about your work

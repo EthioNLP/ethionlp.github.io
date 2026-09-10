@@ -1,0 +1,71 @@
+{%- comment -%}
+The contribute band, rendered above the footer on every page.
+
+It is on every page because that is the honest reflection of how the site works:
+almost nothing here was put there by a maintainer, so the invitation belongs
+wherever a reader happens to be when they notice something missing or wrong.
+
+Four, no more. A list of ten reads as a wall and gets skipped; these four cover
+most of what people want to do, and each says what it costs before you click.
+The rest are one link away.
+
+Suppressed on /contribute/ itself, where it would be a smaller copy of the page
+it is sitting on.
+{%- endcomment -%}
+
+{%- assign c = site.data.contribute -%}
+{%- assign featured = c.ways | where: "featured", true -%}
+
+<aside class="cband" aria-labelledby="cband-title">
+  <div class="wrap wrap--wide">
+    <div class="cband__grid">
+      <div class="cband__pitch">
+        <p class="eyebrow">Contribute</p>
+        <h2 class="cband__title" id="cband-title">How to contribute to EthioNLP</h2>
+        <p class="cband__lede">
+          Members add the datasets, models, papers, events and news on this
+          site themselves. Most routes are a web form; one needs no account at
+          all. A maintainer reviews every submission before it is published.
+        </p>
+        <p class="cband__more">
+          <a class="btn btn--primary" href="{{ '/contribute/' | relative_url }}">
+            See all {{ c.ways | size }} ways
+          </a>
+        </p>
+      </div>
+
+      <ul class="cband__routes">
+        {%- for r in featured -%}
+        {%- assign acct = c.accounts[r.account] -%}
+        <li>
+          <a href="{{ r.url | relative_url }}"{% if r.url contains '//' %} rel="noopener"{% endif %}>
+            <span class="cband__icon" aria-hidden="true">{% include icon.html name=r.icon %}</span>
+            <span class="cband__text">
+              <span class="cband__route">{{ r.title }}</span>
+              <span class="cband__meta">{{ r.effort }} &middot; {{ acct.label }}</span>
+            </span>
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- comment -%}
+    The edit link points at the file this page was built from, not at the
+    repository root. "Improve this page" that lands you on a directory listing
+    is an invitation nobody can act on.
+    {%- endcomment -%}
+    <p class="cband__edit">
+      {%- if page.path -%}
+      <a href="https://github.com/{{ site.repository }}/edit/{{ c.branch }}/{{ page.path }}" rel="noopener">
+        {% include icon.html name="github" %} Edit this page
+      </a>
+      <span class="cband__file"><code>{{ page.path }}</code></span>
+      {%- else -%}
+      <a href="https://github.com/{{ site.repository }}" rel="noopener">
+        {% include icon.html name="github" %} The source of this site
+      </a>
+      {%- endif -%}
+    </p>
+  </div>
+</aside>

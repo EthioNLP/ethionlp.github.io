@@ -1,0 +1,75 @@
+name: Share community news
+description: >-
+  Something the community did that should be on the site, a talk, an award, an
+  event, a launch, a piece of press.
+title: "News: "
+labels: [news]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A weekly scan already picks up papers at the venues we watch and names
+        on public conference programmes. This form is for everything it cannot
+        see, and that includes **anything whose only record is a LinkedIn
+        post**. LinkedIn has no public API and cannot be read automatically, so
+        a person passing it on is the only route.
+
+  - type: input
+    id: title
+    attributes:
+      label: Headline
+      placeholder: EthioNLP members run an NLP tutorial at Addis Ababa University
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: When
+      description: YYYY-MM-DD, or YYYY-MM if the exact day does not matter.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of thing
+      options:
+        - Conference or workshop
+        - Talk or tutorial
+        - Award or recognition
+        - Release (dataset, model, tool)
+        - Press or media
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: body
+    attributes:
+      label: What happened
+      description: >-
+        Two or three sentences, written as you would want to read them. Who,
+        what, where, and why it matters.
+    validations:
+      required: true
+
+  - type: input
+    id: people
+    attributes:
+      label: Who was involved
+      description: Names, comma separated. They will be linked if they are listed on the site.
+
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: >-
+        The best public link, the event page, the paper, the post. A LinkedIn
+        URL is fine here; it is stored as a link and nothing is read from it.
+
+  - type: markdown
+    attributes:
+      value: |
+        A maintainer turns this into a news item. If you can attach a
+        photograph, drag it into this box; we will use it.

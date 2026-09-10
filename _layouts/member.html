@@ -1,0 +1,199 @@
+---
+layout: default
+---
+{%- assign m = page -%}
+{%- assign slug = page.slug -%}
+
+{%- comment -%} Everything this member is attached to, pulled from generated data. {%- endcomment -%}
+{%- assign pubs = site.data.generated.publications.publications | default: empty -%}
+{%- assign my_pubs = "" | split: "" -%}
+{%- for p in pubs -%}
+  {%- if p.members contains slug %}{% assign my_pubs = my_pubs | push: p %}{% endif -%}
+{%- endfor -%}
+
+{%- assign repos = site.data.generated.github.repos | default: empty -%}
+{%- assign my_repos = "" | split: "" -%}
+{%- for r in repos -%}
+  {%- if r.member == slug %}{% assign my_repos = my_repos | push: r %}{% endif -%}
+{%- endfor -%}
+
+{%- comment -%}
+Which languages this person works on. Derived by scripts/sync_expertise.py from
+their artifacts, papers and repositories, never declared by hand, so it cannot
+go stale or overstate.
+{%- endcomment -%}
+{%- assign expertise = site.data.generated.expertise.per_member | where: "slug", slug | first -%}
+
+{%- assign arts = site.data.generated.huggingface.artifacts | default: empty -%}
+{%- assign my_arts = "" | split: "" -%}
+{%- for a in arts -%}
+  {%- if a.member == slug %}{% assign my_arts = my_arts | push: a %}{% endif -%}
+{%- endfor -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <ul class="breadcrumb">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/community/' | relative_url }}">Community</a></li>
+      <li>{{ m.name }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    <div class="profile">
+      <div>
+        <h1 style="margin-bottom: var(--sp-2)">{{ m.name }}</h1>
+        <p class="lede" style="margin-bottom: var(--sp-5)">
+          {%- if m.role %}{{ m.role }}{% endif -%}
+          {%- if m.role and m.affiliation %} · {% endif -%}
+          {%- if m.affiliation %}{{ m.affiliation }}{% endif -%}
+        </p>
+
+        {%- include focus-of.html m=m -%}
+        {%- if focus.size > 0 %}
+        <div class="tag-row" style="margin-bottom: var(--sp-6)">
+          {%- for key in focus -%}
+            {%- assign area = site.data.focus_areas | where: "key", key | first -%}
+            {%- if area %}<a class="badge badge--{{ area.color }}" href="{{ '/research/#' | append: key | relative_url }}">{{ area.title }}</a>{% endif -%}
+          {%- endfor -%}
+        </div>
+        {%- endif %}
+
+        {%- if content != "" %}
+        <div class="prose" style="margin-bottom: var(--sp-7)">{{ content }}</div>
+        {%- endif %}
+
+        {%- if my_pubs.size > 0 or my_arts.size > 0 or my_repos.size > 0 %}
+        <div class="stats" style="margin-bottom: var(--sp-7)">
+          {%- if my_pubs.size > 0 %}
+          <div class="stat"><span class="stat__value">{{ my_pubs | size }}</span><span class="stat__label">publication{% unless my_pubs.size == 1 %}s{% endunless %}</span></div>
+          {%- endif %}
+          {%- if my_arts.size > 0 %}
+          <div class="stat"><span class="stat__value">{{ my_arts | size }}</span><span class="stat__label">{% if my_arts.size == 1 %}model or dataset{% else %}models &amp; datasets{% endif %}</span></div>
+          {%- endif %}
+          {%- if my_repos.size > 0 %}
+          <div class="stat"><span class="stat__value">{{ my_repos | size }}</span><span class="stat__label">repositor{% if my_repos.size == 1 %}y{% else %}ies{% endif %}</span></div>
+          {%- endif %}
+        </div>
+        {%- endif %}
+
+        {%- if my_arts.size > 0 %}
+        <h2>Models and datasets</h2>
+        <div class="grid grid--2 grid--tight" style="margin-bottom: var(--sp-7)">
+          {%- for a in my_arts %}{% include artifact-card.html a=a %}{% endfor %}
+        </div>
+        {%- endif %}
+
+        {%- if my_repos.size > 0 %}
+        <h2>Repositories</h2>
+        <div class="grid grid--2 grid--tight" style="margin-bottom: var(--sp-7)">
+          {%- for r in my_repos %}{% include repo-card.html r=r %}{% endfor %}
+        </div>
+        {%- endif %}
+
+        {%- if my_pubs.size > 0 %}
+        <h2>Publications</h2>
+        <div class="pubs">
+          <div>
+            {%- for p in my_pubs limit: 40 %}{% include pub-item.html p=p %}{% endfor %}
+          </div>
+        </div>
+        {%- if my_pubs.size > 40 %}
+        <p class="muted" style="margin-top: var(--sp-4)">
+          Showing 40 of {{ my_pubs | size }}.
+          <a href="{{ '/publications/' | relative_url }}?q={{ m.name | url_encode }}">See all on the publications page</a>.
+        </p>
+        {%- endif %}
+        {%- else %}
+        <div class="notice">
+          <p>No publications are linked to this profile yet. They appear automatically
+          once an <code>orcid</code>, <code>openalex</code>, <code>semantic_scholar</code>
+          or <code>dblp</code> identifier is added to
+          <a href="https://github.com/{{ site.repository }}/blob/master/_members/{{ slug }}.md">_members/{{ slug }}.md</a>.</p>
+        </div>
+        {%- endif %}
+      </div>
+      <aside class="profile__aside">
+        {% include avatar.html m=m dim="9rem" %}
+        {% include social-links.html m=m %}
+
+        {%- if expertise and expertise.languages.size > 0 %}
+        <div class="aside-block">
+          <h3 class="aside-block__title">Languages</h3>
+          <ul class="langchips">
+            {%- comment -%}
+            The anchor has to be the catalogue's slug, not this list's. The two
+            sources spell several languages differently — expertise.yml says
+            "Afaan Oromo", "Ge'ez" and "Sidama" where the catalogue says Oromo,
+            Geez and Sidamo — so slugifying the name here would produce anchors
+            with no target, and compare.js could not open the row. match_names
+            is the catalogue's own lowercased alias list, written by
+            sync_catalog.py for exactly this join. A language that still fails
+            to resolve renders as plain text rather than a dead link.
+            {%- endcomment -%}
+            {%- assign catalogue = site.data.generated.catalog.languages -%}
+            {%- for l in expertise.languages %}
+            {%- assign key = l.name | downcase -%}
+            {%- assign row = catalogue | where_exp: "c", "c.match_names contains key" | first -%}
+            <li>
+              {%- if row %}
+              <a href="{{ '/languages/' | relative_url }}#{{ row.name | slugify }}"
+                 title="{{ l.artifacts }} models or datasets, {{ l.papers }} papers, {{ l.repos }} repositories">
+                {{ l.name }}<span class="langchips__n">{{ l.total }}</span>
+              </a>
+              {%- else %}
+              <span title="{{ l.artifacts }} models or datasets, {{ l.papers }} papers, {{ l.repos }} repositories">
+                {{ l.name }}<span class="langchips__n">{{ l.total }}</span>
+              </span>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+          <p class="muted" style="font-size: var(--t-xs); margin: var(--sp-3) 0 0">
+            Counted from published work, not self-declared.
+          </p>
+        </div>
+        {%- endif %}
+        {%- assign sources = "" | split: "" -%}
+        {%- if m.orcid %}{% assign sources = sources | push: "ORCID" %}{% endif -%}
+        {%- if m.openalex %}{% assign sources = sources | push: "OpenAlex" %}{% endif -%}
+        {%- if m.semantic_scholar %}{% assign sources = sources | push: "Semantic Scholar" %}{% endif -%}
+        {%- if m.dblp %}{% assign sources = sources | push: "DBLP" %}{% endif -%}
+        {%- if sources.size > 0 %}
+        <p class="muted" style="font-size: var(--t-xs)">
+          Publications synced automatically from {{ sources | join: ", " }}.
+        </p>
+        {%- endif %}
+
+        {%- comment -%}
+        This is the profile's own edit route. There is no login on this site and
+        there cannot be one: GitHub Pages serves static files, so any password
+        it could check would be readable by everyone. GitHub is the
+        authentication instead. Whoever opens this link edits a proposal, and
+        only a maintainer merges it, which is the same guarantee a login would
+        give without a password to store or leak.
+        {%- endcomment -%}
+        <div class="card" style="margin-top: var(--sp-5)">
+          <h2 class="card__title" style="font-size: var(--t-md)">Is this you?</h2>
+          <p class="card__body">
+            Edit the page yourself. Everything here except the publications,
+            models and repositories comes from one short file, and the button
+            below opens it in GitHub with the changes staged as a proposal.
+          </p>
+          <p class="card__body">
+            To come off the site entirely, set <code>published: false</code> in
+            the same file, or ask a maintainer.
+          </p>
+          <div class="card__actions">
+            <a class="btn btn--sm btn--primary"
+               href="https://github.com/{{ site.repository }}/edit/{{ site.data.contribute.branch }}/{{ page.path }}"
+               rel="noopener">{% include icon.html name="github" %} Edit this profile</a>
+            <a class="btn btn--sm" href="{{ '/contribute/#member' | relative_url }}">What you can change</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

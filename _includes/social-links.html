@@ -1,0 +1,14 @@
+{%- comment -%}
+Profile links for a member. Usage: {% include social-links.html m=member %}
+Only the links that exist are rendered, an empty row is worse than none.
+{%- endcomment -%}
+{%- assign m = include.m -%}
+<div class="iconlinks person__links">
+  {%- if m.website %}<a href="{{ m.website }}" rel="noopener" title="Personal site" aria-label="{{ m.name }}, personal site">{% include icon.html name="globe" %}</a>{% endif -%}
+  {%- if m.github %}<a href="https://github.com/{{ m.github }}" rel="noopener" title="GitHub" aria-label="{{ m.name }} on GitHub">{% include icon.html name="github" %}</a>{% endif -%}
+  {%- if m.huggingface %}<a href="https://huggingface.co/{{ m.huggingface }}" rel="noopener" title="Hugging Face" aria-label="{{ m.name }} on Hugging Face">{% include icon.html name="huggingface" %}</a>{% endif -%}
+  {%- if m.scholar %}<a href="{{ m.scholar }}" rel="noopener" title="Google Scholar" aria-label="{{ m.name }} on Google Scholar">{% include icon.html name="scholar" %}</a>{% endif -%}
+  {%- if m.orcid %}<a href="https://orcid.org/{{ m.orcid }}" rel="noopener" title="ORCID" aria-label="{{ m.name }} on ORCID">{% include icon.html name="orcid" %}</a>{% endif -%}
+  {%- if m.linkedin %}<a href="{{ m.linkedin }}" rel="noopener" title="LinkedIn" aria-label="{{ m.name }} on LinkedIn">{% include icon.html name="linkedin" %}</a>{% endif -%}
+  {%- if m.twitter %}<a href="https://x.com/{{ m.twitter }}" rel="noopener" title="X" aria-label="{{ m.name }} on X">{% include icon.html name="twitter" %}</a>{% endif -%}
+</div>

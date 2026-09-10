@@ -1,0 +1,241 @@
+// ─── The contribute band ─────────────────────────────────────────────────────
+//
+// Sits above the footer on every page. It has to read as an invitation rather
+// than another navigation block, so it takes the tinted ground and a display
+// heading; but it also has to stay out of the way of the page it follows, which
+// is why it is four links and not a menu.
+
+.cband {
+  border-top: 1px solid var(--rule);
+  background: var(--green-soft);
+  padding-block: var(--sp-7);
+  margin-top: var(--sp-9);
+
+  // The footer immediately below has its own top margin; two stacked gaps read
+  // as a mistake.
+  + .site-footer { margin-top: 0; }
+}
+
+.cband__grid {
+  display: grid;
+  gap: var(--sp-6) var(--sp-8);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+
+  @media (max-width: 800px) { grid-template-columns: 1fr; }
+}
+
+.cband__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);
+  margin-bottom: var(--sp-3);
+}
+
+.cband__lede {
+  color: var(--ink-2);
+  max-width: 44ch;
+  margin-bottom: var(--sp-5);
+}
+
+.cband__more { margin: 0; }
+
+.cband__routes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-2);
+
+  li { margin: 0; }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--surface);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    color: var(--ink);
+    text-decoration: none !important;
+    transition: border-color 0.15s var(--ease), transform 0.15s var(--ease);
+
+    &:hover {
+      border-color: var(--green);
+      transform: translateX(2px);
+    }
+  }
+}
+
+.cband__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius);
+  background: var(--green-soft);
+  color: var(--green);
+  svg { width: 1.05rem; height: 1.05rem; }
+}
+
+.cband__text { display: grid; gap: 0.05rem; min-width: 0; }
+
+.cband__route { font-weight: 600; font-size: var(--t-sm); }
+
+.cband__meta {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+}
+
+.cband__edit {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin: var(--sp-6) 0 0;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--rule-strong);
+  font-size: var(--t-sm);
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--ink-2);
+    &:hover { color: var(--green); }
+    svg { width: 1rem; height: 1rem; }
+  }
+}
+
+.cband__file code {
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+  background: none;
+  padding: 0;
+}
+
+// ─── The contribute page ─────────────────────────────────────────────────────
+
+// The "I want to…" index. Dense on purpose: someone who already knows what they
+// came for should be able to see every option without scrolling.
+.crouteindex {
+  display: grid;
+  gap: var(--sp-2);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+
+.crouteindex__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none !important;
+  font-size: var(--t-sm);
+
+  &:hover { border-color: var(--green); background: var(--green-soft); }
+}
+
+.crouteindex__title { font-weight: 600; }
+
+.crouteindex__meta {
+  flex: none;
+  font-size: var(--t-xs);
+  color: var(--ink-3);
+}
+
+// The three "Needs" values explained once, above the grid.
+.croute__legend {
+  display: grid;
+  gap: var(--sp-3) var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  margin: 0 0 var(--sp-5);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-sm);
+
+  dt { font-weight: 600; color: var(--ink); }
+  dd { margin: 0; color: var(--ink-3); }
+}
+
+.croutes {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+}
+
+.croute {
+  display: grid;
+  align-content: start;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+
+  // Anchored from the index above, and the header is sticky.
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+  &:target { border-color: var(--green); box-shadow: var(--shadow-2); }
+}
+
+.croute__head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.croute__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius);
+  background: var(--green-soft);
+  color: var(--green);
+  svg { width: 1.15rem; height: 1.15rem; }
+}
+
+.croute__title {
+  font-size: var(--t-md);
+  margin: 0;
+}
+
+.croute__blurb {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+}
+
+// Label and value on one line each, so the two facts scan as a pair rather than
+// as prose. What each "Needs" value means is in the legend above the grid.
+.croute__facts {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0.35rem var(--sp-3);
+  margin: 0;
+  padding: var(--sp-3) 0;
+  border-block: 1px solid var(--rule);
+  font-size: var(--t-sm);
+
+  dt { color: var(--ink-3); }
+  dd { margin: 0; }
+}
+
+.croute__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-3);
+  margin: 0;
+}
+
+.croute__docs {
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  &:hover { color: var(--green); }
+}

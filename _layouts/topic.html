@@ -1,0 +1,124 @@
+---
+layout: default
+---
+{%- assign cfg = site.data.mentorship -%}
+{%- assign mentor = site.members | where: "slug", page.mentor | first -%}
+{%- assign lvl = cfg.levels | where: "key", page.level | first -%}
+{%- assign area = site.data.focus_areas | where: "key", page.area | first -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <ul class="breadcrumb">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/mentorship/' | relative_url }}">Mentorship</a></li>
+      <li>{{ page.title }}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    <div class="detail">
+      <article class="detail__main">
+        <p class="tag-row topic__tags">
+          <span class="badge badge--green">{{ lvl.label | default: page.level }}</span>
+          {%- if area %}<span class="badge badge--{{ area.color }}">{{ area.title }}</span>{% endif -%}
+          {%- for lang in page.languages %}<span class="badge badge--outline">{{ lang }}</span>{% endfor -%}
+          {%- if page.status != 'open' %}<span class="badge">{{ page.status }}</span>{% endif -%}
+        </p>
+
+        <h1 class="detail__title">{{ page.title }}</h1>
+
+        {%- if page.status != 'open' %}
+        <div class="callout callout--muted">
+          <p>
+            This topic is marked <strong>{{ page.status }}</strong>. It is kept
+            here because the description is still a fair statement of the gap, ask the mentor whether anything adjacent is free.
+          </p>
+        </div>
+        {%- endif %}
+
+        <div class="prose">{{ content }}</div>
+
+        <hr class="rule">
+
+        <div class="callout">
+          <h2 class="callout__title">Asking about this topic</h2>
+          <p>
+            Write to {% if mentor %}<a href="{{ mentor.url | relative_url }}">{{ mentor.name }}</a>{% else %}the community{% endif %}
+            and copy <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Say what you
+            have already read, what you can build today, and how much time you
+            have. Do not attach a CV unless asked.
+          </p>
+          <a class="btn btn--primary"
+             href="mailto:{{ site.email }}?subject={{ page.title | uri_escape }}">Enquire about this topic</a>
+        </div>
+      </article>
+
+      <aside class="detail__aside">
+        <div class="factbox">
+          <h2 class="factbox__title">Details</h2>
+          <dl class="facts">
+            {%- if lvl %}
+            <dt>Level</dt><dd>{{ lvl.label }}<span class="facts__note">{{ lvl.detail }}</span></dd>
+            {%- endif %}
+            {%- if page.effort %}<dt>Time</dt><dd>{{ page.effort }}</dd>{% endif %}
+            {%- if page.languages %}<dt>Languages</dt><dd>{{ page.languages | join: ", " }}</dd>{% endif %}
+            {%- if page.institutions %}<dt>Host</dt><dd>{{ page.institutions | join: ", " }}</dd>{% endif %}
+            {%- if page.posted %}<dt>Posted</dt><dd>{{ page.posted | date: "%B %Y" }}</dd>{% endif %}
+          </dl>
+        </div>
+
+        {%- if page.prerequisites %}
+        <div class="factbox">
+          <h2 class="factbox__title">Prerequisites</h2>
+          <ul class="ticks ticks--sm">
+            {%- for pre in page.prerequisites %}<li>{{ pre }}</li>{% endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+
+        {%- if mentor %}
+        <div class="factbox">
+          <h2 class="factbox__title">Mentor</h2>
+          <a class="mentor__who" href="{{ mentor.url | relative_url }}">
+            {% include avatar.html m=mentor dim="2.75rem" %}
+            <span>
+              <span class="mentor__name">{{ mentor.name }}</span>
+              {%- if mentor.affiliation %}<span class="mentor__aff">{{ mentor.affiliation }}</span>{% endif -%}
+            </span>
+          </a>
+          {%- if mentor.mentoring_note %}<p class="mentor__note">{{ mentor.mentoring_note }}</p>{% endif %}
+        </div>
+        {%- endif %}
+      </aside>
+    </div>
+  </div>
+</div>
+
+{%- assign siblings = site.topics | where: "status", "open" -%}
+{%- if siblings.size > 1 %}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head"><h2 class="section-head__title">Other open topics</h2></div>
+    <ul class="topic-list">
+      {%- for t in siblings limit: 4 -%}
+      {%- if t.url != page.url -%}
+      {%- assign tm = site.members | where: "slug", t.mentor | first -%}
+      {%- assign tl = cfg.levels | where: "key", t.level | first -%}
+      <li class="topic">
+        <div class="topic__main">
+          <p class="tag-row topic__tags"><span class="badge badge--green">{{ tl.label | default: t.level }}</span></p>
+          <h3 class="topic__title"><a href="{{ t.url | relative_url }}">{{ t.title }}</a></h3>
+          <p class="topic__meta">{% if tm %}<span>Mentor: {{ tm.name }}</span>{% endif %}{% if t.effort %}<span>{{ t.effort }}</span>{% endif %}</p>
+        </div>
+        <a class="topic__go" href="{{ t.url | relative_url }}" aria-hidden="true" tabindex="-1">
+          {% include icon.html name="arrow" %}
+        </a>
+      </li>
+      {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{%- endif %}

@@ -1,3 +1,169 @@
 ---
-layout: publications
+layout: default
+title: Publications
+permalink: /publications/
+needs_filter: true
+description: >-
+  Papers by EthioNLP members, collected automatically from OpenAlex, Semantic
+  Scholar, DBLP and the ACL Anthology.
 ---
+
+{%- assign data = site.data.generated.publications -%}
+{%- assign pubs = data.publications -%}
+{%- assign meta = site.data.generated.meta -%}
+{%- assign years = data.totals.years -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Publications</p>
+    <h1 class="page-head__title">{{ data.totals.publications }} papers by community members</h1>
+    <p class="lede">
+      Gathered automatically from OpenAlex, Semantic Scholar and DBLP for every
+      member who has declared an identifier, then deduplicated by title, DOI
+      and arXiv id, and merged with hand-curated entries. {{ data.totals.ethiopian }} of them are
+      directly about Ethiopian languages.
+    </p>
+    {%- if meta.sources.publications %}
+    <p class="muted" style="font-size: var(--t-sm)">
+      Last synced {{ meta.sources.publications | date: "%-d %B %Y" }}.
+      Something missing or wrong? Add it to
+      <a href="https://github.com/{{ site.repository }}/blob/master/_data/publications_manual.yml"><code>_data/publications_manual.yml</code></a>.
+    </p>
+    {%- endif %}
+  </div>
+</div>
+
+<div data-filter-root>
+  <div class="filterbar">
+    <div class="wrap wrap--wide filterbar__inner">
+      <div class="search">
+        <span class="search__icon">{% include icon.html name="search" %}</span>
+        <input type="search" data-filter-search placeholder="Search titles, authors and venues"
+               aria-label="Search publications">
+        <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+          {% include icon.html name="close" %}
+        </button>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Scope</span>
+        <div class="facets">
+          <button class="facet" type="button" data-facet="scope" data-value="ethiopian" aria-pressed="false">
+            Ethiopian languages<span class="facet__count">{{ data.totals.ethiopian }}</span>
+          </button>
+        </div>
+      </div>
+
+      {%- comment -%}
+      By research track, the same six the site is organised around. The tracks
+      are assigned by scripts/classify_publications.py from keywords in the
+      title, venue and abstract; a paper can sit in several, and one that
+      matches nothing is left out of these counts rather than forced into the
+      nearest bucket.
+      {%- endcomment -%}
+      <div class="facet-group">
+        <span class="facet-group__label">Research track</span>
+        <div class="facets">
+          {%- for area in site.data.focus_areas -%}
+          {%- assign in_track = pubs | where_exp: "p", "p.tracks contains area.key" -%}
+          {%- if in_track.size > 0 %}
+          <button class="facet" type="button" data-facet="track" data-value="{{ area.key }}" aria-pressed="false">
+            {{ area.title }}<span class="facet__count">{{ in_track | size }}</span>
+          </button>
+          {%- endif -%}
+          {%- endfor %}
+        </div>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Type</span>
+        <div class="facets">
+          {%- for t in data.by_type -%}
+          {%- if t.count > 2 %}
+          <button class="facet" type="button" data-facet="type" data-value="{{ t.type }}" aria-pressed="false">
+            {{ t.type | replace: '-', ' ' }}<span class="facet__count">{{ t.count }}</span>
+          </button>
+          {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <span class="filter-status" data-filter-count data-noun="papers">{{ pubs | size }} papers</span>
+    </div>
+  </div>
+
+  <div class="band band--flush">
+    <div class="wrap wrap--wide">
+      <div class="pubs">
+        {%- for year in years -%}
+        {%- assign in_year = pubs | where: "year", year -%}
+        {%- if in_year.size > 0 %}
+        {%- comment -%}
+        Folded by year. Unfolded, 256 papers made this page 56,000px tall, which
+        is not a page anyone reaches the bottom of. The two most recent years
+        open on arrival; filter.js already opens any closed group that contains
+        a search match and re-closes it when the search clears, so folding costs
+        nothing in findability.
+        {%- endcomment -%}
+        <details class="pubyear" data-filter-group {% if forloop.index <= 2 %}open{% endif %}>
+          <summary class="pubyear__summary" id="y{{ year }}">
+            <span class="pubyear__y">{{ year }}</span>
+            <span class="pubyear__n">{{ in_year | size }} paper{% if in_year.size != 1 %}s{% endif %}</span>
+          </summary>
+          {%- for p in in_year %}{% include pub-item.html p=p %}{% endfor %}
+        </details>
+        {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign undated = pubs | where_exp: "p", "p.year == nil" -%}
+        {%- if undated.size > 0 %}
+        <details class="pubyear" data-filter-group>
+          <summary class="pubyear__summary">
+            <span class="pubyear__y">Undated</span>
+            <span class="pubyear__n">{{ undated | size }}</span>
+          </summary>
+          {%- for p in undated %}{% include pub-item.html p=p %}{% endfor %}
+        </details>
+        {%- endif %}
+      </div>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-6)">
+        <p>No papers match those filters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div>
+        <h2 style="font-size: var(--t-xl)">How this list stays current</h2>
+        <p>
+          Each member file in <code>_members/</code> can carry an
+          <code>orcid</code>, <code>openalex</code>, <code>semantic_scholar</code>
+          or <code>dblp</code> identifier. A nightly job queries each of those,
+          merges the results by normalised title, and marks any author who is a
+          member so their name links to their profile.
+        </p>
+        <p>
+          {{ data.totals.members_covered }} of {{ site.members | size }} members
+          currently have an identifier. Adding one is a two-line change.
+        </p>
+      </div>
+      <div>
+        <h2 style="font-size: var(--t-xl)">Correcting an entry</h2>
+        <p>
+          Indexes sometimes record venues incorrectly, and they rarely carry
+          links to datasets, models or code. Anything you put in
+          <code>_data/publications_manual.yml</code> takes precedence over the
+          fetched version, matched on the title, so a correction survives the
+          next sync.
+        </p>
+        <a class="btn btn--ghost" href="https://github.com/{{ site.repository }}/blob/master/_data/publications_manual.yml" rel="noopener">
+          {% include icon.html name="github" %} Edit the curated file
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

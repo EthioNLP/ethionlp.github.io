@@ -1,0 +1,115 @@
+{%- comment -%}
+A multi-series line chart, rendered as inline SVG at build time.
+
+  {% assign series = ... %}   list of {label, points, color}
+  {% include chart-line.html series=series labels=years
+             title="…" subtitle="…" note="…" unit="papers" %}
+
+`points` must be a list of numbers, all series the same length as `labels`.
+`color` is 1–6 and maps to the --viz-N tokens, so the chart follows the theme.
+
+Everything is computed in Liquid rather than at runtime: the numbers end up in
+the HTML, which means the chart survives with JavaScript off, prints, and can be
+read by a screen reader through the table that follows it.
+{%- endcomment -%}
+
+{%- assign W = 760 -%}
+{%- assign H = 300 -%}
+{%- assign padL = 46 -%}
+{%- assign padR = 14 -%}
+{%- assign padT = 18 -%}
+{%- assign padB = 34 -%}
+
+{%- assign labels = include.labels -%}
+{%- assign n = labels | size -%}
+{%- assign steps = n | minus: 1 -%}
+{%- assign plotW = W | minus: padL | minus: padR -%}
+{%- assign plotH = H | minus: padT | minus: padB -%}
+
+{%- comment -%} Peak across every series, rounded up for a tidy top gridline. {%- endcomment -%}
+{%- assign peak = 0 -%}
+{%- for s in include.series -%}
+  {%- for p in s.points -%}
+    {%- if p > peak %}{% assign peak = p %}{% endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- if peak < 1 %}{% assign peak = 1 %}{% endif -%}
+{%- assign magnitude = 10 -%}
+{%- if peak > 100 %}{% assign magnitude = 50 %}{% endif -%}
+{%- if peak > 500 %}{% assign magnitude = 100 %}{% endif -%}
+{%- if peak > 2000 %}{% assign magnitude = 500 %}{% endif -%}
+{%- assign ticks = peak | divided_by: magnitude | plus: 1 -%}
+{%- assign top = ticks | times: magnitude -%}
+
+<figure class="chart">
+  <figcaption class="chart__head">
+    <div>
+      <h3 class="chart__title">{{ include.title }}</h3>
+      {%- if include.subtitle %}<p class="chart__sub">{{ include.subtitle }}</p>{% endif -%}
+    </div>
+    <div class="chart-legend">
+      {%- for s in include.series %}
+      <span><i style="background: var(--viz-{{ s.color }})"></i>{{ s.label }}</span>
+      {%- endfor %}
+    </div>
+  </figcaption>
+
+  <div class="chart__body">
+    <svg viewBox="0 0 {{ W }} {{ H }}" role="img"
+         aria-label="{{ include.title }}. {% for s in include.series %}{{ s.label }}: {{ s.points | first }} in {{ labels | first }} rising to {{ s.points | last }} in {{ labels | last }}. {% endfor %}">
+
+      {%- comment -%} Horizontal gridlines and the y scale. {%- endcomment -%}
+      {%- for t in (0..ticks) -%}
+        {%- assign value = t | times: magnitude -%}
+        {%- assign y = plotH | times: value | divided_by: top -%}
+        {%- assign y = padT | plus: plotH | minus: y -%}
+        <line class="c-grid" x1="{{ padL }}" x2="{{ W | minus: padR }}" y1="{{ y }}" y2="{{ y }}"/>
+        <text class="c-label c-label--y" x="{{ padL | minus: 8 }}" y="{{ y | plus: 4 }}">{{ value }}</text>
+      {%- endfor -%}
+
+      {%- comment -%} Year labels; thinned on narrow ranges so they never collide. {%- endcomment -%}
+      {%- assign every = 1 -%}
+      {%- if n > 9 %}{% assign every = 2 %}{% endif -%}
+      {%- if n > 20 %}{% assign every = 5 %}{% endif -%}
+      {%- for label in labels -%}
+        {%- assign i = forloop.index0 -%}
+        {%- assign rem = i | modulo: every -%}
+        {%- if rem == 0 or forloop.last -%}
+          {%- assign x = plotW | times: i | divided_by: steps | plus: padL -%}
+          <text class="c-label" x="{{ x }}" y="{{ H | minus: 12 }}" text-anchor="middle">{{ label }}</text>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <line class="c-axis" x1="{{ padL }}" x2="{{ W | minus: padR }}"
+            y1="{{ padT | plus: plotH }}" y2="{{ padT | plus: plotH }}"/>
+
+      {%- comment -%} One polyline per series, then its end-point dot. {%- endcomment -%}
+      {%- for s in include.series -%}
+        {%- comment -%}
+          Points are collected into an array and joined rather than concatenated
+          inside the loop: Liquid's whitespace trimming eats a literal separator
+          space between iterations, which silently produces one unusable
+          coordinate pair per series.
+        {%- endcomment -%}
+        {%- assign pts = "" | split: "" -%}
+        {%- for p in s.points -%}
+          {%- assign i = forloop.index0 -%}
+          {%- assign x = plotW | times: i | divided_by: steps | plus: padL -%}
+          {%- assign y = plotH | times: p | divided_by: top -%}
+          {%- assign y = padT | plus: plotH | minus: y -%}
+          {%- capture pt %}{{ x }},{{ y }}{% endcapture -%}
+          {%- assign pts = pts | push: pt -%}
+        {%- endfor -%}
+        <polyline class="c-line c-{{ s.color }}" points="{{ pts | join: ' ' }}"/>
+        {%- assign lastP = s.points | last -%}
+        {%- assign ly = plotH | times: lastP | divided_by: top -%}
+        {%- assign ly = padT | plus: plotH | minus: ly -%}
+        <circle class="c-dot f-{{ s.color }}" cx="{{ W | minus: padR }}" cy="{{ ly }}" r="3.5"/>
+      {%- endfor -%}
+    </svg>
+  </div>
+
+  {%- if include.note %}
+  <p class="chart__note">{{ include.note }}</p>
+  {%- endif %}
+</figure>

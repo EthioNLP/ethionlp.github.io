@@ -1,0 +1,4 @@
+# The sync scripts deliberately use only the standard library plus PyYAML, so
+# the GitHub Action needs no lockfile and runs in a few seconds.
+PyYAML>=6.0
+fonttools>=4.49

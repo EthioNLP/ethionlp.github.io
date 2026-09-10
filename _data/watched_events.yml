@@ -1,0 +1,83 @@
+# Events watched for community participation.
+#
+# Once a week a workflow checks each of these for people and teams listed on
+# this site, and opens a pull request with a DRAFT news item for anything it
+# finds. Drafts are never published automatically, see the note at the bottom.
+#
+# Fields
+#   name        the event, as it should read in a headline    (required)
+#   slug        stable id, used in the draft's filename       (required)
+#   homepage    where to link the news item
+#   pages       public URLs to search: programme, accepted papers, attendees
+#   venue_match strings that identify the event in a publication's venue field
+#   months      months it usually runs, so the scan can date the item
+#
+# `pages` and `venue_match` are two independent kinds of evidence and both are
+# used. A programme page naming someone is direct evidence they took part; a
+# paper of ours published at the venue that year is strong indirect evidence.
+#
+# ── On LinkedIn ──────────────────────────────────────────────────────────────
+# LinkedIn is deliberately absent. It has no public API, its pages require an
+# authenticated session, and scraping it breaks its terms of service, so a
+# scanner built on it would be both unreliable and not something this project
+# should ship. Where a LinkedIn post is the only record of something, use the
+# "Share community news" issue form to submit it by hand; a person reading a
+# post and writing two sentences beats a scraper that silently breaks.
+
+- name: Deep Learning Indaba
+  slug: deep-learning-indaba
+  homepage: https://deeplearningindaba.com/
+  pages:
+    - https://deeplearningindaba.com/2025/
+    - https://deeplearningindaba.com/2024/
+  venue_match: [deep learning indaba, indaba]
+  months: [8, 9]
+
+- name: AfricaNLP Workshop
+  slug: africanlp
+  homepage: https://africanlp-workshop.github.io/
+  pages:
+    - https://africanlp-workshop.github.io/
+  venue_match: [africanlp, african nlp]
+  months: [4, 5]
+
+- name: ACL
+  slug: acl
+  homepage: https://www.aclweb.org/
+  venue_match: [annual meeting of the association for computational linguistics, "acl 20"]
+  months: [7, 8]
+
+- name: EMNLP
+  slug: emnlp
+  venue_match: [empirical methods in natural language processing, emnlp]
+  months: [11, 12]
+
+- name: LREC-COLING
+  slug: lrec-coling
+  venue_match: [lrec, language resources and evaluation, coling]
+  months: [5]
+
+- name: NAACL
+  slug: naacl
+  venue_match: [north american chapter of the association for computational linguistics, naacl]
+  months: [6]
+
+- name: SemEval
+  slug: semeval
+  homepage: https://semeval.github.io/
+  venue_match: [semeval, semantic evaluation]
+  months: [6, 7]
+
+- name: LT4All
+  slug: lt4all
+  homepage: https://www.lt4all2025.eu/
+  venue_match: [lt4all, language technologies for all]
+  months: [2, 3]
+
+- name: Masakhane community events
+  slug: masakhane
+  homepage: https://www.masakhane.io/
+  pages:
+    - https://www.masakhane.io/
+  venue_match: [masakhane]
+  months: []

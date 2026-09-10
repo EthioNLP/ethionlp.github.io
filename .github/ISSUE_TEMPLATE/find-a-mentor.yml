@@ -1,0 +1,96 @@
+name: Find a mentor
+description: Ask about a thesis topic, or about working with someone here
+title: "Mentee: "
+labels: ["mentorship", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For students and anyone starting out. **You do not need a topic, a
+        publication, or a supervisor already.** Two paragraphs is plenty, and a
+        maintainer will point you at whoever is closest to what you want to do.
+
+        Everything except the first field is optional.
+
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+      placeholder: Almaz Tesfaye
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where are you now?
+      description: There is no wrong answer, and no minimum.
+      options:
+        - Undergraduate
+        - MSc student
+        - PhD student
+        - Working, not a student
+        - Between things
+        - Prefer not to say
+    validations:
+      required: false
+
+  - type: input
+    id: topic
+    attributes:
+      label: A topic from the site, if one caught your eye
+      description: >-
+        Paste the title or the link. Leave it blank if none of them fit; several
+        mentors take students on topics that were never posted.
+      placeholder: Low-footprint speech recognition for Tigrinya
+    validations:
+      required: false
+
+  - type: textarea
+    id: direction
+    attributes:
+      label: What would you like to work on?
+      description: >-
+        A rough direction is enough. "Something with Tigrinya speech" is a
+        direction. If you genuinely do not have one yet, say so and say what you
+        have enjoyed so far instead.
+      placeholder: |
+        I have been reading about ASR and I speak Tigrinya at home. I have
+        done a machine-learning course and can write Python, but I have never
+        worked with audio.
+    validations:
+      required: false
+
+  - type: input
+    id: languages
+    attributes:
+      label: Languages you speak or read
+      description: >-
+        This matters more than it looks. Most Ethiopian languages have nobody
+        working on them, and a speaker is the scarce resource, not a model.
+      placeholder: Tigrinya, Amharic, English
+    validations:
+      required: false
+
+  - type: input
+    id: time
+    attributes:
+      label: How much time do you have, and until when?
+      placeholder: About a day a week, until my thesis is due in June
+    validations:
+      required: false
+
+  - type: input
+    id: contact
+    attributes:
+      label: How should we reach you?
+      description: An email address, or any profile link. Leave blank to reply here.
+      placeholder: you@university.edu.et
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        A maintainer reads this and replies in the thread, usually within a
+        few days. Nothing here is published on the site.

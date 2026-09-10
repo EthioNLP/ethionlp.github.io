@@ -1,0 +1,33 @@
+{%- assign r = include.r -%}
+<article class="artifact" data-filter-item
+         data-kind="code"
+         data-focus="{{ r.focus }}"
+         data-source="{% if r.owned %}community{% else %}related{% endif %}"
+         data-search="{{ r.id }} {{ r.description }} {{ r.topics | join: ' ' }} {{ r.language }}"
+         data-sort-downloads="{{ r.stars }}"
+         data-sort-updated="{{ r.updated | remove: '-' }}"
+         data-sort-name="{{ r.name }}">
+  <div class="artifact__top">
+    <h3 class="artifact__name">
+      <a href="{{ r.url }}" rel="noopener">{% if r.owner != 'EthioNLP' %}<span class="owner">{{ r.owner }}/</span>{% endif %}{{ r.name }}</a>
+    </h3>
+    <span class="badge badge--green">code</span>
+  </div>
+
+  {%- if r.description %}<p class="artifact__desc">{{ r.description }}</p>{% endif %}
+
+  {%- if r.language or r.topics.size > 0 %}
+  <div class="tag-row">
+    {%- if r.language %}<span class="badge badge--outline">{{ r.language }}</span>{% endif -%}
+    {%- for t in r.topics limit: 4 %}<span class="badge">{{ t }}</span>{% endfor -%}
+  </div>
+  {%- endif %}
+
+  <div class="artifact__stats">
+    <span>{% include icon.html name="star" %}{{ r.stars }}</span>
+    {%- if r.forks > 0 %}<span>{{ r.forks }} fork{% unless r.forks == 1 %}s{% endunless %}</span>{% endif -%}
+    {%- if r.updated %}<span>updated {{ r.updated | date: "%b %Y" }}</span>{% endif -%}
+    {%- if r.license and r.license != 'NOASSERTION' %}<span>{{ r.license }}</span>{% endif -%}
+    {%- if r.homepage %}<span><a href="{{ r.homepage }}" rel="noopener">homepage</a></span>{% endif -%}
+  </div>
+</article>

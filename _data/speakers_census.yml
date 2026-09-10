@@ -1,0 +1,141 @@
+# Speaker counts from Ethiopia's 2007 Population and Housing Census.
+#
+# WHY THIS FILE EXISTS
+#
+# The catalogue's speaker column came from Wikidata. Checking the fifteen
+# largest against published sources found it unfit for the job: five were
+# simply wrong. Wolaytta's figure traced to a blog post about
+# tribal mythology and was more than double any published estimate; Sidamo's
+# carried no reference at all and understated the language by about 3 million;
+# Kafa's was 1.8x the census; Sebat Bet Gurage had the whole Gurage cluster's
+# total pinned to one of its members; Kambaata's was 20% above the census under
+# a 2007 label. Five more (Somali, Tigrinya, Afar, Nuer, Berta) were worldwide
+# counts sitting in a catalogue of Ethiopian languages, and Somali's was about
+# 3.5x its Ethiopian population. Two of the country's ten largest languages,
+# Hadiyya and Gamo, had no figure at all.
+#
+# So the column is now sourced here instead, where every number comes from one
+# place and means one thing.
+#
+# WHAT THE NUMBERS ARE
+#
+# Mother-tongue speakers inside Ethiopia, from the 2007 census, which is the
+# last national census to report language. Two consequences worth stating:
+#
+#   - They are first-language counts. Amharic in particular has tens of
+#     millions of second-language speakers who are not in this figure.
+#   - They are from 2007. Ethiopia's population has grown roughly 60% since,
+#     so read every figure as a floor and as a share, not as today's count.
+#
+# One consistent, dated, citable source beats a mixture of fresher numbers of
+# unknown provenance, which is what the Wikidata column was.
+#
+# HOW TO ADD TO IT
+#
+# Only add a language when you have the census figure or a better sourced one.
+# `note` is for anything a reader needs in order to read the number correctly.
+# A language absent from this file falls back to Wikidata and is labelled as
+# such on the page, so leaving one out is safe; guessing is not.
+#
+# Fields
+#   iso       ISO 639-3 code, which is how the catalogue joins to this file
+#   speakers  mother-tongue speakers in Ethiopia
+#   note      optional caveat shown with the figure
+
+# Whether to print speaker counts as numbers. The figures are still used for
+# ordering and for the relative length of the bars; this switch controls only
+# whether the digits appear.
+#
+# Why the numbers are off: five of the fifteen largest Wikidata figures are
+# wrong, one sourced to a blog post, and several others are worldwide counts
+# rather than speakers inside Ethiopia. The 2007 census is
+# citable but nearly two decades old, and Ethnologue's licence forbids
+# republishing its current figures.
+#
+# The ranking survives all of that far better than the absolute values do: it is
+# not in doubt that Oromo and Amharic are the largest and that Ongota is tiny.
+# So the bars and the sort stay, and the digits wait for a source worth quoting.
+show_numbers: false
+
+source: Ethiopia 2007 Population and Housing Census
+source_url: https://en.wikipedia.org/wiki/Languages_of_Ethiopia
+year: 2007
+
+# Why still 2007, when 2007 is old.
+#
+# Ethiopia has held three censuses: 1984, 1994 and 2007. The fourth has been
+# postponed repeatedly and has no date. Post-census projections from the
+# Ethiopian Statistical Service break the population down by region and sex but
+# not by mother tongue, and neither the 2019 nor the 2024 Demographic and
+# Health Survey publishes a language distribution.
+#
+# Ethnologue does have current figures, and they cannot be used here: there is
+# no API, the Global Dataset is sold per edition, and its licence forbids
+# redistribution outright, so buying it would not make the numbers publishable.
+# Republishing would need written permission from SIL, not attribution.
+#
+# So the census stays, with the scaling below to give a reader a sense of
+# today's order of magnitude.
+
+# The 2007 shares scaled to the current national population, shown as an
+# estimate beside the census figure. This assumes each language holds the same
+# share of the population it held in 2007, which is an assumption, not a
+# measurement: urbanisation and language shift both move these shares. It is
+# offered as an order of magnitude, and the page says so.
+population_2007: 73750932
+population_now: 132060000
+population_now_year: 2024
+population_now_source: https://data.worldbank.org/indicator/SP.POP.TOTL?locations=ET
+
+# Figures to show as unknown rather than wrong. Wikidata has a number for each
+# of these, and the number is not a count of that language.
+suppress:
+  - iso: sgw
+    why: >-
+      The census reports Gurage as one group, 2.0% of the population, without
+      separating Sebat Bet from Silt'e, Mesqan and the rest. Wikidata pins the
+      whole cluster's total to this one variety, which also double-counts it
+      against the Silt'e and Mesqan rows.
+
+languages:
+  - iso: orm
+    speakers: 24900000
+    note: >-
+      33.8% of the 2007 population. Counted across the Oromo varieties, which
+      this catalogue folds into one row.
+  - iso: amh
+    speakers: 21600000
+    note: >-
+      Mother tongue only. Amharic is also the working language of the federal
+      government and has a large second-language population not counted here.
+  - iso: som
+    speakers: 4570000
+    note: 6.2% of the 2007 population. Speakers inside Ethiopia only.
+  - iso: tir
+    speakers: 4350000
+    note: 5.9% of the 2007 population. Speakers inside Ethiopia only.
+  - iso: sid
+    speakers: 2950000
+    note: 4.0% of the 2007 population.
+  - iso: wal
+    speakers: 1620000
+    note: 2.2% of the 2007 population.
+  - iso: hdy
+    speakers: 1300000
+  - iso: aar
+    speakers: 1280000
+    note: Speakers inside Ethiopia only; Afar is also spoken in Djibouti and Eritrea.
+  - iso: gmv
+    speakers: 1100000
+    note: 1.5% of the 2007 population.
+  - iso: drs
+    speakers: 959000
+    note: 1.3% of the 2007 population.
+  - iso: stv
+    speakers: 880000
+  - iso: kbr
+    speakers: 830000
+  - iso: ktb
+    speakers: 740000
+  - iso: awn
+    speakers: 490000

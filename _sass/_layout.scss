@@ -1,0 +1,196 @@
+// ─── Page scaffolding ────────────────────────────────────────────────────────
+
+.wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+
+  &--wide { max-width: var(--page-wide); }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding-inline: var(--sp-4); }
+}
+
+main { display: block; min-height: 60vh; }
+
+// Vertical rhythm between full-width bands.
+.band {
+  padding-block: clamp(3rem, 1.5rem + 5vw, 6rem);
+
+  &--tight { padding-block: clamp(2rem, 1rem + 3vw, 3.5rem); }
+  // Runs straight on from the band above it, for a section that is a
+  // continuation rather than a new subject.
+  &--flush { padding-top: 0; }
+  &--alt { background: var(--surface-2); }
+  &--ink { background: var(--ink); color: var(--ink-inverse); }
+  // Any band following another gets a rule. The old pair of selectors covered
+  // plain-to-alt, alt-to-plain and alt-to-alt, but not plain-to-plain, which is
+  // two transparent sections butting together with nothing between them: they
+  // read as one section. --flush is opted out, since it is a continuation of
+  // the band above by design.
+  & + &:not(&--flush) { border-top: 1px solid var(--rule); }
+}
+
+.band--ink {
+  h1, h2, h3, h4 { color: var(--ink-inverse); }
+
+  // Buttons carry their own colours; without the exception the primary button
+  // renders a green label on a green fill.
+  a:not(.btn) { color: var(--green-strong); }
+
+  .btn--primary {
+    background: var(--paper);
+    color: var(--green-strong);
+    &:hover { background: #fff; }
+  }
+  // Secondary text has to invert with the band. --ink-2 tracks the page, so
+  // inside an ink band it renders dark-on-dark in light mode (2.0:1) and
+  // light-on-light in dark mode (1.8:1); the old hardcoded near-white .muted
+  // hit 1.06:1 in dark mode. --ink-inverse-2 is defined against the band.
+  .lede, .muted, .section-head__note { color: var(--ink-inverse-2); }
+}
+
+// Section headers: an eyebrow, a serif title, and an optional lede. Used
+// everywhere so section starts read consistently down the page.
+.section-head {
+  max-width: 62ch;
+  margin-bottom: var(--sp-6);
+
+  &--split {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    > div { max-width: 62ch; }
+  }
+
+  // The second spelling of the eyebrow/h2/lede trio, used by catalog,
+  // contribute, mentorship, join, standards, /publications/elsewhere/ and
+  // _layouts/topic.html. Both classes carried no rules at all, so those pages
+  // rendered their section intro as plain body text at full --ink while the
+  // rest of the site rendered the same slot as .lede. Kept as an alias rather
+  // than renamed across seven files, so the two spellings now match.
+  &__title {
+    margin-bottom: var(--sp-3);
+  }
+
+  &__note {
+    font-size: var(--t-lg);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 60ch;
+    margin: 0;
+  }
+}
+
+.eyebrow {
+  // Block, with inline rules, rather than inline-flex. As a flex container the
+  // trailing rule is pinned to the end of the flex line, so a label that wraps
+  // to two lines leaves it stranded beside the first. Inline pseudo-elements
+  // flow with the text and the rule simply follows the last word.
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--sp-3);
+
+  // A rule either side of the label.
+  //
+  // The content is a non-breaking space rather than an empty string, and the
+  // rule is that space's top border widened by padding. An empty inline-block
+  // is an atomic inline that the line breaker may break before, which stranded
+  // the trailing rule alone on a second line whenever the label nearly filled
+  // its column. A no-break space offers no such break opportunity, so the rule
+  // stays welded to the last word.
+  &::before,
+  &::after {
+    content: "\00a0";
+    // Bottom border, not top: a top border draws at the top of the em box,
+    // well above the capitals. A bottom border sits on the baseline, and the
+    // shift below lifts it to the optical middle of the uppercase text.
+    border-bottom: 1px solid var(--accent);
+    // A bottom border draws at the descender line, roughly 0.21em below the
+    // baseline, and the optical middle of uppercase text is about 0.36em above
+    // it. The shift is the sum.
+    vertical-align: 0.57em;
+  }
+
+  &::before { padding-right: 1.4em; margin-right: 0.35em; }
+  &::after  { padding-left: 1.4em; margin-left: 0.35em; }
+
+  &--plain::before,
+  &--plain::after { display: none; }
+}
+
+.lede {
+  font-size: var(--t-lg);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+// Every container on the site is now the same width, which is right for the
+// left edge but far too wide for a line of text. Anything that carries running
+// prose therefore caps its own measure, rather than relying on a narrower
+// container to do it. A line much over 75 characters is hard to track back to
+// the start of the next one.
+.notice,
+.callout p,
+.accordion__panel p,
+.timeline__desc,
+.newsitem__body,
+.steps p,
+p.muted,
+.card__body,
+.card > p,
+.artifact__desc,
+.pub__authors,
+.pub__venue {
+  max-width: var(--measure);
+}
+
+// ─── Grids ───────────────────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+
+  &--2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  &--3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+  &--4 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
+  &--tight { gap: var(--sp-4); }
+}
+
+.split {
+  display: grid;
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  grid-template-columns: 1fr;
+  align-items: start;
+
+  @media (min-width: 880px) {
+    grid-template-columns: 1.05fr 0.95fr;
+    &--sidebar { grid-template-columns: minmax(0, 1fr) 19rem; }
+    &--sidebar-left { grid-template-columns: 17rem minmax(0, 1fr); }
+  }
+}
+
+.stack > * + * { margin-top: var(--sp-4); }
+.stack--lg > * + * { margin-top: var(--sp-6); }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+
+  &--between { justify-content: space-between; }
+  &--end { justify-content: flex-end; }
+}

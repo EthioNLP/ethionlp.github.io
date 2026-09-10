@@ -1,0 +1,25 @@
+{%- comment -%}
+An avatar, or the member's initials when there is no usable photo. Placeholder
+photos are treated as no photo, a grid of identical grey silhouettes reads far
+worse than a grid of initials.
+
+The parameter is `dim`, not `size`: Liquid resolves `include.size` to the number
+of parameters passed to the include, so a `size` argument is silently replaced
+by a count and every avatar renders at its natural resolution.
+
+  {% include avatar.html m=member dim="3.4rem" %}
+{%- endcomment -%}
+{%- assign m = include.m -%}
+{%- assign photo = m.photo -%}
+{%- if photo contains "placeholder" %}{% assign photo = nil %}{% endif -%}
+{%- if photo -%}
+  {%- unless photo contains "://" %}{% assign photo = photo | relative_url %}{% endunless -%}
+  <img class="avatar" src="{{ photo }}" alt="" loading="lazy" decoding="async"
+       {% if include.dim %}style="--size: {{ include.dim }}"{% endif %}>
+{%- else -%}
+  {%- assign parts = m.name | split: " " -%}
+  {%- assign initials = parts.first | slice: 0 -%}
+  {%- if parts.size > 1 %}{% assign initials = initials | append: parts.last | slice: 0 %}{% endif -%}
+  <span class="avatar avatar-fallback" aria-hidden="true"
+        {% if include.dim %}style="--size: {{ include.dim }}"{% endif %}>{{ initials | upcase }}</span>
+{%- endif -%}

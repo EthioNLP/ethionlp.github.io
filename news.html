@@ -1,3 +1,67 @@
 ---
-layout: news
+layout: default
+title: News
+permalink: /news/
+needs_filter: true
+description: Updates, media coverage and announcements from the EthioNLP community.
 ---
+
+{%- assign items = site.news | sort: "date" | reverse -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">News</p>
+    <h1 class="page-head__title">News</h1>
+    <p class="lede">
+      Talks, media coverage, papers and milestones. Items are usually submitted
+      by the people involved, since members are based in many countries and news
+      is otherwise reported separately in each.
+    </p>
+    <div class="page-head__actions">
+      <a class="btn btn--primary" href="{{ '/news/submit/' | relative_url }}">Share something</a>
+      <a class="btn" href="{{ '/feed.xml' | relative_url }}">Atom feed</a>
+    </div>
+  </div>
+</div>
+
+<div class="band" data-filter-root>
+  <div class="wrap wrap--wide">
+    {%- if items.size > 0 %}
+    <div>
+      {%- for n in items %}
+      <article class="newsitem" data-filter-item data-search="{{ n.title }} {{ n.kind }}">
+        {%- if n.image %}
+        <img class="newsitem__thumb" src="{{ n.image | relative_url }}" alt="" loading="lazy">
+        {%- else %}
+        <div></div>
+        {%- endif %}
+        <div>
+          <p class="card__meta">
+            <span class="badge badge--outline">{{ n.kind | default: "update" }}</span>
+            <span>{{ n.date | date: "%-d %B %Y" }}</span>
+          </p>
+          <h2 class="newsitem__title"><a href="{{ n.url | relative_url }}">{{ n.title }}</a></h2>
+          <div class="newsitem__body">{{ n.content | strip_html | truncate: 260 }}</div>
+          {%- if n.link %}
+          <p style="margin-top: var(--sp-3)">
+            <a class="pill" href="{{ n.link }}" rel="noopener">{% include icon.html name="link" %} {{ n.link_text | default: "Read more" }}</a>
+          </p>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <div class="empty"><p>No news yet.</p></div>
+    {%- endif %}
+
+    <div class="notice" style="margin-top: var(--sp-7)">
+      <p>
+        <strong>Adding a news item.</strong> Create a file in <code>_news/</code>
+        named <code>YYYY-MM-DD-slug.md</code> with <code>title</code>,
+        <code>date</code> and optionally <code>kind</code>, <code>image</code>
+        and <code>link</code> in the front matter. The body is Markdown.
+      </p>
+    </div>
+  </div>
+</div>

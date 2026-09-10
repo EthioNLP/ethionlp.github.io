@@ -1,0 +1,116 @@
+name: Sync ecosystem data
+
+# Refreshes everything under _data/generated/ from the public APIs and opens a
+# pull request when anything changed. A pull request rather than a direct push,
+# so a person always sees what an API decided to change before it goes live.
+
+on:
+  schedule:
+    - cron: "17 3 * * *"     # 03:17 UTC daily, off the hour, to be a good API citizen
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Which sources to refresh
+        type: choice
+        default: all
+        options: [all, huggingface, github, publications, progress, catalog, expertise]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Resolve missing author identifiers
+        run: python3 scripts/resolve_ids.py
+        continue-on-error: true
+
+      - name: Hugging Face
+        if: ${{ inputs.target == 'huggingface' || inputs.target == 'all' || inputs.target == '' }}
+        run: python3 scripts/sync_huggingface.py
+
+      - name: GitHub
+        if: ${{ inputs.target == 'github' || inputs.target == 'all' || inputs.target == '' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/sync_github.py
+
+      - name: Publications
+        if: ${{ inputs.target == 'publications' || inputs.target == 'all' || inputs.target == '' }}
+        run: |
+          python3 scripts/sync_publications.py
+          python3 scripts/classify_publications.py
+
+      - name: Progress dashboard
+        if: ${{ inputs.target == 'progress' || inputs.target == 'all' || inputs.target == '' }}
+        run: python3 scripts/sync_progress.py
+
+      # Runs after Hugging Face: the catalogue joins the artifact counts onto
+      # each language, so it needs the freshly written huggingface.yml.
+      - name: Language catalogue
+        if: ${{ inputs.target == 'catalog' || inputs.target == 'all' || inputs.target == '' }}
+        run: python3 scripts/sync_catalog.py
+
+      # Last: it joins the three files written above.
+      - name: Researcher-to-language mapping
+        if: ${{ inputs.target == 'expertise' || inputs.target == 'all' || inputs.target == '' }}
+        run: |
+          python3 scripts/sync_expertise.py
+          python3 scripts/derive_focus.py
+
+      # `git diff` only sees tracked files, so a sync script that adds a new
+      # file under _data/generated/ -- a new source, a new derived file --
+      # reported "Nothing changed" and opened no pull request. git status
+      # --porcelain sees untracked files too.
+      - name: Summarise the change
+        id: diff
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing changed."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            {
+              echo 'summary<<EOF'
+              git add -A
+              git diff --cached --stat
+              echo EOF
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open a pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/nightly-sync
+          delete-branch: true
+          commit-message: "data: nightly ecosystem sync"
+          title: "Nightly data sync"
+          labels: data-sync
+          body: |
+            Automatic refresh of `_data/generated/` from Hugging Face, GitHub,
+            OpenAlex, Semantic Scholar and DBLP.
+
+            These files are machine-owned, review the diff rather than editing
+            them. Corrections belong in `_data/publications_manual.yml`,
+            `_data/ecosystem_manual.yml` or the relevant `_members/*.md`.
+
+            ```
+            ${{ steps.diff.outputs.summary }}
+            ```

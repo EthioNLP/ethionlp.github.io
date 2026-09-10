@@ -1,0 +1,56 @@
+# The community photo gallery.
+#
+# One entry per image. `src` and `caption` are required; everything else is
+# optional. Newest first is the convention, but the page sorts by `date`, so
+# order in this file does not matter.
+#
+#   src      path under /resources/img/ or /assets/img/
+#   caption  one sentence, what is happening, not just where
+#   date     YYYY-MM-DD, or YYYY-MM when the day is not known
+#   place    city and venue
+#   people   names of those pictured, left to right, if they have agreed
+#   event    slug of a file in _events/, which links the image to that event
+#   link     any URL for more about the moment
+#   credit   photographer, if known
+#   tags     free-form, used as filter chips on the gallery page
+#
+# Adding photos: drop the file into resources/img/gallery/ and append an entry.
+# Please use ASCII filenames; a previous image was named with mathematical bold
+# Unicode characters, which several tools could not resolve.
+
+- src: /resources/img/news_img/lt4all-2025.jpeg
+  caption: >-
+    Presenting "Advancing Language Technology for Ethiopia's Diverse Linguistic
+    Landscape through the EthioNLP Collaborative Effort" at LT4All 2025.
+  date: 2025-02-24
+  place: UNESCO, Paris
+  link: https://www.lt4all2025.eu/
+  tags: [conference, poster]
+
+- src: /resources/img/news_img/indaba.jpg
+  caption: >-
+    EthioNLP members at the Deep Learning Indaba, the pan-African machine
+    learning gathering where much of this community first met.
+  date: 2024-09-01
+  place: Université Amadou Mahtar Mbow, Dakar
+  link: https://deeplearningindaba.com/
+  tags: [conference, community]
+
+- src: /resources/img/news_img/lrec_ethiollm.jpeg
+  caption: >-
+    The EthioLLM poster at LREC-COLING 2024: multilingual language models for
+    five Ethiopian languages, Amharic, Ge'ez, Afaan Oromo, Somali and Tigrinya,
+    with a benchmark suite for evaluating them.
+  date: 2024-05-20
+  place: LREC-COLING 2024, Torino
+  link: https://aclanthology.org/2024.lrec-main.561/
+  tags: [conference, poster]
+
+- src: /resources/img/simien_mountains_scenery.jpg
+  caption: >-
+    The Simien Mountains. The languages this community works on are spoken
+    across country like this, far from anywhere a dataset has ever been
+    collected.
+  date: 2018-01-01
+  place: Simien Mountains, Ethiopia
+  tags: [ethiopia]

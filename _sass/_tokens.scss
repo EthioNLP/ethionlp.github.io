@@ -1,0 +1,174 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Design tokens
+//
+// One palette, defined twice: once for light and once for dark. Every colour
+// used anywhere in the site resolves through a token here, so a theme change is
+// a change to this file only. The palette is a muted reading of the Ethiopian
+// flag, deep green, aged gold, oxide red, against warm paper rather than
+// clinical white, which is what keeps the page feeling editorial instead of
+// corporate.
+// ─────────────────────────────────────────────────────────────────────────────
+
+:root {
+  // Surfaces
+  --paper:        #fcfbf9;
+  --surface:      #ffffff;
+  --surface-2:    #f5f3ef;
+  --surface-3:    #ebe8e1;
+  --overlay:      rgba(22, 20, 15, 0.55);
+
+  // Ink
+  --ink:          #16140f;
+  --ink-2:        #4c473e;
+  --ink-3:        #736d62;
+  --ink-inverse:  #fcfbf9;
+  // Secondary text *on* an inverted surface (.band--ink). Not --ink-2: that
+  // one tracks the page background, and inside an ink band it lands dark on
+  // dark. Both values are checked against the band, not the page.
+  --ink-inverse-2: #cfccc5;
+
+  // Lines
+  --rule:         #e3dfd7;
+  --rule-strong:  #cfc9be;
+
+  // The header sits on its own surface: a green so faint it reads as a tint
+  // rather than a colour, but enough to separate the bar from both --paper and
+  // the --surface-2 bands, which are warm greys.
+  --header-bg:    #edf3ef;
+
+  // Accents
+  --green:        #1b5e43;
+  --green-strong: #12452f;
+  --green-soft:   #e6efe9;
+  --gold:         #9d7515;
+  --gold-soft:    #f6eeda;
+  --rust:         #97382b;
+  --rust-soft:    #f7e8e5;
+  --blue:         #24557d;
+  --blue-soft:    #e5edf5;
+  --violet:       #5a4a86;
+  --violet-soft:  #eeebf6;
+
+  // Semantic
+  --accent:       var(--green);
+  --accent-ink:   #ffffff;
+  --link:         var(--green-strong);
+
+  // Data-visualisation ramp. Ordered for maximum separation at n=2 and n=3,
+  // which is how most charts on this site are actually used.
+  --viz-1: #1b5e43;
+  --viz-2: #9d7515;
+  --viz-3: #24557d;
+  --viz-4: #97382b;
+  --viz-5: #5a4a86;
+  --viz-6: #55736b;
+  --viz-grid: #e3dfd7;
+
+  // Elevation, low and warm; this is a document, not an app.
+  --shadow-1: 0 1px 2px rgba(22, 20, 15, 0.05);
+  --shadow-2: 0 2px 4px rgba(22, 20, 15, 0.05), 0 8px 24px rgba(22, 20, 15, 0.06);
+  --shadow-3: 0 4px 8px rgba(22, 20, 15, 0.06), 0 16px 48px rgba(22, 20, 15, 0.10);
+
+  // Type
+  --font-sans:  "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-ethi:  "Noto Sans Ethiopic", "Nyala", "Abyssinica SIL", var(--font-sans);
+  --font-mono:  ui-monospace, "SF Mono", "JetBrains Mono", "IBM Plex Mono", Menlo, monospace;
+
+  // Modular scale, 1.25 with a display jump at the top.
+  //
+  // Set one step larger than a typical UI scale: the body text here is read,
+  // not scanned, and Source Sans 3 has a smaller x-height than Inter, so it
+  // needs the extra size to set at the same apparent weight.
+  --t-xs:   0.8125rem;
+  --t-sm:   0.9375rem;
+  --t-base: 1.0625rem;
+  --t-md:   1.1875rem;
+  --t-lg:   1.4375rem;
+  --t-xl:   1.75rem;
+  --t-2xl:  2.1875rem;
+  --t-3xl:  2.75rem;
+  --t-4xl:  3.5rem;
+  --t-5xl:  4.5rem;
+
+  // Rhythm
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  --radius-sm: 3px;
+  --radius:    6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  --measure: 68ch;
+  --page-max: 1180px;
+  --page-wide: 1360px;
+  --nav-h: 72px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  // Paired with --ease. _charts.scss referenced var(--dur) with nothing
+  // defining it, which invalidated the whole transition shorthand.
+  --dur: 0.18s;
+}
+
+// Dark theme. Redefines only the tokens that must change; everything measured
+// in ems, rems or pixels is theme-independent and stays above.
+@mixin dark-tokens {
+  --paper:        #121110;
+  --surface:      #1a1815;
+  --surface-2:    #221f1b;
+  --surface-3:    #2c2823;
+  --overlay:      rgba(0, 0, 0, 0.66);
+
+  --ink:          #f3f0ea;
+  --ink-2:        #bab4a8;
+  --ink-3:        #8b8478;
+  --ink-inverse:  #16140f;
+  --ink-inverse-2: #565049;
+
+  --rule:         #2f2b26;
+  --rule-strong:  #423d36;
+  --header-bg:    #141b17;
+
+  --green:        #57ac81;
+  --green-strong: #74c39a;
+  --green-soft:   #17281f;
+  --gold:         #d3a746;
+  --gold-soft:    #2b2416;
+  --rust:         #d3796a;
+  --rust-soft:    #2d1d19;
+  --blue:         #74a3cf;
+  --blue-soft:    #182430;
+  --violet:       #9a8ac4;
+  --violet-soft:  #221e2f;
+
+  --accent:       var(--green);
+  --accent-ink:   #0f1a14;
+  --link:         var(--green-strong);
+
+  --viz-1: #57ac81;
+  --viz-2: #d3a746;
+  --viz-3: #74a3cf;
+  --viz-4: #d3796a;
+  --viz-5: #9a8ac4;
+  --viz-6: #8fada5;
+  --viz-grid: #2f2b26;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 4px 8px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.55);
+}
+
+// Light is the default, deliberately: this is a reading site, and the charts,
+// photographs and long-form pages were designed against paper. Dark is opt-in
+// through the header toggle rather than inherited from the operating system, so
+// a visitor whose machine is dark still lands on the intended design.
+:root[data-theme="dark"] { @include dark-tokens; }

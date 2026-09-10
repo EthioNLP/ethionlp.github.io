@@ -1,0 +1,38 @@
+---
+permalink: /events/calendar.ics
+layout: null
+---
+{%- assign events = site.events | where_exp: "e", "e.draft != true" | sort: "start" -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EthioNLP//ethionlp.github.io//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:EthioNLP events
+X-WR-TIMEZONE:Africa/Addis_Ababa
+X-WR-CALDESC:Workshops, seminars and tutorials from the EthioNLP community
+{% for e in events -%}
+{%- assign finish = e.end | default: e.start -%}
+{%- assign dtend = finish | date: "%s" | plus: 86400 | date: "%Y%m%d" -%}
+BEGIN:VEVENT
+UID:{{ e.url | slugify }}@ethionlp.github.io
+DTSTAMP:{{ site.time | date: "%Y%m%dT%H%M%SZ" }}
+DTSTART;VALUE=DATE:{{ e.start | date: "%Y%m%d" }}
+DTEND;VALUE=DATE:{{ dtend }}
+SUMMARY:{{ e.title | strip_newlines | replace: ",", "\," | replace: ";", "\;" }}
+{% if e.summary -%}
+DESCRIPTION:{{ e.summary | strip_newlines | strip | truncate: 180 | replace: ",", "\," | replace: ";", "\;" }} | {{ e.url | absolute_url }}
+{% endif -%}
+{% if e.location -%}
+LOCATION:{{ e.location | strip_newlines | replace: ",", "\," }}
+{% endif -%}
+URL:{{ e.url | absolute_url }}
+CATEGORIES:{{ e.kind | upcase }}
+{% if e.status == "cancelled" -%}
+STATUS:CANCELLED
+{% else -%}
+STATUS:CONFIRMED
+{% endif -%}
+END:VEVENT
+{% endfor -%}
+END:VCALENDAR

@@ -1,0 +1,125 @@
+---
+layout: default
+title: Work by the wider community
+permalink: /ecosystem/related/
+needs_filter: true
+description: >-
+  Ethiopian-language models and datasets published by people and
+  organisations outside EthioNLP.
+---
+
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign related_tier = hf.artifacts | where: "tier", "related" -%}
+{%- comment -%}
+Multilingual work THIS COMMUNITY contributed to, which means the tier filter has
+to apply here as well. Without it the section swept in every multilingual
+artifact the sync had seen, including mt0 and a general toxicity classifier, and
+placed them under a sentence claiming a member worked on each one. That is the
+same overclaim the ecosystem page exists to prevent, arrived at from the other
+direction.
+{%- endcomment -%}
+{%- assign broad = hf.artifacts
+      | where: "breadth", "multilingual"
+      | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Models &amp; data</p>
+    <h1 class="page-head__title">Work by the wider community</h1>
+    <p class="lede">
+      Ethiopian-language models and datasets that <strong>EthioNLP did not
+      build</strong>, listed so that someone looking for a model or dataset can
+      see what exists, whoever made it.
+    </p>
+    <div class="page-head__actions">
+      <a class="btn btn--primary" href="{{ '/ecosystem/' | relative_url }}">What EthioNLP built</a>
+      <a class="btn" href="{{ '/join/' | relative_url }}">Claim your work</a>
+    </div>
+  </div>
+</div>
+
+{%- if related_tier.size > 0 %}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2>Ethiopian-language work by others</h2>
+      <p class="section-head__note">
+        {{ related_tier | size }} models and datasets. If one of these is yours,
+        joining moves it to the other page.
+      </p>
+    </div>
+    <div class="grid grid--3 grid--tight">
+      {%- for a in related_tier limit: 12 %}{% include artifact-card.html a=a %}{% endfor %}
+    </div>
+    {%- if related_tier.size > 12 %}
+    <details style="margin-top: var(--sp-5)">
+      <summary>Show the other {{ related_tier.size | minus: 12 }}</summary>
+      <div class="grid grid--3 grid--tight" style="margin-top: var(--sp-5)">
+        {%- for a in related_tier offset: 12 %}{% include artifact-card.html a=a %}{% endfor %}
+      </div>
+    </details>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if broad.size > 0 %}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Wider contributions</p>
+      <h2>Multilingual work members contributed to</h2>
+      <p class="lede">
+        {{ broad | size }} models and datasets that cover Ethiopian languages
+        among many others: pan-African benchmarks, massively multilingual base
+        models and cross-lingual classifiers. A verified member worked on each
+        of them. They are counted separately because a hundred-language model
+        is not equivalent to a model built for Amharic.
+      </p>
+    </div>
+
+    <div class="grid grid--3 grid--tight">
+      {%- for a in broad limit: 9 %}{% include artifact-card.html a=a %}{% endfor %}
+    </div>
+    {%- if broad.size > 9 %}
+    <details style="margin-top: var(--sp-5)">
+      <summary>Show the other {{ broad.size | minus: 9 }}</summary>
+      <div class="grid grid--3 grid--tight" style="margin-top: var(--sp-5)">
+        {%- for a in broad offset: 9 %}{% include artifact-card.html a=a %}{% endfor %}
+      </div>
+    </details>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
+{%- assign related = hf.related -%}
+{%- if related.size > 0 %}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Beyond the community</p>
+        <h2>Related work on the Hub</h2>
+        <p class="lede">
+          Ethiopian-language models and datasets published by people not
+          listed on this site, found by a nightly keyword sweep.
+        </p>
+      </div>
+      <a class="btn" href="{{ '/join/' | relative_url }}">Claim your work</a>
+    </div>
+
+    <div class="grid grid--3 grid--tight">
+      {%- for a in related limit: 12 %}{% include artifact-card.html a=a %}{% endfor %}
+    </div>
+    {%- if related.size > 12 %}
+    <details style="margin-top: var(--sp-5)">
+      <summary style="cursor: pointer; color: var(--link)">Show {{ related.size | minus: 12 }} more</summary>
+      <div class="grid grid--3 grid--tight" style="margin-top: var(--sp-4)">
+        {%- for a in related offset: 12 %}{% include artifact-card.html a=a %}{% endfor %}
+      </div>
+    </details>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}

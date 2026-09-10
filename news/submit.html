@@ -1,0 +1,155 @@
+---
+layout: default
+title: Share news
+permalink: /news/submit/
+description: >-
+  How to get something onto the EthioNLP news page, four ways, none of which
+  need a GitHub account.
+---
+
+{%- assign repo = site.repository -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">News</p>
+    <h1 class="page-head__title">Share news</h1>
+    <p class="lede">
+      A defence, a paper accepted, a workshop run, an award, a dataset
+      released, a mention on the radio. Members are spread across a dozen
+      countries, so most of this is only reported locally unless somebody
+      submits it here.
+    </p>
+    <p class="lede">
+      <strong>Two sentences and a link is enough.</strong> A maintainer edits
+      the wording before it is published.
+    </p>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2>Ways to send news</h2>
+      <p class="section-head__note">
+        They all reach the same place. Only the GitHub form needs an account.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <div class="card card--action">
+        <p class="eyebrow">Telegram</p>
+        <h3 class="card__title">Post in the channel</h3>
+        <p>
+          Start the message with <code>/news</code> and write it normally. The
+          first line becomes the headline, the rest the description, and any
+          link in the message is kept.
+        </p>
+        <pre class="snippet"><code>/news Amharic speech corpus released
+
+40 hours of transcribed speech from four
+regions, CC-BY.
+https://huggingface.co/datasets/…</code></pre>
+        <div class="card__actions">
+          <a class="btn btn--primary" href="{{ site.social.telegram }}" rel="noopener">Open the channel</a>
+        </div>
+      </div>
+
+      <div class="card card--action">
+        <p class="eyebrow">Web form</p>
+        <h3 class="card__title">Web form</h3>
+        <p>
+          A headline, a couple of sentences, and optionally a link and a date.
+          Works on a phone, takes under a minute, and you do not need to sign in
+          to anything.
+        </p>
+        <p class="muted">
+          A LinkedIn post is an acceptable link: paste the URL and the item
+          will link to it.
+        </p>
+        <div class="card__actions">
+          {%- if site.news_form_url %}
+          <a class="btn btn--primary" href="{{ site.news_form_url }}" rel="noopener">Open the form</a>
+          {%- else %}
+          <span class="badge">Not set up yet</span>
+          {%- endif %}
+        </div>
+      </div>
+
+      <div class="card card--action">
+        <p class="eyebrow">GitHub</p>
+        <h3 class="card__title">Open an issue</h3>
+        <p>
+          A structured form with fields for the date, the kind of thing, and who
+          was involved. Best if you want to attach an image, drag it into the
+          issue and we will use it.
+        </p>
+        <div class="card__actions">
+          <a class="btn btn--primary"
+             href="https://github.com/{{ repo }}/issues/new?template=share-news.yml"
+             rel="noopener">Share news on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top: var(--sp-6)">
+      <h3 class="callout__title">Email</h3>
+      <p>
+        <a href="mailto:{{ site.email }}?subject=News">{{ site.email }}</a>. A sentence in the body is enough.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div>
+        <h2>What makes a good item</h2>
+        <ul class="ticks">
+          <li>Say what happened, not that something happened. "Forty students attended a two-day Amharic NLP tutorial at AAU" beats "we ran an event".</li>
+          <li>Name the people, if they are happy to be named.</li>
+          <li>Give a link if one exists, a paper, a dataset, a post, a news article. Any URL is fine.</li>
+          <li>Old news is still news. Something from six months ago is worth adding.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>What happens next</h2>
+        <ol class="steps steps--tight">
+          <li>
+            <h3>Draft created</h3>
+            <p>Within a day, whichever channel you used.</p>
+          </li>
+          <li>
+            <h3>Maintainer review</h3>
+            <p>They check the link, tidy the wording, and add an image if there is one. Nothing appears on the site before this.</p>
+          </li>
+          <li>
+            <h3>Publication</h3>
+            <p>On the <a href="{{ '/news/' | relative_url }}">news page</a> and in the <a href="{{ '/feed.xml' | relative_url }}">feed</a>.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    <h2>News collected automatically</h2>
+    <div class="prose">
+      <p>
+        You do not need to submit conference participation. A weekly scan checks
+        the events in
+        <a href="https://github.com/{{ repo }}/blob/master/_data/watched_events.yml">a watched list</a>
+        for two things: a public programme page naming someone listed here, and a
+        paper of ours published at that venue. Everyone found at one event is
+        aggregated into a single draft.
+      </p>
+      <p>
+        That covers ACL, EMNLP, LREC-COLING, NAACL, SemEval, AfricaNLP, LT4All
+        and the Deep Learning Indaba. Anything without a public programme page
+        has to be submitted here.
+      </p>
+    </div>
+  </div>
+</section>

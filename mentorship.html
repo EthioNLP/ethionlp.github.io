@@ -1,0 +1,269 @@
+---
+layout: default
+title: Mentorship
+permalink: /mentorship/
+needs_filter: true
+description: >-
+  Mentors by topic, open BSc, MSc and PhD thesis topics in Ethiopian language
+  technology, and how to ask for supervision.
+---
+
+{%- assign cfg = site.data.mentorship -%}
+{%- assign areas = site.data.focus_areas -%}
+{%- assign mentors = site.members | where_exp: "m", "m.mentoring" | sort: "order" -%}
+{%- assign topics = site.topics | sort: "posted" | reverse -%}
+{%- assign open_topics = topics | where: "status", "open" -%}
+{%- assign capacity = 0 -%}
+{%- for m in mentors %}{% assign capacity = capacity | plus: m.mentoring_capacity | default: capacity %}{% endfor -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Mentorship</p>
+    <h1 class="page-head__title">Mentors and open topics</h1>
+    <p class="lede">{{ cfg.intro }}</p>
+
+    <ul class="statline">
+      <li><strong>{{ mentors | size }}</strong> mentors</li>
+      <li><strong>{{ open_topics | size }}</strong> open topics</li>
+      <li><strong>{{ capacity }}</strong> places this cycle</li>
+    </ul>
+
+    <div class="page-head__actions">
+      <a class="btn btn--primary" href="#topics">Browse open topics</a>
+      <a class="btn" href="#offer">Offer to mentor</a>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} ── Mentors, grouped by the area they mentor in ─────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Mentors by topic</h2>
+      <p class="section-head__note">
+        A mentor appears under every area they offered.
+      </p>
+    </div>
+
+    {%- if mentors.size == 0 %}
+    <div class="empty"><p>No mentors listed yet.</p></div>
+    {%- else %}
+    <div class="mentor-areas">
+      {%- for area in areas -%}
+      {%- assign in_area = mentors | where_exp: "m", "m.mentoring contains area.key" -%}
+      {%- if in_area.size > 0 %}
+      <section class="mentor-area">
+        <header class="mentor-area__head">
+          <span class="mentor-area__icon mentor-area__icon--{{ area.color }}">
+            {% include icon.html name=area.icon %}
+          </span>
+          <div>
+            <h3 class="mentor-area__title">{{ area.title }}</h3>
+            <p class="mentor-area__count">{{ in_area | size }} mentor{% if in_area.size != 1 %}s{% endif %}</p>
+          </div>
+        </header>
+
+        <ul class="mentor-list">
+          {%- for m in in_area %}
+          <li class="mentor">
+            <a class="mentor__who" href="{{ m.url | relative_url }}">
+              {% include avatar.html m=m dim="2.75rem" %}
+              <span>
+                <span class="mentor__name">{{ m.name }}</span>
+                {%- if m.affiliation %}<span class="mentor__aff">{{ m.affiliation }}</span>{% endif -%}
+              </span>
+            </a>
+            {%- if m.mentoring_note %}<p class="mentor__note">{{ m.mentoring_note }}</p>{% endif %}
+            <p class="mentor__meta">
+              {%- for lvl in m.mentoring_levels -%}
+                {%- assign l = cfg.levels | where: "key", lvl | first -%}
+                <span class="badge">{{ l.label | default: lvl }}</span>
+              {%- endfor -%}
+              {%- if m.mentoring_capacity %}
+              <span class="mentor__cap">{{ m.mentoring_capacity }} place{% if m.mentoring_capacity != 1 %}s{% endif %}</span>
+              {%- endif %}
+            </p>
+          </li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif -%}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- comment -%} ── Open topics ──────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt" id="topics">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Open thesis &amp; project topics</h2>
+      <p class="section-head__note">
+        Posted by supervisors and open to applicants.
+      </p>
+    </div>
+
+    {%- if topics.size == 0 %}
+    <div class="empty">
+      <p><strong>No topics posted yet.</strong></p>
+      <p class="muted">Supervisors can post one through the form.</p>
+      <div class="row" style="justify-content: center; margin-top: var(--sp-4)">
+        <a class="btn" href="https://github.com/{{ site.repository }}/issues/new?template=post-topic.yml">Post a topic</a>
+      </div>
+    </div>
+    {%- else %}
+    <div data-filter-root>
+      <div class="filterbar filterbar--inline">
+        <div class="search">
+          <span class="search__icon">{% include icon.html name="search" %}</span>
+          <input type="search" data-filter-search placeholder="Search topics, languages, mentors"
+                 aria-label="Search topics">
+          <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+            {% include icon.html name="close" %}
+          </button>
+        </div>
+
+        <div class="facet-group">
+          <span class="facet-group__label">Level</span>
+          <div class="facets">
+            {%- for l in cfg.levels -%}
+            {%- assign n = topics | where: "level", l.key | size -%}
+            {%- if n > 0 %}
+            <button class="facet" type="button" data-facet="level" data-value="{{ l.key }}" aria-pressed="false">
+              {{ l.label }}<span class="facet__count">{{ n }}</span>
+            </button>
+            {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="facet-group">
+          <span class="facet-group__label">Area</span>
+          <div class="facets">
+            {%- for a in areas -%}
+            {%- assign n = topics | where: "area", a.key | size -%}
+            {%- if n > 0 %}
+            <button class="facet" type="button" data-facet="area" data-value="{{ a.key }}" aria-pressed="false">
+              {{ a.title }}<span class="facet__count">{{ n }}</span>
+            </button>
+            {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <span class="filter-status" data-filter-count data-noun="topics">{{ topics | size }} topics</span>
+      </div>
+
+      <ul class="topic-list">
+        {%- for t in topics -%}
+        {%- assign mentor = site.members | where: "slug", t.mentor | first -%}
+        {%- assign lvl = cfg.levels | where: "key", t.level | first -%}
+        {%- assign ar = areas | where: "key", t.area | first -%}
+        <li class="topic {% if t.status != 'open' %}topic--closed{% endif %}"
+            data-filter-item data-level="{{ t.level }}" data-area="{{ t.area }}"
+            data-search="{{ t.title }} {{ t.languages | join: ' ' }} {{ mentor.name }} {{ ar.title }} {{ lvl.label }}">
+          <div class="topic__main">
+            <p class="tag-row topic__tags">
+              <span class="badge badge--green">{{ lvl.label | default: t.level }}</span>
+              {%- if ar %}<span class="badge badge--{{ ar.color }}">{{ ar.title }}</span>{% endif -%}
+              {%- for lang in t.languages %}<span class="badge badge--outline">{{ lang }}</span>{% endfor -%}
+              {%- if t.status != 'open' %}<span class="badge">{{ t.status }}</span>{% endif -%}
+            </p>
+            <h3 class="topic__title"><a href="{{ t.url | relative_url }}">{{ t.title }}</a></h3>
+            <p class="topic__meta">
+              {%- if mentor %}<span>Mentor: <a href="{{ mentor.url | relative_url }}">{{ mentor.name }}</a></span>{% endif -%}
+              {%- if t.effort %}<span>{{ t.effort }}</span>{% endif -%}
+              {%- if t.institutions %}<span>{{ t.institutions | join: ", " }}</span>{% endif -%}
+            </p>
+          </div>
+          <a class="topic__go" href="{{ t.url | relative_url }}" aria-label="Read the full description of {{ t.title }}">
+            {% include icon.html name="arrow" %}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-5)">
+        <p>No topics match that. Try clearing a filter.</p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- comment -%} ── How it works ─────────────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">What mentors and students agree to</h2>
+      <p class="section-head__note">
+        Agreed before a mentorship starts.
+      </p>
+    </div>
+
+    <div class="split">
+      <div class="card">
+        <h3 class="card__title">Mentee responsibilities</h3>
+        <ul class="ticks">
+          {%- for item in cfg.expectations.mentee %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Mentor responsibilities</h3>
+        <ul class="ticks">
+          {%- for item in cfg.expectations.mentor %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Calls to action ──────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt" id="offer">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div class="card card--action">
+        <p class="eyebrow">Looking for a mentor</p>
+        <h3 class="card__title">Requesting a mentor</h3>
+        <p>
+          Write to the mentor named on the topic, and copy the mailing list so
+          another mentor can respond if they are at capacity. Say what you have
+          read, what you can build, and how much time you have. Two paragraphs is
+          enough.
+        </p>
+        <p>
+          If nothing listed fits, describe what you want to work on. Some
+          mentors take students on topics that were not posted.
+        </p>
+        <div class="card__actions">
+          <a class="btn btn--primary"
+             href="mailto:{{ site.email }}?subject=Mentorship%20enquiry">Write to the community</a>
+        </div>
+      </div>
+
+      <div class="card card--action">
+        <p class="eyebrow">Offering to mentor</p>
+        <h3 class="card__title">Joining as a mentor</h3>
+        <p>{{ cfg.offer_note }}</p>
+        <p>
+          Add four keys to your own file in <code>_members/</code>: the areas
+          you will mentor in, the levels, how many students you can take, and a
+          sentence on what to ask you about.
+        </p>
+        <p>
+          To offer a specific topic rather than general supervision, the form
+          below writes the file and opens a pull request. A maintainer checks
+          the supervision offer before it goes live.
+        </p>
+        <div class="card__actions">
+          <a class="btn"
+             href="https://github.com/{{ site.repository }}/issues/new?template=post-topic.yml">Post a topic</a>
+          <a class="btn btn--ghost"
+             href="https://github.com/{{ site.repository }}/blob/master/_data/mentorship.yml">See the format</a>
+          <a class="btn btn--ghost" href="{{ '/join/' | relative_url }}">Join first</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

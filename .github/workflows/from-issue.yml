@@ -1,0 +1,110 @@
+name: Issue form to pull request
+
+# Turns a filled-in "Join EthioNLP" or "Propose a talk" issue into a pull
+# request adding the corresponding file. The person who opened the issue is
+# credited and gets a comment linking to the pull request.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  convert:
+    if: contains(join(github.event.issue.labels.*.name, ','), 'join') || contains(join(github.event.issue.labels.*.name, ','), 'event') || contains(join(github.event.issue.labels.*.name, ','), 'team') || contains(join(github.event.issue.labels.*.name, ','), 'news') || contains(join(github.event.issue.labels.*.name, ','), 'gallery') || contains(join(github.event.issue.labels.*.name, ','), 'resource') || contains(join(github.event.issue.labels.*.name, ','), 'topic')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Work out which form this was
+        id: kind
+        env:
+          LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+        run: |
+          if [[ "$LABELS" == *join* ]]; then
+            echo "kind=member" >> "$GITHUB_OUTPUT"
+          elif [[ "$LABELS" == *team* ]]; then
+            echo "kind=team" >> "$GITHUB_OUTPUT"
+          elif [[ "$LABELS" == *news* ]]; then
+            echo "kind=news" >> "$GITHUB_OUTPUT"
+          elif [[ "$LABELS" == *gallery* ]]; then
+            echo "kind=photo" >> "$GITHUB_OUTPUT"
+          elif [[ "$LABELS" == *topic* ]]; then
+            echo "kind=topic" >> "$GITHUB_OUTPUT"
+          else
+            echo "kind=event" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save the issue body
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > /tmp/issue.md
+
+      - name: Build the file
+        id: build
+        run: |
+          set -o pipefail
+          if path=$(python3 scripts/from_issue.py --kind "${{ steps.kind.outputs.kind }}" --body-file /tmp/issue.md 2>/tmp/err.txt); then
+            echo "path=$path" >> "$GITHUB_OUTPUT"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            {
+              echo 'error<<EOF'
+              tail -n 20 /tmp/err.txt
+              echo EOF
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Explain what went wrong
+        if: steps.build.outputs.ok == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "Thanks for this; the automatic step could not complete it:",
+                "",
+                "```",
+                `${{ steps.build.outputs.error }}`,
+                "```",
+                "",
+                "Edit the issue to fix it and a maintainer will re-run this, or just",
+                "say so below and someone will add it by hand. Nothing is lost either way.",
+              ].join("\n"),
+            });
+
+      - name: Open the pull request
+        if: steps.build.outputs.ok == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: contrib/issue-${{ github.event.issue.number }}
+          delete-branch: true
+          commit-message: "${{ steps.kind.outputs.kind }}: from #${{ github.event.issue.number }}"
+          title: "${{ github.event.issue.title }}"
+          labels: from-issue
+          body: |
+            Generated from #${{ github.event.issue.number }}, opened by @${{ github.event.issue.user.login }}.
+
+            Adds `${{ steps.build.outputs.path }}`.
+
+            **Reviewers:** check the name spelling, the affiliation and, for a
+            member, that the resolved OpenAlex id belongs to the right person.
+            Author names are widely shared and a wrong id attributes someone
+            else's papers. After merging, the nightly sync fills in the rest.
+
+            Closes #${{ github.event.issue.number }}

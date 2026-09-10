@@ -1,0 +1,122 @@
+# Hand-curated publications.
+#
+# This file is the place for anything the automatic sync cannot reach, venues
+# with no DOI, workshop papers indexed nowhere, or a record whose venue string
+# came back mangled, and for the extra links (dataset, model, code) that
+# indexes never carry.
+#
+# Entries here are merged into _data/generated/publications.yml and always win
+# over the fetched version, matched on the normalised title. Fields:
+#
+#   title      required, matched on
+#   authors    list of {name: …}; names that match a member are linked
+#              automatically, so there is no need to mark them here
+#   year, venue, type (conference|journal|workshop|preprint|thesis|other)
+#   url, doi, arxiv, anthology, code, dataset, model, abstract
+#   focus      list of focus-area keys, used as a facet on the publications page
+
+- title: "EthioLLM: Multilingual Large Language Models for Ethiopian Languages with Task Evaluation"
+  year: 2024
+  venue: "LREC-COLING 2024"
+  type: conference
+  url: https://aclanthology.org/2024.lrec-main.561/
+  anthology: 2024.lrec-main.561
+  arxiv: "2403.13737"
+  model: https://huggingface.co/EthioNLP
+  focus: [models, evaluation]
+  # Five languages plus English, not seventeen. The seventeen figure was in
+  # this abstract until 2026-09; milestones.yml and the news item for this
+  # paper both say five, and progress.html records the same error having been
+  # caught once before. Do not reintroduce it.
+  abstract: >-
+    Language models have become more popular in recent years due to their
+    outstanding performance on various downstream NLP tasks. However,
+    low-resource languages are still left behind by current developments. We
+    introduce EthioLLM, multilingual language models for five Ethiopian
+    languages and English, and Ethiobenchmark, a new benchmark dataset for
+    several downstream tasks in those languages.
+  authors:
+    - name: Atnafu Lambebo Tonja
+    - name: Israel Abebe Azime
+    - name: Tadesse Destaw Belay
+    - name: Mesay Gemeda Yigezu
+    - name: Moges Ahmed Mehamed
+    - name: Abinew Ali Ayele
+    - name: Tadesse Kebede Guge
+    - name: Ebrahim Chekol Jibril
+    - name: Michael Melese Woldeyohannis
+    - name: Olga Kolesnikova
+    - name: Philipp Slusallek
+    - name: Dietrich Klakow
+    - name: Shengwu Xiong
+    - name: Seid Muhie Yimam
+
+- title: "Walia-LLM: Enhancing Amharic-LLaMA by Integrating Task-Specific and Generative Datasets"
+  year: 2024
+  venue: "5th Workshop on African Natural Language Processing (AfricaNLP), ICLR 2024"
+  type: workshop
+  url: https://arxiv.org/abs/2402.08015
+  arxiv: "2402.08015"
+  dataset: https://huggingface.co/datasets/EthioNLP/Amharic_Instruction_dataset
+  model: https://huggingface.co/EthioNLP/Amharic-llama-base-model
+  focus: [models, data]
+  abstract: >-
+    We focus on enhancing the LLaMA-2-Amharic model by integrating task-specific
+    and generative datasets. We compile an Amharic instruction fine-tuning
+    dataset, fine-tune the model, and open-source the dataset creation pipeline,
+    instruction datasets, trained models and evaluation outputs.
+  authors:
+    - name: Israel Abebe Azime
+    - name: Atnafu Lambebo Tonja
+    - name: Tadesse Destaw Belay
+    - name: Mitiku Yohannes Fuge
+    - name: Aman Kassahun Wassie
+    - name: Eyasu Shiferaw Jada
+    - name: Yonas Chanie
+    - name: Walelign Tewabe Sewunetie
+    - name: Seid Muhie Yimam
+
+- title: "Evaluating Gender Bias in Machine Translation for Low-Resource Languages"
+  year: 2024
+  venue: "5th Workshop on African Natural Language Processing (AfricaNLP), ICLR 2024"
+  type: workshop
+  url: https://openreview.net/group?id=ICLR.cc/2024/Workshop/AfricaNLP
+  dataset: https://huggingface.co/datasets/EthioNLP/Gender-Bias-Evaluation-Dataset
+  focus: [evaluation, data]
+  abstract: >-
+    We construct benchmark datasets for evaluating gender bias in machine
+    translation for three low-resourced languages: Afan Oromo, Amharic and
+    Tigrinya. From human evaluation of 2,400 gender-balanced sentences
+    translated in parallel, about 93% of Afan Oromo, 80% of Tigrinya and 72% of
+    Amharic sentences exhibited gender bias.
+  authors:
+    - name: Walelign Tewabe Sewunetie
+    - name: Atnafu Lambebo Tonja
+    - name: Tadesse Destaw Belay
+    - name: Hellina Hailu Nigatu
+    - name: Gashaw Kidanu
+    - name: Zewdie Mossie
+    - name: Hussien Seid
+    - name: Eshete Derb
+    - name: Seid Muhie Yimam
+
+- title: "Natural Language Processing in Ethiopian Languages: Current State, Challenges, and Opportunities"
+  year: 2023
+  venue: "4th Workshop on Resources for African Indigenous Languages (RAIL), EACL 2023"
+  type: workshop
+  url: https://arxiv.org/abs/2303.14406
+  arxiv: "2303.14406"
+  code: https://github.com/EthioNLP/Ethiopian-Language-Survey
+  focus: [linguistics, data]
+  abstract: >-
+    This survey examines the current state of NLP for four Ethiopian languages, Amharic, Afaan Oromo, Tigrinya and Wolaytta, identifies key challenges and
+    opportunities, and provides a centralised public repository of the resources
+    that exist for each task.
+  authors:
+    - name: Atnafu Lambebo Tonja
+    - name: Tadesse Destaw Belay
+    - name: Israel Abebe Azime
+    - name: Abinew Ali Ayele
+    - name: Moges Ahmed Mehamed
+    - name: Olga Kolesnikova
+    - name: Seid Muhie Yimam

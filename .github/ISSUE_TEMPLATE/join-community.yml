@@ -1,0 +1,130 @@
+name: Join EthioNLP
+description: Add yourself (or someone else) to the community directory.
+title: "Join: "
+labels: ["join"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Everything except your name is optional, but the more links you give,
+        the more of your profile builds itself. Your papers, models and
+        repositories are then kept up to date automatically and you never have
+        to edit anything again.
+
+        Adding someone else? Please check with them first.
+
+  - type: input
+    id: name
+    attributes:
+      label: Full name
+      description: As you would like it to appear, and as it appears on your papers.
+      placeholder: Almaz Tesfaye
+    validations:
+      required: true
+
+  - type: input
+    id: role
+    attributes:
+      label: Role
+      placeholder: PhD student · Lecturer · ML engineer · MSc student
+
+  - type: input
+    id: affiliation
+    attributes:
+      label: Affiliation
+      placeholder: Addis Ababa University
+
+  - type: input
+    id: location
+    attributes:
+      label: Where you are based
+      placeholder: Addis Ababa, Ethiopia
+
+  - type: markdown
+    attributes:
+      value: "### Your links, one is enough, more is better"
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub
+      description: Used to find your Ethiopian-language repositories, and for your photo and bio.
+      placeholder: https://github.com/yourhandle
+
+  - type: input
+    id: huggingface
+    attributes:
+      label: Hugging Face
+      description: Your models and datasets tagged with an Ethiopian language will be listed on the ecosystem page.
+      placeholder: https://huggingface.co/yourhandle
+
+  - type: input
+    id: scholar
+    attributes:
+      label: Google Scholar
+      placeholder: https://scholar.google.com/citations?user=…
+
+  - type: input
+    id: orcid
+    attributes:
+      label: ORCID
+      description: The single most useful one; it makes the publication sync accurate rather than approximate.
+      placeholder: https://orcid.org/0000-0000-0000-0000
+
+  - type: input
+    id: personal
+    attributes:
+      label: Personal site
+      placeholder: https://example.org
+
+  - type: input
+    id: linkedin
+    attributes:
+      label: LinkedIn
+      placeholder: https://www.linkedin.com/in/yourhandle
+
+  - type: checkboxes
+    id: research
+    attributes:
+      label: Research tracks
+      description: Which of the community's tracks do you work on, or want to?
+      options:
+        - label: Datasets & corpora
+        - label: Language models
+        - label: Applications
+        - label: Evaluation & benchmarks
+        - label: Capacity building
+        - label: Language & linguistics
+
+  - type: textarea
+    id: about
+    attributes:
+      label: A sentence or two about your work
+      description: Optional. Appears on your profile page. Plain text or Markdown.
+      placeholder: I work on morphological analysis for Ethio-Semitic languages, currently on a Ge'ez treebank.
+
+  - type: dropdown
+    id: membership
+    attributes:
+      label: Which describes you?
+      description: >-
+        Both join the same groups and events; the difference is only in who
+        decides the community's direction. See
+        https://ethionlp.github.io/standards/ and
+        https://ethionlp.github.io/join/#categories. If you are unsure, pick
+        either; a maintainer will say if the other fits better.
+      options:
+        - "Member: Ethiopian, or working extensively on Ethiopian languages"
+        - "Affiliate member: working with or supporting this community"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Confirmation
+      options:
+        - label: I am happy for this information to appear on a public website, and I understand it lives in a public Git repository that I can edit or remove at any time.
+          required: true
+        - label: I have read the community standards at https://ethionlp.github.io/standards/ and agree to them, including the rules for posting in the Telegram and Discord groups.
+          required: true

@@ -1,0 +1,12 @@
+# Hand-pinned ecosystem entries.
+#
+# The sync scripts find anything under the EthioNLP organisations, plus members'
+# own Ethiopian-language work. This file is for the rest: repositories that
+# matter to the community but live somewhere else entirely.
+#
+# `github:` takes owner/name pairs. They are fetched on the next `make sync` and
+# marked as pinned rather than community-owned.
+
+github:
+  - uhh-lt/ethiopicmodels
+  - EthioNLP/Ethiopian-Language-Survey

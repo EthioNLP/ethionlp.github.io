@@ -1,0 +1,56 @@
+# Mentorship programme copy and configuration.
+#
+# The mentor list itself is NOT here; it is derived from `_members/*.md`, so a
+# mentor is never listed twice and never goes stale. A member becomes a mentor
+# by adding these keys to their own file:
+#
+#   mentoring: [data, models, evaluation]   # keys from _data/focus_areas.yml
+#   mentoring_levels: [msc, phd]            # bsc | msc | phd | intern | career
+#   mentoring_capacity: 2                   # students they can take this cycle
+#   mentoring_note: >-                      # one or two sentences, optional
+#     What they are happy to be asked about.
+#
+# Open thesis and project topics live one-per-file in `_topics/`.
+
+intro: >-
+  NLP researchers in Ethiopia often face a lack of supervisors. Supervisors with
+  NLP experience are scarce inside the country, the literature assumes resources
+  that do not exist for these languages, and a first paper is difficult to write
+  without guidance. Mentorship predates this community's datasets and models,
+  and remains a central part of its work.
+
+levels:
+  - key: bsc
+    label: BSc project
+    detail: A final-year project, usually one semester.
+  - key: msc
+    label: MSc thesis
+    detail: A full thesis, typically six to twelve months.
+  - key: phd
+    label: PhD topic
+    detail: A doctoral direction, with co-supervision where the university allows it.
+  - key: intern
+    label: Internship / research assistantship
+    detail: Short, paid or credit-bearing, usually attached to a running project.
+  - key: career
+    label: Career & applications
+    detail: >-
+      Advice on graduate applications, funding, paper writing and reviewing, not tied to a specific project.
+
+# What a mentee can expect, so that both sides agree before starting.
+expectations:
+  mentee:
+    - Come with a direction, however rough. "I want to work on Tigrinya speech" is enough; "give me a topic" is not.
+    - Expect to read. Early work on a topic is usually reading rather than coding.
+    - Reply within a week, and say so when you are stuck. Mentorships often lapse because one side stopped replying.
+  mentor:
+    - A scheduled call at least monthly, and written feedback on drafts.
+    - "A realistic scope: what can be finished in the time available, not what would be impressive."
+    - Co-authorship where the work warrants it, and a clear statement up front about what would warrant it.
+
+# Shown on the page when someone wants to offer mentorship.
+offer_note: >-
+  Mentors are not required to be senior. Someone who has finished a thesis in
+  this area can usually help a student starting one, and a PhD student is often
+  a suitable first mentor. Capacity is stated publicly, so mentors are not asked
+  for more than they offered.

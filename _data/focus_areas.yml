@@ -1,0 +1,78 @@
+# The six tracks the community organises its work around. `key` is used as a
+# facet value across the ecosystem, publications and community pages, so it must
+# stay stable once published. `icon` refers to a name in _includes/icon.html.
+
+- key: data
+  title: Datasets & corpora
+  icon: database
+  color: green
+  summary: >-
+    Annotated corpora, parallel text, speech and benchmark suites. Released so
+    far for Amharic, Afaan Oromo, Tigrinya, Somali and Ge'ez; in progress for
+    Khimtagne, Awngi and other languages with few existing resources.
+  examples:
+    - EthioSenti, EthioHate, EthioPOS
+    - Amharic instruction-tuning data
+    - Gender-bias MT benchmarks
+
+- key: models
+  title: Language models
+  icon: cpu
+  color: blue
+  summary: >-
+    Pretrained encoders, multilingual generative models and tokenisers built for
+    Ethiopic scripts and morphologically rich Semitic and Cushitic languages.
+  examples:
+    - EthioLLM (s/b/l, 70K & 250K vocab)
+    - Walia-LLM / Amharic LLaMA
+    - Walia tokenizers, mT5 adaptations
+
+- key: applications
+  title: Applications
+  icon: app
+  color: violet
+  summary: >-
+    Applied systems: translation, search, content moderation, agricultural and
+    legal question answering, and accessibility for Ethiopian Sign Language.
+  examples:
+    - Machine translation systems
+    - Hate-speech and misinformation tooling
+    - Retrieval-augmented QA in Amharic
+
+- key: evaluation
+  title: Evaluation & benchmarks
+  icon: chart
+  color: gold
+  summary: >-
+    Shared tasks, leaderboards and error analysis, so that claims about
+    Ethiopian-language systems can be checked independently.
+  examples:
+    - SemEval and AfricaNLP shared tasks
+    - Bias and safety evaluation suites
+    - Task-level error analyses
+
+- key: capacity
+  title: Capacity building
+  icon: graduation
+  color: rust
+  summary: >-
+    Mentoring MSc and PhD students, running workshops and tutorials with
+    Ethiopian universities, and improving access to NLP research training within
+    the country.
+  examples:
+    - EthioNLP workshop at ICES22
+    - Student mentoring and reading groups
+    - University collaborations
+
+- key: linguistics
+  title: Language & linguistics
+  icon: book
+  color: green
+  summary: >-
+    Computational description of Ethiopian languages, morphology, dialect
+    variation, historical reconstruction, and the documentation work the areas
+    above depend on.
+  examples:
+    - Morphological analysis for Ethio-Semitic
+    - Dialect discovery in under-resourced varieties
+    - Proto-language reconstruction

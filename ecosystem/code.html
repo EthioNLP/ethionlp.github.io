@@ -1,0 +1,35 @@
+---
+layout: default
+title: Code
+permalink: /ecosystem/code/
+needs_filter: true
+description: >-
+  Repositories from the EthioNLP organisation and its members.
+---
+
+{%- assign gh = site.data.generated.github -%}
+{%- assign repos = gh.repos -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Models &amp; data</p>
+    <h1 class="page-head__title">Code</h1>
+    <p class="lede">
+      {{ repos | size }} repositories from the EthioNLP organisation, from the
+      labs registered with it, and from members' own accounts where the work is
+      about an Ethiopian language. Synced nightly from the GitHub API.
+    </p>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    {%- if repos.size > 0 %}
+    <div class="grid grid--3 grid--tight">
+      {%- for r in repos %}{% include repo-card.html r=r %}{% endfor %}
+    </div>
+    {%- else %}
+    <div class="empty"><p>Nothing synced yet.</p></div>
+    {%- endif %}
+  </div>
+</section>

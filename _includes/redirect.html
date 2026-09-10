@@ -1,0 +1,18 @@
+{%- comment -%}
+Client-side redirect for the pre-rebuild URLs, so external links and search
+results keep working. Used by the small stub pages at the repository root.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <p>This page has moved to <a href="{{ page.redirect_to | relative_url }}">{{ page.redirect_to }}</a>.</p>
+  <script>location.replace({{ page.redirect_to | relative_url | jsonify }});</script>
+</body>
+</html>

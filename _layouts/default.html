@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include header.html %}
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  {%- comment -%}
+  On every page except the one it points to, and except any page that opts out
+  with `contribute_band: false` in its front matter.
+  {%- endcomment -%}
+  {%- unless page.url == '/contribute/' or page.contribute_band == false -%}
+    {% include contribute-band.html %}
+  {%- endunless -%}
+
+  {% include footer.html %}
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  {% if page.needs_filter %}<script src="{{ '/assets/js/filter.js' | relative_url }}" defer></script>{% endif %}
+  {% if page.needs_compare %}<script src="{{ '/assets/js/compare.js' | relative_url }}" defer></script>{% endif %}
+</body>
+</html>

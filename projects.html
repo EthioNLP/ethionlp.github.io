@@ -1,0 +1,134 @@
+---
+layout: default
+title: Research projects
+permalink: /projects/
+description: >-
+  Named pieces of work with the people involved, the papers, models and
+  datasets they produced, and the stage each one is at.
+---
+
+{%- comment -%}
+The listing for the `projects` collection. A project is the unit between a
+research track and a single artifact: a named effort with people on it that
+produced some combination of a paper, a model, a dataset and code.
+
+Nothing is invented here. Until someone adds a file to _projects/, the page
+says so plainly rather than showing placeholder cards — an empty state that
+tells the reader what would be here and how to add the first one is honest,
+and a fabricated example is not.
+{%- endcomment -%}
+{%- assign projects = site.projects | where_exp: "p", "p.status != 'hidden'" -%}
+{%- assign active = projects | where: "status", "active" -%}
+{%- assign shipped = projects | where: "status", "shipped" -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Research</p>
+    <h1 class="page-head__title">Research projects</h1>
+    <p class="lede">
+      Named pieces of work with the people involved. A project sits between a
+      research track and a single model or paper: it is the effort that
+      produced them, and it records who to contact about it.
+    </p>
+
+    {%- if projects.size > 0 %}
+    <ul class="statline">
+      <li><strong>{{ projects | size }}</strong> project{% unless projects.size == 1 %}s{% endunless %}</li>
+      {%- if active.size > 0 %}<li><strong>{{ active | size }}</strong> active</li>{% endif -%}
+      {%- if shipped.size > 0 %}<li><strong>{{ shipped | size }}</strong> shipped</li>{% endif -%}
+    </ul>
+    {%- endif %}
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    {%- if projects.size > 0 %}
+    <div class="grid grid--3">
+      {%- for p in projects %}
+      <article class="card">
+        {%- if p.status %}<p class="eyebrow">{{ p.status }}</p>{% endif %}
+        <h2 class="card__title" style="font-size: var(--t-lg)">
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        </h2>
+        {%- if p.summary %}<p class="muted">{{ p.summary }}</p>{% endif %}
+
+        {%- if p.languages.size > 0 %}
+        <div class="tag-row">
+          {%- for l in p.languages limit: 4 %}<span class="badge">{{ l }}</span>{% endfor -%}
+        </div>
+        {%- endif %}
+
+        {%- if p.people.size > 0 %}
+        {%- comment -%} Canonical community order, as everywhere else. {%- endcomment -%}
+        {%- assign roster = site.members | sort: "order" -%}
+        {%- assign slugs = p.people | join: "," -%}
+        <ul class="langpeople">
+          {%- for m in roster -%}
+          {%- assign probe = "," | append: slugs | append: "," -%}
+          {%- assign needle = "," | append: m.slug | append: "," -%}
+          {%- if probe contains needle %}
+          <li><a href="{{ m.url | relative_url }}">{{ m.name }}</a></li>
+          {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+
+    {%- else %}
+    {%- comment -%}
+    The honest empty state. It names what a project entry is for and points at
+    the two ways to add one, so the page is useful before it has content.
+    {%- endcomment -%}
+    <div class="empty">
+      <p><strong>No projects are listed yet.</strong></p>
+      <p class="muted" style="max-width: 60ch; margin-inline: auto">
+        This page is generated from <code>_projects/</code>. Add one file per
+        project and it appears here with its own page, linked to the people on
+        it and to whatever it produced.
+      </p>
+      <div class="row" style="justify-content: center; margin-top: var(--sp-5)">
+        <a class="btn" href="https://github.com/{{ site.repository }}/new/master/_projects?filename=_projects/my-project.md">
+          Add a project
+        </a>
+        <a class="btn btn--ghost" href="https://github.com/{{ site.repository }}/blob/master/CONTRIBUTING.md#add-a-research-project">
+          What a project file looks like
+        </a>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">What counts as a project</h2>
+      <p class="section-head__note">
+        Something with a name, at least one person on it, and an output someone
+        outside the community could use. A single paper is not a project; the
+        line of work that produced it, together with the dataset and model
+        beside it, is.
+      </p>
+    </div>
+    <div class="prose">
+      <p>
+        Projects are deliberately kept separate from
+        <a href="{{ '/ecosystem/' | relative_url }}">models and datasets</a>,
+        which are individual artifacts synced from Hugging Face and GitHub, and
+        from <a href="{{ '/research/' | relative_url }}">research areas</a>,
+        which are the six broad tracks the community organises around. A
+        project is the middle unit: it is what a person works on, and it is one
+        of the few parts of this site written by hand rather than fetched from
+        an API.
+      </p>
+      <p>
+        If you are looking for work to join rather than work to read about, the
+        <a href="{{ '/mentorship/#topics' | relative_url }}">open thesis topics</a>
+        are a starting point.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,166 @@
+---
+layout: default
+title: Teams & collaborators
+permalink: /teams/
+description: >-
+  The labs, projects and groups whose Ethiopian-language work is tracked here.
+---
+
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign owned = hf.artifacts -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Community</p>
+    <h1 class="page-head__title">Teams &amp; collaborators</h1>
+    <p class="lede">
+      A group registers its Hugging Face and GitHub <em>organisations</em>, not
+      individual models. From then on, work it publishes that covers an
+      Ethiopian language is listed on this site automatically.
+    </p>
+    <p class="lede">
+      Registering is what makes a group's work count as EthioNLP's rather than
+      as related work.
+    </p>
+  </div>
+</div>
+
+{%- comment -%} ── Peer communities ────────────────────────────────────────────
+Kept apart from registered teams on purpose. A registered team's output is
+counted as this community's own; a collaborator is a peer whose work is theirs.
+Merging the two would quietly annex other people's research.
+{%- endcomment -%}
+{%- assign collabs = site.data.collaborators -%}
+{%- if collabs and collabs.size > 0 %}
+<section class="band band--alt" id="collaborators">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <p class="eyebrow">Collaborators</p>
+      <h2>Communities we work with</h2>
+      <p class="lede">
+        Peer communities and research groups. Their work is their own and is
+        not counted in the totals on this site.
+      </p>
+    </div>
+
+    <ul class="collabs">
+      {%- for c in collabs %}
+      <li class="collab">
+        <div class="collab__head">
+          <h3 class="collab__name">
+            {%- if c.website -%}
+            <a href="{{ c.website }}" rel="noopener">{{ c.name }}</a>
+            {%- else -%}{{ c.name }}{%- endif -%}
+          </h3>
+          <div class="tag-row">
+            {%- if c.scope %}<span class="badge badge--outline">{{ c.scope | replace: "-", " " }}</span>{% endif -%}
+            {%- if c.since %}<span class="badge">since {{ c.since }}</span>{% endif -%}
+          </div>
+        </div>
+        {%- if c.based %}<p class="collab__where">{{ c.based }}</p>{% endif %}
+        {%- if c.summary %}<p class="collab__summary">{{ c.summary }}</p>{% endif %}
+        {%- if c.with_us %}
+        <p class="collab__with"><span>Together:</span> {{ c.with_us }}</p>
+        {%- endif %}
+        {%- if c.github or c.huggingface %}
+        <p class="team__links">
+          {%- if c.huggingface %}
+          <a href="https://huggingface.co/{{ c.huggingface }}" rel="noopener">
+            {% include icon.html name="huggingface" %} {{ c.huggingface }}
+          </a>
+          {%- endif -%}
+          {%- if c.github %}
+          <a href="https://github.com/{{ c.github }}" rel="noopener">
+            {% include icon.html name="github" %} {{ c.github }}
+          </a>
+          {%- endif -%}
+        </p>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+
+    <p class="muted" style="margin-top: var(--sp-5)">
+      Groups working with us that are not listed can add an entry to
+      <a href="https://github.com/{{ site.repository }}/blob/master/_data/collaborators.yml"><code>_data/collaborators.yml</code></a>,
+      or <a href="https://github.com/{{ site.repository }}/issues/new">open an issue</a>.
+    </p>
+  </div>
+</section>
+{%- endif %}
+
+{%- assign teams = site.data.organisations -%}
+{%- if teams.size > 0 %}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Teams</p>
+        <h2>Registered teams</h2>
+        <p class="lede">
+          {{ teams | size }} labs and projects have registered their
+          organisations. Work they publish that covers an Ethiopian language is
+          listed here on the next nightly sync. Models are not submitted by
+          hand.
+        </p>
+      </div>
+      {%- comment -%}
+      Two doors. The web form needs no account and is the one most groups will
+      use; the issue form is better if you are already on GitHub, because the
+      conversation happens in the thread. Whichever is used, a maintainer
+      reviews the entry before the team's work counts as EthioNLP's.
+      {%- endcomment -%}
+      <div class="row">
+        {%- if site.team_form_url %}
+        <a class="btn btn--primary" href="{{ site.team_form_url }}" rel="noopener">Register a team</a>
+        <a class="btn" href="https://github.com/{{ site.repository }}/issues/new?template=register-team.yml">Or use GitHub</a>
+        {%- else %}
+        <a class="btn btn--primary" href="https://github.com/{{ site.repository }}/issues/new?template=register-team.yml">Register a team</a>
+        {%- endif %}
+      </div>
+    </div>
+
+    <ul class="teams">
+      {%- for team in teams -%}
+      {%- assign team_items = owned | where: "team", team.slug -%}
+      <li class="team">
+        <div class="team__head">
+          <h3 class="team__name">
+            {%- if team.website -%}
+            <a href="{{ team.website }}" rel="noopener">{{ team.name }}</a>
+            {%- else -%}{{ team.name }}{%- endif -%}
+          </h3>
+          <span class="badge">{{ team.kind }}</span>
+        </div>
+        {%- if team.summary %}<p class="team__summary">{{ team.summary }}</p>{% endif %}
+        <p class="team__links">
+          {%- if team.huggingface %}
+          <a href="https://huggingface.co/{{ team.huggingface }}" rel="noopener">
+            {% include icon.html name="huggingface" %} {{ team.huggingface }}
+          </a>
+          {%- endif -%}
+          {%- if team.github %}
+          <a href="https://github.com/{{ team.github }}" rel="noopener">
+            {% include icon.html name="github" %} {{ team.github }}
+          </a>
+          {%- endif -%}
+          {%- if team.lead -%}
+            {%- assign lead = site.members | where: "slug", team.lead | first -%}
+            {%- if lead %}<a href="{{ lead.url | relative_url }}">{{ lead.name }}</a>{% endif -%}
+          {%- endif -%}
+        </p>
+        <p class="team__count">
+          {%- if team_items.size > 0 -%}
+            {{ team_items.size }} model{% unless team_items.size == 1 %}s{% endunless %} and dataset{% unless team_items.size == 1 %}s{% endunless %} listed here
+          {%- else -%}
+            no items listed yet
+          {%- endif -%}
+          {%- if team.joined %} · registered {{ team.joined }}{% endif -%}
+        </p>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+

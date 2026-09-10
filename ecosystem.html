@@ -1,0 +1,192 @@
+---
+layout: default
+title: Ecosystem
+permalink: /ecosystem/
+needs_filter: true
+description: >-
+  Models and datasets built by EthioNLP, the organisation, its registered teams
+  and its members, synced nightly from Hugging Face.
+---
+
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign gh = site.data.generated.github -%}
+{%- assign meta = site.data.generated.meta -%}
+{%- comment -%}
+This page is EthioNLP's own work, and only that.
+
+`tier` is set by scripts/sync_huggingface.py and is the distinction that
+matters here:
+
+  ethionlp, the EthioNLP organisation, and teams registered in
+             _data/organisations.yml. A human vouched for each of those.
+  member, the personal account of a confirmed member.
+  related, everything else, including organisations a member happens to
+             belong to. That is NOT this page; it lives at /ecosystem/related/.
+
+The third tier exists because of a mistake worth not repeating: sweeping every
+organisation a member belongs to and calling the result "ours" credited this
+community with mt0 and a multilingual toxicity classifier. Org membership is not
+authorship.
+
+`breadth` is a second, independent axis, see /ecosystem/related/.
+{%- endcomment -%}
+{%- assign ours = hf.artifacts | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+{%- assign focused = ours | where: "breadth", "focused" -%}
+{%- assign by_org = focused | where: "tier", "ethionlp" -%}
+{%- assign by_member = focused | where: "tier", "member" -%}
+{%- assign repos = gh.repos -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Models &amp; data</p>
+    <h1 class="page-head__title">Models and datasets from EthioNLP</h1>
+    <p class="lede">
+      {{ focused | size }} models and datasets for Ethiopian languages, published
+      by the EthioNLP organisation, by the labs registered with it, or by members
+      under their own accounts. Regenerated nightly from the Hugging Face API.
+    </p>
+    <p class="lede">
+      Ethiopian-language work by <em>other</em> people is on its own page.
+    </p>
+    <div class="page-head__actions">
+      <a class="btn" href="{{ '/ecosystem/related/' | relative_url }}">Work by the wider community</a>
+      <a class="btn" href="{{ '/ecosystem/code/' | relative_url }}">Code repositories</a>
+    </div>
+  </div>
+</div>
+
+<div class="band band--tight">
+  <div class="wrap wrap--wide">
+    <div class="stats">
+      <div class="stat">
+        <span class="stat__value num">{{ focused | where: "kind", "model" | size }}</span>
+        <span class="stat__label">models</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ focused | where: "kind", "dataset" | size }}</span>
+        <span class="stat__label">datasets</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ gh.totals.repos }}</span>
+        <span class="stat__label">repositories</span>
+      </div>
+      <div class="stat">
+        {%- assign our_dl = 0 -%}
+        {%- for a in focused %}{% assign our_dl = our_dl | plus: a.downloads %}{% endfor -%}
+        <span class="stat__value num">{{ our_dl }}</span>
+        <span class="stat__label">downloads, last 30 days</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value num">{{ hf.totals.languages }}</span>
+        <span class="stat__label">languages covered</span>
+        <span class="stat__note">of {{ site.data.generated.catalog.totals.languages }} in the catalogue</span>
+      </div>
+    </div>
+    {%- if meta.sources.huggingface %}
+    <p class="muted" style="margin-top: var(--sp-3); font-size: var(--t-sm)">
+      Hugging Face synced {{ meta.sources.huggingface | date: "%-d %B %Y" }};
+      GitHub {{ meta.sources.github | date: "%-d %B %Y" }}.
+    </p>
+    {%- endif %}
+  </div>
+</div>
+
+<div data-filter-root>
+  <div class="filterbar">
+    <div class="wrap wrap--wide filterbar__inner">
+      <div class="search">
+        <span class="search__icon">{% include icon.html name="search" %}</span>
+        <input type="search" data-filter-search placeholder="Search models, datasets and repositories"
+               aria-label="Search the ecosystem">
+        <button class="search__clear" type="button" data-filter-clear aria-label="Clear search">
+          {% include icon.html name="close" %}
+        </button>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Published by</span>
+        <div class="facets">
+          <button class="facet" type="button" data-facet="tier" data-value="ethionlp" aria-pressed="false">
+            EthioNLP &amp; its labs<span class="facet__count">{{ by_org | size }}</span>
+          </button>
+          <button class="facet" type="button" data-facet="tier" data-value="member" aria-pressed="false">
+            Members' own accounts<span class="facet__count">{{ by_member | size }}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Type</span>
+        <div class="facets">
+          <button class="facet" type="button" data-facet="kind" data-value="model" aria-pressed="false">
+            Models<span class="facet__count">{{ focused | where: "kind", "model" | size }}</span>
+          </button>
+          <button class="facet" type="button" data-facet="kind" data-value="dataset" aria-pressed="false">
+            Datasets<span class="facet__count">{{ focused | where: "kind", "dataset" | size }}</span>
+          </button>
+          {%- comment -%}
+          No Code chip. Repositories are deliberately not rendered on this page
+          (see the note above the grid below); the chip counted all 29 of them
+          and then emptied the grid when clicked, because no item here carries
+          data-kind="code". /ecosystem/code/ is where they live, and the link
+          to it sits in the page head.
+          {%- endcomment -%}
+        </div>
+      </div>
+
+      <div class="facet-group">
+        <span class="facet-group__label">Track</span>
+        <div class="facets">
+          {%- comment -%}
+          Counted over `focused` only. Adding `repos` in made every chip
+          promise more than the grid holds -- applications read 20 against 7 --
+          and invented three chips (evaluation, capacity, linguistics) for
+          focus values no artifact carries, each of which emptied the page.
+          /research/ links here with counts computed the same way, so the two
+          pages now agree.
+          {%- endcomment -%}
+          {%- for area in site.data.focus_areas -%}
+          {%- assign n = focused | where: "focus", area.key | size -%}
+          {%- if n > 0 %}
+          <button class="facet" type="button" data-facet="focus" data-value="{{ area.key }}" aria-pressed="false">
+            {{ area.title }}<span class="facet__count">{{ n }}</span>
+          </button>
+          {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <select class="sort-select" data-filter-sort aria-label="Sort">
+        <option data-key="downloads" data-dir="desc">Most used</option>
+        <option data-key="updated" data-dir="desc">Recently updated</option>
+        <option data-key="name" data-dir="asc">Name (A–Z)</option>
+      </select>
+
+      <span class="filter-status" data-filter-count data-noun="resources">{{ focused | size }} models &amp; datasets</span>
+    </div>
+  </div>
+
+  <div class="band band--flush">
+    <div class="wrap wrap--wide">
+      <div class="grid grid--2 grid--tight">
+        {%- comment -%}
+        Both groups are in one filterable grid so a search covers everything,
+        but each card is labelled, and the two headings below make the split
+        legible without a filter.
+        {%- endcomment -%}
+        {%- comment -%}
+        Models and datasets only. Repositories are listed in full on
+        /ecosystem/code/, and rendering them here as well put all 29 on two
+        pages; the stat tile above and the button in the page head are the link
+        to them.
+        {%- endcomment -%}
+        {%- for a in by_org %}{% include artifact-card.html a=a %}{% endfor %}
+        {%- for a in by_member %}{% include artifact-card.html a=a %}{% endfor %}
+      </div>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-6)">
+        <p>Nothing matches those filters.</p>
+      </div>
+    </div>
+  </div>
+</div>

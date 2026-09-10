@@ -1,0 +1,126 @@
+# Curated timeline behind the progress dashboard.
+#
+# Two tracks are interleaved: `ethiopia` (EthioNLP and Ethiopian-language work)
+# and `africa` (the wider AfricaNLP / Masakhane movement that EthioNLP is part
+# of). Add an entry by appending to this list, the chart and timeline pick it
+# up on the next build. Every entry should carry a `source` a reader can check.
+
+- year: 2017
+  track: africa
+  title: First Deep Learning Indaba
+  description: >-
+    A pan-African machine-learning gathering that became a regular meeting
+    point for the field, and where many EthioNLP members first met.
+  source: https://deeplearningindaba.com/
+
+- year: 2018
+  track: ethiopia
+  title: EthioNLP founded at COLING 2018
+  description: >-
+    At COLING in Santa Fe, researchers from Addis Ababa University, the
+    University of Hamburg and the University of Trento agreed to build a formal
+    community for Ethiopian-language NLP.
+  source: https://aclanthology.org/volumes/C18-1/
+
+- year: 2019
+  track: africa
+  title: Masakhane begins
+  description: >-
+    An open, participatory research effort for African-language NLP, run by
+    African researchers. EthioNLP members have contributed since its early years.
+  source: https://www.masakhane.io/
+
+- year: 2020
+  track: africa
+  title: First AfricaNLP workshop
+  description: >-
+    The workshop series that gave African-language NLP a recurring venue at a
+    major conference, beginning at ICLR 2020, held online after the Addis Ababa edition moved.
+  source: https://sites.google.com/view/africanlp-workshop
+
+- year: 2020
+  track: africa
+  title: Lacuna Fund launches
+  description: >-
+    Dedicated funding for labelled datasets in under-served languages, which
+    funded part of the African-language data released since.
+  source: https://lacunafund.org/
+
+- year: 2021
+  track: africa
+  title: MasakhaNER
+  description: >-
+    Named-entity recognition data and models for ten African languages, built
+    by more than fifty researchers, an example of participatory dataset work
+    that Ethiopian projects have followed since.
+  source: https://aclanthology.org/2021.tacl-1.66/
+
+- year: 2022
+  track: africa
+  title: NLLB-200 and FLORES-200
+  description: >-
+    Machine translation and evaluation data extended to 200 languages,
+    including Amharic, Tigrinya, Afaan Oromo and Somali.
+  source: https://arxiv.org/abs/2207.04672
+
+- year: 2023
+  track: ethiopia
+  title: Survey, NLP in Ethiopian languages
+  description: >-
+    A community survey of the state, challenges and opportunities of NLP for
+    Amharic, Afaan Oromo, Tigrinya and Wolaytta, with a public repository of
+    existing resources.
+  source: https://arxiv.org/abs/2303.14406
+
+- year: 2023
+  track: africa
+  title: AfriSenti and SemEval-2023 Task 12
+  description: >-
+    Sentiment analysis data for fourteen African languages, Amharic, Tigrinya
+    and Oromo among them, run as a shared task with wide participation.
+  source: https://aclanthology.org/2023.semeval-1.315/
+
+- year: 2024
+  track: ethiopia
+  title: EthioLLM at LREC-COLING 2024
+  description: >-
+    Multilingual language models for five Ethiopian languages, Amharic, Ge'ez,
+    Afaan Oromo, Somali and Tigrinya, plus English, released with a benchmark
+    suite and task evaluation.
+  source: https://aclanthology.org/2024.lrec-main.561/
+
+- year: 2024
+  track: ethiopia
+  title: Walia-LLM and Amharic instruction data
+  description: >-
+    Task-specific and generative datasets combined into an Amharic LLaMA, with
+    the dataset pipeline, models and evaluation outputs released openly.
+  source: https://arxiv.org/abs/2402.08015
+
+- year: 2025
+  track: ethiopia
+  title: EthioNLP on Voice of America
+  description: >-
+    Community members discussed Ethiopian-language NLP for a general audience
+    on VoA, in February 2025.
+  # No public recording of the segment has been found; this links to the
+  # research group's own announcement rather than to the broadcast.
+  source: https://www.linkedin.com/company/hcds-uhh/
+  source_kind: secondary
+
+- year: 2025
+  track: ethiopia
+  title: LT4All 2025 and deRSE 2025
+  description: >-
+    "Advancing Language Technology for Ethiopia's Diverse Linguistic Landscape
+    through the EthioNLP Collaborative Effort" presented in February 2025.
+  source: https://www.lt4all2025.eu/
+
+- year: 2025
+  track: ethiopia
+  title: First EthioNLP workshop, at ICES22
+  description: >-
+    Twenty-one accepted contributions on Ethiopian-language NLP, co-located with
+    the 22nd International Conference of Ethiopian Studies at Hawassa
+    University.
+  source: https://ices22.hu.edu.et/

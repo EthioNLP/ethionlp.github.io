@@ -1,0 +1,36 @@
+{%- comment -%}
+One event as a single line, for the archive.
+
+The full card (event-card.html) is right for the handful of events that are
+still ahead; for the ones that have happened it is far too much furniture, and a
+page that opens with twenty cards buries the two dates that matter. This is the
+same information reduced to a row that scans, with the detail a click away on
+the event's own page.
+
+Carries the same data- attributes as the card so the filter bar works across
+both forms.
+{%- endcomment -%}
+{%- assign e = include.e -%}
+
+<li class="evrow" data-filter-item
+    data-kind="{{ e.kind }}"
+    data-when="past"
+    data-status="{{ e.status | default: 'confirmed' }}"
+    data-focus="{{ e.focus | join: ' ' }}"
+    data-search="{{ e.title }} {{ e.short_title }} {{ e.kind }} {{ e.location }} {{ e.summary }}"
+    data-sort-date="{{ e.start | date: '%Y%m%d' }}">
+  <a class="evrow__link" href="{{ e.url | relative_url }}">
+    <time class="evrow__date" datetime="{{ e.start | date_to_xmlschema }}">
+      {{ e.start | date: "%-d %b" }}
+      {%- if e.end and e.end != e.start %}<span class="evrow__through">to {{ e.end | date: "%-d %b" }}</span>{% endif -%}
+    </time>
+
+    <span class="evrow__title">{{ e.short_title | default: e.title }}</span>
+
+    <span class="evrow__meta">
+      <span class="badge badge--{% if e.kind == 'workshop' %}rust{% elsif e.kind == 'seminar' %}blue{% elsif e.kind == 'conference' %}violet{% else %}green{% endif %}">{{ e.kind }}</span>
+      {%- if e.location %}<span class="evrow__where">{{ e.location }}</span>{% endif -%}
+      {%- if e.papers.size > 0 %}<span class="evrow__count">{{ e.papers | size }} papers</span>{% endif -%}
+    </span>
+  </a>
+</li>

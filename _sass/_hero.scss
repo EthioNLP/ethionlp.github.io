@@ -1,0 +1,167 @@
+// ─── Landing hero ────────────────────────────────────────────────────────────
+//
+// One column of type, one column of live numbers. The type column carries a
+// faint Ge'ez syllabary behind it, set at very low contrast so it reads as
+// texture rather than decoration, and hidden from assistive tech.
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  // Deliberately shallower than a typical hero. The entry-point grid below is
+  // what a visitor came for, and it should not sit entirely under the fold.
+  padding-block: clamp(2rem, 1rem + 3vw, 3rem) clamp(1.5rem, 0.75rem + 2vw, 2.25rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero__glyphs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  font-family: var(--font-ethi);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: var(--ink);
+  opacity: 0.028;
+  mask-image: linear-gradient(105deg, transparent 8%, #000 42%, #000 62%, transparent 96%);
+  -webkit-mask-image: linear-gradient(105deg, transparent 8%, #000 42%, #000 62%, transparent 96%);
+
+  span { display: block; }
+  span:nth-child(even) { margin-left: -1.5em; }
+}
+:root[data-theme="dark"] .hero__glyphs { opacity: 0.05; }
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  gap: clamp(2.5rem, 1rem + 5vw, 4.5rem);
+  align-items: start;
+
+  @media (min-width: 980px) {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+}
+
+.hero__title {
+  // Capped below the old 4rem so the entry-point grid clears the fold on a
+  // laptop. The headline is still the largest type on the site.
+  font-size: clamp(2.1rem, 1.2rem + 3.4vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  margin-bottom: var(--sp-5);
+
+  em {
+    font-style: italic;
+    color: var(--accent);
+  }
+}
+
+.hero__lede {
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 46ch;
+  margin-bottom: var(--sp-5);
+}
+
+// The rotating multilingual welcome. Height is fixed so the line below it
+// does not jump as the sentence changes.
+.hero__rotator {
+  display: block;
+  min-height: 1.6em;
+  font-size: var(--t-base);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-6);
+  border-left: 2px solid var(--gold);
+  padding-left: var(--sp-4);
+
+  span {
+    display: inline-block;
+    animation: rotate-in 0.5s var(--ease) both;
+  }
+}
+
+@keyframes rotate-in {
+  from { opacity: 0; transform: translateY(0.35em); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+}
+
+// Live panel, the ecosystem counters, sourced from _data/generated.
+.hero__panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+
+  &-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface-2);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+
+  &-foot {
+    padding: var(--sp-3) var(--sp-4);
+    border-top: 1px solid var(--rule);
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+}
+
+.hero__panel .stat { padding: var(--sp-4); }
+.hero__panel .stat__value { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+
+.dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+  margin-right: 0.45em;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 60%, transparent);
+  animation: pulse 2.4s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--green) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 0.45em transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}

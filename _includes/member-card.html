@@ -1,0 +1,35 @@
+{%- assign m = include.m -%}
+{%- include focus-of.html m=m -%}
+<article class="person" data-filter-item
+         data-focus="{{ focus | join: ' ' }}"
+         data-kind="{% if m.founder %}founder {% endif %}{% if m.alumni %}alumni{% else %}active{% endif %}"
+         data-search="{{ m.name }} {{ m.role }} {{ m.affiliation }} {{ focus | join: ' ' }} {{ m.aliases | join: ' ' }}"
+         data-sort-name="{{ m.name | split: ' ' | last }}">
+  {% include avatar.html m=m %}
+  <div class="person__body">
+    <h3 class="person__name">
+      <a href="{{ m.url | relative_url }}" class="stretched">{{ m.name }}</a>
+    </h3>
+    {%- comment -%}
+    Only when there is something to put in it. A member with neither a role nor
+    an affiliation renders an empty <p>, which is a blank line the height
+    of a text row in the middle of the card.
+    {%- endcomment -%}
+    {%- if m.role or m.affiliation %}
+    <p class="person__role">
+      {%- if m.role %}{{ m.role }}{% endif -%}
+      {%- if m.role and m.affiliation %} · {% endif -%}
+      {%- if m.affiliation %}{{ m.affiliation }}{% endif -%}
+    </p>
+    {%- endif %}
+    {%- if focus.size > 0 %}
+    <div class="tag-row" style="margin-bottom: var(--sp-3)">
+      {%- for key in focus limit: 3 -%}
+        {%- assign area = site.data.focus_areas | where: "key", key | first -%}
+        {%- if area %}<span class="badge badge--{{ area.color }}">{{ area.title }}</span>{% endif -%}
+      {%- endfor -%}
+    </div>
+    {%- endif %}
+    {% include social-links.html m=m %}
+  </div>
+</article>

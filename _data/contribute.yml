@@ -1,0 +1,168 @@
+# Every way to contribute to this site, in one list.
+#
+# This file is the single source for three surfaces: the /contribute/ page, the
+# band that sits above the footer on every page, and the footer's own Contribute
+# column. Add a way here and it appears in all three; there is nowhere else to
+# edit.
+#
+# Fields
+#   id        anchor on /contribute/
+#   title     what the visitor wants to do, in their words, not ours
+#   blurb     one sentence. What it is for, or what makes it worth doing
+#   action    the button label. A verb
+#   url       where the button goes. Issue forms are ?template=<file>
+#   effort    honest estimate. People decide on this
+#   account   what is needed: none | github | git
+#   featured  shown in the band above the footer, so keep this to four
+#   icon      a name from _includes/icon.html
+#   docs      anchor in CONTRIBUTING.md for the long version
+
+# The repository itself is site.repository in _config.yml; this is the branch
+# the "edit this page" links point at.
+branch: master
+guide: https://github.com/EthioNLP/ethionlp.github.io/blob/master/CONTRIBUTING.md
+
+ways:
+  - id: member
+    title: Be listed as a member
+    blurb: >-
+      Give one public profile link and the site tracks your papers, models and
+      repositories from then on, without further updates from you.
+    action: Open the join form
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=join-community.yml
+    secondary:
+      title: What happens after you submit
+      url: /join/
+    effort: 3 minutes
+    account: github
+    featured: true
+    icon: users
+    docs: "#add-yourself"
+
+  - id: news
+    title: Share something that happened
+    blurb: >-
+      A defence, a paper accepted, an award, a dataset released, a workshop run.
+      Two sentences and a link is enough; a maintainer will tidy the wording.
+    action: Share news
+    url: /news/submit/
+    effort: 1 minute
+    account: none
+    featured: true
+    icon: sparkle
+    docs: "#share-news"
+
+  - id: resource
+    title: Add a paper, model or dataset we missed
+    blurb: >-
+      Much work is collected automatically. Use this when something was skipped,
+      usually because it carries no Ethiopian language tag.
+    action: Open the resource form
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=add-resource.yml
+    effort: 2 minutes
+    account: github
+    featured: true
+    icon: database
+    docs: "#add-a-resource"
+
+  - id: fix
+    title: Fix a mistake
+    blurb: >-
+      A wrong affiliation, a dead link, a typo, a figure that looks off. Every
+      page has an edit link at the bottom that opens the right file.
+    action: Report or fix it
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new
+    effort: 1 minute
+    account: github
+    featured: true
+    icon: check
+    docs: "#fix-something"
+
+  - id: team
+    title: Register a lab, project or student group
+    blurb: >-
+      Your team's GitHub organisation and Hugging Face account are then read on
+      the same schedule as everyone else's, so the whole group's output lands here.
+    action: Open the team form
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=register-team.yml
+    effort: 5 minutes
+    account: github
+    icon: star
+    docs: "#register-a-team"
+
+  - id: event
+    title: Announce a talk, workshop or seminar
+    blurb: >-
+      Speakers are welcome. A thesis chapter, a dataset you are annotating or a
+      model that is not working yet are all suitable seminar topics.
+    action: Propose a talk
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=propose-talk.yml
+    effort: 3 minutes
+    account: github
+    icon: calendar
+    docs: "#add-an-event"
+
+  - id: mentor
+    title: Offer to supervise students
+    blurb: >-
+      Mentors do not have to be senior. Someone who has finished a thesis in
+      this area can usually help a student starting one.
+    action: How to become a mentor
+    url: /mentorship/
+    effort: 10 minutes
+    account: git
+    icon: graduation
+    docs: "#become-a-mentor"
+
+  - id: topic
+    title: Post a thesis topic
+    blurb: >-
+      A good topic says what the gap is, what a student would actually do, and
+      what a finished result looks like.
+    action: Post a topic
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=post-topic.yml
+    effort: 20 minutes
+    account: none
+    icon: book
+    docs: "#post-a-thesis-topic"
+
+  - id: gallery
+    title: Add a photograph
+    blurb: >-
+      From workshops, conferences and gatherings. Drag the file into the form;
+      it is uploaded for you and a maintainer writes it into the gallery.
+    action: Upload a photograph
+    url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=add-photo.yml
+    secondary:
+      title: See the gallery
+      url: /gallery/
+    effort: 2 minutes
+    account: github
+    icon: pin
+    docs: "#add-to-the-gallery"
+
+  - id: code
+    title: Change how the site works
+    blurb: >-
+      Jekyll, Sass and a little vanilla JavaScript, with Python scripts for the
+      data. It runs locally in two commands.
+    action: Read the developer guide
+    url: https://github.com/EthioNLP/ethionlp.github.io/blob/master/CONTRIBUTING.md#work-on-the-code
+    effort: an afternoon
+    account: git
+    icon: cpu
+    docs: "#work-on-the-code"
+
+# What "account" means, spelled out once and shown wherever a way is listed.
+accounts:
+  none:
+    label: No account needed
+    note: A web form. Works on a phone.
+  github:
+    label: Free GitHub account
+    note: The form turns into a proposed change; no code editing is involved.
+  git:
+    label: Git, or ask us
+    note: >-
+      A file in the repository. If that is not something you do, send it to the
+      mailing list and a maintainer will add it for you.

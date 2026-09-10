@@ -1,0 +1,144 @@
+// ─── Gallery ─────────────────────────────────────────────────────────────────
+//
+// A column layout rather than a grid: the photographs are a mix of portrait and
+// landscape, and a uniform grid would either crop them badly or leave holes.
+// Columns let each image keep its own aspect ratio.
+
+.gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 1;
+  column-gap: var(--sp-5);
+
+  @media (min-width: 640px) { columns: 2; }
+  @media (min-width: 1040px) { columns: 3; }
+}
+
+.gallery__item {
+  break-inside: avoid;
+  margin: 0 0 var(--sp-5);
+  // Safari needs this to stop items straddling a column break.
+  display: inline-block;
+  width: 100%;
+}
+
+.shot {
+  margin: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
+
+  &:hover { border-color: var(--rule-strong); box-shadow: var(--shadow-2); }
+
+  &__open {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--surface-2);
+    cursor: zoom-in;
+
+    img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s var(--ease);
+    }
+    &:hover img { transform: scale(1.02); }
+  }
+
+  &__cap { padding: var(--sp-4); }
+
+  &__text {
+    font-size: var(--t-base);
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 var(--sp-3);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em 0.9em;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    margin: 0;
+
+    span + span::before {
+      content: "·";
+      margin-right: 0.9em;
+      color: var(--rule-strong);
+    }
+  }
+
+  &__people {
+    margin: var(--sp-2) 0 0;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    font-style: italic;
+  }
+}
+
+// ─── Lightbox ────────────────────────────────────────────────────────────────
+//
+// A native <dialog>, so Escape, focus trapping and the backdrop come from the
+// platform rather than from a library.
+
+.lightbox {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: min(92vw, 1100px);
+  max-height: 92vh;
+  color: var(--ink-inverse);
+  overflow: visible;
+
+  &::backdrop {
+    background: rgba(10, 9, 7, 0.88);
+    backdrop-filter: blur(3px);
+  }
+
+  &[open] {
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 78vh;
+    width: auto;
+    margin-inline: auto;
+    border-radius: var(--radius);
+    background: #000;
+  }
+
+  &__cap {
+    margin: 0;
+    max-width: 70ch;
+    margin-inline: auto;
+    text-align: center;
+    font-size: var(--t-base);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  &__close {
+    position: absolute;
+    top: -2.6rem;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    cursor: pointer;
+
+    &:hover { background: rgba(255, 255, 255, 0.14); }
+    svg { width: 1.05rem; height: 1.05rem; }
+  }
+}

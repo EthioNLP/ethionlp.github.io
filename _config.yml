@@ -1,16 +1,120 @@
-# Site settings
-title: EthioNLP's NLP
-email:
-description: Ethiopia is a country with multinational and multilingual that support more that 83 different languages. All the languages are underrepresented. We are here to provide different NLP application for the Ethiopian languages. Let's know your NLP problem to solve as per your requirement.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+# ─── Site ─────────────────────────────────────────────────────────────────────
+title: EthioNLP
+tagline: A research community for Ethiopian language technology
+description: >-
+  EthioNLP is an open research community building datasets, models and
+  applications for Ethiopia's 80+ languages, and a contributor to the
+  wider AfricaNLP movement.
+url: "https://ethionlp.github.io"
+baseurl: ""
+lang: en
+email: ethionlp@googlegroups.com
 
-twitter_username:
-github_username:
+logo: /assets/img/favicon.svg
+image: /assets/img/social-card.png
 
-# Build settings
+social:
+  github: https://github.com/EthioNLP
+  huggingface: https://huggingface.co/EthioNLP
+  linkedin: https://www.linkedin.com/groups/10060447/
+  twitter: https://twitter.com/EthioNLP
+  telegram: https://t.me/ethionlp
+
+repository: EthioNLP/ethionlp.github.io
+
+# Public URL of the shared news form (Google Forms or similar). Setting this
+# turns on the button at /news/submit/. The matching responses-sheet CSV URL
+# goes in the NEWS_FORM_CSV Actions secret, not here.
+news_form_url:
+
+# Public URL of the team-registration form. Setting it turns on the button on
+# /teams/; leave it blank and the page points at the GitHub issue form instead.
+team_form_url:
+
+# ─── Build ────────────────────────────────────────────────────────────────────
 markdown: kramdown
+highlighter: rouge
+permalink: pretty
+timezone: Africa/Addis_Ababa
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
 
 sass:
-    sass_dir: styles/_sass
-    style: compressed
+  sass_dir: _sass
+  style: compressed
+  # No source map. Jekyll ships main.css.map alongside the stylesheet, and it
+  # embeds sourcesContent: the full text of every _sass partial, developer
+  # comments included, served publicly. Nothing in there is secret, but it
+  # means every comment written in _sass is published prose.
+  sourcemap: never
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# jekyll-feed defaults to site.posts, and this site has no _posts: every news
+# item is a file in the `news` collection. Without this, /feed.xml builds as a
+# valid but permanently empty Atom document, while head.html, the footer icon
+# and the button on /news/ all advertise it.
+feed:
+  # jekyll-feed always emits a feed for site.posts as well. There are no posts,
+  # so it is moved aside to keep it from colliding with the news feed at
+  # /feed.xml, which is the one every page advertises.
+  path: /feed-posts.xml
+  collections:
+    news:
+      path: /feed.xml
+
+exclude:
+  - Gemfile
+  - CONTRIBUTING.md
+  - Gemfile.lock
+  - Makefile
+  - README.md
+  - LICENCE
+  - vendor
+  - scripts
+  - node_modules
+  - .github
+  - .jekyll-cache
+  - "*.py"
+  - requirements.txt
+
+# ─── Collections ──────────────────────────────────────────────────────────────
+# Each community member, event and news item is one file. That keeps additions
+# and deletions to a single-file diff, which is what the join-by-issue
+# automation in .github/workflows/ produces.
+collections:
+  members:
+    output: true
+    permalink: /community/:name/
+  events:
+    output: true
+    permalink: /events/:name/
+  news:
+    output: true
+    permalink: /news/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+  topics:
+    output: true
+    permalink: /mentorship/topics/:name/
+
+defaults:
+  - scope: { path: "", type: members }
+    values: { layout: member }
+  - scope: { path: "", type: events }
+    values: { layout: event }
+  - scope: { path: "", type: news }
+    values: { layout: news-item }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: topics }
+    values: { layout: topic }
+  - scope: { path: "" }
+    values: { layout: page }

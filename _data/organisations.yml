@@ -1,0 +1,75 @@
+# Teams, labs and projects whose output is part of this ecosystem.
+#
+# A team registered here has its Hugging Face organisation and its GitHub
+# organisation swept on every sync, exactly like the EthioNLP org itself. That
+# is the point of this file: a group can join and have its models, datasets and
+# repositories appear on the site without any of its people being listed
+# individually first.
+#
+# This complements; it does not replace, the automatic discovery in
+# scripts/sync_huggingface.py, which already follows the Hub organisations that
+# verified members belong to. Registering a team here makes the relationship
+# explicit and documented, gives it a name and a description on the site, and
+# covers the case the automatic route cannot reach: a new team whose members are
+# not yet in _members/.
+#
+# Fields
+#   name          how the team is shown on the site        (required)
+#   slug          stable id, used in URLs and filters      (required)
+#   huggingface   Hugging Face organisation name, or blank
+#   github        GitHub organisation name, or blank
+#   website       homepage
+#   lead          slug of a member in _members/, if there is one
+#   kind          lab | project | community | company
+#   joined        YYYY-MM, when they registered
+#   summary       one or two sentences
+#
+# Everything except name and slug may be omitted. Only artifacts that pass the
+# Ethiopian-language filter are ever kept, so registering a broad lab does not
+# drag its unrelated work onto the site.
+#
+# To register a team, open the "Register a team or lab" issue form, the
+# workflow in .github/workflows/from-issue.yml turns it into a pull request
+# adding an entry here.
+
+- name: EthioNLP
+  slug: ethionlp
+  huggingface: EthioNLP
+  github: EthioNLP
+  website: https://ethionlp.github.io
+  kind: community
+  joined: 2018-08
+  summary: >-
+    The community itself. Datasets, benchmarks and the EthioLLM model family for
+    Ethiopian languages.
+
+- name: Universität Hamburg, Language Technology
+  slug: uhhlt
+  huggingface: uhhlt
+  github: uhh-lt
+  website: https://www.inf.uni-hamburg.de/en/inst/ab/lt/
+  lead: seid-muhie-yimam
+  kind: lab
+  joined: 2018-08
+  summary: >-
+    The lab behind AmRoBERTa, one of the first RoBERTa models pretrained from
+    scratch for Amharic, and a body of Amharic hate-speech and annotation
+    work.
+
+- name: AfriHate
+  slug: afrihate
+  huggingface: afrihate
+  github:
+  kind: project
+  joined: 2024-01
+  summary: >-
+    A pan-African hate-speech benchmark, with Amharic, Tigrinya, Afaan Oromo and
+    Somali among its languages.
+
+- name: EthioSpeech
+  slug: ethiospeech
+  huggingface: ethiospeech01
+  github:
+  kind: project
+  joined: 2024-01
+  summary: Speech corpora and recognition models for Ethiopian languages.

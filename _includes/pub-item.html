@@ -1,0 +1,51 @@
+{%- assign p = include.p -%}
+<article class="pub" data-filter-item
+         data-type="{{ p.type }}"
+         data-track="{{ p.tracks | join: ' ' }}"
+         data-scope="{% if p.ethiopian %}ethiopian{% else %}other{% endif %}"
+         data-focus="{{ p.focus | join: ' ' }}"
+         data-year="{{ p.year }}"
+         data-search="{{ p.title }} {{ p.author_line }} {{ p.venue }} {{ p.year }}"
+         data-sort-year="{{ p.year }}"
+         data-sort-title="{{ p.title }}">
+  <h3 class="pub__title">
+    {%- if p.url -%}<a href="{{ p.url }}" rel="noopener">{{ p.title }}</a>{%- else -%}{{ p.title }}{%- endif -%}
+  </h3>
+
+  {%- if p.authors.size > 0 %}
+  <p class="pub__authors">
+    {%- for a in p.authors -%}
+      {%- if a.member -%}
+        <a class="is-member" href="{{ '/community/' | append: a.member | append: '/' | relative_url }}">{{ a.name }}</a>
+      {%- else -%}
+        {{ a.name }}
+      {%- endif -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor -%}
+  </p>
+  {%- endif %}
+
+  <p class="pub__venue">
+    {%- if p.venue %}{{ p.venue }}{% endif -%}
+    {%- if p.venue and p.year %} · {% endif -%}
+    {%- if p.year %}{{ p.year }}{% endif -%}
+  </p>
+
+  <div class="pub__links">
+    <span class="badge badge--outline">{{ p.type | replace: '-', ' ' }}</span>
+    {%- if p.anthology %}<a class="pill" href="https://aclanthology.org/{{ p.anthology }}/" rel="noopener">ACL Anthology</a>{% endif -%}
+    {%- if p.arxiv %}<a class="pill" href="https://arxiv.org/abs/{{ p.arxiv }}" rel="noopener">arXiv</a>{% endif -%}
+    {%- if p.doi %}<a class="pill" href="https://doi.org/{{ p.doi }}" rel="noopener">DOI</a>{% endif -%}
+    {%- comment -%}
+    Semantic Scholar and OpenAlex both resolve a DOI to their own record, so
+    these need no extra identifier stored. Google Scholar is deliberately
+    absent: it has no API and no stable per-paper permalink, so the only honest
+    Scholar link is a person's profile, which every member page already shows.
+    {%- endcomment -%}
+    {%- if p.doi %}<a class="pill" href="https://www.semanticscholar.org/search?q={{ p.title | uri_escape }}" rel="noopener">Semantic Scholar</a>{% endif -%}
+    {%- if p.doi %}<a class="pill" href="https://openalex.org/works?filter=doi:{{ p.doi | uri_escape }}" rel="noopener">OpenAlex</a>{% endif -%}
+    {%- if p.dataset %}<a class="pill" href="{{ p.dataset }}" rel="noopener">{% include icon.html name="database" %} Dataset</a>{% endif -%}
+    {%- if p.model %}<a class="pill" href="{{ p.model }}" rel="noopener">{% include icon.html name="cpu" %} Model</a>{% endif -%}
+    {%- if p.code %}<a class="pill" href="{{ p.code }}" rel="noopener">{% include icon.html name="github" %} Code</a>{% endif -%}
+  </div>
+</article>

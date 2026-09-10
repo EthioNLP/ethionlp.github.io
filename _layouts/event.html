@@ -1,0 +1,197 @@
+---
+layout: default
+---
+{%- assign e = page -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign finish = e.end | default: e.start | date: "%Y-%m-%d" -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <ul class="breadcrumb">
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      <li><a href="{{ '/events/' | relative_url }}">Events</a></li>
+      <li>{{ e.short_title | default: e.title }}</li>
+    </ul>
+
+    <p class="eyebrow">
+      {{ e.kind }}
+      {%- if finish < today %} · past{% else %} · upcoming{% endif -%}
+    </p>
+    <h1 class="page-head__title">{{ e.title }}</h1>
+    {%- if e.summary %}<p class="lede">{{ e.summary }}</p>{% endif %}
+
+    <dl class="deflist" style="margin-top: var(--sp-5); max-width: 44rem">
+      <dt>When</dt>
+      <dd>
+        {%- if e.end and e.end != e.start -%}
+          {{ e.start | date: "%-d %B" }} – {{ e.end | date: "%-d %B %Y" }}
+        {%- else -%}
+          {{ e.start | date: "%A, %-d %B %Y" }}{% if e.time %}, {{ e.time }} {{ e.timezone | default: 'EAT' }}{% endif %}
+        {%- endif -%}
+      </dd>
+      {%- if e.location %}
+      <dt>Where</dt>
+      <dd>{% if e.venue_url %}<a href="{{ e.venue_url }}" rel="noopener">{{ e.location }}</a>{% else %}{{ e.location }}{% endif %}</dd>
+      {%- endif %}
+      {%- if e.colocated_with %}
+      <dt>Co-located with</dt>
+      <dd>{{ e.colocated_with }}</dd>
+      {%- endif %}
+      {%- if e.speakers.size > 0 %}
+      <dt>Speaker{% if e.speakers.size > 1 %}s{% endif %}</dt>
+      <dd>
+        {%- for s in e.speakers -%}
+          {%- if s.member -%}
+            <a href="{{ '/community/' | append: s.member | append: '/' | relative_url }}">{{ s.name }}</a>
+          {%- elsif s.url -%}
+            <a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>
+          {%- else -%}{{ s.name }}{%- endif -%}
+          {%- if s.affiliation %} <span class="muted">({{ s.affiliation }})</span>{% endif -%}
+          {%- unless forloop.last %}<br>{% endunless -%}
+        {%- endfor -%}
+      </dd>
+      {%- endif %}
+    </dl>
+
+    <div style="margin-top: var(--sp-5)">
+      {% include add-to-calendar.html e=e %}
+    </div>
+  </div>
+</div>
+
+{%- if e.cfp %}
+{%- comment -%}
+Whether submissions are still open.
+
+The gate is the last deadline that exists, falling back to the event's own end
+date, so a call closes on its own without anyone editing the file. A live
+"Submit" button on a call that shut months ago wastes the reader's time and
+makes every other date on the page look untrustworthy.
+{%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign cfp_closes = e.cfp.paper_deadline
+      | default: e.cfp.notification
+      | default: e.cfp.abstract_deadline
+      | default: e.end
+      | default: e.start -%}
+{%- assign cfp_closes = cfp_closes | date: "%Y-%m-%d" -%}
+{%- assign cfp_open = false -%}
+{%- if cfp_closes >= today %}{% assign cfp_open = true %}{% endif -%}
+
+<div class="band band--tight band--alt">
+  <div class="wrap wrap--wide">
+    <div class="split">
+      <div>
+        <h2 style="font-size: var(--t-xl)">Call for contributions</h2>
+        {%- unless cfp_open %}
+        <p class="cfp-closed">
+          <span class="cfp-closed__tag">Closed</span>
+          Submissions closed on {{ cfp_closes | date: "%-d %B %Y" }}.
+          {%- if e.cfp.submit %}
+          The <a href="{{ e.cfp.submit }}" rel="noopener">submission site</a> is
+          left here for reference.
+          {%- endif %}
+        </p>
+        {%- endunless %}
+        {%- if e.cfp.formats %}
+        <ul>{% for f in e.cfp.formats %}<li>{{ f }}</li>{% endfor %}</ul>
+        {%- endif %}
+        {%- if e.cfp.submit %}
+          {%- if cfp_open %}
+        <a class="btn" href="{{ e.cfp.submit }}" rel="noopener">Submit</a>
+          {%- else %}
+        <button class="btn" type="button" disabled
+                title="Submissions closed on {{ cfp_closes | date: "%-d %B %Y" }}">
+          Submissions closed
+        </button>
+          {%- endif %}
+        {%- endif %}
+      </div>
+      <div>
+        <h3 style="font-size: var(--t-md)">Dates</h3>
+        <dl class="deflist">
+          {%- if e.cfp.abstract_deadline %}<dt>Abstracts</dt><dd{% unless cfp_open %} class="is-past"{% endunless %}>{{ e.cfp.abstract_deadline | date: "%-d %B %Y" }}</dd>{% endif -%}
+          {%- comment -%}
+          `review_period` is a range rather than a single date, so it arrives as
+          free text. Split it and format both halves; anything that is not a
+          plain "A to B" is printed as given.
+          {%- endcomment -%}
+          {%- if e.cfp.review_period -%}
+            <dt>Review</dt>
+            {%- assign range = e.cfp.review_period | split: " to " -%}
+            {%- if range.size == 2 -%}
+              <dd>{{ range[0] | date: "%-d %B" }} to {{ range[1] | date: "%-d %B %Y" }}</dd>
+            {%- else -%}
+              <dd>{{ e.cfp.review_period }}</dd>
+            {%- endif -%}
+          {%- endif -%}
+          {%- if e.cfp.notification %}<dt>Notification</dt><dd>{{ e.cfp.notification | date: "%-d %B %Y" }}</dd>{% endif -%}
+          {%- if e.cfp.paper_deadline %}<dt>Full papers</dt><dd>{{ e.cfp.paper_deadline | date: "%-d %B %Y" }}</dd>{% endif -%}
+          <dt>Event</dt><dd>{{ e.start | date: "%-d %b" }}{% if e.end %} – {{ e.end | date: "%-d %b %Y" }}{% endif %}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endif %}
+
+<div class="band">
+  <div class="wrap wrap--wide">
+    <div class="split split--sidebar">
+      <div>
+        {%- if content != "" %}<div class="prose">{{ content }}</div>{% endif %}
+
+        {%- if e.topics.size > 0 %}
+        <h2 style="margin-top: var(--sp-7)">Topics of interest</h2>
+        <ul class="prose">{% for t in e.topics %}<li>{{ t }}</li>{% endfor %}</ul>
+        {%- endif %}
+
+        {%- if e.papers.size > 0 %}
+        <h2 style="margin-top: var(--sp-7)" id="papers">Accepted contributions
+          <span class="muted" style="font-family: var(--font-sans); font-size: var(--t-base); font-weight: 400">({{ e.papers | size }})</span>
+        </h2>
+        <div class="accordion" data-filter-root>
+          {%- for paper in e.papers %}
+          <details data-filter-item data-search="{{ paper.title }} {{ paper.authors }}">
+            <summary>
+              <span class="accordion__n">{{ forloop.index }}</span>
+              <span>{{ paper.title }}</span>
+            </summary>
+            <div class="accordion__panel">
+              {%- if paper.authors %}<p><strong>{{ paper.authors }}</strong></p>{% endif -%}
+              {%- if paper.abstract %}<p>{{ paper.abstract }}</p>{% endif -%}
+              {%- if paper.url %}<p><a href="{{ paper.url }}" rel="noopener">Read the paper</a></p>{% endif -%}
+            </div>
+          </details>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+      </div>
+
+      <aside>
+        {%- if e.organisers.size > 0 %}
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Organisers</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: var(--t-sm)">
+            {%- for o in e.organisers %}
+            <li style="margin-bottom: var(--sp-3)">
+              <strong>{{ o.name }}</strong>
+              {%- if o.affiliation %}<br><span class="muted">{{ o.affiliation }}</span>{% endif -%}
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+
+        <div class="card" style="margin-top: var(--sp-4)">
+          <h3 class="card__title" style="font-size: var(--t-md)">Running your own event</h3>
+          <p class="card__body">Any member can put an event on this calendar, a
+            seminar, a reading group, a hackathon. It takes one form.</p>
+          <div class="card__foot">
+            <a class="btn btn--sm btn--block" href="{{ '/events/#propose' | relative_url }}">Propose an event</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

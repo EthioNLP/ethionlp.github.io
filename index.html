@@ -1,3 +1,304 @@
 ---
-layout: front
+layout: default
+title: null
+description: >-
+  EthioNLP is an open research community building datasets, models and
+  applications for Ethiopia's 80+ languages, and a contributor to the
+  wider AfricaNLP movement.
 ---
+
+{%- assign hf = site.data.generated.huggingface -%}
+{%- assign gh = site.data.generated.github -%}
+{%- assign pubs = site.data.generated.publications -%}
+{%- assign prog = site.data.generated.progress -%}
+{%- assign cat = site.data.generated.catalog -%}
+{%- assign meta = site.data.generated.meta -%}
+
+{%- comment -%}
+Counters for this community's OWN work.
+
+`hf.totals` counts every focused artifact the sync found, including the
+`related` tier: Ethiopian-language work by people and organisations outside
+EthioNLP. That total belongs on /ecosystem/related/, not under a heading that
+says "Community output". Filtering here by tier keeps the front page from
+claiming other people's models.
+{%- endcomment -%}
+{%- assign ours = hf.artifacts
+      | where_exp: "a", "a.breadth == 'focused'"
+      | where_exp: "a", "a.tier == 'ethionlp' or a.tier == 'member'" -%}
+{%- assign our_models = ours | where: "kind", "model" | size -%}
+{%- assign our_datasets = ours | where: "kind", "dataset" | size -%}
+{%- assign our_downloads = 0 -%}
+{%- for a in ours %}{% assign our_downloads = our_downloads | plus: a.downloads %}{% endfor -%}
+
+{%- comment -%}
+The freshest event and the freshest news item, for the one-line strip below the
+entry points. Everything else about either lives on its own page.
+{%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign events_sorted = site.events | where_exp: "e", "e.draft != true" | sort: "start" -%}
+{%- assign upcoming = "" | split: "" -%}
+{%- for e in events_sorted -%}
+  {%- assign finish = e.end | default: e.start | date: "%Y-%m-%d" -%}
+  {%- if finish >= today -%}{%- assign upcoming = upcoming | push: e -%}{%- endif -%}
+{%- endfor -%}
+{%- assign next_event = upcoming | first -%}
+{%- assign latest_news = site.news | sort: "date" | reverse | first -%}
+
+{%- comment -%} Mentorship figures, counted the same way /mentorship/ counts them. {%- endcomment -%}
+{%- assign mentors = site.members | where_exp: "m", "m.mentoring" -%}
+{%- assign open_topics = site.topics | where: "status", "open" -%}
+
+{%- assign teams = site.data.organisations -%}
+{%- assign collabs = site.data.collaborators -%}
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__glyphs" aria-hidden="true">
+    <span>ሀ ለ ሐ መ ሠ ረ ሰ ሸ ቀ በ ተ ቸ ኀ ነ ኘ አ</span>
+    <span>ከ ኸ ወ ዐ ዘ ዠ የ ደ ጀ ገ ጠ ጨ ጰ ጸ ፀ ፈ ፐ</span>
+    <span>ሁ ሉ ሑ ሙ ሡ ሩ ሱ ሹ ቁ ቡ ቱ ቹ ኁ ኑ ኙ ኡ</span>
+    <span>ኩ ኹ ዉ ዑ ዙ ዡ ዩ ዱ ጁ ጉ ጡ ጩ ጱ ጹ ፁ ፉ ፑ</span>
+  </div>
+
+  <div class="wrap wrap--wide">
+    <div class="hero__inner">
+      <div>
+        <p class="eyebrow">Founded 2018 · Ethiopian language technology</p>
+        <h1 class="hero__title">
+          Language technology for Ethiopia's languages
+        </h1>
+
+        {%- comment -%}
+        The two figures below are read from the generated data rather than
+        written into the copy, so the claim on the front page cannot drift away
+        from what the dashboard actually measures.
+        {%- endcomment -%}
+        <p class="hero__lede">
+          Ethiopia has more than 80 languages, of which
+          <strong>{{ cat.totals.with_artifacts }} have an EthioNLP model or
+          dataset</strong>. Among the four languages with the most indexed NLP
+          publications,
+          <strong>{{ prog.totals.top_language_share }}% of the work addresses
+          {{ prog.totals.top_language }}</strong>.
+        </p>
+
+        {%- comment -%}
+          The figures above measure resources. This second line states what the
+          community does, so the page does not read as a repository listing.
+        {%- endcomment -%}
+        <p class="hero__lede">
+          EthioNLP members collaborate on papers, datasets and models, and
+          supervise students and junior researchers working on these languages.
+        </p>
+
+        <p class="hero__rotator" data-rotate='[
+          {"text":"Join us in advancing NLP technologies in Ethiopia.","lang":"en"},
+          {"text":"በኢትዮጵያ የኤንኤልፒ ቴክኖሎጂዎችን በማሳደግ ይቀላቀሉን።","lang":"am"},
+          {"text":"ኣብ ኢትዮጵያ ቴክኖሎጂታት ኤንኤልፒ ኣብ ምምዕባል ተጸንበሩና።","lang":"ti"},
+          {"text":"Teeknooloojiiwwan NLP Itoophiyaa keessatti ceesisuuf nu waliin ta’aa.","lang":"om"},
+          {"text":"Nagu soo biir horumarinta tignoolajiyada NLP ee Itoobiya.","lang":"so"}
+        ]'>
+          <span>Join us in advancing NLP technologies in Ethiopia.</span>
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--lg" href="{{ '/join/' | relative_url }}">Join the community</a>
+          <a class="btn btn--lg btn--ghost" href="{{ '/ecosystem/' | relative_url }}">
+            Browse models &amp; datasets {% include icon.html name="arrow" %}
+          </a>
+        </div>
+
+        <p class="hero__meta">
+          <span>Open data and models</span>
+          <span>·</span>
+          <span>Students welcome</span>
+          <span>·</span>
+          <span>Part of <a href="https://www.masakhane.io/" rel="noopener">Masakhane</a> and AfricaNLP</span>
+        </p>
+      </div>
+
+      <!-- Live ecosystem counters -->
+      <div class="hero__panel">
+        <div class="hero__panel-head">
+          <span><span class="dot"></span>Community output</span>
+          <span>{% if meta.updated %}synced {{ meta.updated | date: "%-d %b" }}{% endif %}</span>
+        </div>
+        <div class="hero__panel-grid">
+          <div class="stat">
+            <span class="stat__value num">{{ our_models }}</span>
+            <span class="stat__label">models on Hugging Face</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value num">{{ our_datasets }}</span>
+            <span class="stat__label">open datasets</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value num">{{ pubs.totals.publications | default: 0 }}</span>
+            <span class="stat__label">publications by members</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value num">{{ site.members | size }}</span>
+            <span class="stat__label">listed members</span>
+          </div>
+        </div>
+        <div class="hero__panel-foot">
+          <span>{{ gh.totals.repos | default: 0 }} repositories · {{ our_downloads }} downloads in the last 30 days</span>
+          <a href="{{ '/ecosystem/' | relative_url }}">All of it →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Entry points ──────────────────────────────────────────────────────────
+     The whole site in one grid. Each cell is a destination that carries the
+     subject properly; nothing here restates what is on the other side of the
+     link. The catalogue and mentorship lead, because they are what most
+     visitors arrive looking for.
+     ────────────────────────────────────────────────────────────────────── -->
+<section class="band band--tight">
+  <div class="wrap wrap--wide">
+    <h2 class="visually-hidden">Where to go next</h2>
+
+    <div class="focus">
+      <a class="focus__cell" href="{{ '/languages/' | relative_url }}"
+         style="--focus-color: var(--green); --focus-tint: var(--green-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="globe" %}</span>
+        <h3>Languages</h3>
+        <p>Every Ethiopian language, what exists for it and who works on it.</p>
+        {%- if cat.totals.languages %}
+        <span class="focus__cell-count">{{ cat.totals.languages }} catalogue entries · {{ cat.totals.with_artifacts }} with resources</span>
+        {%- endif %}
+      </a>
+
+      <a class="focus__cell" href="{{ '/mentorship/' | relative_url }}"
+         style="--focus-color: var(--rust); --focus-tint: var(--rust-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="graduation" %}</span>
+        <h3>Mentorship</h3>
+        <p>Mentors by topic, open thesis topics, and how to ask for supervision.</p>
+        <span class="focus__cell-count">{{ mentors | size }} mentors · {{ open_topics | size }} open topics</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/ecosystem/' | relative_url }}"
+         style="--focus-color: var(--blue); --focus-tint: var(--blue-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="cpu" %}</span>
+        <h3>Models &amp; data</h3>
+        <p>Everything the community has released, synced nightly from the source.</p>
+        <span class="focus__cell-count">{{ our_models }} models · {{ our_datasets }} datasets</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/publications/' | relative_url }}"
+         style="--focus-color: var(--violet); --focus-tint: var(--violet-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="book" %}</span>
+        <h3>Publications</h3>
+        <p>Papers by members, gathered automatically and grouped by year.</p>
+        <span class="focus__cell-count">{{ pubs.totals.publications | default: 0 }} papers · {{ pubs.totals.ethiopian | default: 0 }} on Ethiopian languages</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/community/' | relative_url }}"
+         style="--focus-color: var(--green); --focus-tint: var(--green-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="users" %}</span>
+        <h3>Community</h3>
+        <p>Students, developers, linguists and researchers, in Ethiopia and abroad.</p>
+        <span class="focus__cell-count">{{ site.members | size }} listed members</span>
+      </a>
+
+      {%- comment -%}
+        On the front page rather than only in the menu, because the rules that
+        matter most are the ones for the Telegram group, and most people meet
+        the group before they ever open a menu.
+      {%- endcomment -%}
+      <a class="focus__cell" href="{{ '/standards/' | relative_url }}"
+         style="--focus-color: var(--green); --focus-tint: var(--green-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="heart" %}</span>
+        <h3>Community standards</h3>
+        <p>How we treat each other, what to post in the groups, and the ethics we hold research to.</p>
+        <span class="focus__cell-count">Read before your first message</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/events/' | relative_url }}"
+         style="--focus-color: var(--gold); --focus-tint: var(--gold-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="calendar" %}</span>
+        <h3>Events</h3>
+        <p>Workshops, the seminar series, and calls open for submissions.</p>
+        {%- if upcoming.size > 0 %}
+        <span class="focus__cell-count">{{ upcoming.size }} coming up</span>
+        {%- else %}
+        <span class="focus__cell-count">{{ events_sorted | size }} in the archive</span>
+        {%- endif %}
+      </a>
+
+      <a class="focus__cell" href="{{ '/progress/' | relative_url }}"
+         style="--focus-color: var(--blue); --focus-tint: var(--blue-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="chart" %}</span>
+        <h3>Progress</h3>
+        <p>Ethiopian NLP measured over sixteen years, against the wider AfricaNLP picture.</p>
+        <span class="focus__cell-count">{{ prog.totals.ethiopia_growth }}× growth · {{ prog.totals.top_language_share }}% on {{ prog.totals.top_language }}</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/teams/' | relative_url }}"
+         style="--focus-color: var(--violet); --focus-tint: var(--violet-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="link" %}</span>
+        <h3>Teams &amp; collaborators</h3>
+        <p>The labs whose output is tracked here, and the communities we work with.</p>
+        <span class="focus__cell-count">{{ teams | size }} teams · {{ collabs | size }} collaborators</span>
+      </a>
+
+      <a class="focus__cell" href="{{ '/research/' | relative_url }}"
+         style="--focus-color: var(--green); --focus-tint: var(--green-soft)">
+        <span class="focus__cell-icon">{% include icon.html name="book" %}</span>
+        <h3>Research areas</h3>
+        <p>The six tracks the community organises its work around, and what is open in each.</p>
+        <span class="focus__cell-count">{{ site.data.focus_areas | size }} tracks</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Freshest thing ────────────────────────────────────────────────────────
+     Two lines, not two sections: the next event and the newest post, each a
+     link into the page that carries the rest.
+     ────────────────────────────────────────────────────────────────────── -->
+{%- if next_event or latest_news %}
+<section class="band band--alt band--tight">
+  <div class="wrap wrap--wide">
+    <h2 class="visually-hidden">Latest</h2>
+    <dl class="deflist">
+      {%- if next_event %}
+      <dt>Next up</dt>
+      <dd>
+        <a href="{{ next_event.url | relative_url }}">{{ next_event.short_title | default: next_event.title }}</a>,
+        {{ next_event.start | date: "%-d %b %Y" }}{% if next_event.location %}, {{ next_event.location }}{% endif %}
+      </dd>
+      {%- endif %}
+      {%- if latest_news %}
+      <dt>Latest news</dt>
+      <dd>
+        <a href="{{ latest_news.url | relative_url }}">{{ latest_news.title }}</a>,
+        {{ latest_news.date | date: "%-d %b %Y" }}
+      </dd>
+      {%- endif %}
+    </dl>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ── Closing call ──────────────────────────────────────────────────────── -->
+<section class="band band--ink band--tight">
+  <div class="wrap wrap--wide">
+    <div class="section-head" style="margin-bottom: 0">
+      <h2>Contribute</h2>
+      <p class="lede">
+        Datasets, models, papers, events and news are all added by community
+        members. Ten ways to do it, most of them a form.
+      </p>
+      <div class="row" style="margin-top: var(--sp-5)">
+        <a class="btn btn--lg" href="{{ '/join/' | relative_url }}">Join EthioNLP</a>
+        <a class="btn btn--lg btn--ghost" href="{{ '/join/#contribute' | relative_url }}"
+           style="color: var(--ink-inverse); border-color: rgba(252,251,249,.3)">Contribute a resource</a>
+      </div>
+    </div>
+  </div>
+</section>

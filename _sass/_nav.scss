@@ -1,0 +1,359 @@
+// ─── Site header ─────────────────────────────────────────────────────────────
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  // Its own tinted surface, kept slightly translucent so page content still
+  // blurs under it on scroll.
+  background: color-mix(in srgb, var(--header-bg) 88%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  // Always ruled, now that the bar is a different surface from the page: a
+  // tinted band with no edge reads as a printing error.
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+
+  &.is-stuck {
+    border-bottom-color: var(--rule-strong);
+    box-shadow: var(--shadow-1);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) { background: var(--header-bg); }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  // Minus the header's bottom border, so --nav-h is the height of the whole
+  // bar. Everything that sticks below the header offsets by --nav-h, and if
+  // the border sat outside that figure each of them would overlap it by 1px.
+  height: calc(var(--nav-h) - 1px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none !important;
+  flex: none;
+
+  // The lockup carries the name, so there is no separate wordmark element.
+  // Height is set and width follows the viewBox, keeping the aspect ratio.
+  //
+  // Taller than a one-line wordmark would need: the name is stacked, so this
+  // height is split between two lines and each gets about half of it.
+  &__lockup {
+    height: 2.5rem;
+    width: auto;
+    flex: none;
+    color: var(--green);
+  }
+
+  &__mark {
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+  }
+  // What the community does, beside the name. It replaced a transliteration of
+  // "EthioNLP" into Ethiopic, which told a reader nothing the logo had not
+  // already said.
+  //
+  // Its own breakpoint, well above the nav's 1120px: at 202px this is more than
+  // twice the width of what it replaced, and it is the least important thing in
+  // the header, so it goes before anything else has to. Re-measure if the words
+  // change.
+  &__tagline {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--green);
+    padding-left: 0.55rem;
+    margin-left: 0.15rem;
+    border-left: 1px solid var(--rule-strong);
+    line-height: 1;
+    white-space: nowrap;
+
+    // Wider than it was at 0.9rem and regular weight, so it has to fold away
+    // sooner. Re-measure if the words or the size change again.
+    @media (max-width: 1360px) { display: none; }
+  }
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: auto;
+  list-style: none;
+  padding: 0;
+
+  a {
+    display: block;
+    padding: 0.42rem 0.7rem;
+    border-radius: var(--radius);
+    font-size: var(--t-base);
+    font-weight: 500;
+    color: var(--ink-2);
+    text-decoration: none !important;
+    white-space: nowrap;
+
+    &:hover { color: var(--ink); background: var(--surface-2); }
+    &[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  }
+  li { margin: 0; }
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex: none;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+
+  &:hover { background: var(--surface-2); color: var(--ink); }
+  svg { width: 1.05rem; height: 1.05rem; }
+
+  // The button shows what it will switch you *to*: a moon on the light theme,
+  // a sun on the dark one.
+  .icon-sun { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle {
+  .icon-sun { display: block; }
+  .icon-moon { display: none; }
+}
+
+.nav__burger {
+  display: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  svg { width: 1.15rem; height: 1.15rem; }
+}
+
+
+// ─── Dropdown groups ─────────────────────────────────────────────────────────
+//
+// The site has more destinations than the header holds, so two of the seven
+// top-level items open a small menu. Opening is by click, not hover: a
+// hover-only menu is unusable on a touch screen and hostile on a trackpad.
+
+.nav__group { position: relative; }
+
+// Hover opens the menu on anything with a real pointer. Touch and keyboard fall
+// through to the click handler in site.js, which is why the button stays a
+// button: hover alone would leave the menu unreachable without a mouse.
+@media (hover: hover) and (pointer: fine) {
+  .nav__group:hover,
+  .nav__group:focus-within {
+    .nav__menu { display: block; }
+    .nav__menu--wide { display: grid; }
+    .nav__chevron { transform: rotate(180deg); }
+  }
+}
+
+.nav__parent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.42rem 0.7rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--t-base);
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover { color: var(--ink); background: var(--surface-2); }
+  &[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  &[aria-expanded="true"] { color: var(--ink); background: var(--surface-2); }
+}
+
+.nav__chevron {
+  width: 0.8rem;
+  height: 0.8rem;
+  opacity: 0.65;
+  transition: transform 0.18s var(--ease);
+  .nav__parent[aria-expanded="true"] & { transform: rotate(180deg); }
+}
+
+.nav__menu {
+  // display: none, not visibility: hidden. An absolutely positioned box still
+  // counts towards the page's scroll width even when invisible, so a closed
+  // menu sitting at left: 0 under a right-hand nav item gave every page a
+  // horizontal scrollbar for as long as it took a script to move it. Taking it
+  // out of layout removes the problem rather than racing to correct it.
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  min-width: 15rem;
+  list-style: none;
+  margin: 0;
+  padding: var(--sp-2);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  z-index: 10;
+
+  // The menu sits below the button with a gap. Without this bridge the pointer
+  // crosses dead space on the way down and the menu closes under it.
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+  }
+
+  .nav__parent[aria-expanded="true"] + & { display: block; }
+  .nav__parent[aria-expanded="true"] + &.nav__menu--wide { display: grid; }
+
+  a {
+    padding: 0.5rem 0.65rem;
+    white-space: normal;
+  }
+}
+
+// Two columns, filling left-to-right so the visual order matches the DOM order
+// and therefore the tab order. Newspaper-style column filling would read more
+// naturally as a list but would make keyboard navigation jump about.
+.nav__menu--wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--sp-2);
+  min-width: 30rem;
+}
+
+// Flipped by site.js when a menu would otherwise run off the right of the
+// viewport, which a 30rem menu under a right-hand nav item easily does.
+.nav__menu--right {
+  left: auto;
+  right: 0;
+}
+
+.nav__menu-title { display: block; color: inherit; }
+
+.nav__menu-note {
+  display: block;
+  font-size: var(--t-xs);
+  font-weight: 400;
+  color: var(--ink-3);
+  margin-top: 0.1rem;
+}
+
+// ─── Mobile ──────────────────────────────────────────────────────────────────
+//
+// 1120px is measured, not chosen. The brand, seven top-level items, the
+// Contribute button and the theme toggle need 1117px, and that figure is taken
+// with the webfonts blocked, because the fallback stack is 2 to 6 per cent
+// wider than Source Sans 3 and it is the fallback that renders for the first
+// few hundred milliseconds of a cold load. Measuring with the real font gives
+// 1052px, and a threshold set there put a horizontal scrollbar on every page
+// until the font arrived.
+//
+// If an item is added to the nav, or the button's label changes, re-measure
+// with fonts blocked.
+
+@media (max-width: 1120px) {
+  .nav__burger { display: grid; order: 3; }
+  .nav__actions { margin-left: auto; }
+
+  .nav__links {
+    position: fixed;
+    inset: var(--nav-h) 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: var(--sp-3) var(--sp-4) var(--sp-5);
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: var(--shadow-2);
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    // Belt and braces with the visibility above: opacity alone leaves a closed
+    // drawer invisible but still hit-testable.
+    pointer-events: none;
+    transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
+
+    a { padding: 0.7rem 0.6rem; font-size: var(--t-md); border-radius: var(--radius); }
+    li + li { border-top: 1px solid var(--rule); }
+  }
+
+  // In the drawer there is room to show everything, so the groups are flattened
+  // into labelled sections rather than kept behind a second tap.
+  .nav__group {
+    position: static;
+
+    .nav__parent {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 0.9rem 0.6rem 0.35rem;
+      font-size: var(--t-xs);
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      pointer-events: none;
+      background: none;
+    }
+    .nav__chevron { display: none; }
+
+    .nav__menu {
+      position: static;
+      display: block;
+      opacity: 1;
+      // `inherit`, not `visible`. A descendant set to visible reappears even
+      // inside a hidden ancestor, which left these links painted and tappable
+      // over the top of the page whenever the drawer was closed.
+      visibility: inherit;
+      transform: none;
+      min-width: 0;
+      // The drawer is narrow; two columns there would be unreadable.
+      display: block;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+
+      a { padding-left: 1.2rem; }
+      li + li { border-top: 1px solid var(--rule); }
+    }
+  }
+
+  .site-header.is-open .nav__links {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}

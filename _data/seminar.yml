@@ -1,0 +1,24 @@
+# The recurring community seminar. The events page reads this to explain how to
+# claim a slot; individual sittings live as files in _events/ with `kind:
+# seminar`, and an unclaimed sitting is one with `status: open`.
+
+name: EthioNLP Community Seminar
+cadence: Second Thursday of the month
+time: "17:00"
+timezone: EAT
+duration: 60
+format: Online, open to anyone
+description: >-
+  A standing hour for community members to present work in progress: a dataset
+  you are building; a model that is not working yet; a paper you are about to
+  submit; a thesis chapter. Nothing has to be finished. Students presenting for
+  the first time are the point of the series, not the exception.
+
+what_to_expect:
+  - 30–40 minutes for the talk, the rest for questions.
+  - No slides requirement. A notebook, a demo or a whiteboard is fine.
+  - Recorded only if the speaker wants it to be.
+
+# The "propose a talk" button points here. The issue form collects a date, a
+# title and an abstract, and the workflow opens a pull request adding the event.
+propose_url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=propose-talk.yml

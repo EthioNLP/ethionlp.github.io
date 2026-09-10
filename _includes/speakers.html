@@ -1,0 +1,36 @@
+{%- comment -%}
+Resolve one language's speaker figure, curated first.
+
+Checking the Wikidata column found five of the fifteen largest figures
+simply wrong and five more that were worldwide counts sitting in a catalogue of
+Ethiopian languages. _data/speakers_census.yml carries the 2007 census instead,
+and that wins wherever it has an entry. A language it does not cover keeps the
+Wikidata figure and is labelled as such, so a reader can tell the two apart.
+
+Sets:  sp        the number, or 0 if there is none
+       sp_src    where it came from, for the label
+       sp_note   caveat to show with it, if any
+{%- endcomment -%}
+{%- assign cen = site.data.speakers_census -%}
+{%- assign hit = cen.languages | where: "iso", include.l.iso | first -%}
+{%- assign gag = cen.suppress | where: "iso", include.l.iso | first -%}
+{%- if gag -%}
+  {%- assign sp = 0 -%}{%- assign sp_src = "" -%}{%- assign sp_note = gag.why -%}
+  {%- assign sp_today = 0 -%}
+{%- elsif hit -%}
+  {%- assign sp = hit.speakers -%}
+  {%- assign sp_src = "2007 census" -%}
+  {%- assign sp_note = hit.note -%}
+  {%- comment -%}
+  The same share of a bigger country. Integer maths only, so the population is
+  divided down first to keep the multiplication inside Liquid's range.
+  {%- endcomment -%}
+  {%- assign scale = cen.population_now | divided_by: 1000 -%}
+  {%- assign base = cen.population_2007 | divided_by: 1000 -%}
+  {%- assign sp_today = sp | divided_by: base | times: scale -%}
+{%- else -%}
+  {%- assign sp = include.l.speakers | default: 0 -%}
+  {%- assign sp_src = include.l.speakers_source -%}
+  {%- assign sp_note = "" -%}
+  {%- assign sp_today = 0 -%}
+{%- endif -%}

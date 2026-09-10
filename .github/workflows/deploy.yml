@@ -1,0 +1,77 @@
+name: Build and deploy
+
+# Builds the site with the Jekyll version in the Gemfile and publishes it to
+# GitHub Pages. Enable it under Settings → Pages → Build and deployment →
+# Source: GitHub Actions.
+#
+# The site is also compatible with the classic Pages builder (Jekyll 3.9), so if
+# this workflow is never enabled the site still deploys, it just uses the older
+# Jekyll. Pull requests are built but not deployed, which catches a broken
+# template before it reaches the live site.
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - uses: actions/configure-pages@v5
+        id: pages
+        continue-on-error: true
+
+      - name: Build
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+
+      - name: Check for broken internal links
+        run: |
+          missing=0
+          while IFS= read -r href; do
+            case "$href" in
+              /assets/*|/resources/*) target="_site$href" ;;
+              */) target="_site${href}index.html" ;;
+              *) target="_site$href" ;;
+            esac
+            if [ ! -e "$target" ]; then
+              echo "::warning::internal link with no target: $href"
+              missing=$((missing+1))
+            fi
+          done < <(grep -rhoE 'href="/[^"#?]*"' _site --include='*.html' \
+                   | sed 's/href="//; s/"$//' | sort -u)
+          echo "$missing internal link(s) without a target"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,84 @@
+name: Add a photograph
+description: Upload a photo from an EthioNLP workshop, conference or gathering
+title: "Photo: "
+labels: ["gallery", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Drag your photograph straight into the box below.** GitHub uploads it
+        and puts a link in for you; you do not need to put the file anywhere
+        first, and you do not need to know any Git.
+
+        One form per photograph, so each gets its own caption.
+
+  - type: textarea
+    id: photo
+    attributes:
+      label: The photograph
+      description: >-
+        Drag the file here, or click to choose one. JPEG or PNG, and the
+        original size is fine. Please avoid HEIC, which many browsers cannot
+        display.
+      placeholder: Drop the image here
+    validations:
+      required: true
+
+  - type: input
+    id: caption
+    attributes:
+      label: What is happening in it?
+      description: >-
+        A sentence about the moment rather than the venue. "Abinew presenting
+        the hate-speech annotation results" tells a reader more than "at the
+        workshop".
+      placeholder: Abinew presenting the hate-speech annotation results
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: When was it taken?
+      description: YYYY-MM-DD, or just YYYY-MM if you cannot remember the day.
+      placeholder: 2025-09-30
+    validations:
+      required: false
+
+  - type: input
+    id: place
+    attributes:
+      label: Where?
+      placeholder: Hawassa University, Hawassa
+    validations:
+      required: false
+
+  - type: input
+    id: people
+    attributes:
+      label: Who is in it, left to right?
+      description: >-
+        Only name people who are happy to be named. If you are not sure, leave
+        this blank; the photograph is still welcome.
+      placeholder: Seid Muhie Yimam, Abinew Ali Ayele
+    validations:
+      required: false
+
+  - type: input
+    id: credit
+    attributes:
+      label: Who took it?
+      placeholder: Your name, if you would like the credit
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Permission
+      description: This is the one thing we cannot check for you.
+      options:
+        - label: >-
+            I took this photograph or have the right to share it, and the
+            people in it are happy to appear on a public website.
+          required: true

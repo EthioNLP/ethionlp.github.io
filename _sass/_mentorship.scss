@@ -1,0 +1,345 @@
+// ─── Mentorship ──────────────────────────────────────────────────────────────
+
+.statline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-4) 0 0;
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+
+  strong {
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    color: var(--ink);
+    margin-right: 0.35em;
+  }
+}
+
+.page-head__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+// ─── Mentors, grouped by area ────────────────────────────────────────────────
+
+.mentor-areas {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+
+.mentor-area {
+  border-top: 2px solid var(--rule-strong);
+  padding-top: var(--sp-4);
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+  }
+
+  &__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    color: var(--ink-2);
+    svg { width: 1.15rem; height: 1.15rem; }
+
+    // Mirrors the badge accents so an area reads the same colour everywhere.
+    &--green  { background: var(--green-soft);  color: var(--green); }
+    &--gold   { background: var(--gold-soft);   color: var(--gold); }
+    &--blue   { background: var(--blue-soft);   color: var(--blue); }
+    &--rust   { background: var(--rust-soft);   color: var(--rust); }
+    &--violet { background: var(--violet-soft); color: var(--violet); }
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    margin: 0;
+  }
+
+  &__count {
+    margin: 0.1rem 0 0;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+  }
+}
+
+.mentor-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.mentor {
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--rule);
+  &:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  &__who {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    text-decoration: none !important;
+    color: inherit;
+    &:hover .mentor__name { color: var(--green); }
+  }
+
+  &__name {
+    display: block;
+    font-weight: 600;
+    font-size: var(--t-base);
+    color: var(--ink);
+    transition: color 0.15s var(--ease);
+  }
+
+  &__aff {
+    display: block;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    margin-top: 0.1rem;
+  }
+
+  &__note {
+    margin: var(--sp-3) 0 0;
+    font-size: var(--t-sm);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2);
+    margin: var(--sp-3) 0 0;
+  }
+
+  &__cap {
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    &::before { content: "·"; margin-right: var(--sp-2); color: var(--rule-strong); }
+  }
+}
+
+// ─── Open topics ─────────────────────────────────────────────────────────────
+
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.topic {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--rule);
+
+  &__main { flex: 1; min-width: 0; }
+  &__tags { margin: 0 0 var(--sp-3); }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-xl);
+    line-height: 1.25;
+    margin: 0 0 var(--sp-2);
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      background-image: linear-gradient(var(--green), var(--green));
+      background-size: 0 1px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      transition: background-size 0.22s var(--ease), color 0.15s var(--ease);
+
+      &:hover { color: var(--green); background-size: 100% 1px; }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em 0.9em;
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+
+    span + span::before {
+      content: "·";
+      margin-right: 0.9em;
+      color: var(--rule-strong);
+    }
+    a { color: var(--ink-2); }
+  }
+
+  &__go {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-pill);
+    color: var(--ink-3);
+    transition: all 0.18s var(--ease);
+    svg { width: 1rem; height: 1rem; }
+  }
+
+  &:hover &__go {
+    border-color: var(--green);
+    background: var(--green);
+    color: var(--ink-inverse);
+  }
+
+  // A taken or closed topic stays readable but stops competing for attention.
+  &--closed { opacity: 0.62; }
+
+  @media (max-width: 560px) {
+    &__go { display: none; }
+  }
+}
+
+// ─── Topic detail page ───────────────────────────────────────────────────────
+
+.detail {
+  display: grid;
+  gap: var(--sp-7);
+  grid-template-columns: minmax(0, 1fr);
+
+  @media (min-width: 960px) {
+    grid-template-columns: minmax(0, 1fr) 19rem;
+    align-items: start;
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-3xl);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: var(--sp-3) 0 var(--sp-5);
+  }
+
+  &__aside {
+    display: grid;
+    gap: var(--sp-4);
+    @media (min-width: 960px) { position: sticky; top: calc(var(--nav-h) + var(--sp-4)); }
+  }
+}
+
+.factbox {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  background: var(--surface);
+
+  &__title {
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 var(--sp-3);
+  }
+}
+
+.facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--t-sm);
+
+  dt { color: var(--ink-3); }
+  dd { margin: 0; color: var(--ink); }
+
+  &__note {
+    display: block;
+    font-size: var(--t-xs);
+    color: var(--ink-3);
+    margin-top: 0.15rem;
+  }
+}
+
+.callout {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--green);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  padding: var(--sp-5);
+  margin: var(--sp-5) 0;
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: var(--t-lg);
+    margin: 0 0 var(--sp-2);
+  }
+
+  p { margin: 0 0 var(--sp-4); color: var(--ink-2); }
+  p:last-child { margin-bottom: 0; }
+
+  &--muted { border-left-color: var(--rule-strong); }
+}
+
+.ticks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--sp-3);
+
+  li {
+    position: relative;
+    padding-left: 1.6em;
+    font-size: var(--t-base);
+    line-height: 1.55;
+    color: var(--ink-2);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.7em;
+      height: 0.35em;
+      border-left: 2px solid var(--green);
+      border-bottom: 2px solid var(--green);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--sm li { font-size: var(--t-sm); }
+}
+
+.card--action {
+  gap: var(--sp-3);
+
+  p { margin: 0; color: var(--ink-2); font-size: var(--t-base); }
+
+  // Actions sit on one row at the foot of the card, pushed down so two cards
+  // of unequal prose length still line their buttons up.
+  .card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: auto;
+    padding-top: var(--sp-2);
+  }
+}

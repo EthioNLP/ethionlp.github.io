@@ -1,0 +1,161 @@
+---
+layout: default
+title: Community standards
+permalink: /standards/
+description: >-
+  The values, conduct rules, channel rules and research ethics that apply
+  across EthioNLP, including the Telegram and Discord groups.
+---
+
+{%- assign s = site.data.standards -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Community</p>
+    <h1 class="page-head__title">Community standards</h1>
+    <p class="lede">
+      These apply to all members, in the spaces the community uses. The
+      section on <a href="#channels">posting in the groups</a> covers the rules
+      for the Telegram and Discord groups.
+    </p>
+  </div>
+</div>
+
+{%- comment -%} ── Scope ────────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--tight">
+  <div class="wrap">
+    <div class="prose">
+      <p>Where these apply:</p>
+      <ul>
+        {%- for item in s.scope %}
+        <li>{{ item }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Values ───────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Values</h2>
+    </div>
+    <div class="grid grid--2">
+      {%- for v in s.values -%}
+      <article class="card">
+        <h3 class="card__title">{{ v.title }}</h3>
+        <div class="card__body"><p>{{ v.body }}</p></div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Conduct ──────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Conduct</h2>
+    </div>
+    <div class="grid grid--2">
+      <div class="prose">
+        <h3>Expected of members</h3>
+        <ul>
+          {%- for item in s.expected %}
+          <li>{{ item }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="prose">
+        <h3>Not acceptable</h3>
+        <ul>
+          {%- for item in s.unacceptable %}
+          <li>{{ item }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Channels ─────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--alt" id="channels">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Posting in the groups</h2>
+      <p class="section-head__note">{{ s.channels.intro }}</p>
+    </div>
+    <div class="grid grid--2">
+      {%- for r in s.channels.rules -%}
+      <article class="card">
+        <h3 class="card__title">{{ r.title }}</h3>
+        <div class="card__body"><p>{{ r.body }}</p></div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Research ethics ──────────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Research ethics</h2>
+      <p class="section-head__note">
+        These apply to work published under this community's name and to work
+        listed on this site.
+      </p>
+    </div>
+    <div class="grid grid--2">
+      {%- for r in s.research -%}
+      <article class="card">
+        <h3 class="card__title">{{ r.title }}</h3>
+        <div class="card__body"><p>{{ r.body }}</p></div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Reporting ────────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--ink" id="reporting">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Reporting a problem</h2>
+      <p class="section-head__note">
+        Email <a href="mailto:{{ s.contact }}">{{ s.contact }}</a>. You do not
+        have to be the person it happened to.
+      </p>
+    </div>
+    <div class="grid grid--2">
+      <div class="prose">
+        <h3>What to do</h3>
+        <ol>
+          {%- for step in s.reporting.steps %}
+          <li>{{ step }}</li>
+          {%- endfor %}
+        </ol>
+      </div>
+      <div class="prose">
+        <h3>What we undertake</h3>
+        <ul>
+          {%- for p in s.reporting.promises %}
+          <li>{{ p }}</li>
+          {%- endfor %}
+        </ul>
+        <p>{{ s.reporting.conflict }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ── Attribution ──────────────────────────────────────────────── {%- endcomment -%}
+<section class="band band--tight">
+  <div class="wrap">
+    <p class="muted">
+      {{ s.attribution.text }}
+      {% for l in s.attribution.links %}<a href="{{ l.url }}" rel="noopener">{{ l.title }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+    </p>
+  </div>
+</section>

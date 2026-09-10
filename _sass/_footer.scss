@@ -1,0 +1,128 @@
+// ─── Page header (interior pages) ────────────────────────────────────────────
+
+.page-head {
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) clamp(2rem, 1rem + 3vw, 3rem);
+  border-bottom: 1px solid var(--rule);
+
+  &__title {
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 3.1rem);
+    margin-bottom: var(--sp-4);
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--t-sm);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-4);
+  list-style: none;
+  padding: 0;
+
+  li { margin: 0; }
+  li + li::before { content: "/"; margin-right: 0.5em; color: var(--rule-strong); }
+  a { color: var(--ink-3); }
+  a:hover { color: var(--ink); }
+}
+
+// ─── Footer ──────────────────────────────────────────────────────────────────
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--surface-2);
+  padding-block: var(--sp-8) var(--sp-6);
+  margin-top: var(--sp-9);
+  font-size: var(--t-base);
+
+  &__grid {
+    display: grid;
+    gap: var(--sp-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    margin-bottom: var(--sp-7);
+
+    // Four link columns plus the brand is five tracks, and auto-fit only
+    // finds room for four of them, which left the last column stranded on a
+    // row of its own. Above this width the tracks are named explicitly.
+    @media (min-width: 1040px) {
+      grid-template-columns: 1.7fr repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  &__brand {
+    grid-column: span 2;
+    max-width: 32ch;
+    @media (max-width: 700px) { grid-column: span 1; }
+    @media (min-width: 1040px) { grid-column: span 1; }
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 650;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: var(--sp-3);
+  }
+
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { margin-bottom: 0.5em; }
+
+  a { color: var(--ink-2); text-decoration: none; }
+  a:hover { color: var(--ink); text-decoration: underline; }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--rule);
+    font-size: var(--t-sm);
+    color: var(--ink-3);
+  }
+
+  &__note { max-width: 46ch; font-size: var(--t-sm); color: var(--ink-3); }
+}
+
+// ─── Prose (markdown bodies) ─────────────────────────────────────────────────
+
+.prose {
+  max-width: var(--measure);
+  font-size: var(--t-md);
+  line-height: 1.72;
+
+  > h2 { margin-top: var(--sp-7); font-size: var(--t-2xl); }
+  > h3 { margin-top: var(--sp-6); }
+  > h4 { margin-top: var(--sp-5); }
+  > :first-child { margin-top: 0; }
+
+  ul, ol { margin-bottom: var(--sp-5); }
+  li::marker { color: var(--ink-3); }
+
+  img { border-radius: var(--radius); border: 1px solid var(--rule); margin-block: var(--sp-5); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--t-base);
+    margin-block: var(--sp-5);
+    th, td { padding: 0.6em 0.8em; border-bottom: 1px solid var(--rule); text-align: left; }
+    th { font-weight: 650; color: var(--ink-3); font-size: var(--t-sm); }
+  }
+
+  a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); }
+  a:hover { text-decoration-color: currentColor; }
+}
+
+// ─── Print ───────────────────────────────────────────────────────────────────
+
+@media print {
+  .site-header, .site-footer, .filterbar, .hero__glyphs, .btn { display: none !important; }
+  body { background: #fff; color: #000; font-size: 10.5pt; }
+  .band { padding-block: 1rem; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #555; }
+}

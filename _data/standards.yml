@@ -1,0 +1,182 @@
+# Community standards: values, conduct rules, channel rules and research ethics.
+#
+# WHERE THIS COMES FROM
+#
+# The conduct rules are the Contributor Covenant 1.4, which is what Masakhane
+# adopted and what most of the African NLP community already recognises. Using
+# the same text as neighbouring communities is deliberate: a researcher who has
+# read Masakhane's rules has read most of ours, and a shared standard is easier
+# to enforce than a bespoke one.
+#
+# The values are adapted from Masakhane's, with credit, because they were
+# written for this situation, African researchers owning African-language
+# research, and rewriting them differently would have been change for its own
+# sake. What is ours rather than borrowed is the channel section: an Ethiopian
+# NLP group meets ethnic and political flashpoints that a general code of
+# conduct does not anticipate, and saying nothing about that would be the
+# conspicuous omission.
+#
+# HOW TO EDIT
+#
+# Every section below renders on /standards/. Keep the rules short enough that
+# somebody can actually read them before posting. A rule nobody finishes is not
+# a rule.
+
+contact: ethionlp@googlegroups.com
+
+# Where the rules apply. Named explicitly because "our community spaces" is too
+# vague to act on when somebody asks whether a Telegram argument counts.
+scope:
+  - Telegram, Discord, the mailing list and the LinkedIn group
+  - GitHub issues, pull requests and code review
+  - Workshops, seminars, conference gatherings and social events around them
+  - Anywhere someone is representing EthioNLP, including their own social media
+    when posting as a member
+
+values:
+  - title: Ethiopians lead the work on Ethiopian languages
+    body: >-
+      Speakers of a language should own the research on it rather than supply
+      data for someone else's. Collaboration from anywhere is welcome on that
+      footing.
+  - title: Contributions come from a range of backgrounds
+    body: >-
+      Speakers of a language, linguists, students and senior researchers each
+      contribute different knowledge. Students are expected to take part
+      rather than observe.
+  - title: Work in the open
+    body: >-
+      Datasets, models, code and negative results are published where the
+      licence allows, and the licence is chosen so that it does.
+  - title: Communities decide about their own data
+    body: >-
+      A language community keeps a say in what is collected from it, how it is
+      used, and whether it is withdrawn.
+  - title: Training people is part of the output
+    body: >-
+      A thesis supervised, a student running their own experiments, a first
+      paper accepted: these count alongside the datasets and the models, and
+      usually outlast them.
+  - title: Say what you actually did
+    body: >-
+      Report the method, the size, the limitations and who did the work.
+      Overstated results cost this field more than modest ones.
+
+# The conduct rules proper. Contributor Covenant 1.4, condensed to the
+# operative sentences; the full text is linked from the page.
+expected:
+  - Use welcoming and inclusive language
+  - Respect differing viewpoints and experience
+  - Accept constructive criticism gracefully, and give it kindly
+  - Credit people for their work, including annotators and data collectors
+  - Assume good faith, particularly across a language barrier
+
+unacceptable:
+  - Harassment of any kind, public or private
+  - Sexualised language or imagery, and unwelcome sexual attention
+  - Insults, derogatory comments, and personal or political attacks
+  - Demeaning anyone for their ethnicity, language, religion, gender,
+    disability, age, nationality or level of experience
+  - Publishing anyone's private information without their explicit permission
+  - Sustained disruption of discussions, talks or events
+
+# The section the community most needs, and the one a borrowed code of conduct
+# would not have contained.
+channels:
+  intro: >-
+    Most of this community's day-to-day life happens in the Telegram group.
+    It is a professional space with hundreds of people in it, many of them
+    students, and it is read by people from every part of the country.
+  rules:
+    - title: Keep ethnic and party politics out
+      body: >-
+        Ethiopia's politics reach into questions about language, and this group
+        is not where they get settled. Discuss a language's data, orthography,
+        speakers and status; do not argue about the standing of the people who
+        speak it. Posts that attack an ethnic or religious group are removed
+        and the poster is removed with them.
+    - title: Do not forward unverified claims
+      body: >-
+        Screenshots, casualty figures and viral audio spread fastest when they
+        are wrong. If you cannot name the source, do not post it.
+    - title: Hate speech is our research subject, not our medium
+      body: >-
+        Examples for annotation or discussion belong in the dataset, behind a
+        content warning, with the purpose stated. They do not belong pasted
+        into a general channel.
+    - title: Ask questions in the open
+      body: >-
+        Beginners' questions are welcome and are not off-topic. Members are at
+        different stages, and basic questions are expected.
+    - title: No unsolicited private messages
+      body: >-
+        Do not direct-message members you do not know to sell, recruit, canvass
+        or ask them to complete a survey. Post it in the group and let people
+        come to you.
+    - title: A shared working language, alongside your own
+      body: >-
+        English is the shared working language, so that members who do not read
+        a given language can still follow a thread. Amharic, Afaan Oromo,
+        Tigrinya and others are welcome alongside it; a short gloss keeps the
+        discussion accessible.
+    - title: Someone else's data is not yours to share
+      body: >-
+        Do not post scraped personal data, unreleased datasets, or anything a
+        collaborator gave you in confidence.
+
+# Research ethics. Short, because the detail belongs with each project.
+research:
+  - title: Consent before collection
+    body: >-
+      People whose speech or writing is collected are told what it is for and
+      can decline. Consent to a study is not consent to every future use of it.
+  - title: Remove what identifies people
+    body: >-
+      Names, phone numbers, addresses and account handles come out of a corpus
+      before it is released, and the removal is documented.
+  - title: The people who supply the language are collaborators
+    body: >-
+      Annotation, transcription and collection are work, and the people doing
+      them are part of the project rather than a resource it draws on. Name
+      them where they wish to be named, and where a project has funding, pay at
+      a rate that is fair where they live rather than what the local market
+      will bear.
+  - title: License so the work can be reused
+    body: >-
+      Release under a licence that permits reuse, and check that you hold the
+      rights to what you are releasing.
+  - title: Say what a model should not be used for
+    body: >-
+      A model trained on a small corpus of one dialect will fail elsewhere.
+      Write that down where the people deploying it will read it.
+
+# What happens when a rule is broken. Concrete, because vague enforcement
+# language is what makes people decide not to report things.
+reporting:
+  steps:
+    - Email the address above. Any of the maintainers can receive a report; say
+      if you would rather it went to one of them in particular.
+    - Include what happened, where, and roughly when. A screenshot helps but is
+      not required.
+    - You will get an acknowledgement within a few days and be told what came of
+      it, unless you ask not to hear about it again.
+  promises:
+    - Your name is not passed to the person you are reporting without your
+      agreement.
+    - Reporting something in good faith never counts against you, even if the
+      report is not upheld.
+    - Responses range from a private word, through removal of a post, to removal
+      from the group and from events. Serious cases skip the earlier steps.
+  conflict: >-
+    If your report concerns a maintainer, send it to any other maintainer
+    directly; they will handle it without that person involved.
+
+attribution:
+  text: >-
+    The conduct rules adapt the Contributor Covenant 1.4, the same text
+    Masakhane uses. The values are adapted from Masakhane's community values.
+  links:
+    - title: Contributor Covenant 1.4
+      url: https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+    - title: Masakhane community documents
+      url: https://github.com/masakhane-io/masakhane-community

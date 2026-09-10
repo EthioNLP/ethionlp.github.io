@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /site.webmanifest
+---
+{
+  "name": "{{ site.title }}",
+  "short_name": "EthioNLP",
+  "description": {{ site.description | strip_newlines | jsonify }},
+  "start_url": "{{ '/' | relative_url }}",
+  "display": "standalone",
+  "background_color": "#fcfbf9",
+  "theme_color": "#1b5e43",
+  "icons": [
+    { "src": "{{ '/assets/img/favicon-32.png' | relative_url }}", "sizes": "32x32", "type": "image/png" },
+    { "src": "{{ '/assets/img/apple-touch-icon.png' | relative_url }}", "sizes": "180x180", "type": "image/png" },
+    { "src": "{{ '/assets/img/icon-512.png' | relative_url }}", "sizes": "512x512", "type": "image/png" }
+  ]
+}

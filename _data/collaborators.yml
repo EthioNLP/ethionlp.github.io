@@ -1,0 +1,68 @@
+# Communities and groups EthioNLP works with.
+#
+# This is deliberately separate from `organisations.yml`. A *team* registered
+# there has its Hugging Face and GitHub organisations swept, and its output is
+# counted as this community's own. A *collaborator* here is a peer: we work
+# together, but their work is theirs and is not folded into our totals.
+#
+# Fields
+#   name      as it should read                                  (required)
+#   slug      stable id                                          (required)
+#   scope     national | pan-african | institutional | thematic
+#   based     where it sits, if that is meaningful
+#   website   homepage
+#   github / huggingface   handles, linked but never swept
+#   since     YYYY, when working together began, if known
+#   summary   one or two sentences on what they do
+#   with_us   what the collaboration actually consists of; leave
+#             blank rather than inventing something
+#
+# Add a collaborator by appending an entry. Please only list groups that would
+# recognise the description, and keep `with_us` to things that really happened.
+
+- name: Masakhane
+  slug: masakhane
+  scope: pan-african
+  based: Africa-wide
+  website: https://www.masakhane.io/
+  github: masakhane-io
+  huggingface: masakhane
+  since: 2019
+  summary: >-
+    An open, participatory research effort for African-language NLP, run by
+    African researchers. One of the largest of the continent's language
+    communities.
+  with_us: >-
+    EthioNLP members are contributors and co-authors on Masakhane datasets and
+    benchmarks, including MasakhaNER and the AfriSenti and AfriHate lines of
+    work.
+
+- name: ICT4D Research Center, Bahir Dar University
+  slug: ict4d-bdu
+  scope: institutional
+  based: Bahir Dar, Ethiopia
+  website: https://www.bdu.edu.et/
+  since: 2020
+  summary: >-
+    Research on information and communication technologies for development,
+    including Amharic language resources and annotation work, at one of
+    Ethiopia's largest universities.
+  with_us: >-
+    Joint work on Amharic corpus construction and annotation, and a route for
+    students in Ethiopia into the community's projects.
+
+- name: HausaNLP
+  slug: hausanlp
+  scope: national
+  based: Nigeria
+  website: https://hausanlp.github.io/
+  github: hausanlp
+  huggingface: HausaNLP
+  since: 2022
+  summary: >-
+    A research community for Hausa and other Nigerian languages, and the group
+    behind the Hausa language catalogue on which this site's own catalogue is
+    modelled.
+  with_us: >-
+    Shared work on African-language sentiment and hate-speech benchmarks, and a
+    common approach to cataloguing what exists for a country's languages.

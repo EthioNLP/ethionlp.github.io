@@ -1,0 +1,81 @@
+<footer class="site-footer">
+  <div class="wrap wrap--wide">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand" href="{{ '/' | relative_url }}" style="margin-bottom: var(--sp-3)">
+          {% include logo.html class="brand__mark" %}
+          <span class="brand__name">EthioNLP</span>
+        </a>
+        <p class="site-footer__note">
+          An open research community building language technology for Ethiopia's
+          <a href="{{ '/languages/#sources' | relative_url }}">80+ languages</a>, and a contributor to AfricaNLP.
+        </p>
+        <div class="iconlinks" style="margin-top: var(--sp-4)">
+          <a href="{{ site.social.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a>
+          <a href="{{ site.social.huggingface }}" aria-label="Hugging Face">{% include icon.html name="huggingface" %}</a>
+          <a href="{{ site.social.linkedin }}" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a>
+          <a href="{{ site.social.twitter }}" aria-label="X / Twitter">{% include icon.html name="twitter" %}</a>
+          <a href="mailto:{{ site.email }}" aria-label="Email">{% include icon.html name="mail" %}</a>
+          <a href="{{ '/feed.xml' | relative_url }}" aria-label="Atom feed">{% include icon.html name="rss" %}</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          {%- for l in site.data.navigation.footer.explore %}
+          <li><a href="{{ l.url | relative_url }}">{{ l.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Community</h4>
+        <ul>
+          {%- for l in site.data.navigation.footer.community %}
+          <li><a href="{{ l.url | relative_url }}">{{ l.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      {%- comment -%}
+      Contribution gets its own column rather than the bottom of Community: a
+      list of nine buries it, its own column does not.
+      {%- endcomment -%}
+      <div>
+        <h4>Contribute</h4>
+        <ul>
+          {%- for l in site.data.navigation.footer.contribute %}
+          <li><a href="{{ l.url | relative_url }}"{% if l.url contains '//' %} rel="noopener"{% endif %}>{{ l.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Elsewhere</h4>
+        <ul>
+          {%- for l in site.data.navigation.footer.elsewhere %}
+          <li><a href="{{ l.url }}" rel="noopener">{{ l.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>&copy; {{ 'now' | date: "%Y" }} EthioNLP. Content licensed
+        <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC&nbsp;BY&nbsp;4.0</a>.</span>
+      <span>
+        {%- assign gen = site.data.generated.meta -%}
+        {%- if gen.updated -%}
+          Ecosystem data synced {{ gen.updated | date: "%-d %B %Y" }} ·&nbsp;
+        {%- endif -%}
+        {%- comment -%}
+        Not "improve this page": the band directly above has the edit link for
+        the page you are on, and two of those a few centimetres apart is one
+        too many. This is the repository itself.
+        {%- endcomment -%}
+        <a href="https://github.com/{{ site.repository }}" rel="noopener">Source on GitHub</a>
+      </span>
+    </div>
+  </div>
+</footer>

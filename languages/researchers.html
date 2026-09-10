@@ -1,0 +1,156 @@
+---
+layout: default
+title: Who works on what
+permalink: /languages/researchers/
+needs_filter: true
+description: >-
+  Researchers mapped to the Ethiopian languages they have published on.
+---
+
+{%- assign ex = site.data.generated.expertise -%}
+{%- assign cat = site.data.generated.catalog.languages -%}
+
+{%- comment -%}
+One card per person, listing their languages — not one section per language
+listing its people. The two datasets say the same thing, but the language-major
+version repeated the same fourteen faces, affiliations and avatars once per
+language: 63 person rows for 14 people, with the first ten identical down all
+three columns. Reading it, you could not tell the columns apart.
+
+Person-major has one row per person and puts the languages in the chips, where
+the count is the part that differs. The "who can I ask about Sidama?" lookup is
+not lost — it becomes a facet click instead of a column scan, which is also
+linkable as /languages/researchers/?language=sidama.
+{%- endcomment -%}
+{%- assign people = ex.per_member -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Languages</p>
+    <h1 class="page-head__title">Who works on which language</h1>
+    <p class="lede">
+      {{ ex.totals.members }} people across {{ ex.totals.languages }} languages,
+      counted from published work. Filter by a language to see who has
+      worked on it.
+    </p>
+  </div>
+</div>
+
+<section class="band">
+  <div class="wrap wrap--wide">
+    {%- if people.size > 0 %}
+    <div data-filter-root>
+      <div class="filterbar filterbar--inline">
+        <input class="filter-search" type="search" data-filter-search
+               placeholder="Search people, affiliations and languages"
+               aria-label="Search people, affiliations and languages">
+
+        <div class="facet-group">
+          <span class="facet-group__label">Language</span>
+          <div class="facets">
+            {%- comment -%}
+            Ordered by how many people work on the language, which is the order
+            per_language already carries.
+            {%- endcomment -%}
+            {%- for lang in ex.per_language -%}
+            {%- if lang.count > 0 %}
+            <button class="facet" type="button" data-facet="language"
+                    data-value="{{ lang.name | slugify }}" aria-pressed="false">
+              {{ lang.name }}<span class="facet__count">{{ lang.count }}</span>
+            </button>
+            {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <p class="filter-status"><span data-filter-count></span></p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top: var(--sp-5)">
+        {%- comment -%}
+        Canonical community order, the same sequence /community/ uses, rather
+        than the crawler's ranking. people-ordered.html takes a list of
+        {slug: …}, which per_member already is.
+        {%- endcomment -%}
+        {%- include people-ordered.html people=people -%}
+        {%- for m in ordered -%}
+        {%- assign person = people | where: "slug", m.slug | first -%}
+        {%- if person and person.languages.size > 0 -%}
+        {%- assign keys = "" | split: "" -%}
+        {%- for l in person.languages -%}
+          {%- assign keys = keys | push: l.name | uniq -%}
+        {%- endfor -%}
+        <article class="person" data-filter-item
+                 data-language="{% for l in person.languages %}{{ l.name | slugify }} {% endfor %}"
+                 data-search="{{ m.name }} {{ m.role }} {{ m.affiliation }} {{ keys | join: ' ' }} {{ m.aliases | join: ' ' }}"
+                 data-sort-name="{{ m.name | split: ' ' | last }}">
+          {% include avatar.html m=m %}
+          <div class="person__body">
+            <h3 class="person__name">
+              <a href="{{ m.url | relative_url }}">{{ m.name }}</a>
+            </h3>
+            {%- if m.role or m.affiliation %}
+            <p class="person__role">
+              {%- if m.role %}{{ m.role }}{% endif -%}
+              {%- if m.role and m.affiliation %} · {% endif -%}
+              {%- if m.affiliation %}{{ m.affiliation }}{% endif -%}
+            </p>
+            {%- endif %}
+            <ul class="langchips">
+              {%- for l in person.languages -%}
+              {%- comment -%}
+              Link to the catalogue row, resolved through match_names: the
+              expertise data says "Afaan Oromo", "Ge'ez" and "Sidama" where the
+              catalogue says Oromo, Geez and Sidamo, so slugifying this name
+              would produce anchors with no target.
+              {%- endcomment -%}
+              {%- assign key = l.name | downcase -%}
+              {%- assign row = cat | where_exp: "c", "c.match_names contains key" | first -%}
+              <li>
+                {%- if row -%}
+                <a href="{{ '/languages/' | relative_url }}#{{ row.name | slugify }}"
+                   title="{{ l.artifacts }} models or datasets, {{ l.papers }} papers, {{ l.repos }} repositories">
+                  {{ l.name }}<span class="langchips__n">{{ l.total }}</span>
+                </a>
+                {%- else -%}
+                <span title="{{ l.artifacts }} models or datasets, {{ l.papers }} papers, {{ l.repos }} repositories">
+                  {{ l.name }}<span class="langchips__n">{{ l.total }}</span>
+                </span>
+                {%- endif -%}
+              </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </article>
+        {%- endif -%}
+        {%- endfor %}
+      </div>
+
+      <div class="empty" data-filter-empty hidden style="margin-top: var(--sp-5)">
+        <p>No member listed here has published on that language.</p>
+      </div>
+    </div>
+    {%- else %}
+    <div class="empty"><p>Nothing mapped yet.</p></div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <h2>How this is worked out</h2>
+    <div class="prose">
+      <p>{{ ex.method }}</p>
+      <p>
+        The number on each chip is the count behind the mapping: models,
+        datasets, papers and repositories in that language added together.
+        Hover it for the breakdown.
+      </p>
+      <p>
+        Only people who have confirmed a profile here appear, and the mapping
+        is deliberately conservative: a missing entry is preferred to a
+        wrong one.
+      </p>
+    </div>
+  </div>
+</section>
