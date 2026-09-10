@@ -102,16 +102,13 @@ description: >-
       <p class="section-head__note">
         Posted by supervisors and open to applicants.
       </p>
-    </div>
-
-    {%- if topics.size == 0 %}
-    <div class="empty">
-      <p><strong>No topics posted yet.</strong></p>
-      <p class="muted">Supervisors can post one through the form.</p>
-      <div class="row" style="justify-content: center; margin-top: var(--sp-4)">
+      <div class="row" style="margin-top: var(--sp-4)">
         <a class="btn" href="https://github.com/{{ site.repository }}/issues/new?template=post-topic.yml">Post a topic</a>
       </div>
     </div>
+
+    {%- if topics.size == 0 %}
+    <div class="empty"><p>No topics posted yet.</p></div>
     {%- else %}
     <div data-filter-root>
       <div class="filterbar filterbar--inline">
@@ -252,14 +249,11 @@ description: >-
           sentence on what to ask you about.
         </p>
         <p>
-          To offer a specific topic rather than general supervision, the form
-          below writes the file and opens a pull request. A maintainer checks
-          the supervision offer before it goes live.
+          To offer a specific topic rather than general supervision, use
+          <a href="#topics">Post a topic</a> above.
         </p>
         <div class="card__actions">
           <a class="btn"
-             href="https://github.com/{{ site.repository }}/issues/new?template=post-topic.yml">Post a topic</a>
-          <a class="btn btn--ghost"
              href="https://github.com/{{ site.repository }}/blob/master/_data/mentorship.yml">See the format</a>
           <a class="btn btn--ghost" href="{{ '/join/' | relative_url }}">Join first</a>
         </div>
