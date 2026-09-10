@@ -439,7 +439,10 @@ def build_photo(fields: dict) -> Path:
         raise SystemExit("The form did not include a caption.")
 
     blob = get(fields, "the photograph", "photo") or ""
-    urls = _re.findall(r"https?://[^\s)\]]+", blob)
+    # Stop at a quote or angle bracket as well as whitespace: pasting a file
+    # into an issue can leave <img src="..."> rather than Markdown, and the
+    # trailing quote was being kept as part of the URL, which then 404s.
+    urls = _re.findall(r"""https?://[^\s)\]"'<>]+""", blob)
     urls = [u for u in urls if any(h in u for h in ATTACHMENT_HOSTS)]
     if not urls:
         raise SystemExit(
@@ -447,7 +450,7 @@ def build_photo(fields: dict) -> Path:
             "pasting a link to one hosted elsewhere."
         )
 
-    url = urls[0].rstrip(".,)")
+    url = urls[0].rstrip(".,)\"'>")
     suffix = ALLOWED.get(Path(url.split("?")[0]).suffix.lower())
     if not suffix:
         # GitHub serves attachments without an extension often enough that this
@@ -487,15 +490,24 @@ def main() -> int:
     parser.add_argument("--kind", required=True,
                         choices=["member", "event", "team", "news", "photo", "topic"])
     parser.add_argument("--body-file", required=True)
+    parser.add_argument("--title", default="")
     args = parser.parse_args()
 
     body = Path(args.body_file).read_text(encoding="utf-8")
     fields = parse_form(body)
     if not fields:
-        raise SystemExit(
-            "No form fields were found in the issue body. This workflow only "
-            "understands issues created from one of the templates."
-        )
+        # A photo pasted straight into an issue is the one case worth rescuing:
+        # the attachment is the content, and the title says what it is. Every
+        # other kind needs real fields, so they still stop here.
+        has_attachment = any(h in body for h in ATTACHMENT_HOSTS)
+        if args.kind == "photo" and has_attachment and args.title.strip():
+            fields = {"the photograph": body, "what is happening": args.title.strip()}
+            warn("no form fields; using the issue title as the caption")
+        else:
+            raise SystemExit(
+                "No form fields were found in the issue body. This workflow only "
+                "understands issues created from one of the templates."
+            )
 
     builders = {"member": build_member, "event": build_event,
                 "team": build_team, "news": build_news, "photo": build_photo,
