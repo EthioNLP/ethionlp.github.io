@@ -38,7 +38,16 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from lib.common import DATA, MEMBERS_DIR, ROOT, slugify, warn  # noqa: E402
+from lib.common import (  # noqa: E402
+    DATA,
+    MEMBERS_DIR,
+    ROOT,
+    member_name_index,
+    norm_name,
+    read_members,
+    slugify,
+    warn,
+)
 from lib.news import write_news  # noqa: E402
 
 NO_RESPONSE = {"_no response_", "_none_", "none", "n/a", ""}
@@ -359,12 +368,28 @@ def build_topic(fields: dict) -> Path:
     raw_langs = get(fields, "languages") or ""
     languages = [l.strip() for l in raw_langs.split(",") if l.strip()]
 
-    # Either a slug we can resolve, or a name we record as written. Guessing a
-    # slug that does not exist would render the mentor box empty.
+    # Resolve the mentor to a member slug. People write this field freely --
+    # "Seid Muhie Yimam, University of Hamburg, Germany" -- so slugifying the
+    # whole string matches nothing. Try the slug, then the name index, which
+    # already handles aliases and a dropped middle name, and fall back to the
+    # part before the first comma, which is where the affiliation starts.
     mentor = (get(fields, "who would supervise it", "mentor") or "").strip()
-    slug_guess = slugify(mentor)
     known = {p.stem for p in (ROOT / "_members").glob("*.md")}
-    mentor_slug = slug_guess if slug_guess in known else ""
+    index = member_name_index(read_members())
+
+    mentor_slug = ""
+    candidates = [mentor, mentor.split(",")[0]]
+    for c in candidates:
+        c = c.strip()
+        if not c:
+            continue
+        if slugify(c) in known:
+            mentor_slug = slugify(c)
+            break
+        hit = index.get(norm_name(c))
+        if hit:
+            mentor_slug = hit
+            break
 
     body = get(fields, "the topic itself", "body") or ""
     stem = slugify(title)[:60] or "topic"
@@ -376,10 +401,11 @@ def build_topic(fields: dict) -> Path:
 
     lines = [
         "---",
-        "# Submitted through the issue form and not yet reviewed. A maintainer",
-        "# checks the supervision offer, fills in `mentor` if it is blank, then",
-        "# deletes this comment and the `published: false` line.",
-        "published: false",
+        "# Submitted through the post-a-topic form. The pull request this",
+        "# file arrives in is the review: a maintainer checks the supervision",
+        "# offer before merging, and the form already requires the submitter",
+        "# to confirm it. Writing it unpublished as well meant a merged topic",
+        "# still did not appear, which is a second manual step for no gain.",
         f"title: {yaml_str(title)}",
         "status: open",
         f"level: {level}",
