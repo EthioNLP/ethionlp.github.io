@@ -79,9 +79,11 @@ jobs:
       - name: Build the file
         id: build
         if: steps.kind.outputs.kind != ''
+        env:
+          TITLE: ${{ github.event.issue.title }}
         run: |
           set -o pipefail
-          if path=$(python3 scripts/from_issue.py --kind "${{ steps.kind.outputs.kind }}" --body-file /tmp/issue.md 2>/tmp/err.txt); then
+          if path=$(python3 scripts/from_issue.py --kind "${{ steps.kind.outputs.kind }}" --body-file /tmp/issue.md --title "$TITLE" 2>/tmp/err.txt); then
             echo "path=$path" >> "$GITHUB_OUTPUT"
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
