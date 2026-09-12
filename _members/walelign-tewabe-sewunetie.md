@@ -10,8 +10,9 @@ website:
 github:
 huggingface: Walelign
 scholar:
-orcid:
+orcid: 0000-0003-2787-8019
 semantic_scholar:
 dblp:
 confirmed: true
+openalex: A5011399695
 ---
