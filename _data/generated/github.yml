@@ -3,7 +3,7 @@
 # _data/ecosystem_manual.yml instead.
 totals:
   repos: 32
-  stars: 168
+  stars: 169
   forks: 77
 repos:
 - id: IsraelAbebe/An-Amharic-News-Text-classification-Dataset
@@ -21,7 +21,7 @@ repos:
   - dataset
   - ethiopia
   focus: data
-  stars: 40
+  stars: 41
   forks: 24
   updated: '2024-05-17'
   created: '2021-03-06'
@@ -223,7 +223,7 @@ repos:
   focus: applications
   stars: 4
   forks: 2
-  updated: '2026-03-13'
+  updated: '2026-09-11'
   created: '2018-08-26'
   license: Apache-2.0
   archived: false

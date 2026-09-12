@@ -1,7 +1,7 @@
 totals:
-  publications: 218
-  ethiopian: 82
-  members_covered: 15
+  publications: 258
+  ethiopian: 93
+  members_covered: 21
   years:
   - 2026
   - 2025
@@ -28,67 +28,113 @@ by_year:
 - year: 2015
   count: 4
 - year: 2016
-  count: 6
+  count: 9
 - year: 2017
-  count: 6
+  count: 7
 - year: 2018
   count: 16
 - year: 2019
-  count: 5
+  count: 8
 - year: 2020
   count: 9
 - year: 2021
   count: 17
 - year: 2022
-  count: 24
+  count: 28
 - year: 2023
-  count: 33
+  count: 41
 - year: 2024
-  count: 38
+  count: 44
 - year: 2025
-  count: 34
+  count: 41
 - year: 2026
-  count: 20
+  count: 28
 by_type:
 - type: conference
-  count: 122
+  count: 139
 - type: preprint
-  count: 47
+  count: 52
 - type: journal
-  count: 36
+  count: 51
+- type: other
+  count: 7
 - type: book-chapter
   count: 4
 - type: workshop
   count: 4
-- type: other
-  count: 4
 - type: thesis
   count: 1
 publications:
+- key: afri-aya
+  title: afri-aya
+  authors:
+  - name: Bronson Bakunga
+  - name: Kato Steven Mubiru
+  - name: Gimei Alex
+  - name: Glorry Sibomana
+  - name: Cynthia Habonimana
+  - name: Oumayma Essarhi
+  - name: Aisha Hagar
+  - name: Abigail Oppong
+  - name: Jaward Sesay
+  - name: Henok Biadglign Ademtew
+    member: henok-biadglign-ademtew
+  - name: Paul Okewunmi
+  - name: Ashay Srivastava
+  - name: Testimony Adekoya
+  - name: Bayero Abdulkadir
+  - name: Sa'ad Nasir Bashir
+  - name: Tasi'u Jibril
+  - name: Olga Niyongabo
+  - name: Chisom Aniekwensi
+  - name: Chimere George-Emeruwa
+  - name: Alfred Malengo Kondoro
+  - name: Alejandro Salamanca
+  year: 2026
+  venue: Hugging Face
+  type: other
+  doi: 10.57967/hf/9030
+  url: https://doi.org/10.57967/hf/9030
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - henok-biadglign-ademtew
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Bronson Bakunga, Kato Steven Mubiru, Gimei Alex, Glorry Sibomana, Cynthia Habonimana, Oumayma
+    Essarhi, Aisha Hagar, Abigail Oppong, Jaward Sesay, Henok Biadglign Ademtew, Paul Okewunmi, Ashay
+    Srivastava, Testimony Adekoya, Bayero Abdulkadir, Sa'ad Nasir Bashir, Tasi'u Jibril, Olga Niyongabo,
+    Chisom Aniekwensi, Chimere George-Emeruwa, Alfred Malengo Kondoro, Alejandro Salamanca
+  tracks: []
 - key: afri-mcqa-multimodal-cultural-question-answering-for-african-languages
   title: 'Afri-MCQA: Multimodal Cultural Question Answering for African Languages'
   authors:
-  - name: Negasi Haile Abadi
-  - name: Idris Abdulmumin
-  - name: David Ifeoluwa Adelani
-  - name: Alham Aji
-  - name: Jesujoba Alabi
-  - name: Muhidin A. Mohamed
+  - name: Atnafu Lambebo Tonja
+    member: atnafu-lambebo-tonja
   - name: Srija Anand
+  - name: Emilio Villa-Cueva
   - name: Israel Abebe Azime
     member: israel-abebe-azime
-  - name: Nnaemeka Casmir Obiefuna
+  - name: Jesujoba Oluwadara Alabi
+  - name: Muhidin Mohamed
   - name: Debela Desalegn Yadeta
-  - name: Imanigirimbabazi Emmanuel
-  - name: Naome Etori
-  - name: Gabofetswe Malema
+  - name: Noam Abadi
   - name: Abigail Oppong
-  - name: Kanda Patrick Tshinu
+  - name: Nnaemeka Casmir Obiefuna
+  - name: Idris Abdulmumin
+  - name: Naome A Etori
   - name: Eric Peter Wairagala
+  - name: Kanda Patrick Tshinu
+  - name: Imanigirimbabazi Emmanuel
+  - name: Gabofetswe Malema
+  - name: Alham Fikri Aji
+  - name: David Ifeoluwa Adelani
   - name: Thamar Solorio
-  - name: Atnafu Tonja
-    member: atnafu-lambebo-tonja
-  - name: Emilio Villa Cueva
   year: 2026
   venue: arXiv (Cornell University)
   type: preprint
@@ -117,10 +163,10 @@ publications:
   sources:
   - openalex
   ethiopian: false
-  author_line: Negasi Haile Abadi, Idris Abdulmumin, David Ifeoluwa Adelani, Alham Aji, Jesujoba Alabi,
-    Muhidin A. Mohamed, Srija Anand, Israel Abebe Azime, Nnaemeka Casmir Obiefuna, Debela Desalegn Yadeta,
-    Imanigirimbabazi Emmanuel, Naome Etori, Gabofetswe Malema, Abigail Oppong, Kanda Patrick Tshinu, Eric
-    Peter Wairagala, Thamar Solorio, Atnafu Tonja, Emilio Villa Cueva
+  author_line: Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara
+    Alabi, Muhidin Mohamed, Debela Desalegn Yadeta, Noam Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna,
+    Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel,
+    Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio
   tracks:
   - data
   - models
@@ -277,6 +323,7 @@ publications:
     across regions and evaluation settings. Our findings emphasize the need for culturally grounded benchmarks
     that go beyond language-level evaluation to more accurately assess and '
   members:
+  - dagnachew-mekonnen
   - israel-abebe-azime
   - seid-muhie-yimam
   sources:
@@ -382,6 +429,38 @@ publications:
   author_line: Israel Abebe Azime, Tadesse Destaw Belay, Anshuman Chhabra, Dietrich Klakow, Philipp Slusallek
   tracks:
   - data
+  - models
+  - evaluation
+- key: culturalprobe-probing-multilingual-llm-capabilities-and-limitations-for-cultural
+  title: 'CulturalProbe: Probing Multilingual LLM Capabilities and Limitations for Cultural Understanding
+    in Low-Resource Languages'
+  authors:
+  - name: Geleta Negasa Binegde
+  - name: Huaping Zhang
+  - name: Qiuchi Li
+  - name: Baohua Zhang
+  - name: Chunxiao Gao
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  year: 2026
+  venue: Information Processing & Management
+  type: journal
+  doi: 10.1016/j.ipm.2026.105123
+  url: https://doi.org/10.1016/j.ipm.2026.105123
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Geleta Negasa Binegde, Huaping Zhang, Qiuchi Li, Baohua Zhang, Chunxiao Gao, Hagos Gebremedhin
+    Gebremeskel
+  tracks:
   - models
   - evaluation
 - key: design-and-development-of-amharic-chatbot-for-mental-health-using-bidirectional-
@@ -506,11 +585,12 @@ publications:
     of vowel length and consonant gemination to ASR errors, and the training dynamics of multilingual
     CTC models. Our models and codebase are publicly available to the research community.'
   members:
+  - dagnachew-mekonnen
   - israel-abebe-azime
   - michael-melese
+  - walelign-tewabe-sewunetie
   - atnafu-lambebo-tonja
   - tadesse-kebede
-  - walelign-tewabe-sewunetie
   sources:
   - openalex
   ethiopian: true
@@ -550,6 +630,7 @@ publications:
     for Computational Linguistics: ACL 2026. 2026.'
   members:
   - hellina-hailu-nigatu
+  - senait-mengesha
   sources:
   - openalex
   ethiopian: false
@@ -621,6 +702,78 @@ publications:
   tracks:
   - models
   - applications
+- key: gccla-graph-conditioned-cross-lingual-adaptation-of-large-language-models-under-
+  title: 'GCCLA: Graph-Conditioned Cross-Lingual Adaptation of Large Language Models Under Extreme Data
+    Scarcity (A Case Study in Tigrigna)'
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Asefa Mebrahtu Abera
+  year: 2026
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2026.c3nlp-1.4
+  url: https://doi.org/10.18653/v1/2026.c3nlp-1.4
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'Adapting large language models (LLMs) to extremely low-resource languages remains challenging
+    due to severe data scarcity and the lack of structured linguistic supervision.We introduce GCCLA,
+    a graph-conditioned crosslingual adaptation framework that integrates multilingual knowledge graphs
+    into parameterefficient LLM adaptation, conditioning a frozen multilingual LLM on structured semantic
+    and typological relations to provide a strong inductive bias for data-efficient transfer.We instantiate
+    and evaluate the framework through a focused case study on English-to-Amharic-to-Tigrinya transfer,
+    where labeled data is extremely limited.By separating knowledge representation from language modeling,
+    GCCLA stabilizes learning and improves sample efficiency in few-shot regimes.We evaluate the approach
+    on five tasks, sentiment analysis, named entity recognition, natural language inference, question
+    answering, and extractive summarization, under extreme data scarcity, with as few as 0-1000 labeled
+    Tigrinya examples.Experimental results show that GCCLA consistently outperforms multilingual, translation-based,
+    and parameterefficient baselines, achieves competitive performance with as few as 100 '
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Asefa Mebrahtu Abera
+  tracks:
+  - models
+  - applications
+  - evaluation
+  - linguistics
+- key: machine-learning-model-for-the-prediction-of-blend-uniformity-in-pharmaceutical-
+  title: Machine Learning Model for the Prediction of Blend Uniformity in Pharmaceutical Powder Blending
+    Process
+  authors:
+  - name: Haftom Kahsay Tekie
+  - name: Tibebe Beshah
+  - name: Krist V. Gernaey
+  - name: Niat Haileslassie Gebrehiwot
+  - name: Kibrom Gidey
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Ashish Kumar
+  year: 2026
+  venue: Journal of Pharmaceutical Innovation
+  type: journal
+  doi: 10.1007/s12247-026-10509-x
+  url: https://doi.org/10.1007/s12247-026-10509-x
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Haftom Kahsay Tekie, Tibebe Beshah, Krist V. Gernaey, Niat Haileslassie Gebrehiwot, Kibrom
+    Gidey, Hagos Gebremedhin Gebremeskel, Ashish Kumar
+  tracks: []
 - key: mgsm-pro-a-simple-strategy-for-robust-multilingual-mathematical-reasoning-evalua
   title: 'MGSM-Pro: A Simple Strategy for Robust Multilingual Mathematical Reasoning Evaluation'
   authors:
@@ -935,6 +1088,105 @@ publications:
   - data
   - models
   - evaluation
+- key: tigclaf-a-cross-lingual-large-language-model-framework-for-sentiment-aware-text-
+  title: 'TigCLaF: a cross-lingual large language model framework for sentiment-aware text classification
+    in low-resource tigrigna'
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Asefa Mebrahtu Abera
+  - name: Geleta Negasa Binegde
+  year: 2026
+  venue: Scientific Reports
+  type: journal
+  doi: 10.1038/s41598-026-42786-4
+  url: https://doi.org/10.1038/s41598-026-42786-4
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: This paper introduces TigCLaF, a novel cross-lingual large language model framework for sentiment-aware
+    text classification in low-resource Tigrigna. The framework integrates tokenizer extension with adaptation,
+    continual pretraining on unlabeled Tigrigna data, and LoRA-based parameter-efficient fine-tuning to
+    enable effective cross-lingual adaptation from high-resource languages. Leveraging recent advances
+    in multilingual pre-trained language models and large language models, we investigate zero-shot, few-shot,
+    and full fine-tuning strategies for sentiment detection, incorporating transformer models XLM-RoBERTa
+    and AfriBERTa, as well as instruction-tuned LLaMA models. Our approach integrates a Tigrigna sentiment
+    lexicon into transformer-based embeddings via feature fusion, thereby enhancing preservation of the
+    sentiment signal during cross-lingual transfer. The proposed framework is evaluated on a newly curated
+    dataset of 30,000 Tigrigna instances, supported by auxiliary English and Amharic sentiment corpora
+    for transfer learning. Experimental results show that sentiment-aware feature integration improves
+    classification accuracy and Macro-F1 up to 7% over baseline multilingual mod
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Asefa Mebrahtu Abera, Geleta Negasa Binegde
+  tracks:
+  - data
+  - models
+  - applications
+  - evaluation
+- key: tigsen-building-a-low-resource-dataset-and-benchmarking-for-tigrigna-sentiment-a
+  title: 'TIGSEN: Building a Low-Resource Dataset and Benchmarking for Tigrigna Sentiment Analysis with
+    Cross-Lingual Transfer Learning Approaches'
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Asefa Mebrahtu Abera
+  year: 2026
+  venue: Communications in computer and information science
+  type: conference
+  doi: 10.1007/978-981-92-0199-0_1
+  url: https://doi.org/10.1007/978-981-92-0199-0_1
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Asefa Mebrahtu Abera
+  tracks:
+  - data
+  - applications
+  - evaluation
+- key: tigxmm-a-multimodal-cross-lingual-transfer-llm-method-for-low-resource-sentiment
+  title: 'TigXMM: A Multimodal Cross-Lingual Transfer LLM Method for Low-Resource Sentiment Analysis'
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Asefa Mebrahtu Abera
+  - name: Xuan Zhao
+  year: 2026
+  venue: null
+  type: conference
+  doi: 10.1145/3810987.3815534
+  url: https://doi.org/10.1145/3810987.3815534
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Asefa Mebrahtu Abera, Xuan Zhao
+  tracks:
+  - models
+  - applications
 - key: uhura-a-benchmark-for-evaluating-scientific-question-answering-and-truthfulness-
   title: 'Uhura: A Benchmark for Evaluating Scientific Question Answering and Truthfulness in Low-Resource
     African Languages'
@@ -1032,9 +1284,61 @@ publications:
   - models
   - evaluation
   - capacity
+- key: who-annotates-in-nlp-a-large-scale-assessment-of-human-annotation-reporting-betw
+  title: Who Annotates in NLP? A Large-scale Assessment of Human Annotation Reporting between 2018 and
+    2025
+  authors:
+  - name: Maria Kunilovskaya
+  - name: Gagan Bhatia
+  - name: Lisa Sophie Albertelli
+  - name: Yanran Chen
+  - name: Christian Greisinger
+  - name: Lotta Kiefer
+  - name: Christoph Leiter
+  - name: Subhadeep Roy
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Muhammad Arslan Manzoor
+  - name: Sebastian Pohl
+  - name: Yufang Hou
+  - name: Steffen Eger
+  year: 2026
+  venue: arXiv (Cornell University)
+  type: preprint
+  doi: 10.48550/arxiv.2606.02255
+  url: https://doi.org/10.48550/arxiv.2606.02255
+  arxiv: '2606.02255'
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Human annotation is the empirical foundation of much NLP research, from dataset construction
+    to model evaluation, but papers often leave unclear who produced the annotations and how the annotation
+    process was controlled. We provide the first large-scale, task-level audit of human annotation reporting
+    across major NLP venues, asking which annotation details are documented, which are missing, and how
+    reporting varies across time, topic, venue, and intended use of human judgment. We introduce a unified
+    taxonomy of annotation-reporting practices and validate an LLM-assisted extraction pipeline against
+    Annotated-gold, a human-adjudicated gold standard of 41 papers and 72 annotation tasks, where the
+    best model reaches human-comparable agreement with adjudicated labels, with Krippendorff's alpha of
+    0.606 versus 0.585 for human-human agreement. Using this pipeline, we construct Annotated-llm, a dataset
+    covering ACL-venue papers from 2018-2025, with 2,667 extracted annotation tasks from 1,603 papers,
+    and find that papers frequently report operational details such as recruitment strategies, annotator
+    expertise, and annotation volume, but often omit details needed to assess annotation validit
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Maria Kunilovskaya, Gagan Bhatia, Lisa Sophie Albertelli, Yanran Chen, Christian Greisinger,
+    Lotta Kiefer, Christoph Leiter, Subhadeep Roy, Tewodros Achamaleh, Muhammad Arslan Manzoor, Sebastian
+    Pohl, Yufang Hou, Steffen Eger
+  tracks:
+  - data
+  - models
+  - evaluation
 - key: a-case-against-implicit-standards-homophone-normalization-in-machine-translation
   title: 'A Case Against Implicit Standards: Homophone Normalization in Machine Translation for Languages
-    that use the Ge’ez Script.'
+    that use the Ge''ez Script'
   authors:
   - name: Hellina Hailu Nigatu
     member: hellina-hailu-nigatu
@@ -1049,12 +1353,12 @@ publications:
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   year: 2025
-  venue: arXiv (Cornell University)
+  venue: Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing
   type: conference
   doi: 10.18653/v1/2025.emnlp-main.523
-  url: https://doi.org/10.18653/v1/2025.emnlp-main.523
+  url: https://aclanthology.org/2025.emnlp-main.523/
   arxiv: '2507.15142'
-  anthology: null
+  anthology: 2025.emnlp-main.523
   code: null
   dataset: null
   model: null
@@ -1069,7 +1373,8 @@ publications:
   - hellina-hailu-nigatu
   sources:
   - openalex
-  ethiopian: false
+  - curated
+  ethiopian: true
   author_line: Hellina Hailu Nigatu, Atnafu Lambebo Tonja, Henok Biadglign Ademtew, Hizkiel Mitiku Alemayehu,
     Negasi Haile Abadi, Tadesse Destaw Belay, Seid Muhie Yimam
   tracks:
@@ -1471,6 +1776,44 @@ publications:
   - models
   - applications
   - evaluation
+- key: amharic-news-topic-classification-dataset-and-transformer-based-model-benchmarks
+  title: 'Amharic News Topic Classification: Dataset and Transformer-Based Model Benchmarks'
+  authors:
+  - name: Dagnachew Mekonnen Marilign
+  - name: Eyob Nigussie Alemu
+  year: 2025
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2025.winlp-main.23
+  url: https://doi.org/10.18653/v1/2025.winlp-main.23
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'News classification is a downstream task in Natural Language Processing (NLP) that involves
+    the automatic categorization of news articles into predefined thematic categories.Although notable
+    advancements have been made for highresource languages, low-resource languages such as Amharic continue
+    to encounter significant challenges, largely due to the scarcity of annotated corpora and the limited
+    availability of language-specific, state-of-the-art model adaptations.To address these limitations,
+    this study significantly expands an existing Amharic news dataset, increasing its size from 50,000
+    to 144,000 articles, thus enriching the linguistic and topical diversity available for the model training
+    and evaluation.Using this expanded dataset, we systematically evaluated the performance of five transformer-based
+    models: mBERT, XLM-R, DistilBERT, AfriB-ERTa, and AfroXLM in the context of Amharic news classification.Among
+    these, AfriBERTa and XLM-R achieved the highest F1-scores of 90.25% and 90.11%, respectively, establishing
+    a new performance baseline for the task.These findings underscore the efficacy of advanced multilingual
+    and Africa-centric transformer architectures when applied to un'
+  members:
+  - dagnachew-mekonnen
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Dagnachew Mekonnen Marilign, Eyob Nigussie Alemu
+  tracks:
+  - data
+  - models
+  - applications
+  - evaluation
 - key: automatic-speech-recognition-asr-for-african-low-resource-languages-a-systematic
   title: 'Automatic Speech Recognition (ASR) for African Low-Resource Languages: A Systematic Literature
     Review'
@@ -1483,7 +1826,7 @@ publications:
   - name: Idris Abdulmumin
   - name: Hadiza Ali Umar
   - name: Muhammad Yahuza Bello
-  - name: Joyce Nakatumba-Nabende
+  - name: Joyce Nakatumba‐Nabende
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Shamsuddeen Hassan Muhammad
@@ -1516,7 +1859,7 @@ publications:
   - openalex
   ethiopian: false
   author_line: Sukairaj Hafiz Imam, Tadesse Destaw Belay, Kedir Yassin Husse, Ibrahim Said Ahmad, Idris
-    Abdulmumin, Hadiza Ali Umar, Muhammad Yahuza Bello, Joyce Nakatumba-Nabende, Seid Muhie Yimam, Shamsuddeen
+    Abdulmumin, Hadiza Ali Umar, Muhammad Yahuza Bello, Joyce Nakatumba‐Nabende, Seid Muhie Yimam, Shamsuddeen
     Hassan Muhammad
   tracks:
   - data
@@ -1671,6 +2014,144 @@ publications:
   tracks:
   - applications
   - evaluation
+- key: cic-nlp-at-mahed-2025-task-1-assessing-the-role-of-bigram-augmentation-in-multic
+  title: CIC-NLP at MAHED 2025 TASK 1:Assessing the Role of Bigram Augmentation in Multiclass Arabic Hate
+    and Hope Speech Classification
+  authors:
+  - name: Tolulope Olalekan Abiola
+  - name: Oluwatobi Joseph Abiola
+  - name: Ogunleye Temitope Dasola
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Obiadoh Augustine Ekenedilichukwu
+  year: 2025
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2025.arabicnlp-sharedtasks.80
+  url: https://doi.org/10.18653/v1/2025.arabicnlp-sharedtasks.80
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'Tolulope Olalekan Abiola, Oluwatobi Joseph Abiola, Ogunleye Temitope Dasola, Tewodros Achamaleh,
+    Obiadoh Augustine Ekenedilichukwu. Proceedings of The Third Arabic Natural Language Processing Conference:
+    Shared Tasks. 2025.'
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Tolulope Olalekan Abiola, Oluwatobi Joseph Abiola, Ogunleye Temitope Dasola, Tewodros Achamaleh,
+    Obiadoh Augustine Ekenedilichukwu
+  tracks:
+  - applications
+  - evaluation
+- key: cic-nlp-dravidianlangtech-2025-detecting-ai-generated-product-reviews-in-dravidi
+  title: 'CIC-NLP@DravidianLangTech 2025: Detecting AI-generated Product Reviews in Dravidian Languages'
+  authors:
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Tolulope Olalekan Abiola
+  - name: Lemlem Eyob Kawo
+  - name: Mikiyas Mebraihtu
+  - name: Grigori Sidorov
+  year: 2025
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2025.dravidianlangtech-1.88
+  url: https://doi.org/10.18653/v1/2025.dravidianlangtech-1.88
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Tewodros Achamaleh, Tolulope Olalekan Abiola, Lemlem Eyob Kawo, Mikiyas Mebraihtu, Grigori
+    Sidorov. Proceedings of the Fifth Workshop on Speech, Vision, and Language Technologies for Dravidian
+    Languages. 2025.
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Tewodros Achamaleh, Tolulope Olalekan Abiola, Lemlem Eyob Kawo, Mikiyas Mebraihtu, Grigori
+    Sidorov
+  tracks: []
+- key: cic-nlp-dravidianlangtech-2025-fake-news-detection-in-dravidian-languages
+  title: 'CIC-NLP@DravidianLangTech 2025: Fake News Detection in Dravidian Languages'
+  authors:
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Nida Hafeez
+  - name: Mikiyas Mebraihtu
+  - name: Fatima Uroosa
+  - name: Grigori Sidorov
+  year: 2025
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2025.dravidianlangtech-1.111
+  url: https://doi.org/10.18653/v1/2025.dravidianlangtech-1.111
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Misinformation is a growing problem for technology companies and society.Although there is
+    a large body of related work on identifying fake news in predominantly resource languages, there is
+    a lack of such studies in low-resource languages (LRLs).Because corpora and annotated data are scarce
+    in LRLs, the identification of false information remains in the exploratory stage.Fake news detection
+    is critical in this digital era to avoid the spread of misleading information.This study presents
+    an approach to Detect Fake News in Dravidian Languages.Our team CIC-NLP work primarily targets Task
+    1, which involves identifying whether a given social platform news is original or fake.For the fake
+    news detection problem, we used the mBERT model and utilized the dataset provided by the organizers
+    of the workshop.In this section, we describe our findings and the results of the proposed method.The
+    mBERT model achieved an F1 score of 0.853.The source code is available on GitHub. 1
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Tewodros Achamaleh, Nida Hafeez, Mikiyas Mebraihtu, Fatima Uroosa, Grigori Sidorov
+  tracks:
+  - data
+  - applications
+- key: cosmic-based-early-software-size-estimation-using-deep-learning-and-domain-speci
+  title: COSMIC-Based Early Software Size Estimation Using Deep Learning and Domain-Specific BERT
+  authors:
+  - name: Yohannes Sefane Molla
+    member: yohannes-sefane-molla
+  - name: Esubalew Alemneh
+  - name: Samuel Temesgen Yimer
+  year: 2025
+  venue: IEEE Access
+  type: journal
+  doi: 10.1109/access.2025.3540548
+  url: https://doi.org/10.1109/access.2025.3540548
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'Although the Common Software Measurement International Consortium (COSMIC) has a substantial
+    role in accurate and early size measure, it needs structured processes and strict specification of
+    requirements. So, using COSMIC for software size measurement is challenging and demands automation
+    for effective and efficient measurements. In this study, we proposed an automated COSMIC-based early
+    software size estimation approach using a domain-specific BERT called RE-BERT and deep learning algorithms.
+    Two major experiments were employed in the research: the first was further pretraining of the generic
+    BERT model over requirement engineering domain texts to produce a domain-specific pre-trained model
+    called RE-BERT, while the second experiment was developing a deep learning regressor model for COSMIC
+    size estimations using RE-BERT. Multi-Layer Perceptron (MLP) and the BERT Regressors are used to train
+    the size estimation models. The experimental results showed that RE-BERT MLP provides 0.691 MAE and
+    0.988 MSE, which is better among other regression models (BASE-BERT MLP, RE-BERT regressor, and BASE-BERT
+    regressor). On average, RE-BERT-based regressor models provided 1.23% to 3.19% improvem'
+  members:
+  - yohannes-sefane-molla
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Yohannes Sefane Molla, Esubalew Alemneh, Samuel Temesgen Yimer
+  tracks:
+  - models
 - key: culemo-cultural-lenses-on-emotion-benchmarking-llms-for-cross-cultural-emotion-u
   title: 'CULEMO: Cultural Lenses on Emotion - Benchmarking LLMs for Cross-Cultural Emotion Understanding'
   authors:
@@ -1864,7 +2345,7 @@ publications:
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Hassan Shakil
-  - name: Samer Iskander
+  - name: Samer Iskandar
   - name: Olga Kolesnikova
   - name: Jugal Kalita
   year: 2025
@@ -1884,9 +2365,34 @@ publications:
   sources:
   - openalex
   ethiopian: false
-  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskander,
+  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskandar,
     Olga Kolesnikova, Jugal Kalita
   tracks: []
+- key: exploring-sentiment-analysis-in-tigrigna-insights-from-social-media-texts
+  title: 'Exploring Sentiment Analysis in Tigrigna: Insights from Social Media Texts'
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  year: 2025
+  venue: Lecture notes in computer science
+  type: conference
+  doi: 10.1007/978-981-95-3349-7_34
+  url: https://doi.org/10.1007/978-981-95-3349-7_34
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng
+  tracks:
+  - applications
 - key: exploring-transliteration-based-zero-shot-transfer-for-amharic-asr
   title: Exploring Transliteration-Based Zero-Shot Transfer for Amharic ASR
   authors:
@@ -2044,6 +2550,46 @@ publications:
   tracks:
   - applications
   - linguistics
+- key: image-captioning-in-amharic-language-using-deep-convolutional-neural-networks-wi
+  title: Image Captioning in Amharic Language using Deep Convolutional Neural Networks with LSTM
+  authors:
+  - name: Samuel Ashagrre Guigsa
+  - name: Tesfahun Nurrie Mengestie
+  - name: Mikru Lake Melie
+  - name: Yohannes Sefane Molla
+    member: yohannes-sefane-molla
+  year: 2025
+  venue: null
+  type: conference
+  doi: 10.1109/ict4da67218.2025.11282808
+  url: https://doi.org/10.1109/ict4da67218.2025.11282808
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Image captioning has become one of the important areas of research that automatically produces
+    comprehensible natural language descriptions of visual content, especially static images, by integrating
+    computer vision and NLP components. The discipline has seen considerable works done through deep learning
+    architectures, recurrent neural networks and, more recently, vision-language pre-training paradigms.
+    Image captioning is one of the challenging applications of machine learning, especially when describing
+    images in low-resource languages. In this paper, a multilayer CNN-LSTM network is designed for recognizing
+    objects in an image and providing Amharic captions of the same. For the experiment, we have created
+    a manually annotated Amharic version of the Flickr8k dataset. Based on the proposed methodology for
+    a caption generation task, we develop a pre-trained deep learning model combining visual feature extraction
+    and sequence generation. To find out the best model, we did experiments with several model variations
+    by tuning key parameters such as embedding size, epoch, Dropout for encoder and decoder, and dense
+    layer. Performance of the presented system is evaluated using BLEU. Our b
+  members:
+  - yohannes-sefane-molla
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Samuel Ashagrre Guigsa, Tesfahun Nurrie Mengestie, Mikru Lake Melie, Yohannes Sefane Molla
+  tracks:
+  - data
+  - models
+  - evaluation
 - key: injongo-a-multicultural-intent-detection-and-slot-filling-dataset-for-16-african
   title: 'INJONGO: A Multicultural Intent Detection and Slot-filling Dataset for 16 African Languages'
   authors:
@@ -2346,12 +2892,12 @@ publications:
   - name: Thamar Solorio
   - name: Dietrich Klakow
   year: 2025
-  venue: arXiv (Cornell University)
+  venue: 'Findings of the Association for Computational Linguistics: NAACL 2025'
   type: conference
   doi: 10.18653/v1/2025.findings-naacl.350
-  url: https://doi.org/10.18653/v1/2025.findings-naacl.350
+  url: https://aclanthology.org/2025.findings-naacl.350/
   arxiv: '2411.05049'
-  anthology: null
+  anthology: 2025.findings-naacl.350
   code: null
   dataset: null
   model: null
@@ -2367,6 +2913,7 @@ publications:
   - yonas-chanie
   sources:
   - openalex
+  - curated
   ethiopian: false
   author_line: Israel Abebe Azime, Atnafu Lambebo Tonja, Tadesse Destaw Belay, Yonas Chanie, Bontu Fufa
     Balcha, Negasi Haile Abadi, Henok Biadglign Ademtew, Mulubrhan Abebe Nerea, Debela Desalegn Yadeta,
@@ -2466,7 +3013,7 @@ publications:
   - name: Graham Morrissey
   - name: Fadel Thior
   - name: Luandrie Potgieter
-  - name: Jessica Ojo
+  - name: Jessico Ojo
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Maushami Chetty
@@ -2495,7 +3042,7 @@ publications:
   - openalex
   ethiopian: false
   author_line: Jenalea Rajab, Anuoluwapo Aremu, Everlyn Asiko Chimoto, Dale Dunbar, Graham Morrissey,
-    Fadel Thior, Luandrie Potgieter, Jessica Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina Nekoto,
+    Fadel Thior, Luandrie Potgieter, Jessico Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina Nekoto,
     Pelonomi Moiloa, Jade Abbott, Vukosi Marivate, Benjamin Rosman
   tracks:
   - data
@@ -2507,15 +3054,15 @@ publications:
     member: tadesse-destaw-belay
   - name: Kedir Yassin Hussen
   - name: Sukairaj Hafiz Imam
-  - name: Ibrahim Said Ahmad
+  - name: I. Ahmad
   - name: Isa Inuwa-Dutse
   - name: Abrham Belete Haile
-  - name: Grigori Sidorov
+  - name: G. Sidorov
   - name: Eusebio Ricárdez Vázquez
   - name: Iqra Ameer
   - name: Idris Abdulmumin
-  - name: Tajuddeen Gwadabe
-  - name: Vukosi Marivate
+  - name: T. Gwadabe
+  - name: V. Marivate
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Shamsuddeen Hassan Muhammad
@@ -2548,9 +3095,9 @@ publications:
   - semantic_scholar
   - openalex
   ethiopian: false
-  author_line: Tadesse Destaw Belay, Kedir Yassin Hussen, Sukairaj Hafiz Imam, Ibrahim Said Ahmad, Isa
-    Inuwa-Dutse, Abrham Belete Haile, Grigori Sidorov, Eusebio Ricárdez Vázquez, Iqra Ameer, Idris Abdulmumin,
-    Tajuddeen Gwadabe, Vukosi Marivate, Seid Muhie Yimam, Shamsuddeen Hassan Muhammad
+  author_line: Tadesse Destaw Belay, Kedir Yassin Hussen, Sukairaj Hafiz Imam, I. Ahmad, Isa Inuwa-Dutse,
+    Abrham Belete Haile, G. Sidorov, Eusebio Ricárdez Vázquez, Iqra Ameer, Idris Abdulmumin, T. Gwadabe,
+    V. Marivate, Seid Muhie Yimam, Shamsuddeen Hassan Muhammad
   tracks:
   - data
   - models
@@ -2710,6 +3257,44 @@ publications:
   tracks:
   - data
   - models
+- key: automatic-question-generation-using-extended-dependency-parsing
+  title: Automatic question generation using extended dependency parsing
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2024
+  venue: Indonesian Journal of Electrical Engineering and Computer Science
+  type: journal
+  doi: 10.11591/ijeecs.v33.i2.pp1108-1115
+  url: http://dx.doi.org/10.11591/ijeecs.v33.i2.pp1108-1115
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: The importance of automatic question generation (AQG) systems in education is recognized for
+    automating tasks and providing adaptive assessments. Recent research focuses on improving quality
+    with advanced neural networks and machine learning techniques. However, selecting the appropriate
+    target sentences and concepts remains challenging in AQG systems. To address this problem, the authors
+    created a novel system that combined sentence structure analysis, dependency parsing approach, and
+    named entity recognition techniques to select the relevant target words from the given sentence. The
+    main goal of this paper is to develop an AQG system using syntactic and semantic sentence structure
+    analysis. Evaluation using manual and automatic metrics shows good performance on simple and short
+    sentences, with an overall score of 3.67 out of 5.0. As the field of AQG continues to evolve rapidly,
+    future research should focus on developing more advanced models that can generate a wider range of
+    questions, especially for complex sentence structures.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - applications
+  - evaluation
+  - capacity
+  - linguistics
 - key: bilingual-word-level-language-identification-for-omotic-languages
   title: Bilingual Word-Level Language Identification for Omotic Languages
   authors:
@@ -2761,7 +3346,7 @@ publications:
   - name: Rifki Afina Putri
   - name: Dimosthenis Antypas
   - name: Hsuvas Borkakoty
-  - name: Eun-Su Kim
+  - name: Eun‐Su Kim
   - name: Carla Perez-Almendros
   - name: Abinew Ali Ayele
     member: abinew-ali-ayele
@@ -2807,12 +3392,38 @@ publications:
   - openalex
   ethiopian: true
   author_line: Junho Myung, Nayeon Lee, Yi Zhou, Jiho Jin, Rifki Afina Putri, Dimosthenis Antypas, Hsuvas
-    Borkakoty, Eun-Su Kim, Carla Perez-Almendros, Abinew Ali Ayele, Víctor Gutiérrez-Basulto, Yazmín Ibáñez-García,
+    Borkakoty, Eun‐Su Kim, Carla Perez-Almendros, Abinew Ali Ayele, Víctor Gutiérrez-Basulto, Yazmín Ibáñez-García,
     Hwaran Lee, Shamsuddeen Hassan Muhammad, Kiwoong Park, Anar Rzayev, Nina White, Seid Muhie Yimam,
     Mohammad Taher Pilehvar, Nedjma Ousidhoum, José Camacho-Collados, Alice Oh
   tracks:
   - models
   - evaluation
+- key: chatgpt-in-education-opportunities-and-concerns-for-functional-english-sentence-
+  title: 'ChatGPT in Education: Opportunities and Concerns for Functional English Sentence Structure Analysis
+    for Automatic Question Generation'
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2024
+  venue: EAI/Springer Innovations in Communication and Computing
+  type: conference
+  doi: 10.1007/978-3-031-64151-0_6
+  url: https://doi.org/10.1007/978-3-031-64151-0_6
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - capacity
 - key: cvqa-culturally-diverse-multilingual-visual-question-answering-benchmark
   title: 'CVQA: Culturally-diverse Multilingual Visual Question Answering Benchmark'
   authors:
@@ -2832,7 +3443,7 @@ publications:
   - name: Christian Salamea
   - name: Dan John Velasco
   - name: David Ifeoluwa Adelani
-  - name: David Le Meur
+  - name: D. Le Meur
   - name: Emilio Villa-Cueva
   - name: Fajri Koto
   - name: Fauzan Farooqui
@@ -2857,7 +3468,7 @@ publications:
   - name: Laura Alonso Alemany
   - name: Kumaranage Ravindu Yasas Nagasinghe
   - name: Luciana Benotti
-  - name: Luis Fernando D'Haro
+  - name: Luis Fernando D’Haro
   - name: Marcelo Viridiano
   - name: Marcos Estecha-Garitagoitia
   - name: María Camila Buitrago Cabrera
@@ -2865,12 +3476,12 @@ publications:
   - name: Mélanie Jouitteau
   - name: Mihail Mihaylov
   - name: Naome A. Etori
-  - name: Mohamed Fazli Mohamed Imam
+  - name: Mohamed A. Imam
   - name: Muhammad Farid Adilazuarda
   - name: Munkhjargal Gochoo
   - name: Munkh-Erdene Otgonbold
   - name: Olivier Niyomugisha
-  - name: Paula Mónica Silva
+  - name: P. Silva
   - name: Pranjal A. Chitale
   - name: Raj Dabre
   - name: Rendi Chevi
@@ -2926,18 +3537,18 @@ publications:
   ethiopian: false
   author_line: David Romero, Chenyang Lyu, Haryo Akbarianto Wibowo, Teresa Lynn, Injy Hamed, Aditya Nanda
     Kishore, Aishik Mandal, Alina Dragonetti, Artem Abzaliev, Atnafu Tonja, Bontu Fufa Balcha, Chenxi
-    Whitehouse, Christian Salamea, Dan John Velasco, David Ifeoluwa Adelani, David Le Meur, Emilio Villa-Cueva,
+    Whitehouse, Christian Salamea, Dan John Velasco, David Ifeoluwa Adelani, D. Le Meur, Emilio Villa-Cueva,
     Fajri Koto, Fauzan Farooqui, Frederico Belcavello, Ganzorig Batnasan, Gisela Vallejo, Grainne Caulfield,
     Guido Ivetta, Haiyue Song, Henok Biadglign Ademtew, Hernán Maina, Holy Lovenia, Israel Abebe Azime,
     Jan Christian Blaise Cruz, Jay Gala, Jiahui Geng, Jesus-German Ortiz-Barajas, Jinheon Baek, Jocelyn
     Dunstan, Laura Alonso Alemany, Kumaranage Ravindu Yasas Nagasinghe, Luciana Benotti, Luis Fernando
-    D'Haro, Marcelo Viridiano, Marcos Estecha-Garitagoitia, María Camila Buitrago Cabrera, Mario Rodríguez-Cantelar,
-    Mélanie Jouitteau, Mihail Mihaylov, Naome A. Etori, Mohamed Fazli Mohamed Imam, Muhammad Farid Adilazuarda,
-    Munkhjargal Gochoo, Munkh-Erdene Otgonbold, Olivier Niyomugisha, Paula Mónica Silva, Pranjal A. Chitale,
-    Raj Dabre, Rendi Chevi, Ruochen Zhang, Ryandito Diandaru, Samuel Cahyawijaya, Santiago Góngora, Soyeong
-    Jeong, Sukannya Purkayastha, Tatsuki Kuribayashi, Teresa Clifford, Thanmay Jayakumar, Tiago Timponi
-    Torrent, Toqeer Ehsan, Vladimir Araujo, Yova Kementchedjhieva, Zara Burzo, Zheng Lim, Zheng Yong,
-    Oana Ignat, Joan Nwatu, Rada Mihalcea, Thamar Solorio, Alham Fikri Aji
+    D’Haro, Marcelo Viridiano, Marcos Estecha-Garitagoitia, María Camila Buitrago Cabrera, Mario Rodríguez-Cantelar,
+    Mélanie Jouitteau, Mihail Mihaylov, Naome A. Etori, Mohamed A. Imam, Muhammad Farid Adilazuarda, Munkhjargal
+    Gochoo, Munkh-Erdene Otgonbold, Olivier Niyomugisha, P. Silva, Pranjal A. Chitale, Raj Dabre, Rendi
+    Chevi, Ruochen Zhang, Ryandito Diandaru, Samuel Cahyawijaya, Santiago Góngora, Soyeong Jeong, Sukannya
+    Purkayastha, Tatsuki Kuribayashi, Teresa Clifford, Thanmay Jayakumar, Tiago Timponi Torrent, Toqeer
+    Ehsan, Vladimir Araujo, Yova Kementchedjhieva, Zara Burzo, Zheng Lim, Zheng Yong, Oana Ignat, Joan
+    Nwatu, Rada Mihalcea, Thamar Solorio, Alham Fikri Aji
   tracks:
   - data
   - models
@@ -3138,6 +3749,40 @@ publications:
     Helana
   tracks:
   - applications
+- key: dnn-based-supervised-spontaneous-court-hearing-transcription-for-amharic
+  title: DNN-Based Supervised Spontaneous Court Hearing Transcription for Amharic
+  authors:
+  - name: Martha Yifiru Tachbelie
+  - name: Solomon Teferra Abate
+  - name: Rosa Tsegaye Aga
+  - name: Rahel Mekonnen
+  - name: Hiwot Mulugeta
+  - name: Abel Mulat
+  - name: Ashenafi Mulat
+    member: ashenafi-mulat
+  - name: Solomon Merkebu
+  - name: Taye Girma Debelee
+  - name: Worku Gachena
+  year: 2024
+  venue: Communications in computer and information science
+  type: conference
+  doi: 10.1007/978-3-031-57624-9_13
+  url: https://doi.org/10.1007/978-3-031-57624-9_13
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - ashenafi-mulat
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Martha Yifiru Tachbelie, Solomon Teferra Abate, Rosa Tsegaye Aga, Rahel Mekonnen, Hiwot
+    Mulugeta, Abel Mulat, Ashenafi Mulat, Solomon Merkebu, Taye Girma Debelee, Worku Gachena
+  tracks:
+  - data
 - key: ethio-fake-cutting-edge-approaches-to-combat-fake-news-in-under-resourced-langua
   title: 'Ethio-Fake: Cutting-Edge Approaches to Combat Fake News in Under-Resourced Languages Using Explainable
     AI'
@@ -3459,6 +4104,40 @@ publications:
   - data
   - applications
   - evaluation
+- key: exploring-sentence-parsing-openai-api-based-and-hybrid-parser-based-approaches
+  title: 'Exploring Sentence Parsing: OpenAI API-Based and Hybrid Parser-Based Approaches'
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2024
+  venue: IEEE Access
+  type: journal
+  doi: 10.1109/access.2024.3360480
+  url: https://doi.org/10.1109/access.2024.3360480
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Sentence parsing is a fundamental step in the conversion of a text document into semantic
+    graphs. In this research, novel phrase parsing techniques for semantic graph-based induction are presented,
+    namely the ChatGPT-based and Hybrid Parser-based approaches. The performance of these two approaches
+    in the context of inducing semantic networks from textual data is assessed through a comprehensive
+    analysis in this study. The primary purpose is to enhance the construction of semantic graphs, specifically
+    focusing on capturing detailed event descriptions and relationships within text. The research finds
+    that the Hybrid Parser-Based approach exhibits a slight advantage in accuracy (acc_hybrid = 0.87)
+    compared to ChatGPT (acc_GPT = 0.85) in sentence parsing tasks. Furthermore, the efficiency analysis
+    reveals that ChatGPT’s response quality varies with different prompt sizes, while the Hybrid Parser-Based
+    method consistently maintains an "excellent" response quality rating.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - models
 - key: extractive-text-summarization-for-wolaytta-language-using-recurrent-neural-netwo
   title: Extractive Text Summarization for Wolaytta Language Using Recurrent Neural Network
   authors:
@@ -4005,7 +4684,7 @@ publications:
   authors:
   - name: Nedjma Ousidhoum
   - name: Shamsuddeen Hassan Muhammad
-  - name: Mohamed Abdalla
+  - name: Mahmoud A. Abdalla
   - name: Idris Abdulmumin
   - name: Ibrahim Said Ahmad
   - name: Sanchit Ahuja
@@ -4050,7 +4729,7 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: true
-  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim
+  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mahmoud A. Abdalla, Idris Abdulmumin, Ibrahim
     Said Ahmad, Sanchit Ahuja, Alham Fikri Aji, Vladimir Araujo, Meriem Beloucif, Christine de Kock, Oumaima
     Hourrane, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Krishnapriya Vishnubhotla, Seid Muhie
     Yimam, Saif M. Mohammad
@@ -4062,7 +4741,7 @@ publications:
   authors:
   - name: Nedjma Ousidhoum
   - name: Shamsuddeen Hassan Muhammad
-  - name: Mohamed Abdalla
+  - name: Mahmoud A. Abdalla
   - name: Idris Abdulmumin
   - name: Ibrahim Said Ahmad
   - name: Sanchit Ahuja
@@ -4112,13 +4791,84 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: false
-  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim
+  author_line: Nedjma Ousidhoum, Shamsuddeen Hassan Muhammad, Mahmoud A. Abdalla, Idris Abdulmumin, Ibrahim
     Said Ahmad, Sanchit Ahuja, Alham Aji, Vladimir Araujo, Abinew Ali Ayele, Pavan Baswani, Meriem Beloucif,
     Chris Biemann, Sofia Bourhim, Christine de Kock, Genet Shanko Dekebo, Oumaima Hourrane, Gopichand
     Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw
     Getaneh Tilaye, Krishnapriya Vishnubhotla, Genta Indra Winata, Seid Muhie Yimam, Saif M. Mohammad
   tracks:
   - data
+- key: stress-recognition-in-code-mixed-social-media-texts-using-machine-learning
+  title: Stress Recognition in Code-Mixed Social Media Texts using Machine Learning
+  authors:
+  - name: Lemlem Eyob
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Muhammad Tayyab
+  - name: Grigori Sidorov
+  - name: Ildar Batyrshin
+  year: 2024
+  venue: International Journal of Combinatorial Optimization Problems and Informatics.
+  type: journal
+  doi: 10.61467/2007.1558.2024.v15i1.430
+  url: http://dx.doi.org/10.61467/2007.1558.2024.v15i1.430
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Stress, being a complex emotional state caused by a variety of multiple sources, has the potential
+    for serious effects if left untreated. The primary goal of this research is to select and consider
+    AI models that effectively recognize stress within the complicated domain of social media posts. The
+    significance of this study is not only the categorization of stress but also the interpretation of
+    the sophisticated methods that serve as the basis for these emotional responses. Among the traditional
+    machine learning models, Random Forest, K-Nearest Neighbor, Logistic Regression, Decision Tree, and
+    Support Vector Machine are used. The deep learning model’s LSTM, BiLSTM, and transformer-based models
+    m-BERT, AL-BERT, XLM-RoBERTa, IndicBERT, and Distil-BERT were used. Of those models, LSTM proved to
+    be the best-performing model, with an F1-score of 0.75.
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Lemlem Eyob, Tewodros Achamaleh, Muhammad Tayyab, Grigori Sidorov, Ildar Batyrshin
+  tracks:
+  - models
+  - applications
+- key: tewodros-dravidianlangtech-2024-hate-speech-recognition-in-telugu-codemixed-text
+  title: 'Tewodros@DravidianLangTech 2024: Hate Speech Recognition in Telugu Codemixed Text'
+  authors:
+  - name: Tewodros Achamaleh
+    member: tewodros-achamaleh
+  - name: Lemlem Eyob Kawo
+  - name: Ildar Batyrshini
+  - name: Grigori Sidorov
+  year: 2024
+  venue: null
+  type: conference
+  doi: 10.18653/v1/2024.dravidianlangtech-1.15
+  url: https://doi.org/10.18653/v1/2024.dravidianlangtech-1.15
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: This study goes into our team's active participation in the Hate and Offensive LanguageDetection
+    in Telugu Codemixed Text (HOLDTelugu) shared task, which is an essential component of the DravidianLangTech@EACL
+    2024 workshop.The ultimate goal of this collaborative work is to push the bounds of hatespeech recognition,
+    especially tackling the issues given by codemixed text in Telugu, where English blends smoothly.Our
+    inquiry offers a complete evaluation of the task's aims, the technique used, and the precise achievements
+    obtained by our team, providing a full insight into our contributions to this crucial linguistic and
+    technical undertaking.
+  members:
+  - tewodros-achamaleh
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Tewodros Achamaleh, Lemlem Eyob Kawo, Ildar Batyrshini, Grigori Sidorov
+  tracks:
+  - applications
+  - evaluation
 - key: the-zeno-s-paradox-of-low-resource-languages
   title: The Zeno’s Paradox of ‘Low-Resource’ Languages
   authors:
@@ -4273,8 +5023,8 @@ publications:
   - israel-abebe-azime
   - seid-muhie-yimam
   - tadesse-destaw-belay
-  - yonas-chanie
   - walelign-tewabe-sewunetie
+  - yonas-chanie
   sources:
   - openalex
   - semantic_scholar
@@ -4374,6 +5124,59 @@ publications:
   tracks:
   - applications
   - capacity
+- key: a-fri-s-enti-a-b-enchmark-t-witter-s-entiment-a-nalysis-d-ataset-for-a-frican-l-
+  title: 'A FRI S ENTI : A B ENCHMARK T WITTER S ENTIMENT A NALYSIS D ATASET FOR A FRICAN L ANGUAGES'
+  authors:
+  - name: Shamsuddeen Hassan Muhammad
+  - name: Idris Abdulmumin
+  - name: A. Ayele
+  - name: Nedjma Djouhra Ousidhoum
+  - name: David Ifeoluwa Adelani
+  - name: Seid Muhie Yimam
+    member: seid-muhie-yimam
+  - name: Meriem Beloucif
+  - name: Saif M. Mohammad
+  - name: Sebastian Ruder
+  - name: Oumaima Hourrane
+  - name: P. Brazdil
+  - name: F. D. M. A. Ali
+  - name: Davis David
+  - name: Salomey Osei
+  - name: Bello Shehu Bello
+  - name: Falalu Ibrahim
+  - name: T. Gwadabe
+  - name: Samuel Rutunda
+  - name: Tadesse Destaw Belay
+    member: tadesse-destaw-belay
+  - name: Wendimu Baye Messelle
+  - name: H. Balcha
+  - name: S. Chala
+  - name: Hagos Tesfahun Gebremichael
+  - name: Bernard Opoku
+  - name: Steven Arthur
+  year: 2023
+  venue: null
+  type: other
+  doi: null
+  url: https://www.semanticscholar.org/paper/794e3de4e59812f824d07f785c1a982cb09bb987
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - seid-muhie-yimam
+  - tadesse-destaw-belay
+  sources:
+  - semantic_scholar
+  ethiopian: false
+  author_line: Shamsuddeen Hassan Muhammad, Idris Abdulmumin, A. Ayele, Nedjma Djouhra Ousidhoum, David
+    Ifeoluwa Adelani, Seid Muhie Yimam, Meriem Beloucif, Saif M. Mohammad, Sebastian Ruder, Oumaima Hourrane,
+    P. Brazdil, F. D. M. A. Ali, Davis David, Salomey Osei, Bello Shehu Bello, Falalu Ibrahim, T. Gwadabe,
+    Samuel Rutunda, Tadesse Destaw Belay, Wendimu Baye Messelle, H. Balcha, S. Chala, Hagos Tesfahun Gebremichael,
+    Bernard Opoku, Steven Arthur
+  tracks: []
 - key: a-need-finding-study-with-low-resource-language-content-creators
   title: A Need Finding Study with Low-Resource Language Content Creators
   authors:
@@ -4502,6 +5305,102 @@ publications:
   - models
   - applications
   - evaluation
+- key: afriqa-cross-lingual-open-retrieval-question-answering-for-african-languages
+  title: 'AfriQA: Cross-lingual Open-Retrieval Question Answering for African Languages'
+  authors:
+  - name: Odunayo Ogundepo
+  - name: Tajuddeen Gwadabe
+  - name: Clara E. Rivera
+  - name: Jonathan H. Clark
+  - name: Sebastian Ruder
+  - name: David Ifeoluwa Adelani
+  - name: Bonaventure F. P. Dossou
+  - name: Abdou Aziz DIOP
+  - name: Claytone Sikasote
+  - name: Gilles Hacheme
+  - name: Happy Buzaaba
+  - name: Ignatius Ezeani
+  - name: Rooweither Mabuya
+  - name: Salomey Osei
+  - name: Chris Chinenye Emezue
+  - name: Albert Njoroge Kahira
+  - name: Shamsuddeen Hassan Muhammad
+  - name: Akintunde Oladipo
+  - name: Abraham Toluwase Owodunni
+  - name: Atnafu Lambebo Tonja
+    member: atnafu-lambebo-tonja
+  - name: Iyanuoluwa Shode
+  - name: Akari Asai
+  - name: Tunde Oluwaseyi Ajayi
+  - name: Clemencia Siro
+  - name: Steven Arthur
+  - name: Mofetoluwa Adeyemi
+  - name: Orevaoghene Ahia
+  - name: Anuoluwapo Aremu
+  - name: Oyinkansola Awosan
+  - name: Chiamaka Chukwuneke
+  - name: Bernard Opoku
+  - name: Awokoya Ayodele
+  - name: Verrah Otiende
+  - name: Christine Mwase
+  - name: Boyd Sinkala
+  - name: Andre Niyongabo Rubungo
+  - name: Daniel Ajisafe
+  - name: Emeka Onwuegbuzia
+  - name: Habib Mbow
+  - name: Emile Niyomutabazi
+  - name: Eunice Mukonde
+  - name: Falalu Ibrahim Lawan
+  - name: Ibrahim Said Ahmad
+  - name: Jesujoba O. Alabi
+  - name: Martin Namukombo
+  - name: Mbonu Chinedu
+  - name: Mofya Phiri
+  - name: Neo Putini
+  - name: Ndumiso Mngoma
+  - name: Priscilla Amondi Amuok
+  - name: Ruqayya Nasir Iro
+  - name: Sonia Adhiambo
+  year: 2023
+  venue: arXiv (Cornell University)
+  type: preprint
+  doi: 10.48550/arxiv.2305.06897
+  url: http://arxiv.org/abs/2305.06897
+  arxiv: '2305.06897'
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: African languages have far less in-language content available digitally, making it challenging
+    for question answering systems to satisfy the information needs of users. Cross-lingual open-retrieval
+    question answering (XOR QA) systems -- those that retrieve answer content from other languages while
+    serving people in their native language -- offer a means of filling this gap. To this end, we create
+    AfriQA, the first cross-lingual QA dataset with a focus on African languages. AfriQA includes 12,000+
+    XOR QA examples across 10 African languages. While previous datasets have focused primarily on languages
+    where cross-lingual QA augments coverage from the target language, AfriQA focuses on languages where
+    cross-lingual answer content is the only high-coverage source of answer content. Because of this,
+    we argue that African languages are one of the most important and realistic use cases for XOR QA.
+    Our experiments demonstrate the poor performance of automatic translation and multilingual retrieval
+    methods. Overall, AfriQA proves challenging for state-of-the-art QA models. We hope that the dataset
+    enables the development of more equitable QA technology.
+  members:
+  - atnafu-lambebo-tonja
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Odunayo Ogundepo, Tajuddeen Gwadabe, Clara E. Rivera, Jonathan H. Clark, Sebastian Ruder,
+    David Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Aziz DIOP, Claytone Sikasote, Gilles Hacheme,
+    Happy Buzaaba, Ignatius Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert Njoroge
+    Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Toluwase Owodunni, Atnafu Lambebo
+    Tonja, Iyanuoluwa Shode, Akari Asai, Tunde Oluwaseyi Ajayi, Clemencia Siro, Steven Arthur, Mofetoluwa
+    Adeyemi, Orevaoghene Ahia, Anuoluwapo Aremu, Oyinkansola Awosan, Chiamaka Chukwuneke, Bernard Opoku,
+    Awokoya Ayodele, Verrah Otiende, Christine Mwase, Boyd Sinkala, Andre Niyongabo Rubungo, Daniel Ajisafe,
+    Emeka Onwuegbuzia, Habib Mbow, Emile Niyomutabazi, Eunice Mukonde, Falalu Ibrahim Lawan, Ibrahim Said
+    Ahmad, Jesujoba O. Alabi, Martin Namukombo, Mbonu Chinedu, Mofya Phiri, Neo Putini, Ndumiso Mngoma,
+    Priscilla Amondi Amuok, Ruqayya Nasir Iro, Sonia Adhiambo
+  tracks:
+  - data
+  - applications
 - key: afrisenti-a-twitter-sentiment-analysis-benchmark-for-african-languages
   title: 'AfriSenti: A Twitter Sentiment Analysis Benchmark for African Languages'
   authors:
@@ -4518,7 +5417,7 @@ publications:
   - name: Saif M. Mohammad
   - name: Sebastian Ruder
   - name: Oumaima Hourrane
-  - name: Alípio Jorge
+  - name: Alí­pio Jorge
   - name: Pavel Brazdil
   - name: Felermino Ali
   - name: Davis David
@@ -4534,7 +5433,7 @@ publications:
   - name: Sisay Adugna Chala
   - name: Hagos Tesfahun Gebremichael
   - name: Bernard Opoku
-  - name: Stephen Arthur
+  - name: Stephen M. Arthur
   year: 2023
   venue: arXiv (Cornell University)
   type: conference
@@ -4561,10 +5460,10 @@ publications:
   ethiopian: false
   author_line: Shamsuddeen Hassan Muhammad, Idris Abdulmumin, Abinew Ali Ayele, Nedjma Ousidhoum, David
     Ifeoluwa Adelani, Seid Muhie Yimam, Ibrahim Said Ahmad, Meriem Beloucif, Saif M. Mohammad, Sebastian
-    Ruder, Oumaima Hourrane, Alípio Jorge, Pavel Brazdil, Felermino Ali, Davis David, Salomey Osei, Bello
+    Ruder, Oumaima Hourrane, Alí­pio Jorge, Pavel Brazdil, Felermino Ali, Davis David, Salomey Osei, Bello
     Shehu-Bello, Falalu Ibrahim Lawan, Tajuddeen Gwadabe, Samuel Rutunda, Tadesse Belay, Wendimu Baye
     Messelle, Hailu Beshada Balcha, Sisay Adugna Chala, Hagos Tesfahun Gebremichael, Bernard Opoku, Stephen
-    Arthur
+    M. Arthur
   tracks:
   - applications
   - evaluation
@@ -4699,6 +5598,36 @@ publications:
   author_line: Debayan Banerjee, Seid Muhie Yimam, Sushil Awale, Chris Biemann
   tracks:
   - applications
+- key: automatic-question-generation-based-on-sentence-structure-analysis
+  title: Automatic Question Generation based on Sentence Structure Analysis
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2023
+  venue: null
+  type: conference
+  doi: 10.1109/iccc57093.2023.10178946
+  url: https://doi.org/10.1109/iccc57093.2023.10178946
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Automated question generation is a key problem in computational linguistics and knowledge
+    engineering. There are different approaches and methodologies like template-based, syntax-based, or
+    machine learning approaches. The paper investigates the efficiency and analysis of the role of the
+    embedding module in sentence parsing. Embedding language models are important modules and the performed
+    tests show that embeddings can provide a high accuracy in semantic-level similarity methods.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - models
+  - linguistics
 - key: automatic-translation-of-hate-speech-to-non-hate-speech-in-social-media-texts
   title: Automatic Translation of Hate Speech to Non-hate Speech in Social Media Texts
   authors:
@@ -4779,7 +5708,7 @@ publications:
     member: seid-muhie-yimam
   - name: Fynn Petersen-Frey
   - name: Gerret von Nordheim
-  - name: Katharina Kleinen-von Königslöw
+  - name: Katharina Kleinen‐von Königslöw
   - name: Chris Biemann
   year: 2023
   venue: Conference of the European Chapter of the Association for Computational Linguistics
@@ -4801,9 +5730,47 @@ publications:
   - semantic_scholar
   ethiopian: false
   author_line: Florian Schneider, Seid Muhie Yimam, Fynn Petersen-Frey, Gerret von Nordheim, Katharina
-    Kleinen-von Königslöw, Chris Biemann
+    Kleinen‐von Königslöw, Chris Biemann
   tracks:
   - data
+- key: cosmic-functional-size-classification-of-agile-software-development-deep-learnin
+  title: 'COSMIC-Functional Size Classification of Agile Software Development: Deep Learning Approach'
+  authors:
+  - name: Yohannes Sefane Molla
+    member: yohannes-sefane-molla
+  - name: Samuel Temesgen Yimer
+  - name: Esubalew Alemneh
+  year: 2023
+  venue: null
+  type: conference
+  doi: 10.1109/ict4da59526.2023.10302232
+  url: https://doi.org/10.1109/ict4da59526.2023.10302232
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Knowing the size of a software early (i.e., requirement stage) helps to manage software projects
+    ahead of resources, especially in agile approach. With the proliferation of agile software industries,
+    large number of requirements are not clearly defined at the early phase of the software development
+    and are left unmeasured, this leads to inaccurate size and effort estimations and in turn failure
+    of software projects. In addition, it is challenging to apply Common Software Measurement International
+    Consortium (COSMIC) standard in agile developments. This is because COSMIC needs strict formalization
+    of requirements, whereas agile relies on less formal specifications. Having a formal or informal functional
+    process or user story description, COSMIC-based estimation divides this process description in to
+    four data elements (entry, read, write, and exit) and finally counts the number of each data element
+    so that the size of such process description will be determined (small, medium, large, and complex).
+    By exploiting the advantages of COSMIC on agile methods, in this study, we develop domain-specific
+    vocabularies through domain-specific pre-trained model for classification of COSMIC-funct
+  members:
+  - yohannes-sefane-molla
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Yohannes Sefane Molla, Samuel Temesgen Yimer, Esubalew Alemneh
+  tracks:
+  - models
+  - applications
 - key: creating-spoken-dialog-systems-in-ultra-low-resourced-settings
   title: Creating Spoken Dialog Systems in Ultra-Low Resourced Settings
   authors:
@@ -4853,7 +5820,7 @@ publications:
   - name: Sebastian Ruder
   - name: David Ifeoluwa Adelani
   - name: Bonaventure F. P. Dossou
-  - name: Abdou Aziz Diop
+  - name: Abdou Khadre Diop
   - name: Claytone Sikasote
   - name: Gilles Hacheme
   - name: Happy Buzaaba
@@ -4875,7 +5842,7 @@ publications:
   - name: Chiamaka Chukwuneke
   - name: Christine Mwase
   - name: Clemencia Siro
-  - name: Stephen Arthur
+  - name: Stephen M. Arthur
   - name: Tunde Ajayi
   - name: Verrah Otiende
   - name: Andre Niyongabo Rubungo
@@ -4896,7 +5863,7 @@ publications:
   type: conference
   doi: 10.18653/v1/2023.findings-emnlp.997
   url: https://doi.org/10.18653/v1/2023.findings-emnlp.997
-  arxiv: '2305.06897'
+  arxiv: null
   anthology: null
   code: null
   dataset: null
@@ -4915,17 +5882,89 @@ publications:
   - openalex
   ethiopian: false
   author_line: Odunayo Ogundepo, Tajuddeen Gwadabe, Clara Rivera, Jonathan Clark, Sebastian Ruder, David
-    Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Aziz Diop, Claytone Sikasote, Gilles Hacheme, Happy
-    Buzaaba, Ignatius Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert Njoroge Kahira,
-    Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Owodunni, Atnafu Lambebo Tonja, Iyanuoluwa
+    Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Khadre Diop, Claytone Sikasote, Gilles Hacheme,
+    Happy Buzaaba, Ignatius Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert Njoroge
+    Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Owodunni, Atnafu Lambebo Tonja, Iyanuoluwa
     Shode, Akari Asai, Anuoluwapo Aremu, Ayodele Awokoya, Bernard Opoku, Chiamaka Chukwuneke, Christine
-    Mwase, Clemencia Siro, Stephen Arthur, Tunde Ajayi, Verrah Otiende, Andre Niyongabo Rubungo, Boyd
+    Mwase, Clemencia Siro, Stephen M. Arthur, Tunde Ajayi, Verrah Otiende, Andre Niyongabo Rubungo, Boyd
     Sinkala, Daniel Ajisafe, Emeka Onwuegbuzia, Falalu Ibrahim Lawan, Ibrahim Ahmad, Jesujoba O. Alabi,
     Chinedu Emmanuel Mbonu, Mofetoluwa Adeyemi, Mofya Phiri, Orevaoghene Ahia, Ruqayya Nasir Iro, Sonia
     Adhiambo
   tracks:
   - applications
-  - data
+- key: design-and-development-of-morphological-analyzer-for-tigrigna-verbs-using-hybrid
+  title: Design and Development of Morphological Analyzer for Tigrigna Verbs using Hybrid Approach
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Huang Heyan
+  year: 2023
+  venue: International Journal on Natural Language Computing
+  type: journal
+  doi: 10.5121/ijnlc.2023.12501
+  url: http://doi.org/10.5121/ijnlc.2023.12501
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Morphological analyzer is the base for various high-level NLP applications such as information
+    retrieval, spell checking, grammar checking, machine translation, speech recognition, POS tagging
+    and automatic sentence construction. This paper is carefully designed for design and analysis of morphological
+    analyzer Tigrigna verbs using hybrid of memory learning and rules based approaches. The experiment
+    have conducted using Python 3 where TiMBL algorithms IB2 and TRIBL2, and Finite State Transducer rules
+    are used. The performance of the system has been evaluated using 10 fold cross validation technique.
+    Testing was conducted using optimized parameter settings for regular verbs and linguistic rules of
+    the Tigrigna language allomorph and phonology for the irregular verbs. The accuracy of the memory
+    based approach with optimized parameters of TiMBL algorithm IB2 and TRIBL2 was 93.24% and 92.31%,
+    respectively. Finally, the hybrid approach had an actual performance of 95.6% using linguistic rules
+    for handling irregular and copula verbs.
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Huang Heyan
+  tracks:
+  - applications
+  - evaluation
+  - linguistics
+- key: efficiency-evaluation-of-chatgpt-for-adverb-type-categorization
+  title: Efficiency Evaluation of ChatGPT for Adverb Type Categorization
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2023
+  venue: null
+  type: conference
+  doi: 10.1109/disa59116.2023.10308928
+  url: https://doi.org/10.1109/disa59116.2023.10308928
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Recent generative pre-trained transformer models provide outstanding performance in many different
+    natural language tasks. This paper presents an evaluation of the efficiency of the ChatGPT 3.5 language
+    model, and Dictionary and ML-based methods, in the task of adverb type categorization within natural
+    language processing. This evaluation provides insights into the strengths and weaknesses of ChatGPT
+    3.5 and its potential applications in English sentence parsing and language understanding tasks. In
+    this evaluation scenario, the average test score for the ChatGPT-based method is found to be 3.5 out
+    of 5, indicating the overall evaluation by the experts. Similarly, the Dictionary and ML-based method
+    achieves an average test score of 3.6 out of 5, reflecting the collective assessment by the evaluators.
+    These findings of our test results contribute to our understanding of the performance and effectiveness
+    of both approaches in adverb-type categorization.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - models
+  - evaluation
 - key: enhancing-translation-for-indigenous-languages-experiments-with-multilingual-mod
   title: 'Enhancing Translation for Indigenous Languages: Experiments with Multilingual Models'
   authors:
@@ -5004,14 +6043,13 @@ publications:
 - key: exploring-amharic-hate-speech-data-collection-and-classification-approaches
   title: Exploring Amharic Hate Speech Data Collection and Classification Approaches
   authors:
-  - name: Abinew Ali Ayele
-    member: abinew-ali-ayele
+  - name: A. Ayele
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
-  - name: Chris Biemann
-  - name: Tesfa Asfaw
+  - name: Tesfa Tegegne Asfaw
+  - name: Christian Biemann
   year: 2023
   venue: Recent Advances in Natural Language Processing
   type: conference
@@ -5039,7 +6077,7 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: true
-  author_line: Abinew Ali Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Chris Biemann, Tesfa Asfaw
+  author_line: A. Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Tesfa Tegegne Asfaw, Christian Biemann
   tracks:
   - data
   - models
@@ -5246,7 +6284,7 @@ publications:
   - name: Chris Chinenye Emezue
   - name: Shamsuddeen Hassan Muhammad
   - name: Muhammad Musa Isa
-  - name: Mus'ab Banat
+  - name: Mus’ab Banat
   - name: Mohamed Ben Aouicha
   year: 2023
   venue: Preprints.org
@@ -5279,7 +6317,7 @@ publications:
   author_line: Houcemeddine Turki, Houda Sekkal, Anastassios Pouris, Francis-Alfred Michaelangelo Ifeanyichukwu,
     Catherine Namayega, Hanae Lrhoul, Mohamed Ali Hadj Taieb, Sadiq Adewale Adedayo, Chris Fourie, Christopher
     Brian Currin, Mercy Asiedu, Atnafu Lambebo Tonja, Abraham Toluwase Owodunni, Abdulhameed Dere, Chris
-    Chinenye Emezue, Shamsuddeen Hassan Muhammad, Muhammad Musa Isa, Mus'ab Banat, Mohamed Ben Aouicha
+    Chinenye Emezue, Shamsuddeen Hassan Muhammad, Muhammad Musa Isa, Mus’ab Banat, Mohamed Ben Aouicha
   tracks: []
 - key: masakhane-afrisenti-at-semeval-2023-task-12-sentiment-analysis-using-afro-centri
   title: 'Masakhane-Afrisenti at SemEval-2023 Task 12: Sentiment Analysis using Afro-centric Language
@@ -5527,12 +6565,12 @@ publications:
   authors:
   - name: Robert Geislinger
   - name: Ali Ebrahimi Pourasad
-  - name: Deniz Gül
+  - name: D. Gül
   - name: Daniel Djahangir
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Steffen Remus
-  - name: Chris Biemann
+  - name: Christian Biemann
   year: 2023
   venue: LIMO
   type: other
@@ -5549,8 +6587,8 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: false
-  author_line: Robert Geislinger, Ali Ebrahimi Pourasad, Deniz Gül, Daniel Djahangir, Seid Muhie Yimam,
-    Steffen Remus, Chris Biemann
+  author_line: Robert Geislinger, Ali Ebrahimi Pourasad, D. Gül, Daniel Djahangir, Seid Muhie Yimam, Steffen
+    Remus, Christian Biemann
   tracks: []
 - key: multilingual-racial-hate-speech-detection-using-transfer-learning
   title: Multilingual Racial Hate Speech Detection Using Transfer Learning
@@ -5672,6 +6710,44 @@ publications:
     Noé Alejandro Castro-Sánchez, Grigori Sidorov, Alexander Gelbukh
   tracks:
   - data
+- key: rule-based-automatic-question-generationusing-dependency-parsing
+  title: Rule-Based Automatic Question Generationusing Dependency Parsing
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2023
+  venue: Research Square
+  type: preprint
+  doi: 10.21203/rs.3.rs-2693893/v1
+  url: http://dx.doi.org/10.21203/rs.3.rs-2693893/v1
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Abstract Artificial intelligence systems offer valuable support to the education sector by
+    automating routine tasks for instructors and providingadaptive assessments. These assessments are
+    a crucial component ofautomatic question-generation techniques. There are various techniquesfor question
+    generation described in the literature. This paper introduces a novel rule-based system for automatic
+    question generationthat employs dependency parsing techniques. The proposed methodfocuses on analyzing
+    both the syntactic and semantic structure of asentence. The paper includes both manual and automatic
+    evaluationmetrics to assess the questions generated by our proposed system. Inthe evaluation, our
+    system received an overall score of 3.67 out of5.0 for human-level performance, an average BlEU−N
+    score of 0.718,and F1−score scores above 0.5 for all types of ROUGE. Both humanand automatic evaluation
+    results demonstrate that our proposed system achieves good performance on simple and short sentences.
+    In thefuture, we plan to enhance our model by incorporating phrase-levelparsing to further improve
+    the proposed dependency parsing techniques.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - evaluation
+  - capacity
+  - linguistics
 - key: semeval-2023-task-12-sentiment-analysis-for-african-languages-afrisenti-semeval
   title: 'SemEval-2023 Task 12: Sentiment Analysis for African Languages (AfriSenti-SemEval)'
   authors:
@@ -5812,6 +6888,45 @@ publications:
   - models
   - applications
   - linguistics
+- key: unlock-tigrigna-nlp-design-and-development-of-morphological-analyzer-for-tigrign
+  title: Unlock Tigrigna NLP - Design and Development of Morphological Analyzer for Tigrigna Verbs Using
+    Hybrid Approach
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Huang Heyan
+  year: 2023
+  venue: Research Square
+  type: preprint
+  doi: 10.21203/rs.3.rs-3682405/v1
+  url: https://doi.org/10.21203/rs.3.rs-3682405/v1
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Abstract Morphological analyzer is the basis for various high-level NLP applications such
+    as information retrieval, spell checking, grammar checking, machine translation, speech recognition,
+    POS tagging and automatic sentence construction. This paper is carefully designed for the analysis
+    of Tigrigna verbs morphological analyzer using the hybrid of memory learning and rule based approaches.
+    The experiment have conducted using Python 3 where TiMBL algorithms IB2 and TRIBL2, and Finite State
+    Transducer rules are used. The performance of the system has been evaluated using 10 fold cross-validation
+    technique. Testing was conducted using optimized parameter settings for regular verbs and linguistic
+    rules of the Tigrigna language allomorph and phonology for the irregular verbs. The accuracy of the
+    memory based approach with optimized parameters of TiMBL algorithm IB2 and TRIBL2 was 93.24% and 92.31%,
+    respectively. Finally, the hybrid approach had an actual performance of 95.6% using linguistic rules
+    for handling irregular and copula verbs.
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Huang Heyan
+  tracks:
+  - applications
+  - evaluation
+  - linguistics
 - key: afaan-oromo-hate-speech-detection-and-classification-on-social-media
   title: Afaan Oromo Hate Speech Detection and Classification on Social Media
   authors:
@@ -5913,7 +7028,7 @@ publications:
 - key: challenges-of-amharic-hate-speech-data-annotation-using-yandex-toloka-crowdsourc
   title: Challenges of Amharic Hate Speech Data Annotation Using Yandex Toloka Crowdsourcing Platform
   authors:
-  - name: Abinew Ali Ayele
+  - name: A. Ayele
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
   - name: Seid Muhie Yimam
@@ -5938,11 +7053,85 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: Abinew Ali Ayele, Tadesse Destaw Belay, Seid Muhie Yimam, Skadi Dinter, Tesfa Tegegne Asfaw,
-    Chris Biemann
+  author_line: A. Ayele, Tadesse Destaw Belay, Seid Muhie Yimam, Skadi Dinter, Tesfa Tegegne Asfaw, Chris
+    Biemann
   tracks:
   - data
   - applications
+- key: comparison-of-automatic-question-generation-techniques
+  title: Comparison of Automatic Question Generation Techniques
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2022
+  venue: null
+  type: conference
+  doi: 10.1109/cinti-macro57952.2022.10029559
+  url: http://dx.doi.org/10.1109/cinti-macro57952.2022.10029559
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Automatic question generation is a technique that generates a question from various sources
+    like structured or unstructured content. Even if, each method has its own shortcoming and strength,
+    we didn’t find any study that did an experimental comparison of the current automatic question generation
+    techniques using a similar dataset. In this study, we analyzed the different state-of-the-art research
+    works, and we identified significant challenges of each model. In addition, we have used BLEU, METEOR,
+    and ROUGE automatic evaluation metrics, to evaluate the experimental test result. From our evaluation
+    result, we observed that most of the tested techniques score below 0.5 in all automated evaluation
+    metrics. Out of tested techniques T5-transformer-based, scores the maximum result. This result point
+    out this research area still needs further investigation and preparing standardized training.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - data
+  - models
+  - evaluation
+- key: comparison-of-template-based-and-multilayer-perceptron-based-approach-for-automa
+  title: Comparison of template-based and multilayer perceptron-based approach for automatic question
+    generation system
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: László Kovács
+  year: 2022
+  venue: Indonesian Journal of Electrical Engineering and Computer Science
+  type: journal
+  doi: 10.11591/ijeecs.v28.i3.pp1738-1748
+  url: https://doi.org/10.11591/ijeecs.v28.i3.pp1738-1748
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Intelligent tutoring systems are computer-assisted learning systems with adaption to students
+    using artificial intelligence tools. An intelligent tutoring system can drastically improve education
+    efficiency as it provides solutions to many issues that now plague the educational industry. One important
+    component in education is questioning learners to assess and reinforce learning. This research compares
+    two approaches for automatic question generation, a template-based question generation strategy and
+    the phrase-Level automatic question generation system utilizing the Multilayer perceptron model. A
+    template-based technique is a baseline for automatic question generation that uses templates taken
+    from the training set to generate questions by filling certain templates with specific topic items.
+    We utilize question-answer sentence composition datasets and manually constructed datasets for our
+    experiments and comparison of the Multilayer perceptron training model. We used both human and automatic
+    evaluation metrics to assess the efficiency of our suggested methods. Regarding automatic metrics,
+    we selected the BLEU-n gram and ROUGE-N methodologies. The evaluation results demonstrate th
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, László Kovács
+  tracks:
+  - data
+  - evaluation
+  - capacity
 - key: customer-churn-prediction-using-machine-learning-commercial-bank-of-ethiopia
   title: 'Customer Churn Prediction Using Machine Learning: Commercial Bank of Ethiopia'
   authors:
@@ -5980,6 +7169,33 @@ publications:
   tracks:
   - data
   - evaluation
+- key: design-and-development-of-morphological-analyzer-for-tigrigna-nouns-using-finite
+  title: Design and Development of Morphological Analyzer for Tigrigna Nouns Using Finite State Transducer
+    Techniques
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  - name: Chong Feng
+  - name: Huang Heyan
+  year: 2022
+  venue: SSRN Electronic Journal
+  type: preprint
+  doi: 10.2139/ssrn.4241478
+  url: https://doi.org/10.2139/ssrn.4241478
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: true
+  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Huang Heyan
+  tracks:
+  - linguistics
 - key: detection-and-classification-of-coffee-leaf-disease-using-deep-learning
   title: Detection and Classification of Coffee Leaf Disease using Deep Learning
   authors:
@@ -6133,7 +7349,7 @@ publications:
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Steffen Stahlhacke
-  - name: Chris Biemann
+  - name: Christian Biemann
   year: 2022
   venue: International Conference on Language Resources and Evaluation
   type: conference
@@ -6158,7 +7374,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: false
-  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Chris Biemann
+  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Christian Biemann
   tracks:
   - data
   - models
@@ -6378,6 +7594,43 @@ publications:
   - data
   - applications
   - linguistics
+- key: predicting-software-maintenance-type-change-impact-and-maintenance-time-using-ma
+  title: Predicting Software Maintenance Type, Change Impact, and Maintenance Time Using Machine Learning
+    Algorithms
+  authors:
+  - name: Samuel Temesgen Yimer
+  - name: Yohannes Sefane Molla
+    member: yohannes-sefane-molla
+  - name: Esubalew Alemneh
+  year: 2022
+  venue: null
+  type: conference
+  doi: 10.1109/ict4da56482.2022.9971350
+  url: https://doi.org/10.1109/ict4da56482.2022.9971350
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Software change requests can arise at any time and changes that are accepted by the change
+    approval board goes to maintenance. Change impact analysis and implementation requires high cost because
+    modules and artifacts in previous versions may not be the same as current versions. Changes usually
+    cause impacts on other modules and artifacts; the time required to implement changes varied and becomes
+    high. The type of maintenance, the impact of changes, and maintenance time can be determined by analyzing
+    software repository data. But the selection of the important software repositories and extracting
+    the relevant information from software repositories is challenging. Some studies were conducted on
+    maintenance type prediction and change impact analysis but these studies focus on single maintenance
+    tasks and specific software types, so the generality of the studies is in question mark both in maintenance
+    task and type of software. In addition to this limited amount of data and only version history data
+    is used. In this study, a method for predicting maintenance type, impacts of changes, and maintenance
+    time is proposed so that relevant maintenance information is extracted from software r
+  members:
+  - yohannes-sefane-molla
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Samuel Temesgen Yimer, Yohannes Sefane Molla, Esubalew Alemneh
+  tracks: []
 - key: quality-at-a-glance-an-audit-of-web-crawled-multilingual-datasets
   title: 'Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets'
   authors:
@@ -6407,7 +7660,7 @@ publications:
   - name: Mathias Müller
   - name: André Müller
   - name: Shamsuddeen Hassan Muhammad
-  - name: Nanda Muhammad
+  - name: N Sakib Muhammad
   - name: Ayanda Mnyakeni
   - name: Jamshidbek Mirzakhalov
   - name: Tapiwanashe Matangira
@@ -6462,7 +7715,7 @@ publications:
     Allahsera Auguste Tapo, Nishant Subramani, Artem Sokolov, Claytone Sikasote, Monang Setyawan, Supheakmungkol
     Sarin, Sokhar Samb, Benoît Sagot, Clara E. Rivera, Annette Rios, Isabel Papadimitriou, Salomey Osei,
     Pedro Ortiz Suárez, Iroro Orife, Kelechi Ogueji, Andre Niyongabo Rubungo, Toan Nguyen, Mathias Müller,
-    André Müller, Shamsuddeen Hassan Muhammad, Nanda Muhammad, Ayanda Mnyakeni, Jamshidbek Mirzakhalov,
+    André Müller, Shamsuddeen Hassan Muhammad, N Sakib Muhammad, Ayanda Mnyakeni, Jamshidbek Mirzakhalov,
     Tapiwanashe Matangira, Colin Leong, Nze Lawson, Sneha Kudugunta, Yacine Jernite, Mathias Jenny, Orhan
     Fırat, Bonaventure F. P. Dossou, Sakhile Dlamini, Nisansa de Silva, Sakine Çabuk Ballı, Stella Biderman,
     Alessia Battisti, Ahmed Baruwa, Ankur Bapna, Pallavi Baljekar, Israel Abebe Azime, Ayodele Awokoya,
@@ -6479,7 +7732,7 @@ publications:
     member: tadesse-destaw-belay
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
-  - name: Abinew Ali Ayele
+  - name: A. Ayele
   - name: Chris Biemann
   year: 2022
   venue: SIGUL
@@ -6498,7 +7751,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: Tadesse Destaw Belay, Seid Muhie Yimam, Abinew Ali Ayele, Chris Biemann
+  author_line: Tadesse Destaw Belay, Seid Muhie Yimam, A. Ayele, Chris Biemann
   tracks:
   - applications
 - key: the-5js-in-ethiopia-amharic-hate-speech-data-annotation-using-toloka-crowdsourci
@@ -7153,7 +8406,7 @@ publications:
   - name: David Ifeoluwa Adelani
   - name: Jade Abbott
   - name: Graham Neubig
-  - name: Daniel D'souza
+  - name: Daniel D’souza
   - name: Julia Kreutzer
   - name: Constantine Lignos
   - name: Chester Palen-Michel
@@ -7165,7 +8418,7 @@ publications:
     member: israel-abebe-azime
   - name: Shamsuddeen Hassan Muhammad
   - name: Chris Chinenye Emezue
-  - name: Joyce Nakatumba-Nabende
+  - name: Joyce Nakatumba‐Nabende
   - name: Perez Ogayo
   - name: Anuoluwapo Aremu
   - name: Catherine Gitau
@@ -7237,9 +8490,9 @@ publications:
   - openalex
   - semantic_scholar
   ethiopian: false
-  author_line: David Ifeoluwa Adelani, Jade Abbott, Graham Neubig, Daniel D'souza, Julia Kreutzer, Constantine
+  author_line: David Ifeoluwa Adelani, Jade Abbott, Graham Neubig, Daniel D’souza, Julia Kreutzer, Constantine
     Lignos, Chester Palen-Michel, Happy Buzaaba, Shruti Rijhwani, Sebastian Ruder, Stephen Mayhew, Israel
-    Abebe Azime, Shamsuddeen Hassan Muhammad, Chris Chinenye Emezue, Joyce Nakatumba-Nabende, Perez Ogayo,
+    Abebe Azime, Shamsuddeen Hassan Muhammad, Chris Chinenye Emezue, Joyce Nakatumba‐Nabende, Perez Ogayo,
     Anuoluwapo Aremu, Catherine Gitau, Derguène Mbaye, Jesujoba O. Alabi, Seid Muhie Yimam, Tajuddeen
     Gwadabe, Ignatius Ezeani, Rubungo Andre Niyongabo, Jonathan Mukiibi, Verrah Otiende, Iroro Orife,
     Davis David, Samba Ngom, Tosin Adewumi, Paul Rayson, Mofetoluwa Adeyemi, Gerald Muriuki, Emmanuel
@@ -7369,7 +8622,7 @@ publications:
   title: The Development of Pre-processing Tools and Pre-trained Embedding Models for Amharic
   authors:
   - name: Tadesse Destaw
-  - name: Abinew Ali Ayele
+  - name: A. Ayele
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   year: 2021
@@ -7388,7 +8641,7 @@ publications:
   sources:
   - semantic_scholar
   ethiopian: true
-  author_line: Tadesse Destaw, Abinew Ali Ayele, Seid Muhie Yimam
+  author_line: Tadesse Destaw, A. Ayele, Seid Muhie Yimam
   tracks:
   - models
 - key: word-complexity-is-in-the-eye-of-the-beholder
@@ -7857,6 +9110,39 @@ publications:
   tracks:
   - data
   - applications
+- key: challenges-in-target-selection-for-automatic-question-generation
+  title: Challenges in target selection for automatic question generation
+  authors:
+  - name: László Kovács
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  year: 2019
+  venue: Multidiszciplináris Tudományok
+  type: journal
+  doi: 10.35925/j.multi.2019.4.53
+  url: https://doi.org/10.35925/j.multi.2019.4.53
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'Today''s educational systems need an efficient tool to perform competently assessment of
+    students on their major concepts they learnt from study material. Preparing a set of questions for
+    assessment can be time consuming for teachers. Automatic Question Generation (AQG) is the technique
+    for generating a right set of questions from a content. A key problem with AQG systems is the selection
+    of the appropriate target sentences and concepts. In this paper, we investigate the difficulties in
+    automatic target selection using unannotated document sources. As the result of the analysis, we identified
+    the following key issues: hard to measure the topic relevance; the large segmentation of the information
+    content and the incomplete background knowledge bases.'
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: László Kovács, Walelign Tewabe Sewunetie
+  tracks:
+  - capacity
+  - linguistics
 - key: controlling-the-output-length-of-neural-machine-translation
   title: Controlling the Output Length of Neural Machine Translation
   authors:
@@ -7895,6 +9181,41 @@ publications:
   - models
   - applications
   - evaluation
+- key: designing-machine-learning-method-for-software-project-effort-prediction
+  title: Designing Machine Learning Method for Software Project Effort Prediction
+  authors:
+  - name: Ketema Kifle Gebretsadik
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  year: 2019
+  venue: null
+  type: journal
+  doi: null
+  url: http://article.sapub.org/10.5923.j.computer.20190901.02.html
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Software project effort Prediction is the most challenging and important activities in software
+    project development. In software Industry when the size of the project and number of developers increases
+    the project become complex, at this point accuracy prediction is strongly required during the early
+    stages of project development. But to predict at early stages data and information are not available
+    at the preliminary phases of project as well as the data is not complete, consistent and certain.
+    In this research work we uses Artificial Neural network, Fuzzy logic, use case point model, modified
+    environmental factor and revised use case point to predict software project effort at early stages.
+    Artificial Neural Network has the ability to learn from previous data and fuzzy logic deals with uncertainty
+    and also it provides a technique to deal with imprecision and information granularity. Also the modified
+    environmental factor and revised use case point are used to determine the effort at early stage of
+    the project development. In our experiment we compares each models, fitting accuracy using MMRE and
+    PRED (0.25). The fitting accuracy of the models in terms of MMRE for Neuro-Fuzzy-UCBE
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Ketema Kifle Gebretsadik, Walelign Tewabe Sewunetie
+  tracks: []
 - key: multilingual-neural-machine-translation-for-zero-resource-languages
   title: Multilingual Neural Machine Translation for Zero-Resource Languages
   authors:
@@ -7934,6 +9255,43 @@ publications:
   tracks:
   - models
   - applications
+- key: the-development-and-analysis-of-extended-architecture-model-for-intelligent-tuto
+  title: The development and analysis of extended architecture model for intelligent tutoring systems
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  - name: Ghanim Hussein Ali Ahmed
+  - name: László Kovács
+  year: 2019
+  venue: null
+  type: journal
+  doi: null
+  url: http://real.mtak.hu/109365/
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Intelligent Tutoring Systems (ITS) are computer programs that use leamers knowledge level
+    to providing individualized education. ITS research has successfully delivered systems efficiently
+    supporting one-to-one tutoring. Most of these systems are actively used in real-worid settings and
+    have even contributed to changing traditional education curricula. Instructional activities, learning
+    examples, exploring interactive simulations and playing educational games can benefit from individualized
+    computer-based assistance. To enhance ongoing research related to the improvement of tutoring, we
+    present an extended knowledge mode! including besides the standard modules a common shared database
+    and knowledge-based background, too. The external databases can improve the guality of the behavior
+    models both in tutor and student models. The Python programming language and OWL are efficient tools
+    to combine the ontology management and machine leaming functions to develop ITS systems. In this Paper,
+    we survey ITS technologies andpresent a novel extended architecture model for Intelligent e-Tutoring
+    Systems.
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie, Ghanim Hussein Ali Ahmed, László Kovács
+  tracks:
+  - capacity
 - key: a-comparison-of-transformer-and-recurrent-neural-networks-on-multilingual-neural
   title: A Comparison of Transformer and Recurrent Neural Networks on Multilingual Neural Machine Translation
   authors:
@@ -8711,6 +10069,38 @@ publications:
   tracks:
   - applications
   - evaluation
+- key: modern-internet-programming
+  title: Modern Internet Programming
+  authors:
+  - name: Hagos Gebremedhin Gebremeskel
+    member: hagos-gebremedhin-gebremeskel
+  year: 2017
+  venue: null
+  type: other
+  doi: null
+  url: https://www.amazon.com/Modern-Internet-Programming-Gebremeskel-Gebremedhin/dp/6202196521
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Modern internet programming is a web development which consists of HTML, CSS and PHP. HTML
+    is a language used to describe to a browser how to display text and other objects in a browser window.
+    It is not a programming language. HTML works on a client computer (the system on which the page is
+    being viewed). PHP is a scripting language and can be used to create web pages written in HTML. PHP
+    Hypertext Preprocessor is a widely-used open source general-purpose scripting language that is especially
+    suited for web development and can be embedded into HTML. Internet programming is the basic web development
+    which is used worldwide. This book mainly covers the HTML, CSS and PHP for teaching in higher education
+    as well as system development with clear examples of codes. This book is my 4th book in publication.
+    Thanks God!
+  members:
+  - hagos-gebremedhin-gebremeskel
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Hagos Gebremedhin Gebremeskel
+  tracks:
+  - capacity
 - key: multilingual-and-cross-lingual-complexword-identification
   title: Multilingual and Cross-Lingual ComplexWord Identification
   authors:
@@ -8830,6 +10220,105 @@ publications:
   author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović, Andreas Holzinger
   tracks:
   - data
+- key: an-adaptive-annotation-approach-for-biomedical-entity-and-relation-recognition-b
+  title: An adaptive annotation approach for biomedical entity and relation recognition. Brain Informatics
+  authors:
+  - name: Seid Muhie Yimam
+    member: seid-muhie-yimam
+  - name: Chris Biemann
+  - name: Ljiljana Trtica Majnarić
+  - name: Šefket Šabanović
+  year: 2016
+  venue: null
+  type: journal
+  doi: null
+  url: https://tubiblio.ulb.tu-darmstadt.de/105065/
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: 'In this article, we demonstrate the impact of interactive machine learning: we develop biomedical
+    entity recognition dataset using a human-into-the-loop approach. In contrary to classical machine
+    learning, human-in-the-loop approaches do not operate on predefined training or test sets, but assume
+    that human input regarding system improvement is supplied iteratively. Here, during annotation, a
+    machine learning model is built on previous annotations and used to propose labels for subsequent
+    annotation. To demonstrate that such interactive and iterative annotation speeds up the development
+    of quality dataset annotation, we conduct three experiments. In the first experiment, we carry out
+    an iterative annotation experimental simulation and show that only a handful of medical abstracts
+    need to be annotated to produce suggestions that increase annotation speed. In the second experiment,
+    clinical doctors have conducted a case study in annotating medical terms documents relevant for their
+    research. The third experiment explores the annotation of semantic relations with relation instance
+    learning across documents. The experiments validate our method qualitatively and quantitatively, and
+    give'
+  members:
+  - seid-muhie-yimam
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović
+  tracks:
+  - data
+- key: design-and-architecture-of-desktop-lcd-monitor-having-built-in-webcam-and-microp
+  title: Design and Architecture of Desktop LCD Monitor Having Built in Webcam and Microphone with Multi
+    Angled Flexibility
+  authors:
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  year: 2016
+  venue: International Journal of Innovative Research in Computer and Communication Engineering
+  type: journal
+  doi: 10.15680/ijircce.2016.0407142
+  url: https://doi.org/10.15680/ijircce.2016.0407142
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: null
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Walelign Tewabe Sewunetie
+  tracks: []
+- key: design-and-development-of-a-real-time-virtualized-cloud-based-mobile-phones-data
+  title: Design and Development of a Real Time Virtualized Cloud Based Mobile Phones Data Storage for
+    Ethio Telecom
+  authors:
+  - name: Eshete Derb Emiru
+  - name: Walelign Tewabe Sewunetie
+    member: walelign-tewabe-sewunetie
+  year: 2016
+  venue: IOSR Journal of Mobile Computing & Application
+  type: journal
+  doi: 10.9790/0050-03044751
+  url: https://doi.org/10.9790/0050-03044751
+  arxiv: null
+  anthology: null
+  code: null
+  dataset: null
+  model: null
+  abstract: Mobile phone is one of the most widely and extensively used devices for communication across
+    the world for both personal and business activities.The capabilities of mobile phones have been improving
+    very quickly in terms of computing power, storage, feature support, and developed applications.Mobile
+    Cloud Computing simply refers to an infrastructure where both the data storage and the data processing
+    are made to happen outside of the mobile phones.With the advent of cloud services for mobile application,
+    it has greatly enhanced the scalability and security.Hence, it stores contact numbers and messages
+    sent from different mobile users in its memory and SIM card.However, if the mobile phone or the SIM
+    card is lost or damaged due to different incidents, the information stored before can decidedly be
+    lost.Such instant is very costly and risky for recovery of the lost information.Most cloud file storage
+    providers offer limited free use and charge for additional storage once the free limit is exceeded.However,
+    Ethio telecom customers don't have any means of using a mobile cloud computing services in order to
+    share and access their files, documents, contacts, photos, videos.The reason beh
+  members:
+  - walelign-tewabe-sewunetie
+  sources:
+  - openalex
+  ethiopian: false
+  author_line: Eshete Derb Emiru, Walelign Tewabe Sewunetie
+  tracks: []
 - key: learning-paraphrasing-for-multiword-expressions
   title: Learning Paraphrasing for Multiword Expressions
   authors:
