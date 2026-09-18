@@ -10,7 +10,7 @@ website:
 github:
 huggingface: HagosG
 scholar:
-orcid:
+orcid: 0000-0002-1120-2914
 semantic_scholar:
 dblp:
 # Imported from the EthioNLP Hugging Face organisation. Fill in the
@@ -32,4 +32,5 @@ dblp:
 # this comment and the `published: false` line below.
 published: false
 confirmed: false
+openalex: A5056568701
 ---

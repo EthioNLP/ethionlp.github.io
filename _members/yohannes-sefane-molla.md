@@ -10,7 +10,7 @@ website:
 github:
 huggingface: yohannesSM
 scholar:
-orcid:
+orcid: 0000-0003-4013-9878
 semantic_scholar:
 dblp:
 # Imported from the EthioNLP Hugging Face organisation. Fill in the
@@ -32,4 +32,5 @@ dblp:
 # this comment and the `published: false` line below.
 published: false
 confirmed: false
+openalex: A5010951891
 ---
