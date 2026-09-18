@@ -12,10 +12,15 @@ per_member:
   name: Seid Muhie Yimam
   languages:
   - name: Amharic
-    total: 38
+    total: 37
     artifacts: 3
-    papers: 31
+    papers: 30
     repos: 4
+  - name: Ge'ez
+    total: 4
+    artifacts: 0
+    papers: 3
+    repos: 1
   - name: Tigrinya
     total: 4
     artifacts: 0
@@ -26,11 +31,6 @@ per_member:
     artifacts: 0
     papers: 3
     repos: 0
-  - name: Ge'ez
-    total: 3
-    artifacts: 0
-    papers: 2
-    repos: 1
   - name: Somali
     total: 1
     artifacts: 0
@@ -46,6 +46,7 @@ per_member:
   - data
   - applications
   - models
+  - evaluation
 - slug: tadesse-destaw-belay
   name: Tadesse Destaw Belay
   languages:
@@ -70,9 +71,9 @@ per_member:
     papers: 1
     repos: 0
   - name: Ge'ez
-    total: 1
+    total: 2
     artifacts: 0
-    papers: 1
+    papers: 2
     repos: 0
   - name: Wolaytta
     total: 1
@@ -224,6 +225,11 @@ per_member:
     artifacts: 0
     papers: 3
     repos: 0
+  - name: Ge'ez
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
   - name: Sidama
     total: 1
     artifacts: 0
@@ -253,9 +259,9 @@ per_member:
     papers: 3
     repos: 0
   - name: Ge'ez
-    total: 1
+    total: 2
     artifacts: 0
-    papers: 0
+    papers: 1
     repos: 1
   top: Amharic
   tracks:
@@ -298,8 +304,8 @@ per_member:
   name: Walelign Tewabe Sewunetie
   languages:
   - name: Amharic
-    total: 5
-    artifacts: 0
+    total: 6
+    artifacts: 1
     papers: 5
     repos: 0
   - name: Afaan Oromo
@@ -329,9 +335,28 @@ per_member:
     repos: 0
   top: Amharic
   tracks:
-  - data
   - models
   - evaluation
+  - data
+- slug: henok-biadglign-ademtew
+  name: Henok Biadglign Ademtew
+  languages:
+  - name: Amharic
+    total: 6
+    artifacts: 2
+    papers: 1
+    repos: 3
+  - name: Ge'ez
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  top: Amharic
+  tracks:
+  - applications
+  - evaluation
+  - data
+  - models
 - slug: moges-ahmed-mehamed
   name: Moges Ahmed Mehamed
   languages:
@@ -361,25 +386,6 @@ per_member:
   - data
   - models
   - evaluation
-- slug: henok-biadglign-ademtew
-  name: Henok Biadglign Ademtew
-  languages:
-  - name: Amharic
-    total: 6
-    artifacts: 2
-    papers: 1
-    repos: 3
-  - name: Ge'ez
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  top: Amharic
-  tracks:
-  - applications
-  - evaluation
-  - data
-  - models
 - slug: tadesse-kebede
   name: Tadesse Kebede
   languages:
@@ -486,9 +492,9 @@ per_language:
   people:
   - slug: seid-muhie-yimam
     name: Seid Muhie Yimam
-    total: 38
+    total: 37
     artifacts: 3
-    papers: 31
+    papers: 30
     repos: 4
   - slug: tadesse-destaw-belay
     name: Tadesse Destaw Belay
@@ -538,17 +544,17 @@ per_language:
     artifacts: 2
     papers: 1
     repos: 3
+  - slug: walelign-tewabe-sewunetie
+    name: Walelign Tewabe Sewunetie
+    total: 6
+    artifacts: 1
+    papers: 5
+    repos: 0
   - slug: moges-ahmed-mehamed
     name: Moges Ahmed Mehamed
     total: 5
     artifacts: 2
     papers: 3
-    repos: 0
-  - slug: walelign-tewabe-sewunetie
-    name: Walelign Tewabe Sewunetie
-    total: 5
-    artifacts: 0
-    papers: 5
     repos: 0
   - slug: yonas-chanie
     name: Yonas Chanie
@@ -812,9 +818,9 @@ per_language:
   people:
   - slug: seid-muhie-yimam
     name: Seid Muhie Yimam
-    total: 3
+    total: 4
     artifacts: 0
-    papers: 2
+    papers: 3
     repos: 1
   - slug: abinew-ali-ayele
     name: Abinew Ali Ayele
@@ -822,20 +828,32 @@ per_language:
     artifacts: 0
     papers: 2
     repos: 0
-  - slug: binyam-ephrem-seyoum
-    name: Binyam Ephrem Seyoum
+  - slug: hellina-hailu-nigatu
+    name: Hellina Hailu Nigatu
+    total: 2
+    artifacts: 0
+    papers: 1
+    repos: 1
+  - slug: henok-biadglign-ademtew
+    name: Henok Biadglign Ademtew
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - slug: tadesse-destaw-belay
+    name: Tadesse Destaw Belay
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - slug: atnafu-lambebo-tonja
+    name: Atnafu Lambebo Tonja
     total: 1
     artifacts: 0
     papers: 1
     repos: 0
-  - slug: hellina-hailu-nigatu
-    name: Hellina Hailu Nigatu
-    total: 1
-    artifacts: 0
-    papers: 0
-    repos: 1
-  - slug: henok-biadglign-ademtew
-    name: Henok Biadglign Ademtew
+  - slug: binyam-ephrem-seyoum
+    name: Binyam Ephrem Seyoum
     total: 1
     artifacts: 0
     papers: 1
@@ -846,19 +864,13 @@ per_language:
     artifacts: 0
     papers: 1
     repos: 0
-  - slug: tadesse-destaw-belay
-    name: Tadesse Destaw Belay
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
   - slug: walelign-tewabe-sewunetie
     name: Walelign Tewabe Sewunetie
     total: 1
     artifacts: 0
     papers: 1
     repos: 0
-  count: 8
+  count: 9
 - name: Sidama
   catalogue_name: Sidamo
   iso: sid
