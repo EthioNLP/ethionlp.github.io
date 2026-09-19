@@ -4,10 +4,10 @@
 totals:
   models: 65
   datasets: 33
-  downloads: 4518
+  downloads: 4594
   likes: 35
   multilingual: 58
-  multilingual_downloads: 40987
+  multilingual_downloads: 41228
   languages: 6
   related: 48
 per_year:
@@ -46,6 +46,35 @@ per_language:
   models: 1
   datasets: 0
 artifacts:
+- id: textdetox/xlmr-large-toxicity-classifier
+  owner: textdetox
+  name: xlmr-large-toxicity-classifier
+  kind: model
+  url: https://huggingface.co/textdetox/xlmr-large-toxicity-classifier
+  task: text-classification
+  focus: applications
+  languages:
+  - Amharic
+  topics:
+  - xlm-roberta
+  - text-classification
+  - toxicity
+  - en
+  - ru
+  - uk
+  license: openrail++
+  size: null
+  downloads: 5669
+  likes: 17
+  created: '2024-02-02'
+  modified: '2025-03-20'
+  arxiv: null
+  owned: true
+  breadth: multilingual
+  language_count: 9
+  org: textdetox
+  tier: related
+  via_member: seid-muhie-yimam
 - id: bigscience/mt0-small
   owner: bigscience
   name: mt0-small
@@ -65,7 +94,7 @@ artifacts:
   - az
   license: apache-2.0
   size: null
-  downloads: 5629
+  downloads: 5641
   likes: 31
   created: '2022-10-27'
   modified: '2023-09-26'
@@ -76,35 +105,6 @@ artifacts:
   org: bigscience
   tier: related
   via_member: israel-abebe-azime
-- id: textdetox/xlmr-large-toxicity-classifier
-  owner: textdetox
-  name: xlmr-large-toxicity-classifier
-  kind: model
-  url: https://huggingface.co/textdetox/xlmr-large-toxicity-classifier
-  task: text-classification
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - xlm-roberta
-  - text-classification
-  - toxicity
-  - en
-  - ru
-  - uk
-  license: openrail++
-  size: null
-  downloads: 5599
-  likes: 17
-  created: '2024-02-02'
-  modified: '2025-03-20'
-  arxiv: null
-  owned: true
-  breadth: multilingual
-  language_count: 9
-  org: textdetox
-  tier: related
-  via_member: seid-muhie-yimam
 - id: textdetox/xlmr-large-toxicity-classifier-v2
   owner: textdetox
   name: xlmr-large-toxicity-classifier-v2
@@ -123,7 +123,7 @@ artifacts:
   - es
   license: openrail++
   size: null
-  downloads: 3164
+  downloads: 3291
   likes: 14
   created: '2025-03-19'
   modified: '2025-12-08'
@@ -134,6 +134,31 @@ artifacts:
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
+- id: masakhane/mafand
+  owner: masakhane
+  name: mafand
+  kind: dataset
+  url: https://huggingface.co/datasets/masakhane/mafand
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - news, mafand, masakhane
+  license:
+  - cc-by-nc-4.0
+  size: 100K<n<1M
+  downloads: 2814
+  likes: 17
+  created: '2022-08-22'
+  modified: '2023-09-11'
+  arxiv: null
+  owned: true
+  breadth: multilingual
+  language_count: 22
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
 - id: masakhane/afrimgsm
   owner: masakhane
   name: afrimgsm
@@ -150,7 +175,7 @@ artifacts:
   - africanmgsm
   license: apache-2.0
   size: 1K<n<10K
-  downloads: 2534
+  downloads: 2623
   likes: 10
   created: '2024-04-26'
   modified: '2025-05-26'
@@ -161,28 +186,30 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
-- id: masakhane/mafand
+- id: masakhane/afrimmlu
   owner: masakhane
-  name: mafand
+  name: afrimmlu
   kind: dataset
-  url: https://huggingface.co/datasets/masakhane/mafand
+  url: https://huggingface.co/datasets/masakhane/afrimmlu
   task: null
   focus: data
   languages:
   - Amharic
+  - Afaan Oromo
   topics:
-  - news, mafand, masakhane
-  license:
-  - cc-by-nc-4.0
-  size: 100K<n<1M
-  downloads: 2438
-  likes: 17
-  created: '2022-08-22'
-  modified: '2023-09-11'
+  - afrimmlu
+  - afri-mmlu
+  - africanmmlu
+  license: apache-2.0
+  size: 10K<n<100K
+  downloads: 1869
+  likes: 12
+  created: '2024-04-26'
+  modified: '2025-04-15'
   arxiv: null
   owned: true
   breadth: multilingual
-  language_count: 22
+  language_count: 18
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
@@ -205,7 +232,7 @@ artifacts:
   license:
   - afl-3.0
   size: 10K<n<100K
-  downloads: 1863
+  downloads: 1761
   likes: 16
   created: '2023-04-20'
   modified: '2025-12-03'
@@ -213,33 +240,6 @@ artifacts:
   owned: true
   breadth: multilingual
   language_count: 16
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
-- id: masakhane/afrimmlu
-  owner: masakhane
-  name: afrimmlu
-  kind: dataset
-  url: https://huggingface.co/datasets/masakhane/afrimmlu
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  - Afaan Oromo
-  topics:
-  - afrimmlu
-  - afri-mmlu
-  - africanmmlu
-  license: apache-2.0
-  size: 10K<n<100K
-  downloads: 1841
-  likes: 12
-  created: '2024-04-26'
-  modified: '2025-04-15'
-  arxiv: null
-  owned: true
-  breadth: multilingual
-  language_count: 18
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
@@ -261,7 +261,7 @@ artifacts:
   - it
   license: openrail++
   size: null
-  downloads: 1841
+  downloads: 1709
   likes: 6
   created: '2025-03-20'
   modified: '2025-12-08'
@@ -272,6 +272,33 @@ artifacts:
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
+- id: masakhane/afrisenti
+  owner: masakhane
+  name: afrisenti
+  kind: dataset
+  url: https://huggingface.co/datasets/masakhane/afrisenti
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  - Afaan Oromo
+  - Tigrinya
+  topics:
+  - sentiment analysis, Twitter, tweets
+  - sentiment
+  license: cc-by-nc-sa-2.0
+  size: 100K<n<1M
+  downloads: 1620
+  likes: 2
+  created: '2024-09-17'
+  modified: '2024-09-18'
+  arxiv: '2302.08956'
+  owned: true
+  breadth: multilingual
+  language_count: 10
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
 - id: israel/AfriGuard
   owner: israel
   name: AfriGuard
@@ -289,7 +316,7 @@ artifacts:
   - red-teaming
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 1727
+  downloads: 1615
   likes: 0
   created: '2026-05-23'
   modified: '2026-07-25'
@@ -318,7 +345,7 @@ artifacts:
   - az
   license: apache-2.0
   size: null
-  downloads: 1624
+  downloads: 1535
   likes: 32
   created: '2022-10-27'
   modified: '2023-09-26'
@@ -329,33 +356,6 @@ artifacts:
   org: bigscience
   tier: related
   via_member: israel-abebe-azime
-- id: masakhane/afrisenti
-  owner: masakhane
-  name: afrisenti
-  kind: dataset
-  url: https://huggingface.co/datasets/masakhane/afrisenti
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  - Afaan Oromo
-  - Tigrinya
-  topics:
-  - sentiment analysis, Twitter, tweets
-  - sentiment
-  license: cc-by-nc-sa-2.0
-  size: 100K<n<1M
-  downloads: 1614
-  likes: 2
-  created: '2024-09-17'
-  modified: '2024-09-18'
-  arxiv: '2302.08956'
-  owned: true
-  breadth: multilingual
-  language_count: 10
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
 - id: masakhane/afrixnli
   owner: masakhane
   name: afrixnli
@@ -372,7 +372,7 @@ artifacts:
   - africanxnli
   license: apache-2.0
   size: 10K<n<100K
-  downloads: 1201
+  downloads: 1210
   likes: 6
   created: '2024-04-26'
   modified: '2024-05-12'
@@ -395,7 +395,7 @@ artifacts:
   topics: []
   license: openrail++
   size: 10K<n<100K
-  downloads: 1073
+  downloads: 1054
   likes: 36
   created: '2024-02-01'
   modified: '2025-03-21'
@@ -425,7 +425,7 @@ artifacts:
   - az
   license: apache-2.0
   size: null
-  downloads: 831
+  downloads: 832
   likes: 49
   created: '2022-10-27'
   modified: '2023-09-26'
@@ -456,7 +456,7 @@ artifacts:
   - multilingual
   license: cc-by-nc-4.0
   size: 10K<n<100K
-  downloads: 789
+  downloads: 801
   likes: 18
   created: '2026-01-12'
   modified: '2026-07-14'
@@ -484,7 +484,7 @@ artifacts:
   - es
   license: openrail++
   size: null
-  downloads: 706
+  downloads: 748
   likes: 0
   created: '2025-03-20'
   modified: '2025-03-25'
@@ -507,7 +507,7 @@ artifacts:
   topics: []
   license: null
   size: 10K<n<100K
-  downloads: 625
+  downloads: 597
   likes: 1
   created: '2024-03-29'
   modified: '2024-04-01'
@@ -516,35 +516,6 @@ artifacts:
   breadth: multilingual
   language_count: 14
   org: SemRel
-  tier: related
-  via_member: seid-muhie-yimam
-- id: textdetox/xlmr-base-toxicity-classifier
-  owner: textdetox
-  name: xlmr-base-toxicity-classifier
-  kind: model
-  url: https://huggingface.co/textdetox/xlmr-base-toxicity-classifier
-  task: text-classification
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - xlm-roberta
-  - text-classification
-  - en
-  - ru
-  - uk
-  - es
-  license: openrail++
-  size: null
-  downloads: 495
-  likes: 2
-  created: '2024-02-02'
-  modified: '2024-10-14'
-  arxiv: null
-  owned: true
-  breadth: multilingual
-  language_count: 9
-  org: textdetox
   tier: related
   via_member: seid-muhie-yimam
 - id: masakhane/InjongoIntent
@@ -563,7 +534,7 @@ artifacts:
   - injongointent
   license: apache-2.0
   size: 10K<n<100K
-  downloads: 483
+  downloads: 489
   likes: 1
   created: '2024-11-13'
   modified: '2025-01-04'
@@ -574,6 +545,35 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
+- id: textdetox/xlmr-base-toxicity-classifier
+  owner: textdetox
+  name: xlmr-base-toxicity-classifier
+  kind: model
+  url: https://huggingface.co/textdetox/xlmr-base-toxicity-classifier
+  task: text-classification
+  focus: applications
+  languages:
+  - Amharic
+  topics:
+  - xlm-roberta
+  - text-classification
+  - en
+  - ru
+  - uk
+  - es
+  license: openrail++
+  size: null
+  downloads: 469
+  likes: 2
+  created: '2024-02-02'
+  modified: '2024-10-14'
+  arxiv: null
+  owned: true
+  breadth: multilingual
+  language_count: 9
+  org: textdetox
+  tier: related
+  via_member: seid-muhie-yimam
 - id: masakhane/AfriDocMT
   owner: masakhane
   name: AfriDocMT
@@ -588,7 +588,7 @@ artifacts:
   - IT
   license: null
   size: 10K<n<100K
-  downloads: 420
+  downloads: 411
   likes: 9
   created: '2024-07-07'
   modified: '2025-10-14'
@@ -599,33 +599,6 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
-- id: israel/LLAMA-Walia-I
-  owner: israel
-  name: LLAMA-Walia-I
-  kind: model
-  url: https://huggingface.co/israel/LLAMA-Walia-I
-  task: text-generation
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - llama
-  - text-generation
-  - en
-  - text-generation-inference
-  - endpoints_compatible
-  license: apache-2.0
-  size: null
-  downloads: 388
-  likes: 0
-  created: '2024-04-25'
-  modified: '2025-05-30'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 2
-  tier: member
-  member: israel-abebe-azime
 - id: bigscience/mt0-xl
   owner: bigscience
   name: mt0-xl
@@ -645,7 +618,7 @@ artifacts:
   - be
   license: apache-2.0
   size: null
-  downloads: 384
+  downloads: 383
   likes: 32
   created: '2022-10-27'
   modified: '2024-03-17'
@@ -656,6 +629,33 @@ artifacts:
   org: bigscience
   tier: related
   via_member: israel-abebe-azime
+- id: israel/LLAMA-Walia-I
+  owner: israel
+  name: LLAMA-Walia-I
+  kind: model
+  url: https://huggingface.co/israel/LLAMA-Walia-I
+  task: text-generation
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - llama
+  - text-generation
+  - en
+  - text-generation-inference
+  - endpoints_compatible
+  license: apache-2.0
+  size: null
+  downloads: 365
+  likes: 0
+  created: '2024-04-25'
+  modified: '2025-05-30'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 2
+  tier: member
+  member: israel-abebe-azime
 - id: masakhane/masakhaner
   owner: masakhane
   name: masakhaner
@@ -669,7 +669,7 @@ artifacts:
   license:
   - unknown
   size: 10K<n<100K
-  downloads: 376
+  downloads: 363
   likes: 10
   created: '2022-03-02'
   modified: '2024-01-18'
@@ -677,6 +677,31 @@ artifacts:
   owned: true
   breadth: multilingual
   language_count: 10
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
+- id: masakhane/uhura-truthfulqa
+  owner: masakhane
+  name: uhura-truthfulqa
+  kind: dataset
+  url: https://huggingface.co/datasets/masakhane/uhura-truthfulqa
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - uhura
+  - truthfulqa
+  license: mit
+  size: 10K<n<100K
+  downloads: 357
+  likes: 2
+  created: '2024-08-27'
+  modified: '2024-12-03'
+  arxiv: '2109.07958'
+  owned: true
+  breadth: multilingual
+  language_count: 7
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
@@ -720,7 +745,7 @@ artifacts:
   - toxic
   license: openrail++
   size: 100K<n<1M
-  downloads: 353
+  downloads: 349
   likes: 9
   created: '2023-12-12'
   modified: '2025-03-21'
@@ -731,126 +756,6 @@ artifacts:
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
-- id: masakhane/uhura-truthfulqa
-  owner: masakhane
-  name: uhura-truthfulqa
-  kind: dataset
-  url: https://huggingface.co/datasets/masakhane/uhura-truthfulqa
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics:
-  - uhura
-  - truthfulqa
-  license: mit
-  size: 10K<n<100K
-  downloads: 342
-  likes: 2
-  created: '2024-08-27'
-  modified: '2024-12-03'
-  arxiv: '2109.07958'
-  owned: true
-  breadth: multilingual
-  language_count: 7
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
-- id: textdetox/multilingual_paradetox
-  owner: textdetox
-  name: multilingual_paradetox
-  kind: dataset
-  url: https://huggingface.co/datasets/textdetox/multilingual_paradetox
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics:
-  - toxic
-  license: openrail++
-  size: 1K<n<10K
-  downloads: 295
-  likes: 11
-  created: '2024-02-01'
-  modified: '2025-12-08'
-  arxiv: '2412.11691'
-  owned: true
-  breadth: multilingual
-  language_count: 14
-  org: textdetox
-  tier: related
-  via_member: seid-muhie-yimam
-- id: masakhane/uhura-arc-easy
-  owner: masakhane
-  name: uhura-arc-easy
-  kind: dataset
-  url: https://huggingface.co/datasets/masakhane/uhura-arc-easy
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics:
-  - uhura
-  - arc-easy
-  - arc
-  license: mit
-  size: 1K<n<10K
-  downloads: 295
-  likes: 1
-  created: '2024-08-26'
-  modified: '2024-12-03'
-  arxiv: '1803.05457'
-  owned: true
-  breadth: multilingual
-  language_count: 8
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
-- id: uhhlt/amharichatespeechranlp
-  owner: uhhlt
-  name: amharichatespeechranlp
-  kind: dataset
-  url: https://huggingface.co/datasets/uhhlt/amharichatespeechranlp
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics: []
-  license: null
-  size: 10K<n<100K
-  downloads: 283
-  likes: 1
-  created: '2023-09-22'
-  modified: '2024-04-17'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 2
-  org: uhhlt
-  team: uhhlt
-  tier: ethionlp
-  member: seid-muhie-yimam
-- id: israel/amharic-speech-expanded
-  owner: israel
-  name: amharic-speech-expanded
-  kind: dataset
-  url: https://huggingface.co/datasets/israel/amharic-speech-expanded
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 10K<n<100K
-  downloads: 277
-  likes: 0
-  created: '2026-07-05'
-  modified: '2026-07-05'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: israel-abebe-azime
 - id: EthioNLP/Amharic-llama-base-model
   owner: EthioNLP
   name: Amharic-llama-base-model
@@ -866,7 +771,7 @@ artifacts:
   - endpoints_compatible
   license: null
   size: null
-  downloads: 272
+  downloads: 302
   likes: 0
   created: '2024-01-26'
   modified: '2024-01-26'
@@ -876,6 +781,101 @@ artifacts:
   language_count: 0
   team: ethionlp
   tier: ethionlp
+- id: masakhane/uhura-arc-easy
+  owner: masakhane
+  name: uhura-arc-easy
+  kind: dataset
+  url: https://huggingface.co/datasets/masakhane/uhura-arc-easy
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - uhura
+  - arc-easy
+  - arc
+  license: mit
+  size: 1K<n<10K
+  downloads: 297
+  likes: 1
+  created: '2024-08-26'
+  modified: '2024-12-03'
+  arxiv: '1803.05457'
+  owned: true
+  breadth: multilingual
+  language_count: 8
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
+- id: israel/amharic-speech-expanded
+  owner: israel
+  name: amharic-speech-expanded
+  kind: dataset
+  url: https://huggingface.co/datasets/israel/amharic-speech-expanded
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: 10K<n<100K
+  downloads: 288
+  likes: 0
+  created: '2026-07-05'
+  modified: '2026-07-05'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: israel-abebe-azime
+- id: uhhlt/amharichatespeechranlp
+  owner: uhhlt
+  name: amharichatespeechranlp
+  kind: dataset
+  url: https://huggingface.co/datasets/uhhlt/amharichatespeechranlp
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics: []
+  license: null
+  size: 10K<n<100K
+  downloads: 276
+  likes: 1
+  created: '2023-09-22'
+  modified: '2024-04-17'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 2
+  org: uhhlt
+  team: uhhlt
+  tier: ethionlp
+  member: seid-muhie-yimam
+- id: textdetox/multilingual_paradetox
+  owner: textdetox
+  name: multilingual_paradetox
+  kind: dataset
+  url: https://huggingface.co/datasets/textdetox/multilingual_paradetox
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - toxic
+  license: openrail++
+  size: 1K<n<10K
+  downloads: 267
+  likes: 11
+  created: '2024-02-01'
+  modified: '2025-12-08'
+  arxiv: '2412.11691'
+  owned: true
+  breadth: multilingual
+  language_count: 14
+  org: textdetox
+  tier: related
+  via_member: seid-muhie-yimam
 - id: israel/waxal-autolabled
   owner: israel
   name: waxal-autolabled
@@ -890,7 +890,7 @@ artifacts:
   topics: []
   license: null
   size: 100K<n<1M
-  downloads: 250
+  downloads: 267
   likes: 0
   created: '2026-03-30'
   modified: '2026-04-09'
@@ -900,35 +900,6 @@ artifacts:
   language_count: 3
   tier: member
   member: israel-abebe-azime
-- id: uhhlt/am-roberta
-  owner: uhhlt
-  name: am-roberta
-  kind: model
-  url: https://huggingface.co/uhhlt/am-roberta
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - roberta
-  - fill-mask
-  - Amharic
-  - Semetic language
-  - endpoints_compatible
-  license: mit
-  size: null
-  downloads: 233
-  likes: 7
-  created: '2022-03-02'
-  modified: '2023-09-27'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 1
-  org: uhhlt
-  team: uhhlt
-  tier: ethionlp
-  member: seid-muhie-yimam
 - id: masakhane/ntrex_african
   owner: masakhane
   name: ntrex_african
@@ -945,7 +916,7 @@ artifacts:
   license:
   - cc-by-sa-4.0
   size: 10K<n<100K
-  downloads: 233
+  downloads: 228
   likes: 5
   created: '2024-12-18'
   modified: '2024-12-18'
@@ -976,7 +947,7 @@ artifacts:
   - endpoints_compatible
   license: mit
   size: null
-  downloads: 197
+  downloads: 198
   likes: 2
   created: '2023-10-04'
   modified: '2024-04-03'
@@ -1004,7 +975,7 @@ artifacts:
   - it
   license: openrail++
   size: null
-  downloads: 192
+  downloads: 195
   likes: 1
   created: '2025-03-19'
   modified: '2025-03-25'
@@ -1034,7 +1005,7 @@ artifacts:
   - be
   license: apache-2.0
   size: null
-  downloads: 190
+  downloads: 191
   likes: 61
   created: '2022-10-19'
   modified: '2024-06-07'
@@ -1045,6 +1016,65 @@ artifacts:
   org: bigscience
   tier: related
   via_member: israel-abebe-azime
+- id: uhhlt/am-roberta
+  owner: uhhlt
+  name: am-roberta
+  kind: model
+  url: https://huggingface.co/uhhlt/am-roberta
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - roberta
+  - fill-mask
+  - Amharic
+  - Semetic language
+  - endpoints_compatible
+  license: mit
+  size: null
+  downloads: 186
+  likes: 7
+  created: '2022-03-02'
+  modified: '2023-09-27'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 1
+  org: uhhlt
+  team: uhhlt
+  tier: ethionlp
+  member: seid-muhie-yimam
+- id: EthioNLP/EthioLLM-l-250K
+  owner: EthioNLP
+  name: EthioLLM-l-250K
+  kind: model
+  url: https://huggingface.co/EthioNLP/EthioLLM-l-250K
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  - Afaan Oromo
+  - Tigrinya
+  - Somali
+  - Ge'ez
+  topics:
+  - xlm-roberta
+  - fill-mask
+  - generated_from_trainer
+  - endpoints_compatible
+  license: mit
+  size: null
+  downloads: 173
+  likes: 0
+  created: '2023-10-04'
+  modified: '2024-04-03'
+  arxiv: '2403.13737'
+  owned: true
+  breadth: focused
+  language_count: 5
+  team: ethionlp
+  tier: ethionlp
 - id: masakhane/african-ultrachat
   owner: masakhane
   name: african-ultrachat
@@ -1058,7 +1088,7 @@ artifacts:
   topics: []
   license: mit
   size: 10K<n<100K
-  downloads: 171
+  downloads: 166
   likes: 5
   created: '2024-04-04'
   modified: '2024-04-04'
@@ -1081,7 +1111,7 @@ artifacts:
   topics: []
   license: null
   size: 100K<n<1M
-  downloads: 166
+  downloads: 165
   likes: 5
   created: '2024-03-13'
   modified: '2025-05-30'
@@ -1102,7 +1132,7 @@ artifacts:
   topics: []
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 165
+  downloads: 151
   likes: 1
   created: '2022-04-06'
   modified: '2022-04-06'
@@ -1112,36 +1142,6 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: EthioNLP/EthioLLM-l-250K
-  owner: EthioNLP
-  name: EthioLLM-l-250K
-  kind: model
-  url: https://huggingface.co/EthioNLP/EthioLLM-l-250K
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  - Afaan Oromo
-  - Tigrinya
-  - Somali
-  - Ge'ez
-  topics:
-  - xlm-roberta
-  - fill-mask
-  - generated_from_trainer
-  - endpoints_compatible
-  license: mit
-  size: null
-  downloads: 164
-  likes: 0
-  created: '2023-10-04'
-  modified: '2024-04-03'
-  arxiv: '2403.13737'
-  owned: true
-  breadth: focused
-  language_count: 5
-  team: ethionlp
-  tier: ethionlp
 - id: EthioNLP/EthioLLM-s-70k
   owner: EthioNLP
   name: EthioLLM-s-70k
@@ -1162,7 +1162,7 @@ artifacts:
   - endpoints_compatible
   license: mit
   size: null
-  downloads: 149
+  downloads: 142
   likes: 2
   created: '2023-09-27'
   modified: '2024-04-03'
@@ -1184,7 +1184,7 @@ artifacts:
   topics: []
   license: openrail++
   size: 1K<n<10K
-  downloads: 135
+  downloads: 139
   likes: 1
   created: '2025-02-04'
   modified: '2025-02-04'
@@ -1213,7 +1213,7 @@ artifacts:
   - african-languages
   license: mit
   size: 100K<n<1M
-  downloads: 127
+  downloads: 129
   likes: 0
   created: '2025-07-07'
   modified: '2025-07-09'
@@ -1223,29 +1223,6 @@ artifacts:
   language_count: 18
   tier: member
   member: tadesse-destaw-belay
-- id: textdetox/multilingual_toxic_spans
-  owner: textdetox
-  name: multilingual_toxic_spans
-  kind: dataset
-  url: https://huggingface.co/datasets/textdetox/multilingual_toxic_spans
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics: []
-  license: openrail++
-  size: 1K<n<10K
-  downloads: 126
-  likes: 3
-  created: '2025-02-04'
-  modified: '2025-02-04'
-  arxiv: '2412.11691'
-  owned: true
-  breadth: multilingual
-  language_count: 9
-  org: textdetox
-  tier: related
-  via_member: seid-muhie-yimam
 - id: masakhane/african-translated-alpaca
   owner: masakhane
   name: african-translated-alpaca
@@ -1258,7 +1235,7 @@ artifacts:
   topics: []
   license: cc-by-nc-4.0
   size: 1M<n<10M
-  downloads: 126
+  downloads: 125
   likes: 1
   created: '2024-04-10'
   modified: '2024-04-10'
@@ -1266,65 +1243,6 @@ artifacts:
   owned: true
   breadth: multilingual
   language_count: 6
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
-- id: bigscience/mt0-xxl-mt
-  owner: bigscience
-  name: mt0-xxl-mt
-  kind: model
-  url: https://huggingface.co/bigscience/mt0-xxl-mt
-  task: text-generation
-  focus: models
-  languages:
-  - Amharic
-  - Somali
-  topics:
-  - mt5
-  - text2text-generation
-  - af
-  - ar
-  - az
-  - be
-  license: apache-2.0
-  size: null
-  downloads: 122
-  likes: 51
-  created: '2022-10-27'
-  modified: '2024-06-07'
-  arxiv: '2211.01786'
-  owned: true
-  breadth: multilingual
-  language_count: 99
-  org: bigscience
-  tier: related
-  via_member: israel-abebe-azime
-- id: masakhane/afroxlmr-large-ner-masakhaner-1.0_2.0
-  owner: masakhane
-  name: afroxlmr-large-ner-masakhaner-1.0_2.0
-  kind: model
-  url: https://huggingface.co/masakhane/afroxlmr-large-ner-masakhaner-1.0_2.0
-  task: token-classification
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - xlm-roberta
-  - token-classification
-  - bm
-  - obj
-  - ee
-  - fon
-  license: afl-3.0
-  size: null
-  downloads: 117
-  likes: 11
-  created: '2022-12-15'
-  modified: '2023-06-25'
-  arxiv: '2103.11811'
-  owned: true
-  breadth: multilingual
-  language_count: 21
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
@@ -1345,7 +1263,7 @@ artifacts:
   - afri-hate
   license: apache-2.0
   size: 10K<n<100K
-  downloads: 117
+  downloads: 123
   likes: 7
   created: '2024-09-13'
   modified: '2025-06-09'
@@ -1357,6 +1275,88 @@ artifacts:
   team: afrihate
   tier: ethionlp
   member: seid-muhie-yimam
+- id: bigscience/mt0-xxl-mt
+  owner: bigscience
+  name: mt0-xxl-mt
+  kind: model
+  url: https://huggingface.co/bigscience/mt0-xxl-mt
+  task: text-generation
+  focus: models
+  languages:
+  - Amharic
+  - Somali
+  topics:
+  - mt5
+  - text2text-generation
+  - af
+  - ar
+  - az
+  - be
+  license: apache-2.0
+  size: null
+  downloads: 118
+  likes: 51
+  created: '2022-10-27'
+  modified: '2024-06-07'
+  arxiv: '2211.01786'
+  owned: true
+  breadth: multilingual
+  language_count: 99
+  org: bigscience
+  tier: related
+  via_member: israel-abebe-azime
+- id: textdetox/multilingual_toxic_spans
+  owner: textdetox
+  name: multilingual_toxic_spans
+  kind: dataset
+  url: https://huggingface.co/datasets/textdetox/multilingual_toxic_spans
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics: []
+  license: openrail++
+  size: 1K<n<10K
+  downloads: 115
+  likes: 3
+  created: '2025-02-04'
+  modified: '2025-02-04'
+  arxiv: '2412.11691'
+  owned: true
+  breadth: multilingual
+  language_count: 9
+  org: textdetox
+  tier: related
+  via_member: seid-muhie-yimam
+- id: masakhane/afroxlmr-large-ner-masakhaner-1.0_2.0
+  owner: masakhane
+  name: afroxlmr-large-ner-masakhaner-1.0_2.0
+  kind: model
+  url: https://huggingface.co/masakhane/afroxlmr-large-ner-masakhaner-1.0_2.0
+  task: token-classification
+  focus: applications
+  languages:
+  - Amharic
+  topics:
+  - xlm-roberta
+  - token-classification
+  - bm
+  - obj
+  - ee
+  - fon
+  license: afl-3.0
+  size: null
+  downloads: 112
+  likes: 11
+  created: '2022-12-15'
+  modified: '2023-06-25'
+  arxiv: '2103.11811'
+  owned: true
+  breadth: multilingual
+  language_count: 21
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
 - id: masakhane/afrimgsm-translate-test
   owner: masakhane
   name: afrimgsm-translate-test
@@ -1373,7 +1373,7 @@ artifacts:
   - afrimgsm-translate-test
   license: apache-2.0
   size: 1K<n<10K
-  downloads: 106
+  downloads: 109
   likes: 1
   created: '2024-05-10'
   modified: '2024-05-21'
@@ -1400,7 +1400,7 @@ artifacts:
   - afrimmlu-translate-test
   license: apache-2.0
   size: 1K<n<10K
-  downloads: 99
+  downloads: 105
   likes: 2
   created: '2024-05-10'
   modified: '2024-05-11'
@@ -1411,59 +1411,6 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
-- id: Henok/amharic-qa
-  owner: Henok
-  name: amharic-qa
-  kind: dataset
-  url: https://huggingface.co/datasets/Henok/amharic-qa
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics: []
-  license: mit
-  size: 1K<n<10K
-  downloads: 88
-  likes: 3
-  created: '2023-10-23'
-  modified: '2023-12-20'
-  arxiv: '2303.03290'
-  owned: true
-  breadth: focused
-  language_count: 1
-  tier: member
-  member: henok-biadglign-ademtew
-- id: Tadesse/AfroXLMR-Social
-  owner: Tadesse
-  name: AfroXLMR-Social
-  kind: model
-  url: https://huggingface.co/Tadesse/AfroXLMR-Social
-  task: null
-  focus: models
-  languages:
-  - Amharic
-  - Somali
-  - Tigrinya
-  - Afaan Oromo
-  topics:
-  - xlm-roberta
-  - generated_from_trainer
-  - sw
-  - zu
-  - ha
-  - yo
-  license: mit
-  size: null
-  downloads: 86
-  likes: 1
-  created: '2025-03-09'
-  modified: '2025-09-19'
-  arxiv: '2503.18247'
-  owned: true
-  breadth: multilingual
-  language_count: 11
-  tier: member
-  member: tadesse-destaw-belay
 - id: masakhane/afrixnli-translate-test
   owner: masakhane
   name: afrixnli-translate-test
@@ -1480,7 +1427,7 @@ artifacts:
   - afrixnli-translate-test
   license: apache-2.0
   size: 10K<n<100K
-  downloads: 86
+  downloads: 90
   likes: 0
   created: '2024-05-10'
   modified: '2024-05-14'
@@ -1491,6 +1438,59 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
+- id: Tadesse/AfroXLMR-Social
+  owner: Tadesse
+  name: AfroXLMR-Social
+  kind: model
+  url: https://huggingface.co/Tadesse/AfroXLMR-Social
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  - Somali
+  - Tigrinya
+  - Afaan Oromo
+  topics:
+  - xlm-roberta
+  - fill-mask
+  - generated_from_trainer
+  - sw
+  - zu
+  - ha
+  license: mit
+  size: null
+  downloads: 87
+  likes: 1
+  created: '2025-03-09'
+  modified: '2026-09-18'
+  arxiv: '2503.18247'
+  owned: true
+  breadth: multilingual
+  language_count: 11
+  tier: member
+  member: tadesse-destaw-belay
+- id: Henok/amharic-qa
+  owner: Henok
+  name: amharic-qa
+  kind: dataset
+  url: https://huggingface.co/datasets/Henok/amharic-qa
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics: []
+  license: mit
+  size: 1K<n<10K
+  downloads: 81
+  likes: 3
+  created: '2023-10-23'
+  modified: '2023-12-20'
+  arxiv: '2303.03290'
+  owned: true
+  breadth: focused
+  language_count: 1
+  tier: member
+  member: henok-biadglign-ademtew
 - id: masakhane/masakhaner-x
   owner: masakhane
   name: masakhaner-x
@@ -1504,7 +1504,7 @@ artifacts:
   license:
   - unknown
   size: 10K<n<100K
-  downloads: 79
+  downloads: 80
   likes: 0
   created: '2024-11-15'
   modified: '2024-11-21'
@@ -1534,7 +1534,7 @@ artifacts:
   - be
   license: apache-2.0
   size: null
-  downloads: 76
+  downloads: 77
   likes: 2
   created: '2022-10-28'
   modified: '2025-05-02'
@@ -1545,31 +1545,60 @@ artifacts:
   org: bigscience
   tier: related
   via_member: israel-abebe-azime
-- id: seyyaw/whisper-finetuned-amharic
-  owner: seyyaw
-  name: whisper-finetuned-amharic
+- id: Atnafu/English-Amharic-MT
+  owner: Atnafu
+  name: English-Amharic-MT
   kind: model
-  url: https://huggingface.co/seyyaw/whisper-finetuned-amharic
-  task: automatic-speech-recognition
+  url: https://huggingface.co/Atnafu/English-Amharic-MT
+  task: translation
   focus: applications
-  languages: []
+  languages:
+  - Amharic
   topics:
-  - whisper
-  - automatic-speech-recognition
-  - generated_from_trainer
+  - m2m_100
+  - text2text-generation
+  - translation
+  - en
   - endpoints_compatible
   license: apache-2.0
   size: null
-  downloads: 68
-  likes: 1
-  created: '2025-02-01'
-  modified: '2025-02-06'
+  downloads: 77
+  likes: 0
+  created: '2023-09-22'
+  modified: '2024-03-17'
   arxiv: null
   owned: true
   breadth: focused
-  language_count: 0
+  language_count: 2
   tier: member
-  member: seid-muhie-yimam
+  member: atnafu-lambebo-tonja
+- id: Atnafu/Amharic-English-MT
+  owner: Atnafu
+  name: Amharic-English-MT
+  kind: model
+  url: https://huggingface.co/Atnafu/Amharic-English-MT
+  task: translation
+  focus: applications
+  languages:
+  - Amharic
+  topics:
+  - m2m_100
+  - text2text-generation
+  - translation
+  - en
+  - endpoints_compatible
+  license: apache-2.0
+  size: null
+  downloads: 72
+  likes: 0
+  created: '2023-09-21'
+  modified: '2024-03-17'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 2
+  tier: member
+  member: atnafu-lambebo-tonja
 - id: EthioNLP/EthioLLM-b-250K
   owner: EthioNLP
   name: EthioLLM-b-250K
@@ -1585,7 +1614,7 @@ artifacts:
   - endpoints_compatible
   license: mit
   size: null
-  downloads: 64
+  downloads: 70
   likes: 0
   created: '2023-10-02'
   modified: '2023-10-02'
@@ -1595,6 +1624,31 @@ artifacts:
   language_count: 0
   team: ethionlp
   tier: ethionlp
+- id: seyyaw/whisper-finetuned-amharic
+  owner: seyyaw
+  name: whisper-finetuned-amharic
+  kind: model
+  url: https://huggingface.co/seyyaw/whisper-finetuned-amharic
+  task: automatic-speech-recognition
+  focus: applications
+  languages: []
+  topics:
+  - whisper
+  - automatic-speech-recognition
+  - generated_from_trainer
+  - endpoints_compatible
+  license: apache-2.0
+  size: null
+  downloads: 65
+  likes: 1
+  created: '2025-02-01'
+  modified: '2025-02-06'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: seid-muhie-yimam
 - id: EthioNLP/EthioHate
   owner: EthioNLP
   name: EthioHate
@@ -1606,29 +1660,8 @@ artifacts:
   topics: []
   license: mit
   size: 10K<n<100K
-  downloads: 63
+  downloads: 64
   likes: 1
-  created: '2024-03-13'
-  modified: '2024-03-13'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  team: ethionlp
-  tier: ethionlp
-- id: EthioNLP/EthioPOS
-  owner: EthioNLP
-  name: EthioPOS
-  kind: dataset
-  url: https://huggingface.co/datasets/EthioNLP/EthioPOS
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: mit
-  size: 10M<n<100M
-  downloads: 59
-  likes: 0
   created: '2024-03-13'
   modified: '2024-03-13'
   arxiv: null
@@ -1655,7 +1688,7 @@ artifacts:
   - metrics-shared-task
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 57
+  downloads: 64
   likes: 1
   created: '2026-01-06'
   modified: '2026-01-06'
@@ -1666,6 +1699,27 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
+- id: EthioNLP/EthioPOS
+  owner: EthioNLP
+  name: EthioPOS
+  kind: dataset
+  url: https://huggingface.co/datasets/EthioNLP/EthioPOS
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: mit
+  size: 10M<n<100M
+  downloads: 63
+  likes: 0
+  created: '2024-03-13'
+  modified: '2024-03-13'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  team: ethionlp
+  tier: ethionlp
 - id: Tadesse/EthioEmo
   owner: Tadesse
   name: EthioEmo
@@ -1685,7 +1739,7 @@ artifacts:
   - tigrenya
   license: mit
   size: 10K<n<100K
-  downloads: 56
+  downloads: 61
   likes: 3
   created: '2024-04-24'
   modified: '2025-11-06'
@@ -1706,7 +1760,7 @@ artifacts:
   topics: []
   license: mit
   size: 10K<n<100K
-  downloads: 55
+  downloads: 57
   likes: 0
   created: '2024-03-11'
   modified: '2024-03-13'
@@ -1716,6 +1770,33 @@ artifacts:
   language_count: 0
   team: ethionlp
   tier: ethionlp
+- id: masakhane/m2m100_418M_en_amh_rel
+  owner: masakhane
+  name: m2m100_418M_en_amh_rel
+  kind: model
+  url: https://huggingface.co/masakhane/m2m100_418M_en_amh_rel
+  task: null
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - m2m_100
+  - text2text-generation
+  - en
+  - endpoints_compatible
+  license: cc-by-nc-4.0
+  size: null
+  downloads: 55
+  likes: 0
+  created: '2022-08-25'
+  modified: '2022-09-24'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 2
+  org: masakhane
+  tier: related
+  via_member: atnafu-lambebo-tonja
 - id: ethiospeech01/whisper-fullft-v3-ethiopian
   owner: ethiospeech01
   name: whisper-fullft-v3-ethiopian
@@ -1740,33 +1821,6 @@ artifacts:
   team: ethiospeech
   tier: ethionlp
   member: seid-muhie-yimam
-- id: masakhane/m2m100_418M_en_amh_rel
-  owner: masakhane
-  name: m2m100_418M_en_amh_rel
-  kind: model
-  url: https://huggingface.co/masakhane/m2m100_418M_en_amh_rel
-  task: null
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - m2m_100
-  - text2text-generation
-  - en
-  - endpoints_compatible
-  license: cc-by-nc-4.0
-  size: null
-  downloads: 54
-  likes: 0
-  created: '2022-08-25'
-  modified: '2022-09-24'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 2
-  org: masakhane
-  tier: related
-  via_member: atnafu-lambebo-tonja
 - id: masakhane/m2m100_418M_amh_en_rel
   owner: masakhane
   name: m2m100_418M_amh_en_rel
@@ -1783,7 +1837,7 @@ artifacts:
   - endpoints_compatible
   license: cc-by-nc-4.0
   size: null
-  downloads: 51
+  downloads: 52
   likes: 0
   created: '2022-08-25'
   modified: '2022-09-24'
@@ -1813,7 +1867,7 @@ artifacts:
   - tigrenya
   license: mit
   size: 10K<n<100K
-  downloads: 48
+  downloads: 49
   likes: 0
   created: '2025-11-06'
   modified: '2025-11-06'
@@ -1862,7 +1916,7 @@ artifacts:
   - parallel-corpus
   license: apache-2.0
   size: 1M<n<10M
-  downloads: 45
+  downloads: 43
   likes: 1
   created: '2026-06-09'
   modified: '2026-06-09'
@@ -1873,6 +1927,31 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
+- id: EthioNLP/EthioLLM-b-70k
+  owner: EthioNLP
+  name: EthioLLM-b-70k
+  kind: model
+  url: https://huggingface.co/EthioNLP/EthioLLM-b-70k
+  task: fill-mask
+  focus: models
+  languages: []
+  topics:
+  - xlm-roberta
+  - fill-mask
+  - generated_from_trainer
+  - endpoints_compatible
+  license: mit
+  size: null
+  downloads: 43
+  likes: 0
+  created: '2023-10-04'
+  modified: '2023-10-04'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  team: ethionlp
+  tier: ethionlp
 - id: yonas/AmhQA_Multitask-small
   owner: yonas
   name: AmhQA_Multitask-small
@@ -1891,7 +1970,7 @@ artifacts:
   - qa
   license: cc-by-nc-4.0
   size: null
-  downloads: 41
+  downloads: 42
   likes: 0
   created: '2024-07-07'
   modified: '2024-07-08'
@@ -1913,7 +1992,7 @@ artifacts:
   topics: []
   license: null
   size: 100K<n<1M
-  downloads: 39
+  downloads: 40
   likes: 0
   created: '2024-03-13'
   modified: '2025-05-30'
@@ -1921,31 +2000,6 @@ artifacts:
   owned: true
   breadth: focused
   language_count: 2
-  team: ethionlp
-  tier: ethionlp
-- id: EthioNLP/EthioLLM-b-70k
-  owner: EthioNLP
-  name: EthioLLM-b-70k
-  kind: model
-  url: https://huggingface.co/EthioNLP/EthioLLM-b-70k
-  task: fill-mask
-  focus: models
-  languages: []
-  topics:
-  - xlm-roberta
-  - fill-mask
-  - generated_from_trainer
-  - endpoints_compatible
-  license: mit
-  size: null
-  downloads: 35
-  likes: 0
-  created: '2023-10-04'
-  modified: '2023-10-04'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
   team: ethionlp
   tier: ethionlp
 - id: israel/AmharicStoryQA
@@ -1959,7 +2013,7 @@ artifacts:
   topics: []
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 34
+  downloads: 35
   likes: 2
   created: '2025-10-10'
   modified: '2025-10-10'
@@ -1969,33 +2023,6 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: Atnafu/English-Amharic-MT
-  owner: Atnafu
-  name: English-Amharic-MT
-  kind: model
-  url: https://huggingface.co/Atnafu/English-Amharic-MT
-  task: translation
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - m2m_100
-  - text2text-generation
-  - translation
-  - en
-  - endpoints_compatible
-  license: apache-2.0
-  size: null
-  downloads: 33
-  likes: 0
-  created: '2023-09-22'
-  modified: '2024-03-17'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 2
-  tier: member
-  member: atnafu-lambebo-tonja
 - id: mogesa/amharic_summarization_mt5
   owner: mogesa
   name: amharic_summarization_mt5
@@ -2014,7 +2041,7 @@ artifacts:
   - endpoints_compatible
   license: apache-2.0
   size: null
-  downloads: 32
+  downloads: 34
   likes: 0
   created: '2025-02-25'
   modified: '2025-12-23'
@@ -2074,6 +2101,34 @@ artifacts:
   org: masakhane
   tier: related
   via_member: atnafu-lambebo-tonja
+- id: israel/AfriGuard-inst
+  owner: israel
+  name: AfriGuard-inst
+  kind: dataset
+  url: https://huggingface.co/datasets/israel/AfriGuard-inst
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  - Afaan Oromo
+  topics:
+  - safety
+  - llm-safety
+  - african-languages
+  - instruction-tuning
+  - alpaca
+  license: cc-by-4.0
+  size: 10K<n<100K
+  downloads: 27
+  likes: 0
+  created: '2026-09-09'
+  modified: '2026-09-09'
+  arxiv: null
+  owned: true
+  breadth: multilingual
+  language_count: 11
+  tier: member
+  member: israel-abebe-azime
 - id: textdetox/mbart-detox-baseline
   owner: textdetox
   name: mbart-detox-baseline
@@ -2103,61 +2158,6 @@ artifacts:
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
-- id: israel/AmharicXLMRoberta
-  owner: israel
-  name: AmharicXLMRoberta
-  kind: model
-  url: https://huggingface.co/israel/AmharicXLMRoberta
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - xlm-roberta
-  - fill-mask
-  - Amharic
-  - masked language model
-  - language model
-  - Ethiopia
-  license: cc-by-4.0
-  size: null
-  downloads: 26
-  likes: 1
-  created: '2022-10-25'
-  modified: '2022-10-25'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 1
-  tier: member
-  member: israel-abebe-azime
-- id: Atnafu/Amharic-English-MT
-  owner: Atnafu
-  name: Amharic-English-MT
-  kind: model
-  url: https://huggingface.co/Atnafu/Amharic-English-MT
-  task: translation
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - m2m_100
-  - text2text-generation
-  - translation
-  - en
-  - endpoints_compatible
-  license: apache-2.0
-  size: null
-  downloads: 26
-  likes: 0
-  created: '2023-09-21'
-  modified: '2024-03-17'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 2
-  tier: member
-  member: atnafu-lambebo-tonja
 - id: uhhlt/amharic-detox
   owner: uhhlt
   name: amharic-detox
@@ -2181,6 +2181,34 @@ artifacts:
   team: uhhlt
   tier: ethionlp
   member: seid-muhie-yimam
+- id: israel/AmharicXLMRoberta
+  owner: israel
+  name: AmharicXLMRoberta
+  kind: model
+  url: https://huggingface.co/israel/AmharicXLMRoberta
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - xlm-roberta
+  - fill-mask
+  - Amharic
+  - masked language model
+  - language model
+  - Ethiopia
+  license: cc-by-4.0
+  size: null
+  downloads: 25
+  likes: 1
+  created: '2022-10-25'
+  modified: '2022-10-25'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 1
+  tier: member
+  member: israel-abebe-azime
 - id: EthioNLP/ethionlp_mt5_small
   owner: EthioNLP
   name: ethionlp_mt5_small
@@ -2210,34 +2238,6 @@ artifacts:
   language_count: 6
   team: ethionlp
   tier: ethionlp
-- id: israel/AfriGuard-inst
-  owner: israel
-  name: AfriGuard-inst
-  kind: dataset
-  url: https://huggingface.co/datasets/israel/AfriGuard-inst
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  - Afaan Oromo
-  topics:
-  - safety
-  - llm-safety
-  - african-languages
-  - instruction-tuning
-  - alpaca
-  license: cc-by-4.0
-  size: 10K<n<100K
-  downloads: 25
-  likes: 0
-  created: '2026-09-09'
-  modified: '2026-09-09'
-  arxiv: null
-  owned: true
-  breadth: multilingual
-  language_count: 11
-  tier: member
-  member: israel-abebe-azime
 - id: israel/AmharicStoryQA_Llama-3.1-8B-Instruct-llama-amh
   owner: israel
   name: AmharicStoryQA_Llama-3.1-8B-Instruct-llama-amh
@@ -2260,27 +2260,6 @@ artifacts:
   created: '2025-11-23'
   modified: '2025-12-14'
   arxiv: '1910.09700'
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: israel-abebe-azime
-- id: israel/AmharicStoryQA_with_Amharic_Answers
-  owner: israel
-  name: AmharicStoryQA_with_Amharic_Answers
-  kind: dataset
-  url: https://huggingface.co/datasets/israel/AmharicStoryQA_with_Amharic_Answers
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 1K<n<10K
-  downloads: 21
-  likes: 0
-  created: '2025-11-06'
-  modified: '2025-11-06'
-  arxiv: null
   owned: true
   breadth: focused
   language_count: 0
@@ -2330,32 +2309,27 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: Walelign/Amharic_STI_QA_Dataset
-  owner: Walelign
-  name: Amharic_STI_QA_Dataset
+- id: israel/AmharicStoryQA_with_Amharic_Answers
+  owner: israel
+  name: AmharicStoryQA_with_Amharic_Answers
   kind: dataset
-  url: https://huggingface.co/datasets/Walelign/Amharic_STI_QA_Dataset
+  url: https://huggingface.co/datasets/israel/AmharicStoryQA_with_Amharic_Answers
   task: null
   focus: data
-  languages:
-  - Amharic
-  topics:
-  - medical
-  - healthcare
-  - amharic-nlp
-  - low-resource-languages
-  license: cc-by-nc-4.0
+  languages: []
+  topics: []
+  license: null
   size: 1K<n<10K
-  downloads: 19
+  downloads: 20
   likes: 0
-  created: '2026-04-14'
-  modified: '2026-04-14'
+  created: '2025-11-06'
+  modified: '2025-11-06'
   arxiv: null
   owned: true
   breadth: focused
-  language_count: 2
+  language_count: 0
   tier: member
-  member: walelign-tewabe-sewunetie
+  member: israel-abebe-azime
 - id: textdetox/detoxification_pairwise_content_evaluation
   owner: textdetox
   name: detoxification_pairwise_content_evaluation
@@ -2435,27 +2409,108 @@ artifacts:
   language_count: 5
   team: ethionlp
   tier: ethionlp
-- id: Walelign/amharic-asr-dataset
+- id: Walelign/Amharic_STI_QA_Dataset
   owner: Walelign
-  name: amharic-asr-dataset
+  name: Amharic_STI_QA_Dataset
   kind: dataset
-  url: https://huggingface.co/datasets/Walelign/amharic-asr-dataset
+  url: https://huggingface.co/datasets/Walelign/Amharic_STI_QA_Dataset
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - medical
+  - healthcare
+  - amharic-nlp
+  - low-resource-languages
+  license: cc-by-nc-4.0
+  size: 1K<n<10K
+  downloads: 18
+  likes: 0
+  created: '2026-04-14'
+  modified: '2026-04-14'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 2
+  tier: member
+  member: walelign-tewabe-sewunetie
+- id: israel/AmharicRoBERTa
+  owner: israel
+  name: AmharicRoBERTa
+  kind: model
+  url: https://huggingface.co/israel/AmharicRoBERTa
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - roberta
+  - fill-mask
+  - Amharic
+  - masked language model
+  - language model
+  - Ethiopia
+  license: cc-by-4.0
+  size: null
+  downloads: 18
+  likes: 0
+  created: '2022-10-18'
+  modified: '2022-10-22'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 1
+  tier: member
+  member: israel-abebe-azime
+- id: israel/AmharicZefen
+  owner: israel
+  name: AmharicZefen
+  kind: dataset
+  url: https://huggingface.co/datasets/israel/AmharicZefen
   task: null
   focus: data
   languages: []
   topics: []
   license: null
-  size: null
-  downloads: 17
+  size: n<1K
+  downloads: 18
   likes: 0
-  created: '2026-08-17'
-  modified: '2026-08-17'
+  created: '2024-01-16'
+  modified: '2024-01-16'
   arxiv: null
   owned: true
   breadth: focused
   language_count: 0
   tier: member
-  member: walelign-tewabe-sewunetie
+  member: israel-abebe-azime
+- id: mogesa/Roberta-amharic-news-sentence-transformer
+  owner: mogesa
+  name: Roberta-amharic-news-sentence-transformer
+  kind: model
+  url: https://huggingface.co/mogesa/Roberta-amharic-news-sentence-transformer
+  task: sentence-similarity
+  focus: models
+  languages: []
+  topics:
+  - sentence-transformers
+  - xlm-roberta
+  - sentence-similarity
+  - feature-extraction
+  - generated_from_trainer
+  - text-embeddings-inference
+  license: null
+  size: null
+  downloads: 18
+  likes: 0
+  created: '2025-04-26'
+  modified: '2025-04-26'
+  arxiv: '1908.10084'
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: moges-ahmed-mehamed
 - id: israel/AmharicQA
   owner: israel
   name: AmharicQA
@@ -2477,61 +2532,6 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: israel/AmharicRoBERTa
-  owner: israel
-  name: AmharicRoBERTa
-  kind: model
-  url: https://huggingface.co/israel/AmharicRoBERTa
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - roberta
-  - fill-mask
-  - Amharic
-  - masked language model
-  - language model
-  - Ethiopia
-  license: cc-by-4.0
-  size: null
-  downloads: 17
-  likes: 0
-  created: '2022-10-18'
-  modified: '2022-10-22'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 1
-  tier: member
-  member: israel-abebe-azime
-- id: mogesa/Roberta-amharic-news-sentence-transformer
-  owner: mogesa
-  name: Roberta-amharic-news-sentence-transformer
-  kind: model
-  url: https://huggingface.co/mogesa/Roberta-amharic-news-sentence-transformer
-  task: sentence-similarity
-  focus: models
-  languages: []
-  topics:
-  - sentence-transformers
-  - xlm-roberta
-  - sentence-similarity
-  - feature-extraction
-  - generated_from_trainer
-  - text-embeddings-inference
-  license: null
-  size: null
-  downloads: 17
-  likes: 0
-  created: '2025-04-26'
-  modified: '2025-04-26'
-  arxiv: '1908.10084'
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: moges-ahmed-mehamed
 - id: Atnafu/amharic_xlmr_large
   owner: Atnafu
   name: amharic_xlmr_large
@@ -2584,27 +2584,6 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: israel/AmharicZefen
-  owner: israel
-  name: AmharicZefen
-  kind: dataset
-  url: https://huggingface.co/datasets/israel/AmharicZefen
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: n<1K
-  downloads: 15
-  likes: 0
-  created: '2024-01-16'
-  modified: '2024-01-16'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: israel-abebe-azime
 - id: ethiospeech01/whisper-lora-v3-ethiopian
   owner: ethiospeech01
   name: whisper-lora-v3-ethiopian
@@ -2630,32 +2609,53 @@ artifacts:
   team: ethiospeech
   tier: ethionlp
   member: seid-muhie-yimam
-- id: textdetox/mt5-xl-detox-baseline
+- id: israel/AmharicStoryQA_instruction-tuning
+  owner: israel
+  name: AmharicStoryQA_instruction-tuning
+  kind: dataset
+  url: https://huggingface.co/datasets/israel/AmharicStoryQA_instruction-tuning
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: 1K<n<10K
+  downloads: 14
+  likes: 0
+  created: '2025-11-06'
+  modified: '2025-11-06'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: israel-abebe-azime
+- id: textdetox/Llama-pairwise-content-evaluator
   owner: textdetox
-  name: mt5-xl-detox-baseline
+  name: Llama-pairwise-content-evaluator
   kind: model
-  url: https://huggingface.co/textdetox/mt5-xl-detox-baseline
+  url: https://huggingface.co/textdetox/Llama-pairwise-content-evaluator
   task: text-generation
   focus: models
   languages:
   - Amharic
   topics:
-  - mt5
-  - text2text-generation
-  - detoxification
-  - style_transfer
-  - en
-  - ar
-  license: mit
+  - llama
+  - text-generation
+  - generated_from_trainer
+  - trl
+  - sft
+  - conversational
+  license: null
   size: null
-  downloads: 13
-  likes: 2
-  created: '2024-04-26'
-  modified: '2024-10-14'
+  downloads: 14
+  likes: 0
+  created: '2025-08-07'
+  modified: '2025-08-07'
   arxiv: null
   owned: true
   breadth: multilingual
-  language_count: 9
+  language_count: 10
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
@@ -2709,27 +2709,6 @@ artifacts:
   language_count: 0
   tier: member
   member: mesay-gemeda-yigezu
-- id: Tadesse/amharic_qa
-  owner: Tadesse
-  name: amharic_qa
-  kind: dataset
-  url: https://huggingface.co/datasets/Tadesse/amharic_qa
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 1K<n<10K
-  downloads: 13
-  likes: 0
-  created: '2025-04-06'
-  modified: '2025-04-06'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: tadesse-destaw-belay
 - id: dagn/expanded-amharic-news-dataset
   owner: dagn
   name: expanded-amharic-news-dataset
@@ -2779,53 +2758,32 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: israel/AmharicStoryQA_instruction-tuning
-  owner: israel
-  name: AmharicStoryQA_instruction-tuning
-  kind: dataset
-  url: https://huggingface.co/datasets/israel/AmharicStoryQA_instruction-tuning
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 1K<n<10K
-  downloads: 13
-  likes: 0
-  created: '2025-11-06'
-  modified: '2025-11-06'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: israel-abebe-azime
-- id: textdetox/Llama-pairwise-content-evaluator
+- id: textdetox/mt5-xl-detox-baseline
   owner: textdetox
-  name: Llama-pairwise-content-evaluator
+  name: mt5-xl-detox-baseline
   kind: model
-  url: https://huggingface.co/textdetox/Llama-pairwise-content-evaluator
+  url: https://huggingface.co/textdetox/mt5-xl-detox-baseline
   task: text-generation
   focus: models
   languages:
   - Amharic
   topics:
-  - llama
-  - text-generation
-  - generated_from_trainer
-  - trl
-  - sft
-  - conversational
-  license: null
+  - mt5
+  - text2text-generation
+  - detoxification
+  - style_transfer
+  - en
+  - ar
+  license: mit
   size: null
-  downloads: 13
-  likes: 0
-  created: '2025-08-07'
-  modified: '2025-08-07'
+  downloads: 12
+  likes: 2
+  created: '2024-04-26'
+  modified: '2024-10-14'
   arxiv: null
   owned: true
   breadth: multilingual
-  language_count: 10
+  language_count: 9
   org: textdetox
   tier: related
   via_member: seid-muhie-yimam
@@ -2845,6 +2803,27 @@ artifacts:
   likes: 0
   created: '2025-02-14'
   modified: '2025-02-14'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: tadesse-destaw-belay
+- id: Tadesse/amharic_qa
+  owner: Tadesse
+  name: amharic_qa
+  kind: dataset
+  url: https://huggingface.co/datasets/Tadesse/amharic_qa
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: 1K<n<10K
+  downloads: 11
+  likes: 0
+  created: '2025-04-06'
+  modified: '2025-04-06'
   arxiv: null
   owned: true
   breadth: focused
@@ -2897,6 +2876,51 @@ artifacts:
   language_count: 1
   tier: related
   via_member: tito
+- id: uhhlt/amharic-stopwords
+  owner: uhhlt
+  name: amharic-stopwords
+  kind: dataset
+  url: https://huggingface.co/datasets/uhhlt/amharic-stopwords
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics: []
+  license: apache-2.0
+  size: n<1K
+  downloads: 10
+  likes: 1
+  created: '2024-08-01'
+  modified: '2024-08-01'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 1
+  org: uhhlt
+  team: uhhlt
+  tier: ethionlp
+  member: seid-muhie-yimam
+- id: Walelign/amharic-asr-dataset
+  owner: Walelign
+  name: amharic-asr-dataset
+  kind: dataset
+  url: https://huggingface.co/datasets/Walelign/amharic-asr-dataset
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: null
+  downloads: 10
+  likes: 0
+  created: '2026-08-17'
+  modified: '2026-08-17'
+  arxiv: null
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: walelign-tewabe-sewunetie
 - id: abenezer444/amharic_wav2vec2
   owner: abenezer444
   name: amharic_wav2vec2
@@ -2972,30 +2996,35 @@ artifacts:
   language_count: 0
   tier: member
   member: israel-abebe-azime
-- id: uhhlt/amharic-stopwords
-  owner: uhhlt
-  name: amharic-stopwords
-  kind: dataset
-  url: https://huggingface.co/datasets/uhhlt/amharic-stopwords
-  task: null
-  focus: data
+- id: textdetox/Llama-pairwise-toxicity-evaluator
+  owner: textdetox
+  name: Llama-pairwise-toxicity-evaluator
+  kind: model
+  url: https://huggingface.co/textdetox/Llama-pairwise-toxicity-evaluator
+  task: text-generation
+  focus: models
   languages:
   - Amharic
-  topics: []
+  topics:
+  - llama
+  - text-generation
+  - generated_from_trainer
+  - trl
+  - sft
+  - conversational
   license: apache-2.0
-  size: n<1K
+  size: null
   downloads: 9
   likes: 1
-  created: '2024-08-01'
-  modified: '2024-08-01'
+  created: '2025-08-07'
+  modified: '2025-08-07'
   arxiv: null
   owned: true
-  breadth: focused
-  language_count: 1
-  org: uhhlt
-  team: uhhlt
-  tier: ethionlp
-  member: seid-muhie-yimam
+  breadth: multilingual
+  language_count: 10
+  org: textdetox
+  tier: related
+  via_member: seid-muhie-yimam
 - id: Hellina/eng2geez_amh_h_only_transformer
   owner: Hellina
   name: eng2geez_amh_h_only_transformer
@@ -3080,27 +3109,6 @@ artifacts:
   language_count: 0
   tier: member
   member: tadesse-destaw-belay
-- id: Walelign/Amharic_SRH_Dataset
-  owner: Walelign
-  name: Amharic_SRH_Dataset
-  kind: dataset
-  url: https://huggingface.co/datasets/Walelign/Amharic_SRH_Dataset
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: cc-by-nc-4.0
-  size: 1K<n<10K
-  downloads: 9
-  likes: 0
-  created: '2025-05-06'
-  modified: '2025-05-06'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  tier: member
-  member: walelign-tewabe-sewunetie
 - id: afrisynt/amharic_llama3-dpo-dpo_afridpo_main_rgemma-2-2b-it_o.5be_4batch
   owner: afrisynt
   name: amharic_llama3-dpo-dpo_afridpo_main_rgemma-2-2b-it_o.5be_4batch
@@ -3150,56 +3158,49 @@ artifacts:
   language_count: 0
   tier: related
   via_member: hope
-- id: textdetox/Llama-pairwise-toxicity-evaluator
-  owner: textdetox
-  name: Llama-pairwise-toxicity-evaluator
-  kind: model
-  url: https://huggingface.co/textdetox/Llama-pairwise-toxicity-evaluator
-  task: text-generation
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - llama
-  - text-generation
-  - generated_from_trainer
-  - trl
-  - sft
-  - conversational
-  license: apache-2.0
-  size: null
+- id: Walelign/Amharic_SRH_Dataset
+  owner: Walelign
+  name: Amharic_SRH_Dataset
+  kind: dataset
+  url: https://huggingface.co/datasets/Walelign/Amharic_SRH_Dataset
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: cc-by-nc-4.0
+  size: 1K<n<10K
   downloads: 8
-  likes: 1
-  created: '2025-08-07'
-  modified: '2025-08-07'
+  likes: 0
+  created: '2025-05-06'
+  modified: '2025-05-06'
   arxiv: null
   owned: true
-  breadth: multilingual
-  language_count: 10
-  org: textdetox
-  tier: related
-  via_member: seid-muhie-yimam
-- id: EthioNLP/Gender-Bias-Evaluation-Dataset
-  owner: EthioNLP
-  name: Gender-Bias-Evaluation-Dataset
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: walelign-tewabe-sewunetie
+- id: afrisynt/amharic_dpo
+  owner: afrisynt
+  name: amharic_dpo
   kind: dataset
-  url: https://huggingface.co/datasets/EthioNLP/Gender-Bias-Evaluation-Dataset
+  url: https://huggingface.co/datasets/afrisynt/amharic_dpo
   task: null
   focus: data
   languages: []
   topics: []
   license: null
-  size: null
+  size: 1K<n<10K
   downloads: 8
   likes: 0
-  created: '2024-05-25'
-  modified: '2025-05-27'
+  created: '2025-12-05'
+  modified: '2025-12-05'
   arxiv: null
   owned: true
   breadth: focused
   language_count: 0
-  team: ethionlp
-  tier: ethionlp
+  org: afrisynt
+  tier: related
+  via_member: israel-abebe-azime
 - id: afrisynt/amharic_llama3-dpo-dpo_afridpo_main_rLlama-3.2-1B-Instruct_0.5be_4batch
   owner: afrisynt
   name: amharic_llama3-dpo-dpo_afridpo_main_rLlama-3.2-1B-Instruct_0.5be_4batch
@@ -3329,28 +3330,6 @@ artifacts:
   language_count: 0
   tier: member
   member: hellina-hailu-nigatu
-- id: afrisynt/amharic_dpo
-  owner: afrisynt
-  name: amharic_dpo
-  kind: dataset
-  url: https://huggingface.co/datasets/afrisynt/amharic_dpo
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 1K<n<10K
-  downloads: 7
-  likes: 0
-  created: '2025-12-05'
-  modified: '2025-12-05'
-  arxiv: null
-  owned: true
-  breadth: focused
-  language_count: 0
-  org: afrisynt
-  tier: related
-  via_member: israel-abebe-azime
 - id: afrisynt/amharic_llama3-dpo-dpo_afridpo_main_rLlama-3-70B-Instruct
   owner: afrisynt
   name: amharic_llama3-dpo-dpo_afridpo_main_rLlama-3-70B-Instruct
@@ -3520,30 +3499,27 @@ artifacts:
   org: AiHub4MSRH-Hash
   tier: related
   via_member: walelign-tewabe-sewunetie
-- id: Atnafu/nllb_600M_eng2geez-un
-  owner: Atnafu
-  name: nllb_600M_eng2geez-un
-  kind: model
-  url: https://huggingface.co/Atnafu/nllb_600M_eng2geez-un
+- id: EthioNLP/Gender-Bias-Evaluation-Dataset
+  owner: EthioNLP
+  name: Gender-Bias-Evaluation-Dataset
+  kind: dataset
+  url: https://huggingface.co/datasets/EthioNLP/Gender-Bias-Evaluation-Dataset
   task: null
-  focus: models
+  focus: data
   languages: []
-  topics:
-  - m2m_100
-  - text2text-generation
-  - endpoints_compatible
+  topics: []
   license: null
   size: null
-  downloads: 5
+  downloads: 6
   likes: 0
-  created: '2025-05-02'
-  modified: '2025-05-02'
-  arxiv: '1910.09700'
+  created: '2024-05-25'
+  modified: '2025-05-27'
+  arxiv: null
   owned: true
   breadth: focused
   language_count: 0
-  tier: member
-  member: atnafu-lambebo-tonja
+  team: ethionlp
+  tier: ethionlp
 - id: Tadesse/English-Amharic-MT-Norm_TD
   owner: Tadesse
   name: English-Amharic-MT-Norm_TD
@@ -3566,6 +3542,30 @@ artifacts:
   language_count: 0
   tier: member
   member: tadesse-destaw-belay
+- id: Atnafu/nllb_600M_eng2geez-un
+  owner: Atnafu
+  name: nllb_600M_eng2geez-un
+  kind: model
+  url: https://huggingface.co/Atnafu/nllb_600M_eng2geez-un
+  task: null
+  focus: models
+  languages: []
+  topics:
+  - m2m_100
+  - text2text-generation
+  - endpoints_compatible
+  license: null
+  size: null
+  downloads: 4
+  likes: 0
+  created: '2025-05-02'
+  modified: '2025-05-02'
+  arxiv: '1910.09700'
+  owned: true
+  breadth: focused
+  language_count: 0
+  tier: member
+  member: atnafu-lambebo-tonja
 - id: israel/AmharicMaternalHealth
   owner: israel
   name: AmharicMaternalHealth
@@ -3577,7 +3577,7 @@ artifacts:
   topics: []
   license: null
   size: n<1K
-  downloads: 2
+  downloads: 3
   likes: 0
   created: '2025-12-08'
   modified: '2026-03-28'
@@ -4066,7 +4066,7 @@ related:
   - endpoints_compatible
   license: mit
   size: null
-  downloads: 129181
+  downloads: 129216
   likes: 5
   created: '2023-05-18'
   modified: '2023-08-31'
@@ -4090,7 +4090,7 @@ related:
   - clip
   license: mit
   size: null
-  downloads: 1873
+  downloads: 1635
   likes: 0
   created: '2026-05-29'
   modified: '2026-05-29'
@@ -4114,7 +4114,7 @@ related:
   - endpoints_compatible
   license: cc-by-4.0
   size: null
-  downloads: 1405
+  downloads: 1412
   likes: 2
   created: '2026-03-24'
   modified: '2026-04-04'
@@ -4139,7 +4139,7 @@ related:
   - multilingual
   license: null
   size: null
-  downloads: 1313
+  downloads: 1315
   likes: 0
   created: '2026-09-08'
   modified: '2026-09-08'
@@ -4164,7 +4164,7 @@ related:
   - conversational
   license: null
   size: null
-  downloads: 1257
+  downloads: 1260
   likes: 1
   created: '2026-08-23'
   modified: '2026-09-05'
@@ -4193,7 +4193,7 @@ related:
   - ethiopia
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 1098
+  downloads: 1090
   likes: 0
   created: '2026-08-13'
   modified: '2026-08-20'
@@ -4219,7 +4219,7 @@ related:
   - text-retrieval
   license: mit
   size: null
-  downloads: 1044
+  downloads: 1047
   likes: 0
   created: '2025-06-20'
   modified: '2026-05-27'
@@ -4245,7 +4245,7 @@ related:
   - low-resource
   license: gemma
   size: null
-  downloads: 987
+  downloads: 1009
   likes: 0
   created: '2025-07-24'
   modified: '2025-12-18'
@@ -4269,8 +4269,8 @@ related:
   - crowdsourced
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 946
-  likes: 24
+  downloads: 976
+  likes: 25
   created: '2026-08-25'
   modified: '2026-08-31'
   arxiv: null
@@ -4288,7 +4288,7 @@ related:
   topics: []
   license: cc-by-4.0
   size: null
-  downloads: 821
+  downloads: 815
   likes: 1
   created: '2023-05-22'
   modified: '2025-05-29'
@@ -4312,7 +4312,7 @@ related:
   - speech-synthesis
   license: other
   size: n<1K
-  downloads: 813
+  downloads: 752
   likes: 0
   created: '2026-08-18'
   modified: '2026-08-18'
@@ -4338,7 +4338,7 @@ related:
   - model-index
   license: apache-2.0
   size: null
-  downloads: 711
+  downloads: 693
   likes: 0
   created: '2025-01-04'
   modified: '2025-06-11'
@@ -4363,7 +4363,7 @@ related:
   - vision
   license: null
   size: null
-  downloads: 627
+  downloads: 633
   likes: 0
   created: '2026-09-06'
   modified: '2026-09-09'
@@ -4388,7 +4388,7 @@ related:
   - low-resource
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 585
+  downloads: 590
   likes: 0
   created: '2026-09-05'
   modified: '2026-09-14'
@@ -4410,7 +4410,7 @@ related:
   - endpoints_compatible
   license: null
   size: null
-  downloads: 475
+  downloads: 488
   likes: 3
   created: '2022-03-02'
   modified: '2021-06-02'
@@ -4429,7 +4429,7 @@ related:
   topics: []
   license: null
   size: 100K<n<1M
-  downloads: 463
+  downloads: 485
   likes: 0
   created: '2026-07-27'
   modified: '2026-08-13'
@@ -4455,7 +4455,7 @@ related:
   - asr
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 419
+  downloads: 431
   likes: 1
   created: '2026-08-05'
   modified: '2026-08-05'
@@ -4463,29 +4463,32 @@ related:
   owned: false
   breadth: focused
   language_count: 1
-- id: mintesnotfikir/whisper-medium-amharic
-  owner: mintesnotfikir
-  name: whisper-medium-amharic
+- id: mradermacher/amharic_summarization_mt5-GGUF
+  owner: mradermacher
+  name: amharic_summarization_mt5-GGUF
   kind: model
-  url: https://huggingface.co/mintesnotfikir/whisper-medium-amharic
-  task: automatic-speech-recognition
+  url: https://huggingface.co/mradermacher/amharic_summarization_mt5-GGUF
+  task: summarization
   focus: applications
-  languages: []
+  languages:
+  - Amharic
   topics:
-  - whisper
-  - automatic-speech-recognition
-  - generated_from_trainer
+  - gguf
+  - summarization
+  - amharic
+  - mt5
+  - low-resource
   - endpoints_compatible
   license: apache-2.0
   size: null
-  downloads: 378
+  downloads: 384
   likes: 0
-  created: '2026-08-14'
-  modified: '2026-08-18'
+  created: '2025-02-26'
+  modified: '2025-12-31'
   arxiv: null
   owned: false
   breadth: focused
-  language_count: 0
+  language_count: 1
 - id: b1n1yam/shook-medium-amharic-2k
   owner: b1n1yam
   name: shook-medium-amharic-2k
@@ -4509,6 +4512,29 @@ related:
   owned: false
   breadth: focused
   language_count: 0
+- id: rasyosef/roberta-base-amharic
+  owner: rasyosef
+  name: roberta-base-amharic
+  kind: model
+  url: https://huggingface.co/rasyosef/roberta-base-amharic
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - xlm-roberta
+  - fill-mask
+  - endpoints_compatible
+  license: null
+  size: null
+  downloads: 376
+  likes: 0
+  created: '2024-12-25'
+  modified: '2025-01-16'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
 - id: rasyosef/Llama-3.2-1B-Amharic-Instruct
   owner: rasyosef
   name: Llama-3.2-1B-Amharic-Instruct
@@ -4526,10 +4552,78 @@ related:
   - endpoints_compatible
   license: null
   size: null
-  downloads: 371
+  downloads: 374
   likes: 0
   created: '2024-11-04'
   modified: '2024-11-04'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
+- id: mintesnotfikir/whisper-medium-amharic
+  owner: mintesnotfikir
+  name: whisper-medium-amharic
+  kind: model
+  url: https://huggingface.co/mintesnotfikir/whisper-medium-amharic
+  task: automatic-speech-recognition
+  focus: applications
+  languages: []
+  topics:
+  - whisper
+  - automatic-speech-recognition
+  - generated_from_trainer
+  - endpoints_compatible
+  license: apache-2.0
+  size: null
+  downloads: 373
+  likes: 0
+  created: '2026-08-14'
+  modified: '2026-08-18'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 0
+- id: abdukuzi45/amharic-cpt-corpus-v15-smart
+  owner: abdukuzi45
+  name: amharic-cpt-corpus-v15-smart
+  kind: dataset
+  url: https://huggingface.co/datasets/abdukuzi45/amharic-cpt-corpus-v15-smart
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: 10M<n<100M
+  downloads: 372
+  likes: 0
+  created: '2026-09-17'
+  modified: '2026-09-17'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 0
+- id: leyu-amharic/leyu-amharic-addis-ababa-dialect
+  owner: leyu-amharic
+  name: leyu-amharic-addis-ababa-dialect
+  kind: dataset
+  url: https://huggingface.co/datasets/leyu-amharic/leyu-amharic-addis-ababa-dialect
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - amharic
+  - africa
+  - ethiopia
+  - dialect
+  - speech
+  - asr
+  license: cc-by-4.0
+  size: 1K<n<10K
+  downloads: 368
+  likes: 1
+  created: '2026-08-05'
+  modified: '2026-08-05'
   arxiv: null
   owned: false
   breadth: focused
@@ -4552,7 +4646,7 @@ related:
   - discrete-diffusion
   license: apache-2.0
   size: null
-  downloads: 369
+  downloads: 365
   likes: 13
   created: '2026-04-22'
   modified: '2026-05-11'
@@ -4560,58 +4654,6 @@ related:
   owned: false
   breadth: focused
   language_count: 3
-- id: mradermacher/amharic_summarization_mt5-GGUF
-  owner: mradermacher
-  name: amharic_summarization_mt5-GGUF
-  kind: model
-  url: https://huggingface.co/mradermacher/amharic_summarization_mt5-GGUF
-  task: summarization
-  focus: applications
-  languages:
-  - Amharic
-  topics:
-  - gguf
-  - summarization
-  - amharic
-  - mt5
-  - low-resource
-  - endpoints_compatible
-  license: apache-2.0
-  size: null
-  downloads: 365
-  likes: 0
-  created: '2025-02-26'
-  modified: '2025-12-31'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: leyu-amharic/leyu-amharic-addis-ababa-dialect
-  owner: leyu-amharic
-  name: leyu-amharic-addis-ababa-dialect
-  kind: dataset
-  url: https://huggingface.co/datasets/leyu-amharic/leyu-amharic-addis-ababa-dialect
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics:
-  - amharic
-  - africa
-  - ethiopia
-  - dialect
-  - speech
-  - asr
-  license: cc-by-4.0
-  size: 1K<n<10K
-  downloads: 360
-  likes: 1
-  created: '2026-08-05'
-  modified: '2026-08-05'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
 - id: abdukuzi45/amharic-sft-mixed-cot-2026
   owner: abdukuzi45
   name: amharic-sft-mixed-cot-2026
@@ -4632,6 +4674,31 @@ related:
   owned: false
   breadth: focused
   language_count: 2
+- id: rasyosef/Llama-3.2-1B-Amharic
+  owner: rasyosef
+  name: Llama-3.2-1B-Amharic
+  kind: model
+  url: https://huggingface.co/rasyosef/Llama-3.2-1B-Amharic
+  task: text-generation
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - llama
+  - text-generation
+  - conversational
+  - text-generation-inference
+  - endpoints_compatible
+  license: null
+  size: null
+  downloads: 355
+  likes: 0
+  created: '2024-11-04'
+  modified: '2024-11-04'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
 - id: dice-research/amharic-property-retriever-afro-xlmr-base
   owner: dice-research
   name: amharic-property-retriever-afro-xlmr-base
@@ -4650,7 +4717,7 @@ related:
   - generated_from_trainer
   license: mit
   size: null
-  downloads: 351
+  downloads: 353
   likes: 0
   created: '2026-03-11'
   modified: '2026-03-12'
@@ -4669,7 +4736,7 @@ related:
   topics: []
   license: null
   size: 1M<n<10M
-  downloads: 330
+  downloads: 331
   likes: 0
   created: '2026-08-21'
   modified: '2026-08-21'
@@ -4717,53 +4784,10 @@ related:
   - en
   license: null
   size: null
-  downloads: 315
+  downloads: 323
   likes: 0
   created: '2026-06-09'
   modified: '2026-06-09'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: rasyosef/roberta-base-amharic
-  owner: rasyosef
-  name: roberta-base-amharic
-  kind: model
-  url: https://huggingface.co/rasyosef/roberta-base-amharic
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - xlm-roberta
-  - fill-mask
-  - endpoints_compatible
-  license: null
-  size: null
-  downloads: 312
-  likes: 0
-  created: '2024-12-25'
-  modified: '2025-01-16'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: yordanoswuletaw/amharic-pretraining-corpus
-  owner: yordanoswuletaw
-  name: amharic-pretraining-corpus
-  kind: dataset
-  url: https://huggingface.co/datasets/yordanoswuletaw/amharic-pretraining-corpus
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics: []
-  license: apache-2.0
-  size: 100M<n<1B
-  downloads: 309
-  likes: 4
-  created: '2025-02-19'
-  modified: '2025-03-11'
   arxiv: null
   owned: false
   breadth: focused
@@ -4782,7 +4806,7 @@ related:
   topics: []
   license: cc-by-4.0
   size: 100K<n<1M
-  downloads: 303
+  downloads: 311
   likes: 2
   created: '2025-11-12'
   modified: '2026-01-25'
@@ -4801,7 +4825,7 @@ related:
   topics: []
   license: null
   size: 10K<n<100K
-  downloads: 295
+  downloads: 308
   likes: 2
   created: '2025-08-24'
   modified: '2025-08-24'
@@ -4809,25 +4833,26 @@ related:
   owned: false
   breadth: focused
   language_count: 0
-- id: abdukuzi/amharic-tokenized-dataset
-  owner: abdukuzi
-  name: amharic-tokenized-dataset
+- id: yordanoswuletaw/amharic-pretraining-corpus
+  owner: yordanoswuletaw
+  name: amharic-pretraining-corpus
   kind: dataset
-  url: https://huggingface.co/datasets/abdukuzi/amharic-tokenized-dataset
+  url: https://huggingface.co/datasets/yordanoswuletaw/amharic-pretraining-corpus
   task: null
   focus: data
-  languages: []
+  languages:
+  - Amharic
   topics: []
-  license: null
-  size: 1M<n<10M
-  downloads: 278
-  likes: 0
-  created: '2026-08-18'
-  modified: '2026-08-18'
+  license: apache-2.0
+  size: 100M<n<1B
+  downloads: 307
+  likes: 4
+  created: '2025-02-19'
+  modified: '2025-03-11'
   arxiv: null
   owned: false
   breadth: focused
-  language_count: 0
+  language_count: 1
 - id: abdukuzi45/qwen3.5-amharic-4b-thinking-uncensored
   owner: abdukuzi45
   name: qwen3.5-amharic-4b-thinking-uncensored
@@ -4845,7 +4870,7 @@ related:
   - conversational
   license: null
   size: null
-  downloads: 270
+  downloads: 276
   likes: 0
   created: '2026-09-05'
   modified: '2026-09-07'
@@ -4853,6 +4878,56 @@ related:
   owned: false
   breadth: focused
   language_count: 0
+- id: snapwre/afaan-oromoo-speech
+  owner: snapwre
+  name: afaan-oromoo-speech
+  kind: dataset
+  url: https://huggingface.co/datasets/snapwre/afaan-oromoo-speech
+  task: null
+  focus: data
+  languages:
+  - Afaan Oromo
+  topics:
+  - speech
+  - ethiopia
+  - low-resource
+  - crowdsourced
+  license: cc-by-4.0
+  size: 1K<n<10K
+  downloads: 274
+  likes: 6
+  created: '2026-08-29'
+  modified: '2026-08-30'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
+- id: hadamard-2/leyu-amharic-gonder-dialect
+  owner: hadamard-2
+  name: leyu-amharic-gonder-dialect
+  kind: dataset
+  url: https://huggingface.co/datasets/hadamard-2/leyu-amharic-gonder-dialect
+  task: null
+  focus: data
+  languages:
+  - Amharic
+  topics:
+  - amharic
+  - africa
+  - ethiopia
+  - dialect
+  - speech
+  - asr
+  license: cc-by-4.0
+  size: 10K<n<100K
+  downloads: 269
+  likes: 0
+  created: '2026-08-23'
+  modified: '2026-09-13'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
 - id: mradermacher/gemma-3-4b-tigrinya-qa-GGUF
   owner: mradermacher
   name: gemma-3-4b-tigrinya-qa-GGUF
@@ -4879,56 +4954,6 @@ related:
   owned: false
   breadth: focused
   language_count: 1
-- id: hadamard-2/leyu-amharic-gonder-dialect
-  owner: hadamard-2
-  name: leyu-amharic-gonder-dialect
-  kind: dataset
-  url: https://huggingface.co/datasets/hadamard-2/leyu-amharic-gonder-dialect
-  task: null
-  focus: data
-  languages:
-  - Amharic
-  topics:
-  - amharic
-  - africa
-  - ethiopia
-  - dialect
-  - speech
-  - asr
-  license: cc-by-4.0
-  size: 10K<n<100K
-  downloads: 267
-  likes: 0
-  created: '2026-08-23'
-  modified: '2026-09-13'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: snapwre/afaan-oromoo-speech
-  owner: snapwre
-  name: afaan-oromoo-speech
-  kind: dataset
-  url: https://huggingface.co/datasets/snapwre/afaan-oromoo-speech
-  task: null
-  focus: data
-  languages:
-  - Afaan Oromo
-  topics:
-  - speech
-  - ethiopia
-  - low-resource
-  - crowdsourced
-  license: cc-by-4.0
-  size: 1K<n<10K
-  downloads: 265
-  likes: 6
-  created: '2026-08-29'
-  modified: '2026-08-30'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
 - id: hadamard-2/leyu-amharic-gojjam-dialect
   owner: hadamard-2
   name: leyu-amharic-gojjam-dialect
@@ -4947,7 +4972,7 @@ related:
   - asr
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 255
+  downloads: 257
   likes: 0
   created: '2026-08-23'
   modified: '2026-09-13'
@@ -4973,7 +4998,7 @@ related:
   - asr
   license: cc-by-4.0
   size: 10K<n<100K
-  downloads: 252
+  downloads: 254
   likes: 0
   created: '2026-08-23'
   modified: '2026-09-13'
@@ -4981,50 +5006,6 @@ related:
   owned: false
   breadth: focused
   language_count: 1
-- id: rasyosef/Llama-3.2-1B-Amharic
-  owner: rasyosef
-  name: Llama-3.2-1B-Amharic
-  kind: model
-  url: https://huggingface.co/rasyosef/Llama-3.2-1B-Amharic
-  task: text-generation
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - llama
-  - text-generation
-  - conversational
-  - text-generation-inference
-  - endpoints_compatible
-  license: null
-  size: null
-  downloads: 248
-  likes: 0
-  created: '2024-11-04'
-  modified: '2024-11-04'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: AhunInteligence/Amharic_Audio_and_Spectrograms
-  owner: AhunInteligence
-  name: Amharic_Audio_and_Spectrograms
-  kind: dataset
-  url: https://huggingface.co/datasets/AhunInteligence/Amharic_Audio_and_Spectrograms
-  task: null
-  focus: data
-  languages: []
-  topics: []
-  license: null
-  size: 1K<n<10K
-  downloads: 246
-  likes: 0
-  created: '2025-06-07'
-  modified: '2025-06-07'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 0
 - id: leyu-amharic/leyu-amharic-shewa-dialect
   owner: leyu-amharic
   name: leyu-amharic-shewa-dialect
@@ -5043,7 +5024,7 @@ related:
   - asr
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 244
+  downloads: 249
   likes: 1
   created: '2026-08-05'
   modified: '2026-08-05'
@@ -5051,6 +5032,25 @@ related:
   owned: false
   breadth: focused
   language_count: 1
+- id: AhunInteligence/Amharic_Audio_and_Spectrograms
+  owner: AhunInteligence
+  name: Amharic_Audio_and_Spectrograms
+  kind: dataset
+  url: https://huggingface.co/datasets/AhunInteligence/Amharic_Audio_and_Spectrograms
+  task: null
+  focus: data
+  languages: []
+  topics: []
+  license: null
+  size: 1K<n<10K
+  downloads: 248
+  likes: 0
+  created: '2025-06-07'
+  modified: '2025-06-07'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 0
 - id: mradermacher/Desu-snowflake-arctic-embed-l-v2.0-finetuned-amharic-final-GGUF
   owner: mradermacher
   name: Desu-snowflake-arctic-embed-l-v2.0-finetuned-amharic-final-GGUF
@@ -5068,7 +5068,7 @@ related:
   - generated_from_trainer
   license: apache-2.0
   size: null
-  downloads: 240
+  downloads: 236
   likes: 0
   created: '2025-12-01'
   modified: '2025-12-01'
@@ -5088,58 +5088,11 @@ related:
   topics: []
   license: apache-2.0
   size: 10K<n<100K
-  downloads: 233
+  downloads: 223
   likes: 0
   created: '2026-03-04'
   modified: '2026-03-04'
   arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: rasyosef/bert-medium-amharic
-  owner: rasyosef
-  name: bert-medium-amharic
-  kind: model
-  url: https://huggingface.co/rasyosef/bert-medium-amharic
-  task: fill-mask
-  focus: models
-  languages:
-  - Amharic
-  topics:
-  - bert
-  - fill-mask
-  - endpoints_compatible
-  license: null
-  size: null
-  downloads: 226
-  likes: 1
-  created: '2024-06-16'
-  modified: '2024-06-27'
-  arxiv: null
-  owned: false
-  breadth: focused
-  language_count: 1
-- id: badrex/Ethio-ASR-tigrinya
-  owner: badrex
-  name: Ethio-ASR-tigrinya
-  kind: model
-  url: https://huggingface.co/badrex/Ethio-ASR-tigrinya
-  task: automatic-speech-recognition
-  focus: applications
-  languages:
-  - Tigrinya
-  topics:
-  - wav2vec2-bert
-  - automatic-speech-recognition
-  - tigrinya
-  - endpoints_compatible
-  license: cc-by-4.0
-  size: null
-  downloads: 222
-  likes: 1
-  created: '2026-03-24'
-  modified: '2026-04-04'
-  arxiv: '2603.23654'
   owned: false
   breadth: focused
   language_count: 1
@@ -5161,7 +5114,7 @@ related:
   - asr
   license: cc-by-4.0
   size: 1K<n<10K
-  downloads: 219
+  downloads: 223
   likes: 0
   created: '2026-08-23'
   modified: '2026-09-13'
@@ -5169,26 +5122,73 @@ related:
   owned: false
   breadth: focused
   language_count: 1
-- id: mradermacher/Gemma-3-27B-MeditronFO-Amharic-GGUF
-  owner: mradermacher
-  name: Gemma-3-27B-MeditronFO-Amharic-GGUF
+- id: rasyosef/bert-medium-amharic
+  owner: rasyosef
+  name: bert-medium-amharic
   kind: model
-  url: https://huggingface.co/mradermacher/Gemma-3-27B-MeditronFO-Amharic-GGUF
+  url: https://huggingface.co/rasyosef/bert-medium-amharic
+  task: fill-mask
+  focus: models
+  languages:
+  - Amharic
+  topics:
+  - bert
+  - fill-mask
+  - endpoints_compatible
+  license: null
+  size: null
+  downloads: 222
+  likes: 1
+  created: '2024-06-16'
+  modified: '2024-06-27'
+  arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
+- id: mradermacher/Llama-3.2-1B-Amharic-Instruct-GGUF
+  owner: mradermacher
+  name: Llama-3.2-1B-Amharic-Instruct-GGUF
+  kind: model
+  url: https://huggingface.co/mradermacher/Llama-3.2-1B-Amharic-Instruct-GGUF
   task: null
   focus: models
-  languages: []
+  languages:
+  - Amharic
   topics:
   - gguf
-  - en
   - endpoints_compatible
   - conversational
   license: null
   size: null
-  downloads: 219
+  downloads: 222
   likes: 0
-  created: '2026-05-27'
-  modified: '2026-05-27'
+  created: '2024-11-05'
+  modified: '2024-11-05'
   arxiv: null
+  owned: false
+  breadth: focused
+  language_count: 1
+- id: badrex/Ethio-ASR-tigrinya
+  owner: badrex
+  name: Ethio-ASR-tigrinya
+  kind: model
+  url: https://huggingface.co/badrex/Ethio-ASR-tigrinya
+  task: automatic-speech-recognition
+  focus: applications
+  languages:
+  - Tigrinya
+  topics:
+  - wav2vec2-bert
+  - automatic-speech-recognition
+  - tigrinya
+  - endpoints_compatible
+  license: cc-by-4.0
+  size: null
+  downloads: 219
+  likes: 1
+  created: '2026-03-24'
+  modified: '2026-04-04'
+  arxiv: '2603.23654'
   owned: false
   breadth: focused
   language_count: 1
