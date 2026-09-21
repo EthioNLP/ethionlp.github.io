@@ -14,7 +14,7 @@ huggingface: Tadesse
 orcid: 0000-0003-0883-984X
 semantic_scholar:
 dblp:
-mentoring: [data, models, linguistics]
+mentoring: [data, models, evaluation]
 mentoring_levels: [bsc, msc, intern]
 mentoring_capacity: 2
 mentoring_note: >-
