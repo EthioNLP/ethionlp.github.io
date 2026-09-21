@@ -9,10 +9,14 @@ focus: []
 website: "https://tadesse-destaw.github.io/"
 github: tadesse-destaw
 twitter: tadesseit
-scholar: "https://scholar.google.com/citations?hl=en&user=8S7ilV0AAAAJ"
-openalex: A5040546523
+scholar: "https://scholar.google.com/citations?user=8S7ilV0AAAAJ"
 huggingface: Tadesse
-orcid:
+orcid: 0000-0003-0883-984X
 semantic_scholar:
 dblp:
+mentoring: [data, models, linguistics]
+mentoring_levels: [bsc, msc, intern]
+mentoring_capacity: 2
+mentoring_note: >-
+  Annotation design, benchmark construction, Evaluation design, and paper writing for peer-reviewed journals/conferences/workshops.
 ---
