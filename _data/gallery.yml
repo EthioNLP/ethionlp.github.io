@@ -57,10 +57,15 @@
 
 
 - src: /resources/img/gallery/ethionlp-at-dli-2026.jpg
-  caption: "EthioNLP at DLI 2026"
+  caption: "EthioNLP team at DLI 2026"
+  place: Lagos, Nigeria
 
 - src: /resources/img/gallery/ethionlp-team-at-emnlp-2024-florida.jpg
   caption: "EthioNLP team at EMNLP 2024, Florida"
 
 - src: /resources/img/gallery/naacl-2025.jpg
-  caption: "NAACL 2025"
+  caption: >-
+    Presenting "Exploring cross-cultural emotion differences from dataset creation to LLM evaluation" at NAACL 2025.
+  date: 2025-04-24
+  place: Albuquerque, NM
+  tags: [conference, poster]
