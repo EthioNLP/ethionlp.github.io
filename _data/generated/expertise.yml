@@ -12,9 +12,9 @@ per_member:
   name: Seid Muhie Yimam
   languages:
   - name: Amharic
-    total: 37
+    total: 38
     artifacts: 3
-    papers: 30
+    papers: 31
     repos: 4
   - name: Ge'ez
     total: 4
@@ -200,8 +200,8 @@ per_member:
   tracks:
   - applications
   - data
-  - models
   - evaluation
+  - models
 - slug: atnafu-lambebo-tonja
   name: Atnafu Lambebo Tonja
   languages:
@@ -354,9 +354,8 @@ per_member:
   top: Amharic
   tracks:
   - applications
-  - evaluation
   - data
-  - models
+  - evaluation
 - slug: moges-ahmed-mehamed
   name: Moges Ahmed Mehamed
   languages:
@@ -492,9 +491,9 @@ per_language:
   people:
   - slug: seid-muhie-yimam
     name: Seid Muhie Yimam
-    total: 37
+    total: 38
     artifacts: 3
-    papers: 30
+    papers: 31
     repos: 4
   - slug: tadesse-destaw-belay
     name: Tadesse Destaw Belay
