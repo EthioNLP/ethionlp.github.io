@@ -1,6 +1,6 @@
 totals:
   members: 15
-  languages: 7
+  languages: 8
   unmapped: 0
 method: 'Hugging Face language tags are taken as given. For publications and repositories the language
   is inferred by matching its name, and the spellings that name is actually written with, as whole words
@@ -12,29 +12,39 @@ per_member:
   name: Seid Muhie Yimam
   languages:
   - name: Amharic
-    total: 37
-    artifacts: 3
-    papers: 30
+    total: 39
+    artifacts: 4
+    papers: 31
     repos: 4
+  - name: Tigrinya
+    total: 5
+    artifacts: 1
+    papers: 4
+    repos: 0
+  - name: Afaan Oromo
+    total: 4
+    artifacts: 1
+    papers: 3
+    repos: 0
   - name: Ge'ez
     total: 4
     artifacts: 0
     papers: 3
     repos: 1
-  - name: Tigrinya
-    total: 4
-    artifacts: 0
-    papers: 4
-    repos: 0
-  - name: Afaan Oromo
-    total: 3
-    artifacts: 0
-    papers: 3
-    repos: 0
   - name: Somali
-    total: 1
-    artifacts: 0
+    total: 2
+    artifacts: 1
     papers: 1
+    repos: 0
+  - name: Afar
+    total: 1
+    artifacts: 1
+    papers: 0
+    repos: 0
+  - name: Sidama
+    total: 1
+    artifacts: 1
+    papers: 0
     repos: 0
   - name: Wolaytta
     total: 1
@@ -51,9 +61,9 @@ per_member:
   name: Tadesse Destaw Belay
   languages:
   - name: Amharic
-    total: 19
+    total: 18
     artifacts: 2
-    papers: 17
+    papers: 16
     repos: 0
   - name: Tigrinya
     total: 5
@@ -200,8 +210,8 @@ per_member:
   tracks:
   - applications
   - data
-  - models
   - evaluation
+  - models
 - slug: atnafu-lambebo-tonja
   name: Atnafu Lambebo Tonja
   languages:
@@ -354,9 +364,8 @@ per_member:
   top: Amharic
   tracks:
   - applications
-  - evaluation
   - data
-  - models
+  - evaluation
 - slug: moges-ahmed-mehamed
   name: Moges Ahmed Mehamed
   languages:
@@ -492,22 +501,22 @@ per_language:
   people:
   - slug: seid-muhie-yimam
     name: Seid Muhie Yimam
-    total: 37
-    artifacts: 3
-    papers: 30
+    total: 39
+    artifacts: 4
+    papers: 31
     repos: 4
-  - slug: tadesse-destaw-belay
-    name: Tadesse Destaw Belay
-    total: 19
-    artifacts: 2
-    papers: 17
-    repos: 0
   - slug: israel-abebe-azime
     name: Israel Abebe Azime
     total: 18
     artifacts: 6
     papers: 6
     repos: 6
+  - slug: tadesse-destaw-belay
+    name: Tadesse Destaw Belay
+    total: 18
+    artifacts: 2
+    papers: 16
+    repos: 0
   - slug: abinew-ali-ayele
     name: Abinew Ali Ayele
     total: 16
@@ -597,6 +606,12 @@ per_language:
     artifacts: 1
     papers: 3
     repos: 0
+  - slug: seid-muhie-yimam
+    name: Seid Muhie Yimam
+    total: 4
+    artifacts: 1
+    papers: 3
+    repos: 0
   - slug: atnafu-lambebo-tonja
     name: Atnafu Lambebo Tonja
     total: 3
@@ -605,12 +620,6 @@ per_language:
     repos: 0
   - slug: hellina-hailu-nigatu
     name: Hellina Hailu Nigatu
-    total: 3
-    artifacts: 0
-    papers: 3
-    repos: 0
-  - slug: seid-muhie-yimam
-    name: Seid Muhie Yimam
     total: 3
     artifacts: 0
     papers: 3
@@ -674,6 +683,12 @@ per_language:
     artifacts: 0
     papers: 5
     repos: 0
+  - slug: seid-muhie-yimam
+    name: Seid Muhie Yimam
+    total: 5
+    artifacts: 1
+    papers: 4
+    repos: 0
   - slug: tadesse-destaw-belay
     name: Tadesse Destaw Belay
     total: 5
@@ -688,12 +703,6 @@ per_language:
     repos: 0
   - slug: michael-melese
     name: Michael Melese
-    total: 4
-    artifacts: 0
-    papers: 4
-    repos: 0
-  - slug: seid-muhie-yimam
-    name: Seid Muhie Yimam
     total: 4
     artifacts: 0
     papers: 4
@@ -893,6 +902,12 @@ per_language:
     artifacts: 0
     papers: 1
     repos: 0
+  - slug: seid-muhie-yimam
+    name: Seid Muhie Yimam
+    total: 1
+    artifacts: 1
+    papers: 0
+    repos: 0
   - slug: tadesse-kebede
     name: Tadesse Kebede
     total: 1
@@ -905,7 +920,7 @@ per_language:
     artifacts: 0
     papers: 1
     repos: 0
-  count: 5
+  count: 6
 - name: Somali
   catalogue_name: Somali
   iso: som
@@ -914,6 +929,12 @@ per_language:
     name: Tadesse Destaw Belay
     total: 3
     artifacts: 2
+    papers: 1
+    repos: 0
+  - slug: seid-muhie-yimam
+    name: Seid Muhie Yimam
+    total: 2
+    artifacts: 1
     papers: 1
     repos: 0
   - slug: abinew-ali-ayele
@@ -928,12 +949,6 @@ per_language:
     artifacts: 0
     papers: 1
     repos: 0
-  - slug: seid-muhie-yimam
-    name: Seid Muhie Yimam
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
   - slug: surafel-m-lakew
     name: Surafel M. Lakew
     total: 1
@@ -941,6 +956,17 @@ per_language:
     papers: 1
     repos: 0
   count: 5
+- name: Afar
+  catalogue_name: Afar
+  iso: aar
+  people:
+  - slug: seid-muhie-yimam
+    name: Seid Muhie Yimam
+    total: 1
+    artifacts: 1
+    papers: 0
+    repos: 0
+  count: 1
 focus_method: Focus areas are counted from each person's own publications, models, datasets and repositories,
   not declared. A track is shown when it is at least 15% of what was found for them and rests on at least
   2 items. A member who sets their own focus field overrides this entirely.
