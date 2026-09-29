@@ -362,7 +362,12 @@ def main() -> int:
 
         if not ids:
             continue
-        identified += 1
+        # Counted over listed members only. This figure is rendered beside
+        # `site.members | size`, which excludes the unconfirmed Hugging Face
+        # imports carrying `published: false`; counting every file here made
+        # the sentence read "21 of 15".
+        if member.get("published") is not False:
+            identified += 1
         step(f"{member['name']} ({', '.join(k for k, _ in ids)})")
 
         records = []
@@ -423,7 +428,27 @@ def main() -> int:
         title = (entry.get("title") or "").strip()
         if not title:
             continue
-        key = norm_title(title)
+        # Match on an identifier before the title. A curated entry usually
+        # exists to correct a fetched one, and the two often disagree about
+        # the title: the Anthology calls a paper "AfriQA: Cross-lingual
+        # Open-Retrieval..." where the aggregator dropped the prefix. Matching
+        # on the title alone added a second record instead of correcting the
+        # first.
+        key = None
+        e_doi = clean_doi(entry.get("doi"))
+        e_arxiv = (entry.get("arxiv") or "").strip()
+        e_anth = (entry.get("anthology") or "").strip()
+        for k, existing in merged.items():
+            if e_doi and clean_doi(existing.get("doi")) == e_doi:
+                key = k
+            elif e_arxiv and (existing.get("arxiv") or "").strip() == e_arxiv:
+                key = k
+            elif e_anth and (existing.get("anthology") or "").strip() == e_anth:
+                key = k
+            if key:
+                break
+        if key is None:
+            key = norm_title(title)
         rec = merged.get(key) or blank(title)
         # Curated values win outright; that is the point of the file.
         for field, value in entry.items():

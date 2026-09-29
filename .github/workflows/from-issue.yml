@@ -133,6 +133,6 @@ jobs:
             **Reviewers:** check the name spelling, the affiliation and, for a
             member, that the resolved OpenAlex id belongs to the right person.
             Author names are widely shared and a wrong id attributes someone
-            else's papers. After merging, the nightly sync fills in the rest.
+            else's papers. After merging, the monthly sync fills in the rest.
 
             Closes #${{ github.event.issue.number }}

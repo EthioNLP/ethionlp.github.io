@@ -25,9 +25,13 @@ go stale or overstate.
 {%- assign expertise = site.data.generated.expertise.per_member | where: "slug", slug | first -%}
 
 {%- assign arts = site.data.generated.huggingface.artifacts | default: empty -%}
+{%- comment -%}
+Focused breadth only, matching every aggregate page. Counting multilingual
+work here made a member's figure impossible to reconcile with any site total.
+{%- endcomment -%}
 {%- assign my_arts = "" | split: "" -%}
 {%- for a in arts -%}
-  {%- if a.member == slug %}{% assign my_arts = my_arts | push: a %}{% endif -%}
+  {%- if a.member == slug and a.breadth == "focused" %}{% assign my_arts = my_arts | push: a %}{% endif -%}
 {%- endfor -%}
 
 <div class="page-head">

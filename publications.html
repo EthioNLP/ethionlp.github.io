@@ -23,13 +23,25 @@ description: >-
       and arXiv id, and merged with hand-curated entries. {{ data.totals.ethiopian }} of them are
       directly about Ethiopian languages.
     </p>
-    {%- if meta.sources.publications %}
+    {%- comment -%}
+    Stated at the top rather than in the methods section below, because a
+    reader who spots a wrong author or venue forms that judgement here, at the
+    list, and will not scroll to find out what to do about it. Both routes are
+    forms: neither needs Git or a checkout.
+    {%- endcomment -%}
     <p class="muted" style="font-size: var(--t-sm)">
-      Last synced {{ meta.sources.publications | date: "%-d %B %Y" }}.
-      Something missing or wrong? Add it to
-      <a href="https://github.com/{{ site.repository }}/blob/master/_data/publications_manual.yml"><code>_data/publications_manual.yml</code></a>.
+      This list is collected automatically, once a month, from public
+      bibliographic indexes{% if meta.sources.publications %}; it was last
+      refreshed on {{ meta.sources.publications | date: "%-d %B %Y" }}{% endif %}.
+      Those indexes are not always right: author names in particular are
+      sometimes recorded wrongly.
+      <strong>If you see an entry that is wrong, or a paper attributed to the
+      wrong person, please tell us</strong> and it will be corrected against
+      the publisher's own record.
+      <a href="https://github.com/{{ site.repository }}/issues/new?title=Incorrect%20publication%20entry&amp;body=Which%20entry%20is%20wrong%2C%20and%20what%20should%20it%20say%3F%0A%0ALink%20to%20the%20paper%20(ACL%20Anthology%2C%20DOI%20or%20arXiv)%3A%0A">Report an incorrect entry</a>,
+      or
+      <a href="https://github.com/{{ site.repository }}/issues/new?template=add-publications.yml">add your own publications</a>.
     </p>
-    {%- endif %}
   </div>
 </div>
 
@@ -142,12 +154,19 @@ description: >-
         <p>
           Each member file in <code>_members/</code> can carry an
           <code>orcid</code>, <code>openalex</code>, <code>semantic_scholar</code>
-          or <code>dblp</code> identifier. A nightly job queries each of those,
+          or <code>dblp</code> identifier. A monthly job queries each of those,
           merges the results by normalised title, and marks any author who is a
           member so their name links to their profile.
         </p>
+        {%- comment -%}
+        Both halves counted over the same set. totals.members_covered is a
+        count over every file in _members/, including the unconfirmed imports
+        that are published: false, while site.members holds only the listed
+        members -- so the sentence read "21 of 15".
+        {%- endcomment -%}
+        {%- assign with_id = site.members | where_exp: "m", "m.orcid or m.openalex or m.semantic_scholar or m.dblp" -%}
         <p>
-          {{ data.totals.members_covered }} of {{ site.members | size }} members
+          {{ with_id | size }} of {{ site.members | size }} listed members
           currently have an identifier. Adding one is a two-line change.
         </p>
       </div>
@@ -157,7 +176,8 @@ description: >-
           Indexes sometimes record venues incorrectly, and they rarely carry
           links to datasets, models or code. Anything you put in
           <code>_data/publications_manual.yml</code> takes precedence over the
-          fetched version, matched on the title, so a correction survives the
+          fetched version, matched on its DOI, arXiv id or anthology id before
+          its title, so a correction survives the
           next sync.
         </p>
         <a class="btn btn--ghost" href="https://github.com/{{ site.repository }}/blob/master/_data/publications_manual.yml" rel="noopener">

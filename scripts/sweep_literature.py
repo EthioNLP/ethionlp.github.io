@@ -272,6 +272,37 @@ def norm_name(s: str) -> str:
     return " ".join(s.split())
 
 
+# Strings the indexes return in an author slot that are not people: the
+# publisher of the proceedings, a laboratory, or -- seen in the wild -- the
+# paper's own title repeated as its sole author. Published under a heading
+# that reads "Researchers who are not members", each of these becomes a
+# claim that a person exists.
+NOT_A_PERSON = re.compile(
+    r"\b(universit|institut(e|o|ut)?\b|laborator|department|faculty|school of"
+    r"|college of|research (group|center|centre)|associat(ion|ed)|society"
+    r"|community|press\b|publish|gmbh|ltd\b|inc\.|llc\b|foundation)",
+    re.I,
+)
+
+
+def is_person(name: str | None) -> bool:
+    """False for an organisation, an affiliation line, or a paper title."""
+    n = (name or "").strip()
+    if not n:
+        return False
+    if NOT_A_PERSON.search(n):
+        return False
+    # A person's name is short. A title masquerading as one is not.
+    words = n.split()
+    if len(n) > 60 or len(words) > 6:
+        return False
+    # ALL CAPS across several words is a title, not a name.
+    letters = [c for c in n if c.isalpha()]
+    if len(words) > 2 and letters and all(c.isupper() for c in letters):
+        return False
+    return True
+
+
 def name_keys(name: str) -> set[str]:
     """Keys a name can be matched on, to survive middle names being dropped.
 

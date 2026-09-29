@@ -6,7 +6,13 @@ name: Sync ecosystem data
 
 on:
   schedule:
-    - cron: "17 3 * * *"     # 03:17 UTC daily, off the hour, to be a good API citizen
+    # 03:17 UTC on the 1st of each month. Off the hour, to be a good API
+    # citizen. Monthly rather than nightly: the sources these scripts read
+    # change on the scale of weeks, a daily pull produced a pull request
+    # most days with nothing worth reviewing in it, and a review nobody
+    # reads is not a review. Run it by hand from the Actions tab whenever
+    # something has just been published.
+    - cron: "17 3 1 * *"
   workflow_dispatch:
     inputs:
       target:
@@ -98,10 +104,10 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          branch: data/nightly-sync
+          branch: data/monthly-sync
           delete-branch: true
-          commit-message: "data: nightly ecosystem sync"
-          title: "Nightly data sync"
+          commit-message: "data: monthly ecosystem sync"
+          title: "Monthly data sync"
           labels: data-sync
           body: |
             Automatic refresh of `_data/generated/` from Hugging Face, GitHub,

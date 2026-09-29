@@ -118,3 +118,22 @@
   why: >-
     Zenodo deposit of a talk, not a journal article. Its abstract opens "In the
     first part of my talk, I will discuss".
+
+# ─── Deposits and books, not papers ──────────────────────────────────────────
+# The sibling of the afri-aya entry above. Excluding one DOI of a pair and not
+# the other is the same narrowness this file already warns about.
+
+- doi: 10.57967/hf/9030
+  why: >-
+    afri-aya, a Hugging Face dataset deposit. Title is the bare repository
+    slug, venue "Hugging Face".
+
+- doi: 10.57967/hf/8266
+  why: >-
+    waxal-autolabled, a Hugging Face dataset deposit; the title is the repo
+    slug, typo included.
+
+- title: Modern Internet Programming
+  why: >-
+    A textbook, not a paper. Its url is an Amazon listing and its abstract is
+    textbook prose ("HTML is a language used to describe to a browser...").

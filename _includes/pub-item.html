@@ -14,9 +14,19 @@
 
   {%- if p.authors.size > 0 %}
   <p class="pub__authors">
+    {%- comment -%}
+    Link only to a member who is actually listed. sync_publications.py tags
+    authors against every file in _members/, including the unconfirmed imports
+    carrying `published: false`, whose profile pages Jekyll never builds -- so
+    a bare `if a.member` produced dead links to them.
+    {%- endcomment -%}
     {%- for a in p.authors -%}
+      {%- assign m = nil -%}
       {%- if a.member -%}
-        <a class="is-member" href="{{ '/community/' | append: a.member | append: '/' | relative_url }}">{{ a.name }}</a>
+        {%- assign m = site.members | where: "slug", a.member | first -%}
+      {%- endif -%}
+      {%- if m -%}
+        <a class="is-member" href="{{ m.url | relative_url }}">{{ a.name }}</a>
       {%- else -%}
         {{ a.name }}
       {%- endif -%}

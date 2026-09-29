@@ -3,7 +3,7 @@
 
 Why this exists
 ───────────────
-The nightly sync reads OpenAlex, whose `author.display_name` is not
+The monthly sync reads OpenAlex, whose `author.display_name` is not
 authoritative and is sometimes simply wrong: EMNLP 2025's homophone
 normalisation paper came back with "Noam Abadi" where the ACL Anthology, and
 the paper itself, say "Negasi Haile Abadi". A name is a claim about a person,
@@ -170,7 +170,11 @@ def from_anthology(ident: str) -> dict | None:
         "year": int(bib_field(bib, "year") or 0) or None,
         "venue": debrace(bib_field(bib, "booktitle") or bib_field(bib, "journal")) or None,
         "anthology": ident,
-        "doi": clean_doi(doi) if doi else f"10.18653/v1/{ident}",
+        # Only the DOI the Anthology actually records. Synthesising
+        # 10.18653/v1/<id> is wrong for anything ACL did not publish: RANLP is
+        # INCOMA and LREC 2022 is ELRA, and neither has an ACL DOI, so the
+        # invented one 404s and would overwrite a working DOI on merge.
+        "doi": clean_doi(doi) if doi else None,
         "url": f"https://aclanthology.org/{ident}/",
         "source_of_record": "ACL Anthology",
     }

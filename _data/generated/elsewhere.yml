@@ -35,9 +35,10 @@ terms:
 - Ethiopian language
 - Ethiopic
 counts:
-  works_without_member: 534
-  authors_not_members: 889
+  works_without_member: 532
+  authors_not_members: 883
   dropped_off_topic: 12
+  works: 532
 works:
 - title: 'Tigrinya Number Verbalization: Rules, Algorithm, and Implementation'
   year: 2026
@@ -301,12 +302,7 @@ works:
   open_access: true
   citations: 0
   field: Computer Science
-  authors:
-  - name: DESIGN AND DEVELOPMENT OF MORPHOLOGICAL ANALYZER FOR TIGRIGNA VERBS USING HYBRID APPROACH
-    orcid: null
-    openalex: A5128783946
-    affiliation: null
-    countries: []
+  authors: []
   sources:
   - openalex
   has_member: false
@@ -2074,11 +2070,6 @@ works:
   citations: 1
   field: Computer Science
   authors:
-  - name: Association for Computational Linguistics 2025
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
   - name: Batista-Navarro, Riza
     orcid: null
     openalex: null
@@ -2275,12 +2266,7 @@ works:
   open_access: true
   citations: 0
   field: Arts and Humanities
-  authors:
-  - name: ALIF GEBRETSADIK TINSUE
-    orcid: null
-    openalex: A5138079554
-    affiliation: null
-    countries: []
+  authors: []
   sources:
   - openalex
   has_member: false
@@ -2513,74 +2499,6 @@ works:
     why: 'topic: Computer science'
     field: Arts and Humanities
     verified: true
-- title: Viability of Machine Translation for Healthcare in Low-Resourced Languages
-  year: 2025
-  venue: Open MIND
-  doi: 10.48448/vxg6-4t41
-  url: https://doi.org/10.48448/vxg6-4t41
-  open_access: true
-  citations: 0
-  field: null
-  authors:
-  - name: Association for Computational Linguistics 2025
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
-  - name: Abadi, Negasi
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
-  - name: Alaa, Ahmed
-    orcid: null
-    openalex: null
-    affiliation: Berkeley College
-    countries:
-    - US
-  - name: Choudhury, Monojit
-    orcid: null
-    openalex: null
-    affiliation: Mohamed bin Zayed University of Artificial Intelligence
-    countries:
-    - AE
-  - name: Gebremeskel, Blen
-    orcid: null
-    openalex: null
-    affiliation: Berkeley College
-    countries:
-    - US
-  - name: Mehandru, Nikita
-    orcid: null
-    openalex: null
-    affiliation: University of California, Berkeley
-    countries:
-    - US
-  - name: Nigatu, Hellina Hailu
-    orcid: null
-    openalex: null
-    affiliation: Berkeley College
-    countries:
-    - US
-  sources:
-  - openalex
-  has_member: false
-  author_names:
-  - Association for Computational Linguistics 2025
-  - Abadi, Negasi
-  - Alaa, Ahmed
-  - Choudhury, Monojit
-  - Gebremeskel, Blen
-  - Mehandru, Nikita
-  - Nigatu, Hellina Hailu
-  author_line: Association for Computational Linguistics 2025, Abadi, Negasi, Alaa, Ahmed, Choudhury,
-    Monojit, Gebremeskel, Blen, Mehandru, Nikita, Nigatu, Hellina Hailu
-  type: journal
-  relevance:
-    keep: true
-    why: 'topic: Machine translation'
-    field: null
-    verified: true
 - title: Abstractive Tigrigna Text Summarization using Deep Learning Approach
   year: 2025
   venue: Raya University Repository
@@ -2807,12 +2725,7 @@ works:
   open_access: true
   citations: 0
   field: Computer Science
-  authors:
-  - name: WABI ETANA EBA
-    orcid: null
-    openalex: A5139587249
-    affiliation: null
-    countries: []
+  authors: []
   sources:
   - openalex
   has_member: false
@@ -2910,12 +2823,7 @@ works:
   open_access: true
   citations: 0
   field: Computer Science
-  authors:
-  - name: DEREJE FUFA WAKJIRA
-    orcid: null
-    openalex: A5139418087
-    affiliation: null
-    countries: []
+  authors: []
   sources:
   - openalex
   has_member: false
@@ -3258,81 +3166,6 @@ works:
     keep: true
     why: 'topic: Computer Vision and Pattern Recognition'
     field: Computer Science
-    verified: true
-- title: 'A Case Against Implicit Standards: Homophone Normalization in Machine Translation for Languages
-    that use the Ge’ez Script.'
-  year: 2025
-  venue: Open MIND
-  doi: 10.48448/j9a4-w546
-  url: https://doi.org/10.48448/j9a4-w546
-  open_access: true
-  citations: 0
-  field: null
-  authors:
-  - name: Association for Computational Linguistics 2025
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
-  - name: Abadi, Negasi
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
-  - name: Ademtew, Henok
-    orcid: null
-    openalex: null
-    affiliation: Velleja Research
-    countries:
-    - IT
-  - name: Belay, Tadesse Destaw
-    orcid: null
-    openalex: null
-    affiliation: Instituto Politécnico Nacional
-    countries:
-    - MX
-  - name: Mitiku Alemayehu, Hizkiel
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
-  - name: Nigatu, Hellina Hailu
-    orcid: null
-    openalex: null
-    affiliation: Berkeley College
-    countries:
-    - US
-  - name: Tonja, Atnafu
-    orcid: null
-    openalex: null
-    affiliation: University College Lahore
-    countries:
-    - PK
-  - name: Yimam, Seid Muhie
-    orcid: null
-    openalex: null
-    affiliation: University of Fribourg
-    countries:
-    - CH
-  sources:
-  - openalex
-  has_member: false
-  author_names:
-  - Association for Computational Linguistics 2025
-  - Abadi, Negasi
-  - Ademtew, Henok
-  - Belay, Tadesse Destaw
-  - Mitiku Alemayehu, Hizkiel
-  - Nigatu, Hellina Hailu
-  - Tonja, Atnafu
-  - Yimam, Seid Muhie
-  author_line: Association for Computational Linguistics 2025, Abadi, Negasi, Ademtew, Henok, Belay, Tadesse
-    Destaw, Mitiku Alemayehu, Hizkiel, Nigatu, Hellina Hailu, Tonja, Atnafu, Yimam, Seid Muhie
-  type: journal
-  relevance:
-    keep: true
-    why: 'topic: Computer science'
-    field: null
     verified: true
 - title: DEVELOPMENT OF A GEEZ GRAMMAR CHECKER USING A HYBRID APPROACH
   year: 2025
@@ -19812,12 +19645,7 @@ works:
   open_access: true
   citations: 1
   field: Computer Science
-  authors:
-  - name: MASSARIELLO MERZAGORA GIOVANNA
-    orcid: null
-    openalex: null
-    affiliation: null
-    countries: []
+  authors: []
   sources:
   - openalex
   has_member: false
@@ -20882,16 +20710,6 @@ authors:
   coauthored_with_member: false
   first_year: 2019
   last_year: 2020
-- name: Association for Computational Linguistics 2025
-  orcid: null
-  openalex: null
-  affiliation: null
-  countries: []
-  works: 3
-  citations: 1
-  coauthored_with_member: false
-  first_year: 2025
-  last_year: 2025
 - name: Shafie Abdi Mohamed
   orcid: 0009-0009-2844-5304
   openalex: A5004590250
@@ -26082,16 +25900,6 @@ authors:
   coauthored_with_member: false
   first_year: 2018
   last_year: 2018
-- name: MASSARIELLO MERZAGORA GIOVANNA
-  orcid: null
-  openalex: null
-  affiliation: null
-  countries: []
-  works: 1
-  citations: 1
-  coauthored_with_member: false
-  first_year: 2004
-  last_year: 2004
 - name: Marco Cristani
   orcid: 0000-0002-0523-6042
   openalex: A5033671063
@@ -26692,16 +26500,6 @@ authors:
   coauthored_with_member: false
   first_year: 2021
   last_year: 2021
-- name: ALIF GEBRETSADIK TINSUE
-  orcid: null
-  openalex: A5138079554
-  affiliation: null
-  countries: []
-  works: 1
-  citations: 0
-  coauthored_with_member: false
-  first_year: 2025
-  last_year: 2025
 - name: Abdella Kemal Mohammed
   orcid: 0000-0003-0937-2583
   openalex: A5056996181
@@ -27195,26 +26993,6 @@ authors:
 - name: D Archana
   orcid: null
   openalex: A5125724810
-  affiliation: null
-  countries: []
-  works: 1
-  citations: 0
-  coauthored_with_member: false
-  first_year: 2026
-  last_year: 2026
-- name: DEREJE FUFA WAKJIRA
-  orcid: null
-  openalex: A5139418087
-  affiliation: null
-  countries: []
-  works: 1
-  citations: 0
-  coauthored_with_member: false
-  first_year: 2025
-  last_year: 2025
-- name: DESIGN AND DEVELOPMENT OF MORPHOLOGICAL ANALYZER FOR TIGRIGNA VERBS USING HYBRID APPROACH
-  orcid: null
-  openalex: A5128783946
   affiliation: null
   countries: []
   works: 1
@@ -28772,16 +28550,6 @@ authors:
   coauthored_with_member: false
   first_year: 2016
   last_year: 2016
-- name: WABI ETANA EBA
-  orcid: null
-  openalex: A5139587249
-  affiliation: null
-  countries: []
-  works: 1
-  citations: 0
-  coauthored_with_member: false
-  first_year: 2025
-  last_year: 2025
 - name: Wendesen Endale
   orcid: null
   openalex: A5022005921

@@ -202,7 +202,30 @@ above this claims.
           | where_exp: "l", "l.models == 0"
           | where_exp: "l", "l.datasets == 0"
           | where_exp: "l", "l.research_works == nil or l.research_works == 0" -%}
-    {%- assign nothing_ranked = nothing | where_exp: "l", "l.speakers > 0" -%}
+    {%- comment -%}
+    Ranked through speakers.html, not on the raw l.speakers column. Reading
+    catalog.yml directly bypasses both the 2007 census and the suppression
+    list, which put Sebat Bet Gurage top of this list on a figure the census
+    file rejects as the whole Gurage cluster's total, and dropped Hadiyya and
+    Gamo -- the two largest languages here with nothing built -- because they
+    have no Wikidata figure at all. catalog.html already resolves speakers
+    through the include for the same reason.
+    {%- endcomment -%}
+    {%- assign ranked_pairs = "" | split: "" -%}
+    {%- for l in nothing -%}
+      {%- include speakers.html l=l -%}
+      {%- if sp and sp > 0 -%}
+        {%- assign pair = sp | prepend: "0000000000" | slice: -10, 10 | append: "|" | append: l.name -%}
+        {%- assign ranked_pairs = ranked_pairs | push: pair -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign ranked_pairs = ranked_pairs | sort | reverse -%}
+    {%- assign nothing_ranked = "" | split: "" -%}
+    {%- for pair in ranked_pairs -%}
+      {%- assign nm = pair | split: "|" | last -%}
+      {%- assign hit = nothing | where: "name", nm | first -%}
+      {%- if hit -%}{%- assign nothing_ranked = nothing_ranked | push: hit -%}{%- endif -%}
+    {%- endfor -%}
     <ul class="gaplist gaplist--quiet">
       {%- for l in nothing_ranked limit: 10 %}
       <li class="gaplist__row">

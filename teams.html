@@ -7,7 +7,12 @@ description: >-
 ---
 
 {%- assign hf = site.data.generated.huggingface -%}
-{%- assign owned = hf.artifacts -%}
+{%- comment -%}
+Focused breadth only, as /ecosystem/ uses. Counting multilingual work
+here credited a team with an artifact that /ecosystem/ does not list,
+so the two pages disagreed: 28 here against 27 there.
+{%- endcomment -%}
+{%- assign owned = hf.artifacts | where: "breadth", "focused" -%}
 
 <div class="page-head">
   <div class="wrap wrap--wide">
@@ -100,7 +105,7 @@ Merging the two would quietly annex other people's research.
         <p class="lede">
           {{ teams | size }} labs and projects have registered their
           organisations. Work they publish that covers an Ethiopian language is
-          listed here on the next nightly sync. Models are not submitted by
+          listed here on the next monthly sync. Models are not submitted by
           hand.
         </p>
       </div>

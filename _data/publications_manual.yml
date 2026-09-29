@@ -42,13 +42,11 @@
     - name: Mesay Gemeda Yigezu
     - name: Moges Ahmed Mehamed
     - name: Abinew Ali Ayele
-    - name: Tadesse Kebede Guge
     - name: Ebrahim Chekol Jibril
     - name: Michael Melese Woldeyohannis
     - name: Olga Kolesnikova
     - name: Philipp Slusallek
     - name: Dietrich Klakow
-    - name: Shengwu Xiong
     - name: Seid Muhie Yimam
 
 - title: "Walia-LLM: Enhancing Amharic-LLaMA by Integrating Task-Specific and Generative Datasets"
@@ -164,3 +162,289 @@
   doi: 10.18653/v1/2025.findings-naacl.350
   anthology: 2025.findings-naacl.350
   url: https://aclanthology.org/2025.findings-naacl.350/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'Afri-MCQA: Multimodal Cultural Question Answering for African Languages'
+  authors:
+  - name: Atnafu Lambebo Tonja
+  - name: Srija Anand
+  - name: Emilio Villa-Cueva
+  - name: Israel Abebe Azime
+  - name: Jesujoba Oluwadara Alabi
+  - name: Muhidin A. Mohamed
+  - name: Debela Desalegn Yadeta
+  - name: Negasi Haile Abadi
+  - name: Abigail Oppong
+  - name: Nnaemeka Casmir Obiefuna
+  - name: Idris Abdulmumin
+  - name: Naome A Etori
+  - name: Eric Peter Wairagala
+  - name: Kanda Patrick Tshinu
+  - name: Imanigirimbabazi Emmanuel
+  - name: Gabofetswe Malema
+  - name: Alham Fikri Aji
+  - name: David Ifeoluwa Adelani
+  - name: Thamar Solorio
+  year: 2026
+  venue: 'Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume
+    1: Long Papers)'
+  doi: 10.18653/v1/2026.acl-long.1869
+  anthology: 2026.acl-long.1869
+  url: https://aclanthology.org/2026.acl-long.1869/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'Explainable AI: XAI-guided context-aware data augmentation'
+  authors:
+  - name: Melkamu Abay Mersha
+  - name: Mesay Gemeda Yigezu
+  - name: Atnafu Lambebo Tonja
+  - name: Hassan Shakil
+  - name: Samer Iskander
+  - name: Olga Kolesnikova
+  - name: Jugal Kalita
+  year: 2025
+  venue: Expert Systems with Applications
+  doi: 10.1016/j.eswa.2025.128364
+  url: https://doi.org/10.1016/j.eswa.2025.128364
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'The Esethu Framework: Reimagining Sustainable Dataset Governance and Curation for Low-Resource
+    Languages'
+  authors:
+  - name: Jenalea Rajab
+  - name: Anuoluwapo Aremu
+  - name: Everlyn Asiko Chimoto
+  - name: Dale Dunbar
+  - name: Graham Morrissey
+  - name: Fadel Thior
+  - name: Luandrie Potgieter
+  - name: Jessica Ojo
+  - name: Atnafu Lambebo Tonja
+  - name: Maushami Chetty
+  - name: Wilhelmina NdapewaOnyothi Nekoto
+  - name: Pelonomi Moiloa
+  - name: Jade Abbott
+  - name: Vukosi N. Marivate
+  - name: Benjamin Rosman
+  year: 2025
+  venue: 'Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume
+    1: Long Papers)'
+  doi: 10.18653/v1/2025.acl-long.1487
+  anthology: 2025.acl-long.1487
+  url: https://aclanthology.org/2025.acl-long.1487/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: Viability of Machine Translation for Healthcare in Low-Resourced Languages
+  authors:
+  - name: Hellina Hailu Nigatu
+  - name: Nikita Mehandru
+  - name: Negasi Haile Abadi
+  - name: Blen Gebremeskel
+  - name: Ahmed M. Alaa
+  - name: Monojit Choudhury
+  year: 2025
+  venue: Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing
+  doi: 10.18653/v1/2025.emnlp-main.535
+  anthology: 2025.emnlp-main.535
+  url: https://aclanthology.org/2025.emnlp-main.535/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages'
+  authors:
+  - name: Nedjma Djouhra Ousidhoum
+  - name: Shamsuddeen Hassan Muhammad
+  - name: Mohamed Abdalla
+  - name: Idris Abdulmumin
+  - name: Ibrahim Said Ahmad
+  - name: Sanchit Ahuja
+  - name: Alham F. Aji
+  - name: Vladimir Araujo
+  - name: Abinew Ali Ayele
+  - name: Pavan Baswani
+  - name: Meriem Beloucif
+  - name: Chris Biemann
+  - name: Sofia Bourhim
+  - name: Christine de Kock
+  - name: Genet Shanko Dekebo
+  - name: Oumaima Hourrane
+  - name: Gopichand Kanumolu
+  - name: Lokesh Madasu
+  - name: Samuel Rutunda
+  - name: Manish Shrivastava
+  - name: Thamar Solorio
+  - name: Nirmal Surange
+  - name: Hailegnaw Getaneh Tilaye
+  - name: Krishnapriya Vishnubhotla
+  - name: Genta Indra Winata
+  - name: Seid Muhie Yimam
+  - name: Saif M. Mohammad
+  year: 2024
+  venue: 'Findings of the Association for Computational Linguistics: ACL 2024'
+  doi: 10.18653/v1/2024.findings-acl.147
+  anthology: 2024.findings-acl.147
+  url: https://aclanthology.org/2024.findings-acl.147/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'AfriQA: Cross-lingual Open-Retrieval Question Answering for African Languages'
+  authors:
+  - name: Odunayo Ogundepo
+  - name: Tajuddeen R. Gwadabe
+  - name: Clara E. Rivera
+  - name: Jonathan H. Clark
+  - name: Sebastian Ruder
+  - name: David Ifeoluwa Adelani
+  - name: Bonaventure F. P. Dossou
+  - name: Abdou Aziz Diop
+  - name: Claytone Sikasote
+  - name: Gilles Hacheme
+  - name: Happy Buzaaba
+  - name: Ignatius U. Ezeani
+  - name: Rooweither Mabuya
+  - name: Salomey Osei
+  - name: Chris Chinenye Emezue
+  - name: Albert Njoroge Kahira
+  - name: Shamsuddeen Hassan Muhammad
+  - name: Akintunde Oladipo
+  - name: Abraham Toluwase Owodunni
+  - name: Atnafu Lambebo Tonja
+  - name: Iyanuoluwa Shode
+  - name: Akari Asai
+  - name: Tunde Oluwaseyi Ajayi
+  - name: Clemencia Siro
+  - name: Steven Arthur
+  - name: Mofetoluwa Adeyemi
+  - name: Orevaoghene Ahia
+  - name: Anuoluwapo Aremu
+  - name: Oyinkansola Awosan
+  - name: Chiamaka Chukwuneke
+  - name: Bernard Opoku
+  - name: Awokoya Ayodele
+  - name: Verrah Otiende
+  - name: Christine Mwase
+  - name: Boyd Sinkala
+  - name: Andre Niyongabo Rubungo
+  - name: Daniel A. Ajisafe
+  - name: Emeka Felix Onwuegbuzia
+  - name: Habib Mbow
+  - name: Emile Niyomutabazi
+  - name: Eunice Mukonde
+  - name: Falalu Ibrahim Lawan
+  - name: Ibrahim Said Ahmad
+  - name: Jesujoba O. Alabi
+  - name: Martin Namukombo
+  - name: Mbonu Chinedu
+  - name: Mofya Phiri
+  - name: Neo Putini
+  - name: Ndumiso Mngoma
+  - name: Priscilla A. Amouk
+  - name: Ruqayya Nasir Iro
+  - name: Sonia Adhiambo
+  year: 2023
+  venue: 'Findings of the Association for Computational Linguistics: EMNLP 2023'
+  doi: 10.18653/v1/2023.findings-emnlp.997
+  anthology: 2023.findings-emnlp.997
+  url: https://aclanthology.org/2023.findings-emnlp.997/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: Exploring Amharic Hate Speech Data Collection and Classification Approaches
+  authors:
+  - name: Abinew Ali Ayele
+  - name: Seid Muhie Yimam
+  - name: Tadesse Destaw Belay
+  - name: Tesfa Tegegne Asfaw
+  - name: Chris Biemann
+  year: 2023
+  venue: Proceedings of the 14th International Conference on Recent Advances in Natural Language Processing
+  anthology: 2023.ranlp-1.6
+  url: https://aclanthology.org/2023.ranlp-1.6/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'Elvis vs. M. Jackson: Who has More Albums? Classification and Identification of Elements in
+    Comparative Questions'
+  authors:
+  - name: Meriem Beloucif
+  - name: Seid Muhie Yimam
+  - name: Steffen Stahlhacke
+  - name: Chris Biemann
+  year: 2022
+  venue: Proceedings of the Thirteenth Language Resources and Evaluation Conference
+  anthology: 2022.lrec-1.402
+  url: https://aclanthology.org/2022.lrec-1.402/
+
+# Author list taken from the publisher's own record rather than from an
+# aggregator, which named the wrong person. Fuller name forms and accented
+# spellings already on file are kept where the publisher's copy dropped them.
+- title: 'Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets'
+  authors:
+  - name: Julia Kreutzer
+  - name: Isaac Rayburn Caswell
+  - name: Lisa Wang
+  - name: Ahsan Wahab
+  - name: Daan van Esch
+  - name: Nasanbayar Ulzii-Orshikh
+  - name: Allahsera Auguste Tapo
+  - name: Nishant Subramani
+  - name: Artem Sokolov
+  - name: Claytone Sikasote
+  - name: Monang Setyawan
+  - name: Supheakmungkol Sarin
+  - name: Sokhar Samb
+  - name: Benoît Sagot
+  - name: Clara E. Rivera
+  - name: Annette Rios
+  - name: Isabel Papadimitriou
+  - name: Salomey Osei
+  - name: Pedro Ortiz Suárez
+  - name: Iroro Orife
+  - name: Kelechi Ogueji
+  - name: Andre Niyongabo Rubungo
+  - name: Toan Q. Nguyen
+  - name: Mathias Müller
+  - name: André Müller
+  - name: Shamsuddeen Hassan Muhammad
+  - name: Nanda Muhammad
+  - name: Ayanda Mnyakeni
+  - name: Jamshidbek Mirzakhalov
+  - name: Tapiwanashe Matangira
+  - name: Colin Leong
+  - name: Nze Lawson
+  - name: Sneha Kudugunta
+  - name: Yacine Jernite
+  - name: Mathias Jenny
+  - name: Orhan Firat
+  - name: Bonaventure F. P. Dossou
+  - name: Sakhile Dlamini
+  - name: Nisansa de Silva
+  - name: Sakine Çabuk Ballı
+  - name: Stella Biderman
+  - name: Alessia Battisti
+  - name: Ahmed Baruwa
+  - name: Ankur Bapna
+  - name: Pallavi N. Baljekar
+  - name: Israel Abebe Azime
+  - name: Ayodele Awokoya
+  - name: Duygu Ataman
+  - name: Orevaoghene Ahia
+  - name: Oghenefego Ahia
+  - name: Sweta Agrawal
+  - name: Mofetoluwa Adeyemi
+  year: 2022
+  venue: Transactions of the Association for Computational Linguistics
+  doi: 10.1162/tacl_a_00447
+  url: https://doi.org/10.1162/tacl_a_00447

@@ -1,7 +1,7 @@
 totals:
-  publications: 269
-  ethiopian: 97
-  members_covered: 21
+  publications: 261
+  ethiopian: 96
+  members_covered: 15
   years:
   - 2026
   - 2025
@@ -28,13 +28,13 @@ by_year:
 - year: 2015
   count: 4
 - year: 2016
-  count: 9
+  count: 8
 - year: 2017
-  count: 7
+  count: 6
 - year: 2018
   count: 17
 - year: 2019
-  count: 9
+  count: 8
 - year: 2020
   count: 10
 - year: 2021
@@ -42,75 +42,29 @@ by_year:
 - year: 2022
   count: 29
 - year: 2023
-  count: 40
+  count: 37
 - year: 2024
   count: 46
 - year: 2025
   count: 42
 - year: 2026
-  count: 33
+  count: 31
 by_type:
 - type: conference
   count: 144
-- type: preprint
-  count: 54
 - type: journal
-  count: 53
-- type: other
-  count: 8
+  count: 52
+- type: preprint
+  count: 51
 - type: book-chapter
   count: 5
+- type: other
+  count: 4
 - type: workshop
   count: 4
 - type: thesis
   count: 1
 publications:
-- key: afri-aya
-  title: afri-aya
-  authors:
-  - name: Bronson Bakunga
-  - name: Kato Steven Mubiru
-  - name: Gimei Alex
-  - name: Glorry Sibomana
-  - name: Cynthia Habonimana
-  - name: Oumayma Essarhi
-  - name: Aisha Hagar
-  - name: Abigail Oppong
-  - name: Jaward Sesay
-  - name: Henok Biadglign Ademtew
-    member: henok-biadglign-ademtew
-  - name: Paul Okewunmi
-  - name: Ashay Srivastava
-  - name: Testimony Adekoya
-  - name: Bayero Abdulkadir
-  - name: Sa'ad Nasir Bashir
-  - name: Tasi'u Jibril
-  - name: Olga Niyongabo
-  - name: Chisom Aniekwensi
-  - name: Chimere George-Emeruwa
-  - name: Alfred Malengo Kondoro
-  - name: Alejandro Salamanca
-  year: 2026
-  venue: Hugging Face
-  type: other
-  doi: 10.57967/hf/9030
-  url: https://doi.org/10.57967/hf/9030
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: null
-  members:
-  - henok-biadglign-ademtew
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Bronson Bakunga, Kato Steven Mubiru, Gimei Alex, Glorry Sibomana, Cynthia Habonimana, Oumayma
-    Essarhi, Aisha Hagar, Abigail Oppong, Jaward Sesay, Henok Biadglign Ademtew, Paul Okewunmi, Ashay
-    Srivastava, Testimony Adekoya, Bayero Abdulkadir, Sa'ad Nasir Bashir, Tasi'u Jibril, Olga Niyongabo,
-    Chisom Aniekwensi, Chimere George-Emeruwa, Alfred Malengo Kondoro, Alejandro Salamanca
-  tracks: []
 - key: afri-mcqa-multimodal-cultural-question-answering-for-african-languages
   title: 'Afri-MCQA: Multimodal Cultural Question Answering for African Languages'
   authors:
@@ -121,9 +75,9 @@ publications:
   - name: Israel Abebe Azime
     member: israel-abebe-azime
   - name: Jesujoba Oluwadara Alabi
-  - name: Muhidin Mohamed
+  - name: Muhidin A. Mohamed
   - name: Debela Desalegn Yadeta
-  - name: Noam Abadi
+  - name: Negasi Haile Abadi
   - name: Abigail Oppong
   - name: Nnaemeka Casmir Obiefuna
   - name: Idris Abdulmumin
@@ -136,12 +90,13 @@ publications:
   - name: David Ifeoluwa Adelani
   - name: Thamar Solorio
   year: 2026
-  venue: arXiv (Cornell University)
+  venue: 'Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume
+    1: Long Papers)'
   type: conference
   doi: 10.18653/v1/2026.acl-long.1869
-  url: https://doi.org/10.18653/v1/2026.acl-long.1869
+  url: https://aclanthology.org/2026.acl-long.1869/
   arxiv: '2601.05699'
-  anthology: null
+  anthology: 2026.acl-long.1869
   code: null
   dataset: null
   model: null
@@ -156,11 +111,12 @@ publications:
   - israel-abebe-azime
   sources:
   - openalex
+  - curated
   ethiopian: false
   author_line: Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara
-    Alabi, Muhidin Mohamed, Debela Desalegn Yadeta, Noam Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna,
-    Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel,
-    Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio
+    Alabi, Muhidin A. Mohamed, Debela Desalegn Yadeta, Negasi Haile Abadi, Abigail Oppong, Nnaemeka Casmir
+    Obiefuna, Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi
+    Emmanuel, Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio
   tracks:
   - applications
 - key: afrifact-cultural-information-retrieval-evidence-extraction-and-fact-checking-fo
@@ -213,8 +169,8 @@ publications:
     encourage work on low-resource information retrieval, evidence retrieval, and fact checking.
   members:
   - israel-abebe-azime
-  - tadesse-destaw-belay
   - atnafu-lambebo-tonja
+  - tadesse-destaw-belay
   sources:
   - openalex
   ethiopian: false
@@ -266,9 +222,9 @@ publications:
     and evaluate their performance. Our results show that models trained on AFRILANGEDU consistently outperform
     their base counterparts, and combining SFT and DPO yields substantial improvements, with gain'
   members:
+  - tadesse-destaw-belay
   - israel-abebe-azime
   - seid-muhie-yimam
-  - tadesse-destaw-belay
   sources:
   - openalex
   ethiopian: false
@@ -314,7 +270,6 @@ publications:
     across regions and evaluation settings. Our findings emphasize the need for culturally grounded benchmarks
     that go beyond language-level evaluation to more accurately assess and '
   members:
-  - dagnachew-mekonnen
   - israel-abebe-azime
   - seid-muhie-yimam
   sources:
@@ -365,9 +320,9 @@ publications:
     voting and individual annotator modeling. Regarding the aggregation approach, the multi-label and
     multitask approaches are better for modeling clustered annotators than an ensemble and model majo'
   members:
+  - tadesse-destaw-belay
   - abinew-ali-ayele
   - seid-muhie-yimam
-  - tadesse-destaw-belay
   sources:
   - openalex
   ethiopian: false
@@ -762,12 +717,11 @@ publications:
     of vowel length and consonant gemination to ASR errors, and the training dynamics of multilingual
     CTC models. Our models and codebase are publicly available to the research community.'
   members:
-  - dagnachew-mekonnen
   - israel-abebe-azime
-  - michael-melese
-  - walelign-tewabe-sewunetie
   - atnafu-lambebo-tonja
   - tadesse-kebede
+  - michael-melese
+  - walelign-tewabe-sewunetie
   sources:
   - openalex
   ethiopian: true
@@ -807,7 +761,6 @@ publications:
     for Computational Linguistics: ACL 2026. 2026.'
   members:
   - hellina-hailu-nigatu
-  - senait-mengesha
   sources:
   - openalex
   ethiopian: false
@@ -869,8 +822,8 @@ publications:
     Seid Muhie Yimam, Shamsuddeen Hassan Muhammad. Proceedings of the 7th Workshop on African Natural
     Language Processing (AfricaNLP 2026). 2026.
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: false
@@ -1375,8 +1328,8 @@ publications:
     safety alignment is superficial, providing strong evidence against the assumption of a universal,
     language-agnostic harm manifold within the specific low-resource languages studie
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: true
@@ -1584,29 +1537,6 @@ publications:
   - models
   - evaluation
   - capacity
-- key: waxal-autolabled
-  title: waxal-autolabled
-  authors:
-  - name: Israel Abebe Azime
-    member: israel-abebe-azime
-  year: 2026
-  venue: Hugging Face
-  type: other
-  doi: 10.57967/hf/8266
-  url: https://doi.org/10.57967/hf/8266
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: null
-  members:
-  - israel-abebe-azime
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Israel Abebe Azime
-  tracks: []
 - key: who-annotates-in-nlp-a-large-scale-assessment-of-human-annotation-reporting-betw
   title: Who Annotates in NLP? A Large-scale Assessment of Human Annotation Reporting between 2018 and
     2025
@@ -1689,11 +1619,11 @@ publications:
     Negasi Haile Abadi, Tadesse Destaw Belay, Seid Muhie Yimam. Proceedings of the 2025 Conference on
     Empirical Methods in Natural Language Processing. 2025.
   members:
-  - atnafu-lambebo-tonja
   - hellina-hailu-nigatu
+  - atnafu-lambebo-tonja
   - henok-biadglign-ademtew
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   - curated
@@ -1891,9 +1821,9 @@ publications:
     (Volume 1: Long Papers). 2025.'
   members:
   - abinew-ali-ayele
-  - seid-muhie-yimam
   - tadesse-destaw-belay
   - tadesse-kebede
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: false
@@ -1935,10 +1865,10 @@ publications:
     Abdulmumin, Abinew Ali Ayele, Shamsuddeen Hassan Muhammad, Seid Muhie Yimam. Findings of the Association
     for Computational Linguistics: EMNLP 2025. 2025.'
   members:
-  - abinew-ali-ayele
-  - israel-abebe-azime
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - israel-abebe-azime
+  - abinew-ali-ayele
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: false
@@ -2126,8 +2056,7 @@ publications:
     these, AfriBERTa and XLM-R achieved the highest F1-scores of 90.25% and 90.11%, respectively, establishing
     a new performance baseline for the task.These findings underscore the efficacy of advanced multilingual
     and Africa-centric transformer architectures when applied to un'
-  members:
-  - dagnachew-mekonnen
+  members: []
   sources:
   - openalex
   ethiopian: true
@@ -2176,8 +2105,8 @@ publications:
     Self-supervised and transfer learning techniques are promising, but are hindered by limited pre-training
     data, inadequate coverage of dialects, and the availability of resources. Most of the research
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: false
@@ -2321,9 +2250,9 @@ publications:
     Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja,
     Thamar Solorio. Findings of the Association for Computational Linguistics: EMNLP 2025. 2025.'
   members:
-  - atnafu-lambebo-tonja
   - henok-biadglign-ademtew
   - israel-abebe-azime
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -2510,8 +2439,8 @@ publications:
     performance likewise varies by language and cultural context, and (3) prompting in English with explicit
     country context often outperforms in-language prompts for culture-aware emotion '
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: true
@@ -2608,9 +2537,9 @@ publications:
     showed the huge gap between search engines and standalone Deep Research tools, the shortcoming in
     representing the targeted area.
   members:
-  - atnafu-lambebo-tonja
   - israel-abebe-azime
   - tadesse-destaw-belay
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -2668,7 +2597,7 @@ publications:
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Hassan Shakil
-  - name: Samer Iskandar
+  - name: Samer Iskander
   - name: Olga Kolesnikova
   - name: Jugal Kalita
   year: 2025
@@ -2683,12 +2612,13 @@ publications:
   model: null
   abstract: null
   members:
-  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
+  - atnafu-lambebo-tonja
   sources:
   - openalex
+  - curated
   ethiopian: false
-  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskandar,
+  author_line: Melkamu Abay Mersha, Mesay Gemeda Yigezu, Atnafu Lambebo Tonja, Hassan Shakil, Samer Iskander,
     Olga Kolesnikova, Jugal Kalita
   tracks: []
 - key: exploring-sentiment-analysis-in-tigrigna-insights-from-social-media-texts
@@ -2963,8 +2893,8 @@ publications:
     is notably better, with an average accuracy of 70.6%, though it still falls behind the fine-tuning
     baselines. Compared to the English language, GPT-4o and fine-tuning baselines perform sim
   members:
-  - israel-abebe-azime
   - tadesse-kebede
+  - israel-abebe-azime
   sources:
   - openalex
   ethiopian: false
@@ -3229,11 +3159,11 @@ publications:
     Derartu Dagne Geremew, Assefa Atsbiha Tesfu, Philipp Slusallek, Thamar Solorio, Dietrich Klakow. Findings
     of the Association for Computational Linguistics: NAACL 2025. 2025.'
   members:
-  - atnafu-lambebo-tonja
-  - henok-biadglign-ademtew
   - israel-abebe-azime
+  - atnafu-lambebo-tonja
   - tadesse-destaw-belay
   - yonas-chanie
+  - henok-biadglign-ademtew
   sources:
   - openalex
   - curated
@@ -3278,8 +3208,8 @@ publications:
     The study identifies significant gaps in leveraging digital platforms for sustainable peace, including
     government-imposed internet shutdowns, unregulated social media environments, and low medi
   members:
-  - abinew-ali-ayele
   - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   ethiopian: true
@@ -3336,22 +3266,23 @@ publications:
   - name: Graham Morrissey
   - name: Fadel Thior
   - name: Luandrie Potgieter
-  - name: Jessico Ojo
+  - name: Jessica Ojo
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Maushami Chetty
-  - name: Wilhelmina Nekoto
+  - name: Wilhelmina NdapewaOnyothi Nekoto
   - name: Pelonomi Moiloa
   - name: Jade Abbott
   - name: Vukosi N. Marivate
   - name: Benjamin Rosman
   year: 2025
-  venue: arXiv (Cornell University)
+  venue: 'Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume
+    1: Long Papers)'
   type: conference
   doi: 10.18653/v1/2025.acl-long.1487
-  url: https://doi.org/10.18653/v1/2025.acl-long.1487
+  url: https://aclanthology.org/2025.acl-long.1487/
   arxiv: '2502.15916'
-  anthology: null
+  anthology: 2025.acl-long.1487
   code: null
   dataset: null
   model: null
@@ -3363,10 +3294,11 @@ publications:
   - atnafu-lambebo-tonja
   sources:
   - openalex
+  - curated
   ethiopian: false
   author_line: Jenalea Rajab, Anuoluwapo Aremu, Everlyn Asiko Chimoto, Dale Dunbar, Graham Morrissey,
-    Fadel Thior, Luandrie Potgieter, Jessico Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina Nekoto,
-    Pelonomi Moiloa, Jade Abbott, Vukosi N. Marivate, Benjamin Rosman
+    Fadel Thior, Luandrie Potgieter, Jessica Ojo, Atnafu Lambebo Tonja, Maushami Chetty, Wilhelmina NdapewaOnyothi
+    Nekoto, Pelonomi Moiloa, Jade Abbott, Vukosi N. Marivate, Benjamin Rosman
   tracks:
   - data
 - key: the-rise-of-africanlp-a-survey-of-contributions-contributors-community-impact-an
@@ -3412,8 +3344,8 @@ publications:
     AfricaNLP research trends and holds potential for generating data-driven research approaches. The
     resource can be found in GitHub.
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - semantic_scholar
   - openalex
@@ -3459,9 +3391,9 @@ publications:
     costs being very high, and evaluation issues. These issues demand language standardization, corpus
     development by the community, and effective adaptation methods for African languages.
   members:
+  - walelign-tewabe-sewunetie
   - abinew-ali-ayele
   - seid-muhie-yimam
-  - walelign-tewabe-sewunetie
   sources:
   - openalex
   ethiopian: true
@@ -3477,17 +3409,17 @@ publications:
   - name: Hellina Hailu Nigatu
     member: hellina-hailu-nigatu
   - name: Nikita Mehandru
-  - name: Noam Abadi
+  - name: Negasi Haile Abadi
   - name: Blen Gebremeskel
   - name: Ahmed M. Alaa
   - name: Monojit Choudhury
   year: 2025
-  venue: null
+  venue: Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing
   type: conference
   doi: 10.18653/v1/2025.emnlp-main.535
-  url: https://doi.org/10.18653/v1/2025.emnlp-main.535
+  url: https://aclanthology.org/2025.emnlp-main.535/
   arxiv: null
-  anthology: null
+  anthology: 2025.emnlp-main.535
   code: null
   dataset: null
   model: null
@@ -3498,9 +3430,10 @@ publications:
   - hellina-hailu-nigatu
   sources:
   - openalex
+  - curated
   ethiopian: false
-  author_line: Hellina Hailu Nigatu, Nikita Mehandru, Noam Abadi, Blen Gebremeskel, Ahmed M. Alaa, Monojit
-    Choudhury
+  author_line: Hellina Hailu Nigatu, Nikita Mehandru, Negasi Haile Abadi, Blen Gebremeskel, Ahmed M. Alaa,
+    Monojit Choudhury
   tracks:
   - applications
 - key: a-capabilities-approach-to-studying-bias-and-harm-in-language-technologies
@@ -3706,8 +3639,8 @@ publications:
     will be effective in tackling unwanted social media issues and providing a foundation for further
     research in this area.
   members:
-  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: true
@@ -3908,9 +3841,9 @@ publications:
     CVQA includes culturally-driven images and questions from across 30 countries on four continents,
     covering 31 languages with 13 scripts, providing a total of 10k questions. We then benchm
   members:
+  - atnafu-lambebo-tonja
   - henok-biadglign-ademtew
   - israel-abebe-azime
-  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -4039,8 +3972,8 @@ publications:
     balance the sample corpus, and 22 sets of tags were identified for tagging purposes. The POST tagger
     is tested using a percentage spilled mechanism. The experimental result indicates that for simple
   members:
-  - mesay-gemeda-yigezu
   - michael-melese
+  - mesay-gemeda-yigezu
   sources:
   - openalex
   ethiopian: false
@@ -4219,15 +4152,12 @@ publications:
     member: moges-ahmed-mehamed
   - name: Abinew Ali Ayele
     member: abinew-ali-ayele
-  - name: Tadesse Kebede Guge
-    member: tadesse-kebede
   - name: Ebrahim Chekol Jibril
   - name: Michael Melese Woldeyohannis
     member: michael-melese
   - name: Olga Kolesnikova
   - name: Philipp Slusallek
   - name: Dietrich Klakow
-  - name: Shengwu Xiong
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   year: 2024
@@ -4245,15 +4175,14 @@ publications:
     developments. We introduce EthioLLM, multilingual language models for five Ethiopian languages and
     English, and Ethiobenchmark, a new benchmark dataset for several downstream tasks in those languages.
   members:
-  - abinew-ali-ayele
   - atnafu-lambebo-tonja
   - israel-abebe-azime
-  - mesay-gemeda-yigezu
-  - michael-melese
-  - moges-ahmed-mehamed
-  - seid-muhie-yimam
   - tadesse-destaw-belay
-  - tadesse-kebede
+  - mesay-gemeda-yigezu
+  - moges-ahmed-mehamed
+  - abinew-ali-ayele
+  - michael-melese
+  - seid-muhie-yimam
   sources:
   - openalex
   - semantic_scholar
@@ -4263,8 +4192,8 @@ publications:
   - models
   - evaluation
   author_line: Atnafu Lambebo Tonja, Israel Abebe Azime, Tadesse Destaw Belay, Mesay Gemeda Yigezu, Moges
-    Ahmed Mehamed, Abinew Ali Ayele, Tadesse Kebede Guge, Ebrahim Chekol Jibril, Michael Melese Woldeyohannis,
-    Olga Kolesnikova, Philipp Slusallek, Dietrich Klakow, Shengwu Xiong, Seid Muhie Yimam
+    Ahmed Mehamed, Abinew Ali Ayele, Ebrahim Chekol Jibril, Michael Melese Woldeyohannis, Olga Kolesnikova,
+    Philipp Slusallek, Dietrich Klakow, Seid Muhie Yimam
   tracks:
   - data
   - models
@@ -4425,10 +4354,10 @@ publications:
     publicly to further improve the understanding of emotions in language models and how people convey
     emotions through various languages.
   members:
-  - abinew-ali-ayele
-  - israel-abebe-azime
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - israel-abebe-azime
+  - abinew-ali-ayele
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: true
@@ -4550,8 +4479,8 @@ publications:
     researchers planned, gathered, and produced 424 text documents and reference summaries for each document
     in the Wolaytta language. When the datasets were smoothed out, an RNN-based Wolaytta text su
   members:
-  - mesay-gemeda-yigezu
   - michael-melese
+  - mesay-gemeda-yigezu
   sources:
   - openalex
   ethiopian: true
@@ -4721,8 +4650,8 @@ publications:
     within the realm of SRMHR for low- resource languages like Amharic. Future research could involve
     scaling up the dataset in terms of size, quality, and domain coverage.
   members:
-  - seid-muhie-yimam
   - walelign-tewabe-sewunetie
+  - seid-muhie-yimam
   sources:
   - openalex
   ethiopian: true
@@ -5122,7 +5051,7 @@ publications:
   authors:
   - name: Nedjma Djouhra Ousidhoum
   - name: Shamsuddeen Hassan Muhammad
-  - name: Mahmoud A. Abdalla
+  - name: Mohamed Abdalla
   - name: Idris Abdulmumin
   - name: Ibrahim Said Ahmad
   - name: Sanchit Ahuja
@@ -5150,12 +5079,12 @@ publications:
     member: seid-muhie-yimam
   - name: Saif M. Mohammad
   year: 2024
-  venue: arXiv (Cornell University)
+  venue: 'Findings of the Association for Computational Linguistics: ACL 2024'
   type: conference
   doi: 10.18653/v1/2024.findings-acl.147
-  url: https://doi.org/10.18653/v1/2024.findings-acl.147
+  url: https://aclanthology.org/2024.findings-acl.147/
   arxiv: '2402.08638'
-  anthology: null
+  anthology: 2024.findings-acl.147
   code: null
   dataset: null
   model: null
@@ -5171,8 +5100,9 @@ publications:
   sources:
   - openalex
   - semantic_scholar
+  - curated
   ethiopian: false
-  author_line: Nedjma Djouhra Ousidhoum, Shamsuddeen Hassan Muhammad, Mahmoud A. Abdalla, Idris Abdulmumin,
+  author_line: Nedjma Djouhra Ousidhoum, Shamsuddeen Hassan Muhammad, Mohamed Abdalla, Idris Abdulmumin,
     Ibrahim Said Ahmad, Sanchit Ahuja, Alham F. Aji, Vladimir Araujo, Abinew Ali Ayele, Pavan Baswani,
     Meriem Beloucif, Chris Biemann, Sofia Bourhim, Christine de Kock, Genet Shanko Dekebo, Oumaima Hourrane,
     Gopichand Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange,
@@ -5281,8 +5211,8 @@ publications:
     of the terminology when it is used in papers and (2) provides grounding for the different axes to
     consider when connoting a language as low-resource.
   members:
-  - atnafu-lambebo-tonja
   - hellina-hailu-nigatu
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -5436,12 +5366,12 @@ publications:
     datasets. We compile an Amharic instruction fine-tuning dataset, fine-tune the model, and open-source
     the dataset creation pipeline, instruction datasets, trained models and evaluation outputs.
   members:
-  - atnafu-lambebo-tonja
   - israel-abebe-azime
-  - seid-muhie-yimam
+  - atnafu-lambebo-tonja
   - tadesse-destaw-belay
-  - walelign-tewabe-sewunetie
   - yonas-chanie
+  - walelign-tewabe-sewunetie
+  - seid-muhie-yimam
   sources:
   - openalex
   - semantic_scholar
@@ -5541,59 +5471,6 @@ publications:
   tracks:
   - applications
   - capacity
-- key: a-fri-s-enti-a-b-enchmark-t-witter-s-entiment-a-nalysis-d-ataset-for-a-frican-l-
-  title: 'A FRI S ENTI : A B ENCHMARK T WITTER S ENTIMENT A NALYSIS D ATASET FOR A FRICAN L ANGUAGES'
-  authors:
-  - name: Shamsuddeen Hassan Muhammad
-  - name: Idris Abdulmumin
-  - name: A. Ayele
-  - name: Nedjma Djouhra Ousidhoum
-  - name: David Ifeoluwa Adelani
-  - name: Seid Muhie Yimam
-    member: seid-muhie-yimam
-  - name: Meriem Beloucif
-  - name: Saif M. Mohammad
-  - name: Sebastian Ruder
-  - name: Oumaima Hourrane
-  - name: P. Brazdil
-  - name: Felermino M. D. A. Ali
-  - name: Davis David
-  - name: Salomey Osei
-  - name: Bello Shehu Bello
-  - name: Falalu Ibrahim
-  - name: T. Gwadabe
-  - name: Samuel Rutunda
-  - name: Tadesse Destaw Belay
-    member: tadesse-destaw-belay
-  - name: Wendimu Baye Messelle
-  - name: H. Balcha
-  - name: S. Chala
-  - name: Hagos Tesfahun Gebremichael
-  - name: Bernard Opoku
-  - name: Steven Arthur
-  year: 2023
-  venue: null
-  type: other
-  doi: null
-  url: https://www.semanticscholar.org/paper/794e3de4e59812f824d07f785c1a982cb09bb987
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: null
-  members:
-  - seid-muhie-yimam
-  - tadesse-destaw-belay
-  sources:
-  - semantic_scholar
-  ethiopian: false
-  author_line: Shamsuddeen Hassan Muhammad, Idris Abdulmumin, A. Ayele, Nedjma Djouhra Ousidhoum, David
-    Ifeoluwa Adelani, Seid Muhie Yimam, Meriem Beloucif, Saif M. Mohammad, Sebastian Ruder, Oumaima Hourrane,
-    P. Brazdil, Felermino M. D. A. Ali, Davis David, Salomey Osei, Bello Shehu Bello, Falalu Ibrahim,
-    T. Gwadabe, Samuel Rutunda, Tadesse Destaw Belay, Wendimu Baye Messelle, H. Balcha, S. Chala, Hagos
-    Tesfahun Gebremichael, Bernard Opoku, Steven Arthur
-  tracks: []
 - key: a-need-finding-study-with-low-resource-language-content-creators
   title: A Need Finding Study with Low-Resource Language Content Creators
   authors:
@@ -5722,102 +5599,6 @@ publications:
   - models
   - applications
   - evaluation
-- key: afriqa-cross-lingual-open-retrieval-question-answering-for-african-languages
-  title: 'AfriQA: Cross-lingual Open-Retrieval Question Answering for African Languages'
-  authors:
-  - name: Odunayo Ogundepo
-  - name: Tajuddeen Gwadabe
-  - name: Clara E. Rivera
-  - name: Jonathan H. Clark
-  - name: Sebastian Ruder
-  - name: David Ifeoluwa Adelani
-  - name: Bonaventure F. P. Dossou
-  - name: Abdou Aziz DIOP
-  - name: Claytone Sikasote
-  - name: Gilles Hacheme
-  - name: Happy Buzaaba
-  - name: Ignatius U. Ezeani
-  - name: Rooweither Mabuya
-  - name: Salomey Osei
-  - name: Chris Chinenye Emezue
-  - name: Albert Njoroge Kahira
-  - name: Shamsuddeen Hassan Muhammad
-  - name: Akintunde Oladipo
-  - name: Abraham Toluwase Owodunni
-  - name: Atnafu Lambebo Tonja
-    member: atnafu-lambebo-tonja
-  - name: Iyanuoluwa Shode
-  - name: Akari Asai
-  - name: Tunde Oluwaseyi Ajayi
-  - name: Clemencia Siro
-  - name: Steven A. Arthur
-  - name: Mofetoluwa Adeyemi
-  - name: Orevaoghene Ahia
-  - name: Anuoluwapo Aremu
-  - name: Oyinkansola Awosan
-  - name: Chiamaka Chukwuneke
-  - name: Bernard Opoku
-  - name: Awokoya Ayodele
-  - name: Verrah Otiende
-  - name: Christine Mwase
-  - name: Boyd Sinkala
-  - name: Andre Niyongabo Rubungo
-  - name: Daniel Ajisafe
-  - name: Emeka Onwuegbuzia
-  - name: Habib Mbow
-  - name: Emile Niyomutabazi
-  - name: Eunice Mukonde
-  - name: Falalu Ibrahim Lawan
-  - name: Ibrahim Said Ahmad
-  - name: Jesujoba Oluwadara Alabi
-  - name: Martin Namukombo
-  - name: Mbonu Chinedu
-  - name: Mofya Phiri
-  - name: Neo Putini
-  - name: Ndumiso Mngoma
-  - name: Priscilla Amondi Amuok
-  - name: Ruqayya Nasir Iro
-  - name: Sonia Adhiambo
-  year: 2023
-  venue: arXiv (Cornell University)
-  type: preprint
-  doi: 10.48550/arxiv.2305.06897
-  url: http://arxiv.org/abs/2305.06897
-  arxiv: '2305.06897'
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: African languages have far less in-language content available digitally, making it challenging
-    for question answering systems to satisfy the information needs of users. Cross-lingual open-retrieval
-    question answering (XOR QA) systems -- those that retrieve answer content from other languages while
-    serving people in their native language -- offer a means of filling this gap. To this end, we create
-    AfriQA, the first cross-lingual QA dataset with a focus on African languages. AfriQA includes 12,000+
-    XOR QA examples across 10 African languages. While previous datasets have focused primarily on languages
-    where cross-lingual QA augments coverage from the target language, AfriQA focuses on languages where
-    cross-lingual answer content is the only high-coverage source of answer content. Because of this,
-    we argue that African languages are one of the most important and realistic use cases for XOR QA.
-    Our experiments demonstrate the poor performance of automatic translation and multilingual retrieval
-    methods. Overall, AfriQA proves challenging for state-of-the-art QA models. We hope that the dataset
-    enables the development of more equitable QA technology.
-  members:
-  - atnafu-lambebo-tonja
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Odunayo Ogundepo, Tajuddeen Gwadabe, Clara E. Rivera, Jonathan H. Clark, Sebastian Ruder,
-    David Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Aziz DIOP, Claytone Sikasote, Gilles Hacheme,
-    Happy Buzaaba, Ignatius U. Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert
-    Njoroge Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Toluwase Owodunni, Atnafu
-    Lambebo Tonja, Iyanuoluwa Shode, Akari Asai, Tunde Oluwaseyi Ajayi, Clemencia Siro, Steven A. Arthur,
-    Mofetoluwa Adeyemi, Orevaoghene Ahia, Anuoluwapo Aremu, Oyinkansola Awosan, Chiamaka Chukwuneke, Bernard
-    Opoku, Awokoya Ayodele, Verrah Otiende, Christine Mwase, Boyd Sinkala, Andre Niyongabo Rubungo, Daniel
-    Ajisafe, Emeka Onwuegbuzia, Habib Mbow, Emile Niyomutabazi, Eunice Mukonde, Falalu Ibrahim Lawan,
-    Ibrahim Said Ahmad, Jesujoba Oluwadara Alabi, Martin Namukombo, Mbonu Chinedu, Mofya Phiri, Neo Putini,
-    Ndumiso Mngoma, Priscilla Amondi Amuok, Ruqayya Nasir Iro, Sonia Adhiambo
-  tracks:
-  - data
-  - applications
 - key: afrisenti-a-twitter-sentiment-analysis-benchmark-for-african-languages
   title: 'AfriSenti: A Twitter Sentiment Analysis Benchmark for African Languages'
   authors:
@@ -5969,10 +5750,10 @@ publications:
     released the dataset in both unnormalized and normalized forms. Our dataset is available in train,
     test, and validation split files.
   members:
-  - abinew-ali-ayele
   - atnafu-lambebo-tonja
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   ethiopian: true
@@ -6228,16 +6009,16 @@ publications:
   tracks:
   - applications
 - key: cross-lingual-open-retrieval-question-answering-for-african-languages
-  title: Cross-lingual Open-Retrieval Question Answering for African Languages
+  title: 'AfriQA: Cross-lingual Open-Retrieval Question Answering for African Languages'
   authors:
   - name: Odunayo Ogundepo
-  - name: Tajuddeen Gwadabe
-  - name: Clara Rivera
-  - name: Jonathan R. Clark
+  - name: Tajuddeen R. Gwadabe
+  - name: Clara E. Rivera
+  - name: Jonathan H. Clark
   - name: Sebastian Ruder
   - name: David Ifeoluwa Adelani
   - name: Bonaventure F. P. Dossou
-  - name: Abdou Khadre Diop
+  - name: Abdou Aziz Diop
   - name: Claytone Sikasote
   - name: Gilles Hacheme
   - name: Happy Buzaaba
@@ -6248,40 +6029,48 @@ publications:
   - name: Albert Njoroge Kahira
   - name: Shamsuddeen Hassan Muhammad
   - name: Akintunde Oladipo
-  - name: Abraham Owodunni
+  - name: Abraham Toluwase Owodunni
   - name: Atnafu Lambebo Tonja
     member: atnafu-lambebo-tonja
   - name: Iyanuoluwa Shode
   - name: Akari Asai
-  - name: Anuoluwapo Aremu
-  - name: Ayodele Awokoya
-  - name: Bernard Opoku
-  - name: Chiamaka Chukwuneke
-  - name: Christine Mwase
-  - name: Clemencia Siro
-  - name: Stephen M. Arthur
   - name: Tunde Oluwaseyi Ajayi
-  - name: Verrah Otiende
-  - name: Andre Niyongabo Rubungo
-  - name: Boyd Sinkala
-  - name: Daniel Ajisafe
-  - name: Emeka Onwuegbuzia
-  - name: Falalu Ibrahim Lawan
-  - name: Ibrahim Ahmad
-  - name: Jesujoba Oluwadara Alabi
-  - name: Chinedu Emmanuel Mbonu
+  - name: Clemencia Siro
+  - name: Steven Arthur
   - name: Mofetoluwa Adeyemi
-  - name: Mofya Phiri
   - name: Orevaoghene Ahia
+  - name: Anuoluwapo Aremu
+  - name: Oyinkansola Awosan
+  - name: Chiamaka Chukwuneke
+  - name: Bernard Opoku
+  - name: Awokoya Ayodele
+  - name: Verrah Otiende
+  - name: Christine Mwase
+  - name: Boyd Sinkala
+  - name: Andre Niyongabo Rubungo
+  - name: Daniel A. Ajisafe
+  - name: Emeka Felix Onwuegbuzia
+  - name: Habib Mbow
+  - name: Emile Niyomutabazi
+  - name: Eunice Mukonde
+  - name: Falalu Ibrahim Lawan
+  - name: Ibrahim Said Ahmad
+  - name: Jesujoba O. Alabi
+  - name: Martin Namukombo
+  - name: Mbonu Chinedu
+  - name: Mofya Phiri
+  - name: Neo Putini
+  - name: Ndumiso Mngoma
+  - name: Priscilla A. Amouk
   - name: Ruqayya Nasir Iro
   - name: Sonia Adhiambo
   year: 2023
-  venue: null
+  venue: 'Findings of the Association for Computational Linguistics: EMNLP 2023'
   type: conference
   doi: 10.18653/v1/2023.findings-emnlp.997
-  url: https://doi.org/10.18653/v1/2023.findings-emnlp.997
-  arxiv: null
-  anthology: null
+  url: https://aclanthology.org/2023.findings-emnlp.997/
+  arxiv: '2305.06897'
+  anthology: 2023.findings-emnlp.997
   code: null
   dataset: null
   model: null
@@ -6296,19 +6085,22 @@ publications:
   members:
   - atnafu-lambebo-tonja
   sources:
+  - curated
   - openalex
   ethiopian: false
-  author_line: Odunayo Ogundepo, Tajuddeen Gwadabe, Clara Rivera, Jonathan R. Clark, Sebastian Ruder,
-    David Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Khadre Diop, Claytone Sikasote, Gilles Hacheme,
+  author_line: Odunayo Ogundepo, Tajuddeen R. Gwadabe, Clara E. Rivera, Jonathan H. Clark, Sebastian Ruder,
+    David Ifeoluwa Adelani, Bonaventure F. P. Dossou, Abdou Aziz Diop, Claytone Sikasote, Gilles Hacheme,
     Happy Buzaaba, Ignatius U. Ezeani, Rooweither Mabuya, Salomey Osei, Chris Chinenye Emezue, Albert
-    Njoroge Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Owodunni, Atnafu Lambebo Tonja,
-    Iyanuoluwa Shode, Akari Asai, Anuoluwapo Aremu, Ayodele Awokoya, Bernard Opoku, Chiamaka Chukwuneke,
-    Christine Mwase, Clemencia Siro, Stephen M. Arthur, Tunde Oluwaseyi Ajayi, Verrah Otiende, Andre Niyongabo
-    Rubungo, Boyd Sinkala, Daniel Ajisafe, Emeka Onwuegbuzia, Falalu Ibrahim Lawan, Ibrahim Ahmad, Jesujoba
-    Oluwadara Alabi, Chinedu Emmanuel Mbonu, Mofetoluwa Adeyemi, Mofya Phiri, Orevaoghene Ahia, Ruqayya
-    Nasir Iro, Sonia Adhiambo
+    Njoroge Kahira, Shamsuddeen Hassan Muhammad, Akintunde Oladipo, Abraham Toluwase Owodunni, Atnafu
+    Lambebo Tonja, Iyanuoluwa Shode, Akari Asai, Tunde Oluwaseyi Ajayi, Clemencia Siro, Steven Arthur,
+    Mofetoluwa Adeyemi, Orevaoghene Ahia, Anuoluwapo Aremu, Oyinkansola Awosan, Chiamaka Chukwuneke, Bernard
+    Opoku, Awokoya Ayodele, Verrah Otiende, Christine Mwase, Boyd Sinkala, Andre Niyongabo Rubungo, Daniel
+    A. Ajisafe, Emeka Felix Onwuegbuzia, Habib Mbow, Emile Niyomutabazi, Eunice Mukonde, Falalu Ibrahim
+    Lawan, Ibrahim Said Ahmad, Jesujoba O. Alabi, Martin Namukombo, Mbonu Chinedu, Mofya Phiri, Neo Putini,
+    Ndumiso Mngoma, Priscilla A. Amouk, Ruqayya Nasir Iro, Sonia Adhiambo
   tracks:
   - applications
+  - data
 - key: design-and-development-of-morphological-analyzer-for-tigrigna-verbs-using-hybrid
   title: Design and Development of Morphological Analyzer for Tigrigna Verbs using Hybrid Approach
   authors:
@@ -6460,18 +6252,19 @@ publications:
 - key: exploring-amharic-hate-speech-data-collection-and-classification-approaches
   title: Exploring Amharic Hate Speech Data Collection and Classification Approaches
   authors:
-  - name: A. Ayele
+  - name: Abinew Ali Ayele
+    member: abinew-ali-ayele
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Tadesse Destaw Belay
     member: tadesse-destaw-belay
   - name: Tesfa Tegegne Asfaw
-  - name: Christian Biemann
+  - name: Chris Biemann
   year: 2023
-  venue: Recent Advances in Natural Language Processing
+  venue: Proceedings of the 14th International Conference on Recent Advances in Natural Language Processing
   type: conference
   doi: 10.26615/978-954-452-092-2_006
-  url: https://doi.org/10.26615/978-954-452-092-2_006
+  url: https://aclanthology.org/2023.ranlp-1.6/
   arxiv: null
   anthology: 2023.ranlp-1.6
   code: null
@@ -6493,8 +6286,9 @@ publications:
   sources:
   - openalex
   - semantic_scholar
+  - curated
   ethiopian: true
-  author_line: A. Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Tesfa Tegegne Asfaw, Christian Biemann
+  author_line: Abinew Ali Ayele, Seid Muhie Yimam, Tadesse Destaw Belay, Tesfa Tegegne Asfaw, Chris Biemann
   tracks:
   - data
   - models
@@ -6599,8 +6393,8 @@ publications:
   model: null
   abstract: null
   members:
-  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
+  - atnafu-lambebo-tonja
   - michael-melese
   sources:
   - openalex
@@ -6770,8 +6564,8 @@ publications:
     Ayodele Awokoya, Mardiyyah Oduwole, Tosin Adewumi, Samuel Fanijo, Awosan Oyinkansola. Proceedings
     of the The 17th International Workshop on Semantic Evaluation (SemEval-2023). 2023.
   members:
-  - atnafu-lambebo-tonja
   - israel-abebe-azime
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -6878,11 +6672,11 @@ publications:
     Nxakama, Sinodos Nigusse, Abdulmejid Johar, Shafie Mohamed, Fuad Mire Hassan, Moges Ahmed Mehamed,
     Evrard Ngabire, Jules Jules, Ivan Ssenkungu, Pontus Stenetorp. Proceedings of the 13th Internatio
   members:
-  - atnafu-lambebo-tonja
   - israel-abebe-azime
+  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
-  - moges-ahmed-mehamed
   - tadesse-kebede
+  - moges-ahmed-mehamed
   sources:
   - openalex
   ethiopian: false
@@ -7050,12 +6844,12 @@ publications:
     Oromo, Tigrinya and Wolaytta, identifies key challenges and opportunities, and provides a centralised
     public repository of the resources that exist for each task.
   members:
-  - abinew-ali-ayele
   - atnafu-lambebo-tonja
+  - tadesse-destaw-belay
   - israel-abebe-azime
+  - abinew-ali-ayele
   - moges-ahmed-mehamed
   - seid-muhie-yimam
-  - tadesse-destaw-belay
   sources:
   - openalex
   - semantic_scholar
@@ -7167,8 +6961,8 @@ publications:
     Said Ahmad, Nedjma Ousidhoum, Abinew Ali Ayele, Saif Mohammad, Meriem Beloucif, Sebastian Ruder. Proceedings
     of the The 17th International Workshop on Semantic Evaluation (SemEval-2023). 2023.
   members:
-  - abinew-ali-ayele
   - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   - semantic_scholar
@@ -7225,8 +7019,8 @@ publications:
     study and curate stopwords for African languages. In this paper, we present our current progress on
     ten African languages as well as future plans for the project.
   members:
-  - atnafu-lambebo-tonja
   - hellina-hailu-nigatu
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -7268,8 +7062,8 @@ publications:
     or geographical location and are built by communities who speak them-perform better at distinguishing
     between languages in the same family for low-resource langua
   members:
-  - atnafu-lambebo-tonja
   - hellina-hailu-nigatu
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -7277,45 +7071,6 @@ publications:
   tracks:
   - models
   - applications
-  - linguistics
-- key: unlock-tigrigna-nlp-design-and-development-of-morphological-analyzer-for-tigrign
-  title: Unlock Tigrigna NLP - Design and Development of Morphological Analyzer for Tigrigna Verbs Using
-    Hybrid Approach
-  authors:
-  - name: Hagos Gebremedhin Gebremeskel
-    member: hagos-gebremedhin-gebremeskel
-  - name: Chong Feng
-  - name: Huang Heyan
-  year: 2023
-  venue: Research Square
-  type: preprint
-  doi: 10.21203/rs.3.rs-3682405/v1
-  url: https://doi.org/10.21203/rs.3.rs-3682405/v1
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: Abstract Morphological analyzer is the basis for various high-level NLP applications such
-    as information retrieval, spell checking, grammar checking, machine translation, speech recognition,
-    POS tagging and automatic sentence construction. This paper is carefully designed for the analysis
-    of Tigrigna verbs morphological analyzer using the hybrid of memory learning and rule based approaches.
-    The experiment have conducted using Python 3 where TiMBL algorithms IB2 and TRIBL2, and Finite State
-    Transducer rules are used. The performance of the system has been evaluated using 10 fold cross-validation
-    technique. Testing was conducted using optimized parameter settings for regular verbs and linguistic
-    rules of the Tigrigna language allomorph and phonology for the irregular verbs. The accuracy of the
-    memory based approach with optimized parameters of TiMBL algorithm IB2 and TRIBL2 was 93.24% and 92.31%,
-    respectively. Finally, the hybrid approach had an actual performance of 95.6% using linguistic rules
-    for handling irregular and copula verbs.
-  members:
-  - hagos-gebremedhin-gebremeskel
-  sources:
-  - openalex
-  ethiopian: true
-  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Huang Heyan
-  tracks:
-  - applications
-  - evaluation
   - linguistics
 - key: afaan-oromo-hate-speech-detection-and-classification-on-social-media
   title: Afaan Oromo Hate Speech Detection and Classification on Social Media
@@ -7438,8 +7193,8 @@ publications:
   model: null
   abstract: null
   members:
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - semantic_scholar
   ethiopian: true
@@ -7723,9 +7478,9 @@ publications:
   model: null
   abstract: null
   members:
-  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
   - michael-melese
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: false
@@ -7739,9 +7494,9 @@ publications:
   - name: Seid Muhie Yimam
     member: seid-muhie-yimam
   - name: Steffen Stahlhacke
-  - name: Christian Biemann
+  - name: Chris Biemann
   year: 2022
-  venue: International Conference on Language Resources and Evaluation
+  venue: Proceedings of the Thirteenth Language Resources and Evaluation Conference
   type: conference
   doi: 10.63317/5nqgj97hsrbr
   url: https://aclanthology.org/2022.lrec-1.402/
@@ -7763,8 +7518,9 @@ publications:
   - seid-muhie-yimam
   sources:
   - semantic_scholar
+  - curated
   ethiopian: false
-  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Christian Biemann
+  author_line: Meriem Beloucif, Seid Muhie Yimam, Steffen Stahlhacke, Chris Biemann
   tracks:
   - data
   - models
@@ -8046,11 +7802,11 @@ publications:
   - name: Iroro Orife
   - name: Kelechi Ogueji
   - name: Andre Niyongabo Rubungo
-  - name: Toan Quang Nguyen
+  - name: Toan Q. Nguyen
   - name: Mathias Müller
-  - name: Andre Matthias Müller
+  - name: André Müller
   - name: Shamsuddeen Hassan Muhammad
-  - name: N Sakib Muhammad
+  - name: Nanda Muhammad
   - name: Ayanda Mnyakeni
   - name: Jamshidbek Mirzakhalov
   - name: Tapiwanashe Matangira
@@ -8059,11 +7815,11 @@ publications:
   - name: Sneha Kudugunta
   - name: Yacine Jernite
   - name: Mathias Jenny
-  - name: Orhan Fırat
+  - name: Orhan Firat
   - name: Bonaventure F. P. Dossou
   - name: Sakhile Dlamini
   - name: Nisansa de Silva
-  - name: Sakine Çabuk‐Ballı
+  - name: Sakine Çabuk Ballı
   - name: Stella Biderman
   - name: Alessia Battisti
   - name: Ahmed Baruwa
@@ -8100,17 +7856,17 @@ publications:
   - israel-abebe-azime
   sources:
   - openalex
+  - curated
   ethiopian: false
   author_line: Julia Kreutzer, Isaac Rayburn Caswell, Lisa Wang, Ahsan Wahab, Daan van Esch, Nasanbayar
     Ulzii-Orshikh, Allahsera Auguste Tapo, Nishant Subramani, Artem Sokolov, Claytone Sikasote, Monang
     Setyawan, Supheakmungkol Sarin, Sokhar Samb, Benoît Sagot, Clara E. Rivera, Annette Rios, Isabel Papadimitriou,
-    Salomey Osei, Pedro Ortiz Suárez, Iroro Orife, Kelechi Ogueji, Andre Niyongabo Rubungo, Toan Quang
-    Nguyen, Mathias Müller, Andre Matthias Müller, Shamsuddeen Hassan Muhammad, N Sakib Muhammad, Ayanda
-    Mnyakeni, Jamshidbek Mirzakhalov, Tapiwanashe Matangira, Colin Leong, Nze Lawson, Sneha Kudugunta,
-    Yacine Jernite, Mathias Jenny, Orhan Fırat, Bonaventure F. P. Dossou, Sakhile Dlamini, Nisansa de
-    Silva, Sakine Çabuk‐Ballı, Stella Biderman, Alessia Battisti, Ahmed Baruwa, Ankur Bapna, Pallavi N.
-    Baljekar, Israel Abebe Azime, Ayodele Awokoya, Duygu Ataman, Orevaoghene Ahia, Oghenefego Ahia, Sweta
-    Agrawal, Mofetoluwa Adeyemi
+    Salomey Osei, Pedro Ortiz Suárez, Iroro Orife, Kelechi Ogueji, Andre Niyongabo Rubungo, Toan Q. Nguyen,
+    Mathias Müller, André Müller, Shamsuddeen Hassan Muhammad, Nanda Muhammad, Ayanda Mnyakeni, Jamshidbek
+    Mirzakhalov, Tapiwanashe Matangira, Colin Leong, Nze Lawson, Sneha Kudugunta, Yacine Jernite, Mathias
+    Jenny, Orhan Firat, Bonaventure F. P. Dossou, Sakhile Dlamini, Nisansa de Silva, Sakine Çabuk Ballı,
+    Stella Biderman, Alessia Battisti, Ahmed Baruwa, Ankur Bapna, Pallavi N. Baljekar, Israel Abebe Azime,
+    Ayodele Awokoya, Duygu Ataman, Orevaoghene Ahia, Oghenefego Ahia, Sweta Agrawal, Mofetoluwa Adeyemi
   tracks:
   - data
   - models
@@ -8209,8 +7965,8 @@ publications:
     co
   members:
   - abinew-ali-ayele
-  - seid-muhie-yimam
   - tadesse-destaw-belay
+  - seid-muhie-yimam
   sources:
   - openalex
   - semantic_scholar
@@ -8257,10 +8013,10 @@ publications:
     on the machine translation task. The results show that normalization of Amharic homophone characters
     increases the performance of Amharic-English machine translation in both directions.
   members:
-  - abinew-ali-ayele
+  - tadesse-destaw-belay
   - atnafu-lambebo-tonja
   - seid-muhie-yimam
-  - tadesse-destaw-belay
+  - abinew-ali-ayele
   sources:
   - openalex
   - semantic_scholar
@@ -8434,8 +8190,8 @@ publications:
     in the translation of Ethiopian languages.
   members:
   - atnafu-lambebo-tonja
-  - mesay-gemeda-yigezu
   - michael-melese
+  - mesay-gemeda-yigezu
   sources:
   - openalex
   ethiopian: true
@@ -8690,9 +8446,9 @@ publications:
     To study the impacts of homophone normalization, we develop different general-purpose pre-trained
     embedding models for Amharic using regular and normalized homophone characters. We fine-tune the pre-trained
   members:
+  - tadesse-destaw-belay
   - abinew-ali-ayele
   - seid-muhie-yimam
-  - tadesse-destaw-belay
   sources:
   - openalex
   - semantic_scholar
@@ -8734,8 +8490,8 @@ publications:
     pre-trained multilingual models. Furthermore, models based on contextual embeddings from FLAIR and
     RoBERTa perform better than word2Vec models for the NER and POS tagging tasks. DT-based network embeddi
   members:
-  - abinew-ali-ayele
   - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   - semantic_scholar
@@ -8955,9 +8711,9 @@ publications:
     richness, and complexity of the Ometo languages which has high impact on the performance of the Ometo-English
     machine translation. Further, we are now working towards developing a t
   members:
-  - atnafu-lambebo-tonja
   - mesay-gemeda-yigezu
   - michael-melese
+  - atnafu-lambebo-tonja
   sources:
   - openalex
   ethiopian: true
@@ -9302,8 +9058,8 @@ publications:
     of machine learning approaches for Amharic sentiment analysis.The FLAIR deep learning text classifier,
     based on network embeddings that are computed from a distributional thesaurus, outperforms oth
   members:
-  - abinew-ali-ayele
   - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   - semantic_scholar
@@ -9343,8 +9099,8 @@ publications:
     Wondwossen Mulugeta, Yaregal Assabie, Million Meshesha Beyene, Solomon Atinafu, Binyam Ephrem Seyoum.
     Proceedings of the The Fourth Widening Natural Language Processing Workshop. 2020.
   members:
-  - binyam-ephrem-seyoum
   - michael-melese
+  - binyam-ephrem-seyoum
   sources:
   - openalex
   ethiopian: true
@@ -9557,8 +9313,8 @@ publications:
     of abusive speech content over time and compare the abusive speech content between a Twitter and general
     reference Amharic corpus.'
   members:
-  - abinew-ali-ayele
   - seid-muhie-yimam
+  - abinew-ali-ayele
   sources:
   - openalex
   - semantic_scholar
@@ -9709,45 +9465,6 @@ publications:
   ethiopian: false
   author_line: Ketema Kifle Gebretsadik, Walelign Tewabe Sewunetie
   tracks: []
-- key: multilingual-neural-machine-translation-for-zero-resource-languages
-  title: Multilingual Neural Machine Translation for Zero-Resource Languages
-  authors:
-  - name: Surafel M. Lakew
-    member: surafel-m-lakew
-  - name: Marcello Federico
-  - name: Matteo Negri
-  - name: Marco Turchi
-  year: 2019
-  venue: arXiv (Cornell University)
-  type: preprint
-  doi: 10.48550/arxiv.1909.07342
-  url: http://arxiv.org/abs/1909.07342
-  arxiv: '1909.07342'
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: In recent years, Neural Machine Translation (NMT) has been shown to be more effective than
-    phrase-based statistical methods, thus quickly becoming the state of the art in machine translation
-    (MT). However, NMT systems are limited in translating low-resourced languages, due to the significant
-    amount of parallel data that is required to learn useful mappings between languages. In this work,
-    we show how the so-called multilingual NMT can help to tackle the challenges associated with low-resourced
-    language translation. The underlying principle of multilingual NMT is to force the creation of hidden
-    representations of words in a shared semantic space across multiple languages, thus enabling a positive
-    parameter transfer across languages. Along this direction, we present multilingual translation experiments
-    with three languages (English, Italian, Romanian) covering six translation directions, utilizing both
-    recurrent neural networks and transformer (or self-attentive) neural networks. We then focus on the
-    zero-shot translation problem, that is how to leverage multi-lingual data in order to learn translation
-    directions that are not covered by the available training material. To this aim, w
-  members:
-  - surafel-m-lakew
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Surafel M. Lakew, Marcello Federico, Matteo Negri, Marco Turchi
-  tracks:
-  - models
-  - applications
 - key: the-development-and-analysis-of-extended-architecture-model-for-intelligent-tuto
   title: The development and analysis of extended architecture model for intelligent tutoring systems
   authors:
@@ -10100,7 +9817,7 @@ publications:
   type: journal
   doi: 10.4000/ijcol.531
   url: https://doi.org/10.4000/ijcol.531
-  arxiv: null
+  arxiv: '1909.07342'
   anthology: null
   code: null
   dataset: null
@@ -10124,8 +9841,8 @@ publications:
   ethiopian: false
   author_line: Surafel M. Lakew, Marcello Federico, Matteo Negri, Marco Turchi
   tracks:
-  - models
   - applications
+  - models
 - key: neural-machine-translation-into-language-varieties
   title: Neural Machine Translation into Language Varieties
   authors:
@@ -10272,8 +9989,8 @@ publications:
     targets are Ethiopian languages. Now we are working towards an optimal alignment for a bi-directional
     English-Ethiopian languages SMT.
   members:
-  - binyam-ephrem-seyoum
   - michael-melese
+  - binyam-ephrem-seyoum
   sources:
   - openalex
   ethiopian: true
@@ -10587,38 +10304,6 @@ publications:
   tracks:
   - applications
   - evaluation
-- key: modern-internet-programming
-  title: Modern Internet Programming
-  authors:
-  - name: Hagos Gebremedhin Gebremeskel
-    member: hagos-gebremedhin-gebremeskel
-  year: 2017
-  venue: null
-  type: other
-  doi: null
-  url: https://www.amazon.com/Modern-Internet-Programming-Gebremeskel-Gebremedhin/dp/6202196521
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: Modern internet programming is a web development which consists of HTML, CSS and PHP. HTML
-    is a language used to describe to a browser how to display text and other objects in a browser window.
-    It is not a programming language. HTML works on a client computer (the system on which the page is
-    being viewed). PHP is a scripting language and can be used to create web pages written in HTML. PHP
-    Hypertext Preprocessor is a widely-used open source general-purpose scripting language that is especially
-    suited for web development and can be embedded into HTML. Internet programming is the basic web development
-    which is used worldwide. This book mainly covers the HTML, CSS and PHP for teaching in higher education
-    as well as system development with clear examples of codes. This book is my 4th book in publication.
-    Thanks God!
-  members:
-  - hagos-gebremedhin-gebremeskel
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Hagos Gebremedhin Gebremeskel
-  tracks:
-  - capacity
 - key: multilingual-and-cross-lingual-complexword-identification
   title: Multilingual and Cross-Lingual ComplexWord Identification
   authors:
@@ -10736,45 +10421,6 @@ publications:
   - semantic_scholar
   ethiopian: false
   author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović, Andreas Holzinger
-  tracks:
-  - data
-- key: an-adaptive-annotation-approach-for-biomedical-entity-and-relation-recognition-b
-  title: An adaptive annotation approach for biomedical entity and relation recognition. Brain Informatics
-  authors:
-  - name: Seid Muhie Yimam
-    member: seid-muhie-yimam
-  - name: Chris Biemann
-  - name: Ljiljana Trtica Majnarić
-  - name: Šefket Šabanović
-  year: 2016
-  venue: null
-  type: journal
-  doi: null
-  url: https://tubiblio.ulb.tu-darmstadt.de/105065/
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: 'In this article, we demonstrate the impact of interactive machine learning: we develop biomedical
-    entity recognition dataset using a human-into-the-loop approach. In contrary to classical machine
-    learning, human-in-the-loop approaches do not operate on predefined training or test sets, but assume
-    that human input regarding system improvement is supplied iteratively. Here, during annotation, a
-    machine learning model is built on previous annotations and used to propose labels for subsequent
-    annotation. To demonstrate that such interactive and iterative annotation speeds up the development
-    of quality dataset annotation, we conduct three experiments. In the first experiment, we carry out
-    an iterative annotation experimental simulation and show that only a handful of medical abstracts
-    need to be annotated to produce suggestions that increase annotation speed. In the second experiment,
-    clinical doctors have conducted a case study in annotating medical terms documents relevant for their
-    research. The third experiment explores the annotation of semantic relations with relation instance
-    learning across documents. The experiments validate our method qualitatively and quantitatively, and
-    give'
-  members:
-  - seid-muhie-yimam
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović
   tracks:
   - data
 - key: design-and-architecture-of-desktop-lcd-monitor-having-built-in-webcam-and-microp

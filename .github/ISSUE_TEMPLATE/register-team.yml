@@ -12,7 +12,7 @@ body:
         company team. To add yourself as an individual, use *Join EthioNLP*
         instead.
 
-        Once your team is registered, the nightly sync sweeps your Hugging Face
+        Once your team is registered, the monthly sync sweeps your Hugging Face
         and GitHub organisations and lists anything that covers an Ethiopian
         language. You never have to submit a model or dataset by hand again, and
         nothing you publish outside those languages is touched.
