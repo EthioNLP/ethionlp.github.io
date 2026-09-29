@@ -19,4 +19,5 @@ mentoring_levels: [bsc, msc, intern]
 mentoring_capacity: 2
 mentoring_note: >-
   Annotation design, benchmark construction, Evaluation design, and paper writing for peer-reviewed journals/conferences/workshops.
+openalex: A5040546523
 ---
