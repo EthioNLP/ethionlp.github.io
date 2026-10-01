@@ -1,7 +1,7 @@
 totals:
   members: 15
   languages: 8
-  unmapped: 0
+  unmapped: 1
 method: 'Hugging Face language tags are taken as given. For publications and repositories the language
   is inferred by matching its name, and the spellings that name is actually written with, as whole words
   in the title, abstract, description and topics. Broad multilingual work is excluded: contributing to
@@ -426,9 +426,9 @@ per_member:
   top: Amharic
   tracks:
   - models
+  - applications
   - evaluation
   - data
-  - applications
 - slug: mesay-gemeda-yigezu
   name: Mesay Gemeda Yigezu
   languages:
