@@ -1,6 +1,6 @@
 totals:
-  publications: 266
-  ethiopian: 97
+  publications: 262
+  ethiopian: 96
   members_covered: 15
   years:
   - 2026
@@ -28,13 +28,13 @@ by_year:
 - year: 2015
   count: 4
 - year: 2016
-  count: 9
+  count: 8
 - year: 2017
   count: 6
 - year: 2018
   count: 17
 - year: 2019
-  count: 9
+  count: 8
 - year: 2020
   count: 10
 - year: 2021
@@ -42,7 +42,7 @@ by_year:
 - year: 2022
   count: 29
 - year: 2023
-  count: 40
+  count: 38
 - year: 2024
   count: 46
 - year: 2025
@@ -53,13 +53,13 @@ by_type:
 - type: conference
   count: 144
 - type: preprint
-  count: 55
+  count: 53
 - type: journal
-  count: 52
+  count: 51
 - type: book-chapter
   count: 5
 - type: other
-  count: 5
+  count: 4
 - type: workshop
   count: 4
 - type: thesis
@@ -5475,59 +5475,6 @@ publications:
   tracks:
   - applications
   - capacity
-- key: a-fri-s-enti-a-b-enchmark-t-witter-s-entiment-a-nalysis-d-ataset-for-a-frican-l-
-  title: 'A FRI S ENTI : A B ENCHMARK T WITTER S ENTIMENT A NALYSIS D ATASET FOR A FRICAN L ANGUAGES'
-  authors:
-  - name: Shamsuddeen Hassan Muhammad
-  - name: Idris Abdulmumin
-  - name: A. Ayele
-  - name: Nedjma Djouhra Ousidhoum
-  - name: David Ifeoluwa Adelani
-  - name: Seid Muhie Yimam
-    member: seid-muhie-yimam
-  - name: Meriem Beloucif
-  - name: Saif M. Mohammad
-  - name: Sebastian Ruder
-  - name: Oumaima Hourrane
-  - name: P. Brazdil
-  - name: Felermino M. D. A. Ali
-  - name: Davis David
-  - name: Salomey Osei
-  - name: Bello Shehu Bello
-  - name: Falalu Ibrahim
-  - name: T. Gwadabe
-  - name: Samuel Rutunda
-  - name: Tadesse Destaw Belay
-    member: tadesse-destaw-belay
-  - name: Wendimu Baye Messelle
-  - name: H. Balcha
-  - name: S. Chala
-  - name: Hagos Tesfahun Gebremichael
-  - name: Bernard Opoku
-  - name: Steven Arthur
-  year: 2023
-  venue: null
-  type: other
-  doi: null
-  url: https://www.semanticscholar.org/paper/794e3de4e59812f824d07f785c1a982cb09bb987
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: null
-  members:
-  - seid-muhie-yimam
-  - tadesse-destaw-belay
-  sources:
-  - semantic_scholar
-  ethiopian: false
-  author_line: Shamsuddeen Hassan Muhammad, Idris Abdulmumin, A. Ayele, Nedjma Djouhra Ousidhoum, David
-    Ifeoluwa Adelani, Seid Muhie Yimam, Meriem Beloucif, Saif M. Mohammad, Sebastian Ruder, Oumaima Hourrane,
-    P. Brazdil, Felermino M. D. A. Ali, Davis David, Salomey Osei, Bello Shehu Bello, Falalu Ibrahim,
-    T. Gwadabe, Samuel Rutunda, Tadesse Destaw Belay, Wendimu Baye Messelle, H. Balcha, S. Chala, Hagos
-    Tesfahun Gebremichael, Bernard Opoku, Steven Arthur
-  tracks: []
 - key: a-need-finding-study-with-low-resource-language-content-creators
   title: A Need Finding Study with Low-Resource Language Content Creators
   authors:
@@ -7223,45 +7170,6 @@ publications:
   tracks:
   - models
   - applications
-  - linguistics
-- key: unlock-tigrigna-nlp-design-and-development-of-morphological-analyzer-for-tigrign
-  title: Unlock Tigrigna NLP - Design and Development of Morphological Analyzer for Tigrigna Verbs Using
-    Hybrid Approach
-  authors:
-  - name: Hagos Gebremedhin Gebremeskel
-    member: hagos-gebremedhin-gebremeskel
-  - name: Chong Feng
-  - name: Huang Heyan
-  year: 2023
-  venue: Research Square
-  type: preprint
-  doi: 10.21203/rs.3.rs-3682405/v1
-  url: https://doi.org/10.21203/rs.3.rs-3682405/v1
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: Abstract Morphological analyzer is the basis for various high-level NLP applications such
-    as information retrieval, spell checking, grammar checking, machine translation, speech recognition,
-    POS tagging and automatic sentence construction. This paper is carefully designed for the analysis
-    of Tigrigna verbs morphological analyzer using the hybrid of memory learning and rule based approaches.
-    The experiment have conducted using Python 3 where TiMBL algorithms IB2 and TRIBL2, and Finite State
-    Transducer rules are used. The performance of the system has been evaluated using 10 fold cross-validation
-    technique. Testing was conducted using optimized parameter settings for regular verbs and linguistic
-    rules of the Tigrigna language allomorph and phonology for the irregular verbs. The accuracy of the
-    memory based approach with optimized parameters of TiMBL algorithm IB2 and TRIBL2 was 93.24% and 92.31%,
-    respectively. Finally, the hybrid approach had an actual performance of 95.6% using linguistic rules
-    for handling irregular and copula verbs.
-  members:
-  - hagos-gebremedhin-gebremeskel
-  sources:
-  - openalex
-  ethiopian: true
-  author_line: Hagos Gebremedhin Gebremeskel, Chong Feng, Huang Heyan
-  tracks:
-  - applications
-  - evaluation
   - linguistics
 - key: afaan-oromo-hate-speech-detection-and-classification-on-social-media
   title: Afaan Oromo Hate Speech Detection and Classification on Social Media
@@ -9656,45 +9564,6 @@ publications:
   ethiopian: false
   author_line: Ketema Kifle Gebretsadik, Walelign Tewabe Sewunetie
   tracks: []
-- key: multilingual-neural-machine-translation-for-zero-resource-languages
-  title: Multilingual Neural Machine Translation for Zero-Resource Languages
-  authors:
-  - name: Surafel M. Lakew
-    member: surafel-m-lakew
-  - name: Marcello Federico
-  - name: Matteo Negri
-  - name: Marco Turchi
-  year: 2019
-  venue: arXiv (Cornell University)
-  type: preprint
-  doi: 10.48550/arxiv.1909.07342
-  url: http://arxiv.org/abs/1909.07342
-  arxiv: '1909.07342'
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: In recent years, Neural Machine Translation (NMT) has been shown to be more effective than
-    phrase-based statistical methods, thus quickly becoming the state of the art in machine translation
-    (MT). However, NMT systems are limited in translating low-resourced languages, due to the significant
-    amount of parallel data that is required to learn useful mappings between languages. In this work,
-    we show how the so-called multilingual NMT can help to tackle the challenges associated with low-resourced
-    language translation. The underlying principle of multilingual NMT is to force the creation of hidden
-    representations of words in a shared semantic space across multiple languages, thus enabling a positive
-    parameter transfer across languages. Along this direction, we present multilingual translation experiments
-    with three languages (English, Italian, Romanian) covering six translation directions, utilizing both
-    recurrent neural networks and transformer (or self-attentive) neural networks. We then focus on the
-    zero-shot translation problem, that is how to leverage multi-lingual data in order to learn translation
-    directions that are not covered by the available training material. To this aim, w
-  members:
-  - surafel-m-lakew
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Surafel M. Lakew, Marcello Federico, Matteo Negri, Marco Turchi
-  tracks:
-  - models
-  - applications
 - key: the-development-and-analysis-of-extended-architecture-model-for-intelligent-tuto
   title: The development and analysis of extended architecture model for intelligent tutoring systems
   authors:
@@ -10651,45 +10520,6 @@ publications:
   - semantic_scholar
   ethiopian: false
   author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović, Andreas Holzinger
-  tracks:
-  - data
-- key: an-adaptive-annotation-approach-for-biomedical-entity-and-relation-recognition-b
-  title: An adaptive annotation approach for biomedical entity and relation recognition. Brain Informatics
-  authors:
-  - name: Seid Muhie Yimam
-    member: seid-muhie-yimam
-  - name: Chris Biemann
-  - name: Ljiljana Trtica Majnarić
-  - name: Šefket Šabanović
-  year: 2016
-  venue: null
-  type: journal
-  doi: null
-  url: https://tubiblio.ulb.tu-darmstadt.de/105065/
-  arxiv: null
-  anthology: null
-  code: null
-  dataset: null
-  model: null
-  abstract: 'In this article, we demonstrate the impact of interactive machine learning: we develop biomedical
-    entity recognition dataset using a human-into-the-loop approach. In contrary to classical machine
-    learning, human-in-the-loop approaches do not operate on predefined training or test sets, but assume
-    that human input regarding system improvement is supplied iteratively. Here, during annotation, a
-    machine learning model is built on previous annotations and used to propose labels for subsequent
-    annotation. To demonstrate that such interactive and iterative annotation speeds up the development
-    of quality dataset annotation, we conduct three experiments. In the first experiment, we carry out
-    an iterative annotation experimental simulation and show that only a handful of medical abstracts
-    need to be annotated to produce suggestions that increase annotation speed. In the second experiment,
-    clinical doctors have conducted a case study in annotating medical terms documents relevant for their
-    research. The third experiment explores the annotation of semantic relations with relation instance
-    learning across documents. The experiments validate our method qualitatively and quantitatively, and
-    give'
-  members:
-  - seid-muhie-yimam
-  sources:
-  - openalex
-  ethiopian: false
-  author_line: Seid Muhie Yimam, Chris Biemann, Ljiljana Trtica Majnarić, Šefket Šabanović
   tracks:
   - data
 - key: design-and-architecture-of-desktop-lcd-monitor-having-built-in-webcam-and-microp

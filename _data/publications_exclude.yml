@@ -137,3 +137,35 @@
   why: >-
     A textbook, not a paper. Its url is an Amazon listing and its abstract is
     textbook prose ("HTML is a language used to describe to a browser...").
+
+# ─── Duplicates the deduplication keys cannot see ────────────────────────────
+# sync_publications.py merges on DOI, arXiv id and normalised title. These four
+# evade all three: a preprint and its published version carry different DOIs
+# and no shared arXiv id, and a PDF-scraped copy has neither. Each was merged
+# by hand once and came back on the next sync, so they are listed here instead.
+
+- title: >-
+    A FRI S ENTI : A B ENCHMARK T WITTER S ENTIMENT A NALYSIS D ATASET FOR A
+    FRICAN L ANGUAGES
+  why: >-
+    A PDF-scraped small-caps copy of AfriSenti (10.18653/v1/2023.emnlp-main.862),
+    with initialised author names. No DOI, no venue.
+
+- doi: 10.21203/rs.3.rs-3682405/v1
+  why: >-
+    Research Square preprint of "Design and Development of Morphological
+    Analyzer for Tigrigna Verbs using Hybrid Approach" (10.5121/ijnlc.2023.12501),
+    same three authors.
+
+- doi: 10.48550/arxiv.1909.07342
+  why: >-
+    arXiv preprint of "Multilingual Neural Machine Translation for Low-Resource
+    Languages" (10.4000/ijcol.531, IJCoL 2018). Same four authors and a
+    character-identical abstract.
+
+- title: >-
+    An adaptive annotation approach for biomedical entity and relation
+    recognition. Brain Informatics
+  why: >-
+    The journal name is glued onto the title, and the record drops a real
+    author (Andreas Holzinger). The complete record is 10.1007/s40708-016-0036-4.
