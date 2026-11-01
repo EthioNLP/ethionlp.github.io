@@ -2,8 +2,8 @@
 # Regenerate with `make sync`. Curated additions belong in
 # _data/ecosystem_manual.yml instead.
 totals:
-  repos: 32
-  stars: 169
+  repos: 33
+  stars: 168
   forks: 78
 repos:
 - id: IsraelAbebe/An-Amharic-News-Text-classification-Dataset
@@ -56,7 +56,7 @@ repos:
   language: TypeScript
   topics: []
   focus: applications
-  stars: 19
+  stars: 18
   forks: 1
   updated: '2025-12-12'
   created: '2025-04-28'
@@ -80,7 +80,7 @@ repos:
   - machine-translation
   focus: applications
   stars: 17
-  forks: 8
+  forks: 7
   updated: '2025-06-04'
   created: '2023-03-20'
   license: MIT
@@ -222,8 +222,8 @@ repos:
   topics: []
   focus: applications
   stars: 4
-  forks: 2
-  updated: '2026-10-01'
+  forks: 3
+  updated: '2026-10-31'
   created: '2018-08-26'
   license: Apache-2.0
   archived: false
@@ -571,6 +571,23 @@ repos:
   archived: false
   owned: true
   member: seid-muhie-yimam
+- id: xulkif/amharic-sentiment-analysis-model-evaluation-result
+  owner: xulkif
+  name: amharic-sentiment-analysis-model-evaluation-result
+  url: https://github.com/xulkif/amharic-sentiment-analysis-model-evaluation-result
+  homepage: null
+  description: null
+  language: Python
+  topics: []
+  focus: models
+  stars: 0
+  forks: 0
+  updated: '2026-10-30'
+  created: '2026-10-19'
+  license: MIT
+  archived: false
+  owned: true
+  member: zulkif-azher-fereh
 - id: yonas-g/Amharic-Corpora
   owner: yonas-g
   name: Amharic-Corpora
