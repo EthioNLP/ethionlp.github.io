@@ -1,7 +1,7 @@
 totals:
-  members: 15
+  members: 16
   languages: 8
-  unmapped: 1
+  unmapped: 2
 method: 'Hugging Face language tags are taken as given. For publications and repositories the language
   is inferred by matching its name, and the spellings that name is actually written with, as whole words
   in the title, abstract, description and topics. Broad multilingual work is excluded: contributing to
@@ -57,6 +57,45 @@ per_member:
   - applications
   - models
   - evaluation
+- slug: israel-abebe-azime
+  name: Israel Abebe Azime
+  languages:
+  - name: Amharic
+    total: 20
+    artifacts: 6
+    papers: 8
+    repos: 6
+  - name: Afaan Oromo
+    total: 4
+    artifacts: 1
+    papers: 3
+    repos: 0
+  - name: Tigrinya
+    total: 4
+    artifacts: 1
+    papers: 3
+    repos: 0
+  - name: Wolaytta
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - name: Sidama
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
+  - name: Somali
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
+  top: Amharic
+  tracks:
+  - models
+  - evaluation
+  - data
+  - applications
 - slug: tadesse-destaw-belay
   name: Tadesse Destaw Belay
   languages:
@@ -92,49 +131,10 @@ per_member:
     repos: 0
   top: Amharic
   tracks:
+  - models
   - applications
   - data
-  - models
   - evaluation
-- slug: israel-abebe-azime
-  name: Israel Abebe Azime
-  languages:
-  - name: Amharic
-    total: 18
-    artifacts: 6
-    papers: 6
-    repos: 6
-  - name: Afaan Oromo
-    total: 4
-    artifacts: 1
-    papers: 3
-    repos: 0
-  - name: Tigrinya
-    total: 4
-    artifacts: 1
-    papers: 3
-    repos: 0
-  - name: Wolaytta
-    total: 2
-    artifacts: 0
-    papers: 2
-    repos: 0
-  - name: Sidama
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  - name: Somali
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  top: Amharic
-  tracks:
-  - models
-  - data
-  - evaluation
-  - applications
 - slug: michael-melese
   name: Michael Melese
   languages:
@@ -216,14 +216,14 @@ per_member:
   name: Atnafu Lambebo Tonja
   languages:
   - name: Amharic
-    total: 8
+    total: 7
     artifacts: 2
-    papers: 6
+    papers: 5
     repos: 0
   - name: Wolaytta
-    total: 6
+    total: 5
     artifacts: 0
-    papers: 6
+    papers: 5
     repos: 0
   - name: Afaan Oromo
     total: 3
@@ -276,8 +276,46 @@ per_member:
   top: Amharic
   tracks:
   - applications
-  - data
   - evaluation
+  - data
+- slug: walelign-tewabe-sewunetie
+  name: Walelign Tewabe Sewunetie
+  languages:
+  - name: Amharic
+    total: 8
+    artifacts: 1
+    papers: 7
+    repos: 0
+  - name: Afaan Oromo
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - name: Ge'ez
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - name: Tigrinya
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
+  - name: Sidama
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
+  - name: Wolaytta
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
+  top: Amharic
+  tracks:
+  - models
+  - evaluation
+  - data
 - slug: binyam-ephrem-seyoum
   name: Binyam Ephrem Seyoum
   languages:
@@ -310,44 +348,7 @@ per_member:
   tracks:
   - data
   - linguistics
-- slug: walelign-tewabe-sewunetie
-  name: Walelign Tewabe Sewunetie
-  languages:
-  - name: Amharic
-    total: 6
-    artifacts: 1
-    papers: 5
-    repos: 0
-  - name: Afaan Oromo
-    total: 2
-    artifacts: 0
-    papers: 2
-    repos: 0
-  - name: Tigrinya
-    total: 2
-    artifacts: 0
-    papers: 2
-    repos: 0
-  - name: Ge'ez
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  - name: Sidama
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  - name: Wolaytta
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  top: Amharic
-  tracks:
-  - models
   - evaluation
-  - data
 - slug: henok-biadglign-ademtew
   name: Henok Biadglign Ademtew
   languages:
@@ -425,29 +426,10 @@ per_member:
     repos: 0
   top: Amharic
   tracks:
-  - models
-  - applications
   - evaluation
-  - data
-- slug: mesay-gemeda-yigezu
-  name: Mesay Gemeda Yigezu
-  languages:
-  - name: Wolaytta
-    total: 4
-    artifacts: 0
-    papers: 4
-    repos: 0
-  - name: Amharic
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  top: Wolaytta
-  tracks:
   - models
   - applications
   - data
-  - evaluation
 - slug: yonas-chanie
   name: Yonas Chanie
   languages:
@@ -465,6 +447,25 @@ per_member:
   tracks:
   - data
   - models
+  - evaluation
+- slug: mesay-gemeda-yigezu
+  name: Mesay Gemeda Yigezu
+  languages:
+  - name: Wolaytta
+    total: 3
+    artifacts: 0
+    papers: 3
+    repos: 0
+  - name: Amharic
+    total: 1
+    artifacts: 0
+    papers: 1
+    repos: 0
+  top: Wolaytta
+  tracks:
+  - applications
+  - models
+  - data
   - evaluation
 - slug: surafel-m-lakew
   name: Surafel M. Lakew
@@ -491,9 +492,20 @@ per_member:
     repos: 0
   top: Afaan Oromo
   tracks:
-  - applications
   - models
+  - applications
   - evaluation
+- slug: zulkif-azher-fereh
+  name: ZULKIF AZHER FEREH
+  languages:
+  - name: Amharic
+    total: 1
+    artifacts: 0
+    papers: 0
+    repos: 1
+  top: Amharic
+  tracks:
+  - models
 per_language:
 - name: Amharic
   catalogue_name: Amharic
@@ -507,9 +519,9 @@ per_language:
     repos: 4
   - slug: israel-abebe-azime
     name: Israel Abebe Azime
-    total: 18
+    total: 20
     artifacts: 6
-    papers: 6
+    papers: 8
     repos: 6
   - slug: tadesse-destaw-belay
     name: Tadesse Destaw Belay
@@ -535,17 +547,23 @@ per_language:
     artifacts: 0
     papers: 8
     repos: 1
-  - slug: atnafu-lambebo-tonja
-    name: Atnafu Lambebo Tonja
-    total: 8
-    artifacts: 2
-    papers: 6
-    repos: 0
   - slug: binyam-ephrem-seyoum
     name: Binyam Ephrem Seyoum
     total: 8
     artifacts: 0
     papers: 8
+    repos: 0
+  - slug: walelign-tewabe-sewunetie
+    name: Walelign Tewabe Sewunetie
+    total: 8
+    artifacts: 1
+    papers: 7
+    repos: 0
+  - slug: atnafu-lambebo-tonja
+    name: Atnafu Lambebo Tonja
+    total: 7
+    artifacts: 2
+    papers: 5
     repos: 0
   - slug: henok-biadglign-ademtew
     name: Henok Biadglign Ademtew
@@ -553,12 +571,6 @@ per_language:
     artifacts: 2
     papers: 1
     repos: 3
-  - slug: walelign-tewabe-sewunetie
-    name: Walelign Tewabe Sewunetie
-    total: 6
-    artifacts: 1
-    papers: 5
-    repos: 0
   - slug: moges-ahmed-mehamed
     name: Moges Ahmed Mehamed
     total: 5
@@ -589,7 +601,13 @@ per_language:
     artifacts: 0
     papers: 1
     repos: 0
-  count: 15
+  - slug: zulkif-azher-fereh
+    name: ZULKIF AZHER FEREH
+    total: 1
+    artifacts: 0
+    papers: 0
+    repos: 1
+  count: 16
 - name: Afaan Oromo
   catalogue_name: Oromo
   iso: orm
@@ -762,15 +780,15 @@ per_language:
     repos: 0
   - slug: atnafu-lambebo-tonja
     name: Atnafu Lambebo Tonja
-    total: 6
+    total: 5
     artifacts: 0
-    papers: 6
+    papers: 5
     repos: 0
   - slug: mesay-gemeda-yigezu
     name: Mesay Gemeda Yigezu
-    total: 4
+    total: 3
     artifacts: 0
-    papers: 4
+    papers: 3
     repos: 0
   - slug: binyam-ephrem-seyoum
     name: Binyam Ephrem Seyoum
@@ -855,6 +873,12 @@ per_language:
     artifacts: 0
     papers: 2
     repos: 0
+  - slug: walelign-tewabe-sewunetie
+    name: Walelign Tewabe Sewunetie
+    total: 2
+    artifacts: 0
+    papers: 2
+    repos: 0
   - slug: atnafu-lambebo-tonja
     name: Atnafu Lambebo Tonja
     total: 1
@@ -869,12 +893,6 @@ per_language:
     repos: 0
   - slug: michael-melese
     name: Michael Melese
-    total: 1
-    artifacts: 0
-    papers: 1
-    repos: 0
-  - slug: walelign-tewabe-sewunetie
-    name: Walelign Tewabe Sewunetie
     total: 1
     artifacts: 0
     papers: 1
