@@ -123,6 +123,18 @@ def is_person(name: str | None) -> bool:
     return not NOT_A_PERSON.search(name)
 
 
+# A proceedings volume is not a paper. The indexes occasionally return one as
+# a work, with every author in the volume's bibliography attached: three came
+# back in one sync with 500 "authors" each, including member names mangled
+# into fragments ("Iryna Seid Muhie Yimam", a bare "Biemann"). No real paper
+# is titled "Proceedings of ...", so the title alone is a safe test.
+VOLUME_TITLE = re.compile(r"^\s*proceedings of\b", re.I)
+
+
+def is_volume(title: str | None) -> bool:
+    return bool(VOLUME_TITLE.match(title or ""))
+
+
 def blank(title: str) -> dict:
     return {
         "key": slugify(title)[:80],
@@ -385,6 +397,8 @@ def main() -> int:
                 continue
             doi = clean_doi(rec.get("doi"))
             if (doi and doi in excluded) or key in excluded_titles:
+                continue
+            if is_volume(rec.get("title")):
                 continue
             # An arXiv DOI carries the same identity as the arxiv field, so
             # normalise it across: otherwise one source's record holds the id

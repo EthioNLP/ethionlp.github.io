@@ -19,8 +19,7 @@ description: >-
     <p class="lede">
       Published NLP research on four Ethiopian languages, counted and set
       beside four widely-studied African languages measured by the same query
-      against the same source, alongside a timeline of milestones. The totals
-      are close, while the distribution across languages is uneven.
+      against the same source, alongside a timeline of milestones.
     </p>
   </div>
 </div>
@@ -59,9 +58,8 @@ description: >-
       <p class="lede">
         Across
         the whole period the totals are close, {{ p.totals.ethiopia_total }}
-        papers against {{ p.totals.africa_total }}, so the gap is not simply a
-        continent-wide effect. The comparison group is growing faster:
-        it grew {{ p.totals.africa_growth }}× over the period against Ethiopia's
+        papers against {{ p.totals.africa_total }}. The comparison group
+        grew {{ p.totals.africa_growth }}× over the period against Ethiopia's
         {{ p.totals.ethiopia_growth }}×, and in {{ p.totals.last_year }} the
         Ethiopian four accounted for {{ p.totals.ethiopia_share_now }}% of the
         pair.
@@ -135,8 +133,8 @@ description: >-
       <div>
         <h2>Milestones</h2>
         <p class="lede">
-          EthioNLP milestones, interleaved with the AfricaNLP milestones the
-          community grew out of and contributes to. Each entry links to a source.
+          EthioNLP milestones, interleaved with AfricaNLP milestones. Each
+          entry links to a source.
         </p>
       </div>
       <div class="chart-legend">
@@ -178,7 +176,7 @@ description: >-
     <div class="prose">
       <p>{{ p.method }}</p>
       <p>
-        The intersection is what makes the count meaningful: an unfiltered
+        An unfiltered
         search for <em>Amharic</em> also returns clinical studies of
         Amharic-speaking patients and sociolinguistic work, which would roughly
         double the apparent figure without adding any NLP papers.
@@ -203,7 +201,7 @@ description: >-
         </li>
       </ul>
       <p>
-        These figures come from one script,
+        These figures are produced by
         <a href="https://github.com/{{ site.repository }}/blob/master/scripts/sync_progress.py"><code>scripts/sync_progress.py</code></a>,
         and re-running it reproduces this page.
       </p>

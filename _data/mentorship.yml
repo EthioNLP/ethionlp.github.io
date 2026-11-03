@@ -16,8 +16,7 @@ intro: >-
   NLP researchers in Ethiopia often face a lack of supervisors. Supervisors with
   NLP experience are scarce inside the country, the literature assumes resources
   that do not exist for these languages, and a first paper is difficult to write
-  without guidance. Mentorship predates this community's datasets and models,
-  and remains a central part of its work.
+  without guidance.
 
 levels:
   - key: bsc
@@ -40,17 +39,16 @@ levels:
 # What a mentee can expect, so that both sides agree before starting.
 expectations:
   mentee:
-    - Come with a direction, however rough. "I want to work on Tigrinya speech" is enough; "give me a topic" is not.
-    - Expect to read. Early work on a topic is usually reading rather than coding.
-    - Reply within a week, and say so when you are stuck. Mentorships often lapse because one side stopped replying.
+    - Come with a direction, however rough. "I want to work on Tigrinya speech" is enough.
+    - Early work on a topic is usually reading.
+    - Reply within a week, and say so when you are stuck.
   mentor:
     - A scheduled call at least monthly, and written feedback on drafts.
-    - "A realistic scope: what can be finished in the time available, not what would be impressive."
+    - A realistic scope that can be finished in the time available.
     - Co-authorship where the work warrants it, and a clear statement up front about what would warrant it.
 
 # Shown on the page when someone wants to offer mentorship.
 offer_note: >-
   Mentors are not required to be senior. Someone who has finished a thesis in
   this area can usually help a student starting one, and a PhD student is often
-  a suitable first mentor. Capacity is stated publicly, so mentors are not asked
-  for more than they offered.
+  a suitable first mentor. Capacity is stated publicly.

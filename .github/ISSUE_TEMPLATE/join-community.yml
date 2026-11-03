@@ -111,11 +111,15 @@ body:
         Both join the same groups and events; the difference is only in who
         decides the community's direction. See
         https://ethionlp.github.io/standards/ and
-        https://ethionlp.github.io/join/#categories. If you are unsure, pick
-        either; a maintainer will say if the other fits better.
+        https://ethionlp.github.io/join/#categories. School and undergraduate
+        students should pick one of the student options; see
+        https://ethionlp.github.io/students/. If you are unsure, pick any; a
+        maintainer will say if another fits better.
       options:
         - "Member: Ethiopian, or working extensively on Ethiopian languages"
         - "Affiliate member: working with or supporting this community"
+        - "Student member (high school): joining the students chapter"
+        - "Student member (bachelor): joining the students chapter"
     validations:
       required: true
 

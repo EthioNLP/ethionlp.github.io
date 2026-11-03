@@ -134,10 +134,20 @@ def build_member(fields: dict) -> Path:
     # already assumed is a field that goes stale. The category carries no
     # difference in access; see _data/membership.yml for what it does mean.
     answer = (get(fields, "which describes you", "membership") or "").lower()
-    if "affiliate" in answer:
+    # Plain membership stays the default and is not written out. The other
+    # three are, because a maintainer needs to see which chapter a student
+    # belongs to in order to match them to a mentor.
+    category = None
+    if "high school" in answer or "highschool" in answer:
+        category = "highschool"
+    elif "bachelor" in answer:
+        category = "bachelor"
+    elif "affiliate" in answer:
+        category = "affiliate"
+    if category:
         text = path.read_text(encoding="utf-8")
         if "\nmembership:" not in text:
-            text = text.replace("\n---\n", "\nmembership: affiliate\n---\n", 1)
+            text = text.replace("\n---\n", f"\nmembership: {category}\n---\n", 1)
             path.write_text(text, encoding="utf-8")
 
     # Best-effort identifier resolution; failure here is not fatal, because a

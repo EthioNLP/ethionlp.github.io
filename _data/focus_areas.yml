@@ -44,8 +44,7 @@
   icon: chart
   color: gold
   summary: >-
-    Shared tasks, leaderboards and error analysis, so that claims about
-    Ethiopian-language systems can be checked independently.
+    Shared tasks, leaderboards and error analysis.
   examples:
     - SemEval and AfricaNLP shared tasks
     - Bias and safety evaluation suites
@@ -70,8 +69,7 @@
   color: green
   summary: >-
     Computational description of Ethiopian languages, morphology, dialect
-    variation, historical reconstruction, and the documentation work the areas
-    above depend on.
+    variation, historical reconstruction, and documentation work.
   examples:
     - Morphological analysis for Ethio-Semitic
     - Dialect discovery in under-resourced varieties

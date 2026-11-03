@@ -82,7 +82,7 @@ ways:
     title: Register a lab, project or student group
     blurb: >-
       Your team's GitHub organisation and Hugging Face account are then read on
-      the same schedule as everyone else's, so the whole group's output lands here.
+      the same schedule as everyone else's.
     action: Open the team form
     url: https://github.com/EthioNLP/ethionlp.github.io/issues/new?template=register-team.yml
     effort: 5 minutes

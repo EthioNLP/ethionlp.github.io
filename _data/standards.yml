@@ -36,31 +36,27 @@ scope:
 values:
   - title: Ethiopians lead the work on Ethiopian languages
     body: >-
-      Speakers of a language should own the research on it rather than supply
-      data for someone else's. Collaboration from anywhere is welcome on that
-      footing.
+      Speakers of a language should own the research on it. Collaboration from
+      anywhere is welcome on that footing.
   - title: Contributions come from a range of backgrounds
     body: >-
       Speakers of a language, linguists, students and senior researchers each
-      contribute different knowledge. Students are expected to take part
-      rather than observe.
+      contribute different knowledge. Students are expected to take part.
   - title: Work in the open
     body: >-
       Datasets, models, code and negative results are published where the
-      licence allows, and the licence is chosen so that it does.
+      licence allows.
   - title: Communities decide about their own data
     body: >-
       A language community keeps a say in what is collected from it, how it is
       used, and whether it is withdrawn.
   - title: Training people is part of the output
     body: >-
-      A thesis supervised, a student running their own experiments, a first
-      paper accepted: these count alongside the datasets and the models, and
-      usually outlast them.
+      A thesis supervised, a student running their own experiments and a first
+      paper accepted count alongside the datasets and the models.
   - title: Say what you actually did
     body: >-
       Report the method, the size, the limitations and who did the work.
-      Overstated results cost this field more than modest ones.
 
 # The conduct rules proper. Contributor Covenant 1.4, condensed to the
 # operative sentences; the full text is linked from the page.
@@ -90,15 +86,13 @@ channels:
   rules:
     - title: Keep ethnic and party politics out
       body: >-
-        Ethiopia's politics reach into questions about language, and this group
-        is not where they get settled. Discuss a language's data, orthography,
-        speakers and status; do not argue about the standing of the people who
-        speak it. Posts that attack an ethnic or religious group are removed
-        and the poster is removed with them.
+        Discuss a language's data, orthography, speakers and status; do not
+        argue about the standing of the people who speak it. Posts that attack
+        an ethnic or religious group are removed and the poster is removed with
+        them.
     - title: Do not forward unverified claims
       body: >-
-        Screenshots, casualty figures and viral audio spread fastest when they
-        are wrong. If you cannot name the source, do not post it.
+        If you cannot name the source, do not post it.
     - title: Hate speech is our research subject, not our medium
       body: >-
         Examples for annotation or discussion belong in the dataset, behind a
@@ -106,19 +100,16 @@ channels:
         into a general channel.
     - title: Ask questions in the open
       body: >-
-        Beginners' questions are welcome and are not off-topic. Members are at
-        different stages, and basic questions are expected.
+        Beginners' questions are welcome and are not off-topic.
     - title: No unsolicited private messages
       body: >-
         Do not direct-message members you do not know to sell, recruit, canvass
-        or ask them to complete a survey. Post it in the group and let people
-        come to you.
+        or ask them to complete a survey. Post it in the group.
     - title: A shared working language, alongside your own
       body: >-
-        English is the shared working language, so that members who do not read
-        a given language can still follow a thread. Amharic, Afaan Oromo,
-        Tigrinya and others are welcome alongside it; a short gloss keeps the
-        discussion accessible.
+        English is the shared working language. Amharic, Afaan Oromo, Tigrinya
+        and others are welcome alongside it; a short gloss keeps the discussion
+        accessible.
     - title: Someone else's data is not yours to share
       body: >-
         Do not post scraped personal data, unreleased datasets, or anything a
@@ -137,10 +128,9 @@ research:
   - title: The people who supply the language are collaborators
     body: >-
       Annotation, transcription and collection are work, and the people doing
-      them are part of the project rather than a resource it draws on. Name
-      them where they wish to be named, and where a project has funding, pay at
-      a rate that is fair where they live rather than what the local market
-      will bear.
+      them are part of the project. Name them where they wish to be named, and
+      where a project has funding, pay at a rate that is fair where they live, not what the local
+      market will bear.
   - title: License so the work can be reused
     body: >-
       Release under a licence that permits reuse, and check that you hold the

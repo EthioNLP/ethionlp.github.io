@@ -287,8 +287,8 @@ as a result, and match what /languages/coverage/ shows.
       </div>
 
       <p class="cmp__foot">
-        Bars are scaled to the largest value among the languages shown, so they
-        compare those languages with each other and not with the catalogue.
+        Bars are scaled to the largest value among the languages shown, not to
+        the whole catalogue.
         See <a href="#sources">where these figures come from</a>.
       </p>
     </div>
@@ -302,9 +302,8 @@ as a result, and match what /languages/coverage/ shows.
       <h2 class="section-head__title">By family and branch</h2>
       <p class="section-head__note">
         Classification follows Glottolog. Cushitic and Omotic between them are
-        about half the list. Omotic languages have little research: apart
-        from Wolaytta, the Omotic entries here have paper counts below
-        ten. Languages with a model or a dataset are
+        about half the list. Apart from Wolaytta, the Omotic entries here have
+        paper counts below ten. Languages with a model or a dataset are
         marked; select any name for its full entry.
       </p>
     </div>
@@ -358,9 +357,8 @@ as a result, and match what /languages/coverage/ shows.
         All {{ cat.totals.languages }} entries, including extinct and signed
       </h2>
       <p class="section-head__note">
-        The full reference, in the same form as the comparison above. These
-        are separate languages, not dialects of each other;
-        <a href="#sources">why the count runs past “80+”</a>.
+        The full reference, in the same form as the comparison above.
+        <a href="#sources">Why the count runs past “80+”</a>.
       </p>
       <p class="section-head__note">
         Bars are scaled to the whole catalogue. Open a row for its sources,
@@ -679,17 +677,15 @@ as a result, and match what /languages/coverage/ shows.
       <p>{{ cat.method }}</p>
       <p>
         <strong>Why this is more than the “80+” quoted elsewhere on the
-        site.</strong> That figure is the familiar one, from the census and from
+        site.</strong> That figure comes from the census and from
         Ethnologue, and it counts living indigenous languages. This table counts
-        Glottolog languoids, its own unit for a language variety, which is a
-        wider net: of the
+        Glottolog languoids, its own unit for a language variety. Of the
         {{ cat.totals.languages }} here, six are extinct, two are recorded only
         as unattested, two are unclassifiable, two are pidgins and one is a sign
         language. Those categories overlap, so they cover
         {{ cat.totals.languages | minus: living }} rows rather than thirteen;
         setting them aside leaves {{ living }} living or endangered languages,
         which is what the catalogue's own status field gives.
-        Neither number is wrong; they count different things.
       </p>
       <p>
         Two corrections are applied to the source data. ISO macrolanguages are
@@ -734,8 +730,7 @@ as a result, and match what /languages/coverage/ shows.
         This file is generated, so corrections go upstream: fix the language in
         <a href="https://glottolog.org/" rel="noopener">Glottolog</a> or
         <a href="https://www.wikidata.org/" rel="noopener">Wikidata</a> and the next
-        sync picks it up, which helps other projects using those sources, not
-        just this page. For anything the upstream sources cannot express, or if a
+        sync picks it up. For anything the upstream sources cannot express, or if a
         language is missing entirely,
         <a href="https://github.com/{{ site.repository }}/issues/new">open an issue</a>.
       </p>

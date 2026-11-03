@@ -1,0 +1,168 @@
+---
+layout: default
+title: Students chapter
+permalink: /students/
+description: >-
+  The high school and bachelor students chapter: a named mentor, supervision
+  for a final-year project, and first contributions that get reviewed.
+---
+
+{%- assign ch = site.data.students_chapter -%}
+{%- assign cats = site.data.membership.categories | where: "chapter", "students" -%}
+{%- assign mentors = site.members | where_exp: "m", "m.mentoring" | sort: "order" -%}
+{%- assign open_topics = site.topics | where: "status", "open" -%}
+{%- assign running = ch.offers | where: "status", "running" -%}
+{%- assign planned = ch.offers | where: "status", "planned" -%}
+
+<div class="page-head">
+  <div class="wrap wrap--wide">
+    <p class="eyebrow">Community</p>
+    <h1 class="page-head__title">{{ ch.title }}</h1>
+    <p class="lede">{{ ch.intro }}</p>
+
+    <ul class="statline">
+      <li><strong>{{ cats | size }}</strong> ways to join</li>
+      <li><strong>{{ mentors | size }}</strong> mentors</li>
+      {%- if open_topics.size > 0 %}<li><strong>{{ open_topics | size }}</strong> open topics</li>{% endif %}
+    </ul>
+
+    <div class="row" style="margin-top: var(--sp-4)">
+      <a class="btn" href="https://github.com/{{ site.repository }}/issues/new?template=join-community.yml">Join the chapter</a>
+      <a class="btn btn--ghost" href="{{ '/mentorship/' | relative_url }}">Mentors and open topics</a>
+    </div>
+  </div>
+</div>
+
+{%- comment -%} ── Who it is for ──────────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Who it is for</h2>
+      <p class="section-head__note">
+        This section is for motivated high school and university students who
+        want to contribute to EthioNLP. Pick the one that describes you on the
+        join form.
+      </p>
+    </div>
+    <div class="grid grid--2">
+      {%- for c in cats -%}
+      {%- assign lv = ch.levels | where: "key", c.id | first -%}
+      <article class="card">
+        <h3 class="card__title">{{ c.title }}</h3>
+        <div class="card__body">
+          <p><strong>{{ c.who }}</strong></p>
+          <p>{{ c.detail }}</p>
+          {%- if lv %}<p class="muted">{{ lv.detail }}</p>{% endif %}
+          <ul>
+            {%- for r in c.rights %}<li>{{ r }}</li>{% endfor %}
+          </ul>
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%} Why the chapter exists, per level. {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">Why this chapter</h2>
+      <p class="section-head__note">
+        What each group brings, and what the community gives back.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      {%- for lv in ch.levels -%}
+      <div>
+        <h3 style="font-size: var(--t-lg)">{{ lv.label }}</h3>
+        {%- if lv.why %}<p>{{ lv.why }}</p>{% endif %}
+        {%- if lv.evidence %}<p>{{ lv.evidence }}</p>{% endif %}
+        {%- if lv.exchange %}<p>{{ lv.exchange }}</p>{% endif %}
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- comment -%}
+What the chapter provides, split by whether it is running yet.
+{%- endcomment -%}
+<section class="band band--alt">
+  <div class="wrap wrap--wide">
+    <div class="section-head">
+      <h2 class="section-head__title">What the chapter provides</h2>
+      <p class="section-head__note">
+        {{ running | size }} of these are running now. The rest are planned
+        and are marked as such.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {%- for o in running -%}
+      <article class="card">
+        <h3 class="card__title" style="font-size: var(--t-md)">{{ o.title }}</h3>
+        <p>{{ o.detail }}</p>
+      </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if planned.size > 0 %}
+    <h3 style="font-size: var(--t-md); margin-top: var(--sp-6)">Planned, not yet running</h3>
+    <div class="grid grid--3">
+      {%- for o in planned -%}
+      <article class="card">
+        <p class="eyebrow">planned</p>
+        <h3 class="card__title" style="font-size: var(--t-md)">{{ o.title }}</h3>
+        <p class="muted">{{ o.detail }}</p>
+      </article>
+      {%- endfor -%}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- comment -%} ── What is expected ───────────────────────────────────────── {%- endcomment -%}
+<section class="band">
+  <div class="wrap wrap--wide">
+    <div class="split split--sidebar">
+      <div>
+        <div class="section-head">
+          <h2 class="section-head__title">What is expected in return</h2>
+        </div>
+        <ul>
+          {%- for e in ch.expectations %}<li>{{ e }}</li>{% endfor %}
+        </ul>
+      </div>
+
+      <aside class="stack">
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">How to join</h3>
+          <p>
+            Use the join form and pick <em>high school</em> or
+            <em>bachelor</em> where it asks which describes you. A maintainer
+            matches you to a mentor.
+          </p>
+          <div class="card__foot">
+            <a class="btn btn--sm btn--block"
+               href="https://github.com/{{ site.repository }}/issues/new?template=join-community.yml">Join the chapter</a>
+          </div>
+        </div>
+
+        {%- if open_topics.size > 0 %}
+        <div class="card">
+          <h3 class="card__title" style="font-size: var(--t-md)">Open topics</h3>
+          <p class="muted">
+            {{ open_topics | size }} topic{% unless open_topics.size == 1 %}s{% endunless %}
+            posted by supervisors, filterable by level.
+          </p>
+          <div class="card__foot">
+            <a class="btn btn--sm btn--ghost btn--block" href="{{ '/mentorship/#topics' | relative_url }}">See the topics</a>
+          </div>
+        </div>
+        {%- endif %}
+      </aside>
+    </div>
+  </div>
+</section>

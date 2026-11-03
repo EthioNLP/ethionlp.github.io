@@ -69,7 +69,7 @@ description: >-
         {{ frequent.size }} people have three or more of these papers, ordered by
         how many. A further
         {{ counts.authors_not_members | minus: frequent.size }} have one or two.
-        This is a count of papers only: appearing here means a person has
+        Appearing here means a person has
         published on these languages, not that they have been approached or
         wish to join. Anyone who does is welcome to add themselves.
       </p>
@@ -107,9 +107,8 @@ description: >-
       <p class="section-head__note">
         Fill in one form and a maintainer reviews it. Give an ORCID, Google
         Scholar, DBLP or Hugging Face link and your papers, models and
-        repositories are collected from then on, so the listing does not need
-        updating by hand. You can also use it to add a colleague, having asked
-        them first.
+        repositories are collected from then on. You can also use it to add a
+        colleague, having asked them first.
       </p>
     </div>
     <p>
@@ -175,7 +174,7 @@ description: >-
       <p>{{ data.topic_check }}</p>
       {%- endif %}
       <p>
-        Two limits worth stating. Author matching uses name, ORCID and OpenAlex
+        Author matching uses name, ORCID and OpenAlex
         identifier, so two researchers who share a name are counted as one
         person, and a member who publishes under a spelling this site does not
         know will appear here by mistake. Both are correctable: add the spelling

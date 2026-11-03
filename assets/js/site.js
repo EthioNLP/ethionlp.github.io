@@ -164,6 +164,62 @@
     }
   }
 
+  /* ── Front-page announcements ─────────────────────────────────────────────
+   * Shows one announcement at a time. Everything here exists so that rotating
+   * content does not cost anyone a link:
+   *
+   *   - without this script every item is already visible (the CSS default),
+   *     so no-JS readers and crawlers see all of them;
+   *   - prefers-reduced-motion opts out entirely and leaves them stacked;
+   *   - rotation pauses on hover and on focus, so an item cannot slide away
+   *     while it is being read or clicked;
+   *   - hidden items carry `hidden`, which keeps them out of the tab order,
+   *     and focusing anywhere in the rail reveals the focused one.
+   */
+  var rail = document.querySelector("[data-announce-rotate]");
+  if (rail && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var items = Array.prototype.slice.call(rail.querySelectorAll("[data-announce-item]"));
+    var dotWrap = document.querySelector("[data-announce-dots]");
+    var dots = dotWrap ? Array.prototype.slice.call(dotWrap.querySelectorAll("[data-announce-dot]")) : [];
+
+    if (items.length > 1) {
+      var at = 0;
+      var timer = null;
+      var INTERVAL = 5000;
+
+      function show(n) {
+        at = (n + items.length) % items.length;
+        items.forEach(function (el, i) { el.hidden = i !== at; });
+        dots.forEach(function (d, i) { d.setAttribute("aria-current", i === at ? "true" : "false"); });
+      }
+      function start() { stop(); timer = setInterval(function () { show(at + 1); }, INTERVAL); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+      rail.classList.add("is-rotating");
+      if (dotWrap) dotWrap.hidden = false;
+      show(0);
+      start();
+
+      rail.addEventListener("mouseenter", stop);
+      rail.addEventListener("mouseleave", start);
+      rail.addEventListener("focusin", function (e) {
+        stop();
+        var i = items.indexOf(e.target.closest("[data-announce-item]"));
+        if (i > -1) show(i);
+      });
+      rail.addEventListener("focusout", function (e) {
+        if (!rail.contains(e.relatedTarget)) start();
+      });
+      dots.forEach(function (d, i) {
+        d.addEventListener("click", function () { stop(); show(i); });
+      });
+      // Nothing should keep ticking in a background tab.
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) { stop(); } else { start(); }
+      });
+    }
+  }
+
   /* ── Gallery lightbox ─────────────────────────────────────────────────────
    * A native <dialog>, so Escape, the backdrop and focus handling come from the
    * platform. Browsers without dialog support simply follow nothing and the

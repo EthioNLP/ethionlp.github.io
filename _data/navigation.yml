@@ -99,6 +99,10 @@ main:
         url: /mentorship/
         match: /mentorship
         note: Mentors and open thesis topics
+      - title: Students chapter
+        url: /students/
+        match: /students
+        note: For high school and undergraduate students
       - title: Community standards
         url: /standards/
         match: /standards

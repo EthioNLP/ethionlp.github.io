@@ -1,0 +1,30 @@
+# Announcements rotated on the front page, in order. `until` is optional and
+# retires an announcement once that date has passed.
+
+- id: highschool
+  label: New
+  title: Students chapter, high school
+  text: >-
+    Between them, school students speak a wider range of Ethiopian languages
+    than the research community does. Mentoring in exchange for data and
+    annotation.
+  url: /students/
+  cta: How it works
+
+- id: bachelor
+  label: New
+  title: Students chapter, bachelor
+  text: >-
+    Final-year project supervision.
+  url: /students/
+  cta: How it works
+
+- id: africanlp-2027
+  label: Call
+  title: Collaborators wanted, AfricaNLP 2027
+  text: >-
+    Four open roles on a study of whether AI assistants overlook Ethiopian
+    businesses working in local languages.
+  url: /news/2026-11-03-africanlp-2027-collaborators/
+  cta: Read the call
+  until: 2026-11-10

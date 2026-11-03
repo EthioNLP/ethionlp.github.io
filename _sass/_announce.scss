@@ -1,0 +1,121 @@
+// ─── Front-page announcement rotator ─────────────────────────────────────────
+//
+// Default state is every item visible, stacked. That is what a reader without
+// JavaScript gets, and what anyone who has asked for reduced motion gets, so
+// no link is ever unreachable. The single-item view is applied by the script,
+// which adds .is-rotating once it has taken over.
+
+.announce {
+  padding-block: var(--sp-5);
+  background: var(--surface-2);
+  // Sits above the hero, so no bottom rule: the hero's own background edge
+  // is the separator.
+}
+
+.announce__rail {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.announce__item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  // A thin solid red rule on all four sides. --rust is the palette's red and
+  // is redefined for the dark theme, so this does not need a second value.
+  border: 1px solid var(--rust);
+  border-radius: var(--radius);
+  text-decoration: none !important;
+  color: var(--ink);
+
+  &:hover {
+    border-color: var(--rust);
+    box-shadow: 0 0 0 1px var(--rust);
+    .announce__cta { color: var(--rust); }
+  }
+
+  @media (max-width: 760px) {
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-2) var(--sp-3);
+    .announce__cta { grid-column: 2; }
+  }
+}
+
+.announce__label {
+  align-self: start;
+  flex: none;
+  padding: 0.2em 0.6em;
+  border-radius: var(--radius-pill);
+  background: var(--rust-soft);
+  color: var(--rust);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.announce__body { display: grid; gap: 0.15rem; min-width: 0; }
+.announce__title { font-size: var(--t-lg); }
+.announce__text { font-size: var(--t-md); color: var(--ink-2); }
+
+.announce__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+  svg { width: 1em; height: 1em; }
+}
+
+// ─── Rotating state, applied by site.js ──────────────────────────────────────
+// Only one item occupies the row; the others are `hidden`, which also removes
+// them from the tab order, and the script reveals one when focus reaches it.
+.announce__rail.is-rotating {
+  display: block;
+  position: relative;
+
+  .announce__item {
+    animation: announce-in var(--dur, 0.18s) var(--ease, ease) both;
+  }
+}
+
+@keyframes announce-in {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+.announce__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: var(--sp-3);
+}
+
+.announce__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--rule-strong);
+  cursor: pointer;
+
+  &[aria-current="true"] { background: var(--green); }
+  &:hover { background: var(--ink-3); }
+}
+
+// Someone who has asked for less motion gets the stacked list and no
+// animation, whatever the script does.
+@media (prefers-reduced-motion: reduce) {
+  .announce__rail.is-rotating {
+    display: grid;
+    .announce__item { animation: none; }
+  }
+  .announce__dots { display: none; }
+}

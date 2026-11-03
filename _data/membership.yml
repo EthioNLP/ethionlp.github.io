@@ -1,15 +1,7 @@
-# The two ways to belong to EthioNLP.
-#
-# The distinction is about who the community is accountable to, not about who
-# is welcome. Both categories join the same Telegram group, read the same
-# mailing list, come to the same events and are listed the same way in the
-# directory. What differs is that decisions about the direction of the
-# community (which languages get priority, what gets released and how) rest
-# with the people whose languages they are.
-#
-# This exists because "everyone is welcome" and "Ethiopians lead the work on
-# Ethiopian languages" are both true, and a site that states only the first
-# leaves the second to be inferred.
+# The two ways to belong to EthioNLP. Both categories join the same groups
+# and events; decisions about the direction of the community (which languages
+# get priority, what gets released and how) rest with the people whose
+# languages they are.
 
 note: >-
   Both categories join the same groups and events. The difference is in who
@@ -45,4 +37,40 @@ categories:
       - Listed in the directory, marked as an affiliate
       - The same access to the groups, seminars, mailing list and events
       - Can co-author, contribute data and code, and offer mentorship
+    featured: false
+
+# ─── Students chapter ───────────────────────────────────────────────────────
+# Separate categories, so the chapter can be counted.
+  - id: highschool
+    title: Student member (high school)
+    chapter: students
+    who: >-
+      School students in Ethiopia with an interest in computing, language or
+      linguistics. No prior programming or research experience is expected.
+    detail: >-
+      A mentor who answers questions, and
+      small, finishable tasks on real data. Work is chosen so that a first
+      contribution takes weeks rather than months.
+    rights:
+      - A named mentor
+      - Guided first contributions, reviewed before anything is published
+      - Listed in the directory once a first contribution is merged
+    featured: false
+
+  - id: bachelor
+    title: Student member (bachelor)
+    chapter: students
+    who: >-
+      Undergraduates at any Ethiopian university, and Ethiopian
+      undergraduates studying abroad.
+    detail: >-
+      Supervision for a final-year project, a route into an existing dataset
+      or model effort, and co-authorship where the contribution earns it
+      under the community's authorship standards. Open thesis topics are
+      listed on the mentorship page.
+    rights:
+      - Supervision for a final-year project, and a named mentor
+      - A route into an existing dataset or model effort
+      - Co-authorship where the work earns it, on the same terms as anyone
+      - Listed in the directory with a profile page
     featured: false

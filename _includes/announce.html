@@ -1,0 +1,54 @@
+{%- comment -%}
+The front-page announcement rotator.
+
+Every item is in the DOM and every link is reachable. Without JavaScript, or
+under prefers-reduced-motion, the CSS shows all of them stacked; with
+JavaScript one is shown at a time and the rest are hidden with `hidden`, so
+they stay out of the tab order while hidden and are revealed when focus
+reaches them.
+
+`until` retires an item once that date has passed.
+{%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign live = "" | split: "" -%}
+{%- comment -%}
+`until` is formatted before comparing: YAML parses an unquoted 2026-11-10 as
+a Date, and comparing a Date with a String raises in Liquid rather than
+returning false.
+{%- endcomment -%}
+{%- for a in site.data.announcements -%}
+  {%- if a.until -%}
+    {%- assign ends = a.until | date: "%Y-%m-%d" -%}
+    {%- if ends >= today -%}{%- assign live = live | push: a -%}{%- endif -%}
+  {%- else -%}
+    {%- assign live = live | push: a -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if live.size > 0 %}
+<section class="announce" aria-label="Announcements">
+  <div class="wrap wrap--wide">
+    <div class="announce__rail" data-announce{% if live.size > 1 %} data-announce-rotate{% endif %}>
+      {%- for a in live %}
+      <a class="announce__item" href="{{ a.url | relative_url }}" data-announce-item>
+        <span class="announce__label">{{ a.label | default: "New" }}</span>
+        <span class="announce__body">
+          <strong class="announce__title">{{ a.title }}</strong>
+          <span class="announce__text">{{ a.text }}</span>
+        </span>
+        <span class="announce__cta">{{ a.cta | default: "Read more" }} {% include icon.html name="arrow" %}</span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    {%- if live.size > 1 %}
+    <div class="announce__dots" data-announce-dots hidden>
+      {%- for a in live %}
+      <button type="button" class="announce__dot" data-announce-dot="{{ forloop.index0 }}"
+              aria-label="Show announcement {{ forloop.index }} of {{ live.size }}"></button>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}

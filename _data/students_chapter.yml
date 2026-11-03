@@ -1,0 +1,84 @@
+# The high school and bachelor students chapter, a special interest group
+# inside EthioNLP.
+
+title: Students chapter
+tagline: High school and bachelor students working on Ethiopian languages.
+
+intro: >-
+  The chapter gives students a named mentor, work small enough to finish, and
+  a review step before anything is published.
+
+# Who it is for. Matches the `highschool` and `bachelor` ids in membership.yml.
+levels:
+  - key: highschool
+    label: High school
+    detail: >-
+      No programming or research experience expected. The starting point is
+      usually annotation or data collection in a language the student speaks.
+    why: >-
+      Many school students have the aptitude for this work, and the tools have
+      reached a point where they can take part in building language
+      technology. They have time, they pick up new tools quickly, and between
+      them they speak a far wider range of Ethiopian languages than the
+      research community currently covers. The languages with no data are
+      largely the languages no researcher happens to speak.
+    evidence: >-
+      A grade 11 student in Hawassa is already working on question answering
+      and on language technology for Sidama, and has offered to approach
+      print, radio and television outlets to collect data for Sidama and other
+      low-resource languages, and to introduce EthioNLP to school clubs. These
+      are offers so far.
+    exchange: >-
+      The community mentors, and students help build the datasets, benchmarks
+      and collected text that languages with almost no resources need first.
+  - key: bachelor
+    label: Bachelor
+    detail: >-
+      Final-year project supervision, or a defined piece of an existing
+      dataset or model effort.
+    why: >-
+      Undergraduates have access to university computing infrastructure, some
+      exposure to how research is conducted, and departments that already have
+      supervision structures. They also still have time.
+    exchange: >-
+      A final-year project is a natural unit of work here. It produces
+      something the community can use and the student can publish.
+
+# What the chapter offers. `status` is running | planned.
+offers:
+  - title: A named mentor
+    status: running
+    detail: >-
+      Every student in the chapter is matched to a mentor who has agreed to
+      take them. Mentors and their capacity are listed on the mentorship page.
+  - title: Supervision for a final-year project
+    status: running
+    detail: >-
+      For bachelor students, co-supervision alongside a university supervisor,
+      or sole supervision where the university allows it. Open topics are
+      posted on the mentorship page.
+  - title: Guided first contributions
+    status: running
+    detail: >-
+      Small, finishable pieces of real work: annotation, data collection,
+      evaluation, documentation. Reviewed before anything is published.
+  - title: Chapter seminar
+    status: planned
+    detail: >-
+      An introductory session on what NLP for Ethiopian languages involves and
+      how to start. Not yet scheduled; it will be listed on the events page
+      once a date is set.
+  - title: Reading group
+    status: planned
+    detail: >-
+      Reading one paper together with someone who can answer questions. Not
+      yet running.
+
+# What is expected in return.
+expectations:
+  - Reply to your mentor. A mentorship lapses when one side stops replying.
+  - Expect to read. Early work on a topic is usually reading.
+  - Ask in the open. Questions in the group help the next person who has them.
+  - >-
+    Work you contribute is published under the community's licences, and
+    co-authorship follows the same standards as for anyone else.

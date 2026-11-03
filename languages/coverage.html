@@ -45,8 +45,8 @@ above this claims.
       {{ cat.totals.languages }} entries, every language Glottolog records for
       the country, of which
       {{ langs | where_exp: "l", "l.status == 'living' or l.status == 'endangered'" | size }}
-      are living or endangered. The remainder go beyond the familiar
-      "more than 80": {{ extinct }} extinct languages, {{ pidgins }} pidgins,
+      are living or endangered. The remainder are
+      {{ extinct }} extinct languages, {{ pidgins }} pidgins,
       and a few whose classification or status Glottolog does not record.
       <a href="{{ '/languages/#sources' | relative_url }}">Full method</a>.
     </p>
@@ -137,7 +137,7 @@ above this claims.
     <p class="muted" style="margin-top: var(--sp-4)">
       {{ covered }} of {{ cat.totals.languages }} catalogue entries.
       Ge'ez is liturgical rather than spoken, and Wolaytta's coverage is a single
-      tokenizer, so the smaller counts here should be read with care.
+      tokenizer.
     </p>
   </div>
 </section>
@@ -148,7 +148,7 @@ above this claims.
       <h2>Languages with research but no released resources</h2>
       <p class="section-head__note">
         Languages that have a research literature but no open model or
-        dataset. These are possible next targets.
+        dataset.
       </p>
     </div>
 
@@ -255,8 +255,7 @@ above this claims.
       <p>
         Coverage counts work built <em>for</em> a language. A hundred-language
         model that lists Amharic among its tags is not counted here; see
-        <a href="{{ '/ecosystem/related/' | relative_url }}">the note on multilingual work</a>
-        for why that distinction is kept.
+        <a href="{{ '/ecosystem/related/' | relative_url }}">the note on multilingual work</a>.
       </p>
       <p><a href="{{ '/languages/' | relative_url }}">Back to the full catalogue →</a></p>
     </div>

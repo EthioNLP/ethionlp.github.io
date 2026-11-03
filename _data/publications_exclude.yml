@@ -169,3 +169,17 @@
   why: >-
     The journal name is glued onto the title, and the record drops a real
     author (Andreas Holzinger). The complete record is 10.1007/s40708-016-0036-4.
+
+- doi: 10.48550/arxiv.2305.06897
+  why: >-
+    arXiv preprint of AfriQA, published as 10.18653/v1/2023.findings-emnlp.997.
+    The curated entry gives the published record the Anthology's title, which
+    is the preprint's title too, so the two now collide on every key except
+    the DOI.
+
+- doi: 10.48448/zaqm-d641
+  why: >-
+    An Underline deposit of CommonLID, already listed from its arXiv record
+    (10.48550/arxiv.2601.18026). The two carry different DOIs and only one has
+    an arXiv id, so deduplication cannot pair them; the arXiv copy has the
+    fuller author list.
