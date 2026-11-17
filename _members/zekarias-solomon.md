@@ -1,9 +1,10 @@
 ---
-name: Zekarias solomon
-title: Zekarias solomon
-role: Ai engineer
-affiliation: Personal
+name: Zekarias Solomon
+title: Zekarias Solomon
+role: AI Engineer
 order: 900
+focus: [data, evaluation]
+github: akilas-solo
 huggingface:
 scholar:
 orcid:
