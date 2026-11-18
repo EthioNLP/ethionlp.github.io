@@ -1,7 +1,7 @@
 ---
 name: Nardos Evakise
 title: Nardos Evakise
-affiliation: github 
+affiliation: GitHub
 photo: "https://avatars.githubusercontent.com/u/204765816?v=4"
 order: 900
 github: Nardosye
