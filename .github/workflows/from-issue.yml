@@ -81,23 +81,27 @@ jobs:
         if: steps.kind.outputs.kind != ''
         env:
           TITLE: ${{ github.event.issue.title }}
+          KIND: ${{ steps.kind.outputs.kind }}
         run: |
           set -o pipefail
-          if path=$(python3 scripts/from_issue.py --kind "${{ steps.kind.outputs.kind }}" --body-file /tmp/issue.md --title "$TITLE" 2>/tmp/err.txt); then
+          if path=$(python3 scripts/from_issue.py --kind "$KIND" --body-file /tmp/issue.md --title "$TITLE" 2>/tmp/err.txt); then
             echo "path=$path" >> "$GITHUB_OUTPUT"
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
             echo "ok=false" >> "$GITHUB_OUTPUT"
+            delim="ERR_$(openssl rand -hex 16)"
             {
-              echo 'error<<EOF'
+              echo "error<<$delim"
               tail -n 20 /tmp/err.txt
-              echo EOF
+              echo "$delim"
             } >> "$GITHUB_OUTPUT"
           fi
 
       - name: Explain what went wrong
         if: steps.build.outputs.ok == 'false'
         uses: actions/github-script@v7
+        env:
+          BUILD_ERROR: ${{ steps.build.outputs.error }}
         with:
           script: |
             await github.rest.issues.createComment({
@@ -108,7 +112,7 @@ jobs:
                 "Thanks for this; the automatic step could not complete it:",
                 "",
                 "```",
-                `${{ steps.build.outputs.error }}`,
+                process.env.BUILD_ERROR,
                 "```",
                 "",
                 "Edit the issue to fix it and a maintainer will re-run this, or just",

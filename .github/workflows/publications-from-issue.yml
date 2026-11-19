@@ -50,22 +50,25 @@ jobs:
       - name: Resolve the links
         id: preview
         run: |
+          delim="PREVIEW_$(openssl rand -hex 16)"
           {
-            echo 'text<<PREVIEW_EOF'
+            echo "text<<$delim"
             python3 scripts/publications_from_issue.py \
               --body-file /tmp/issue.md --preview 2>/dev/null
-            echo PREVIEW_EOF
+            echo "$delim"
           } >> "$GITHUB_OUTPUT"
 
       - name: Post what was found
         uses: actions/github-script@v7
+        env:
+          PREVIEW: ${{ steps.preview.outputs.text }}
         with:
           script: |
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `${{ steps.preview.outputs.text }}`,
+              body: process.env.PREVIEW,
             });
 
   publish:

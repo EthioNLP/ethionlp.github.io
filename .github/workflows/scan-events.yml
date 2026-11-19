@@ -33,8 +33,10 @@ jobs:
 
       - name: Scan the watched events
         id: scan
+        env:
+          INPUT_YEAR: ${{ inputs.year }}
         run: |
-          YEAR="${{ inputs.year }}"
+          YEAR="$INPUT_YEAR"
           if [ -n "$YEAR" ]; then
             python3 scripts/scan_events.py --year "$YEAR" | tee /tmp/scan.log
           else
