@@ -63,6 +63,18 @@ FOCUS_LABELS = {
 
 EVENT_KINDS = {"seminar", "workshop", "conference", "tutorial", "hackathon", "reading group"}
 
+# People write a handle rather than a URL in these fields often enough that it
+# is worth rebuilding the address. Everything else is passed through as typed,
+# and new_member.py's classifier falls back to `website` for anything it does
+# not recognise -- which turned a bare "Haile1221" into href="Haile1221", a
+# relative link to nothing. A handle we cannot place is now dropped with a
+# warning instead of being published as a broken link.
+HANDLE_URL = {
+    "github": "https://github.com/{}",
+    "hugging": "https://huggingface.co/{}",
+    "orcid": "https://orcid.org/{}",
+}
+
 
 def parse_form(body: str) -> dict[str, str]:
     """Split an issue-form body into {lowercased label: answer}."""
@@ -103,8 +115,20 @@ def build_member(fields: dict) -> Path:
     urls = []
     for key in ("personal", "github", "hugging", "scholar", "orcid", "dblp", "semantic", "linkedin"):
         value = get(fields, key)
-        if value:
-            urls += re.findall(r"https?://\S+", value) or [value.strip()]
+        if not value:
+            continue
+        found = re.findall(r"https?://\S+", value)
+        if found:
+            urls += found
+            continue
+        bare = value.strip().lstrip("@").strip("/")
+        if key == "personal" and "." in bare and " " not in bare:
+            # A site given without its scheme is still a site.
+            urls.append(f"https://{bare}")
+        elif key in HANDLE_URL and bare and " " not in bare:
+            urls.append(HANDLE_URL[key].format(bare))
+        else:
+            warn(f"ignored the {key} field: {value.strip()!r} is neither a URL nor a handle")
 
     focus = [FOCUS_LABELS[label] for label in checked(get(fields, "research") or "")
              if label in FOCUS_LABELS]

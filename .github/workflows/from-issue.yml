@@ -6,15 +6,30 @@ name: Issue form to pull request
 
 on:
   issues:
-    types: [opened, labeled]
+    # `edited` matters as much as `opened`. People submit the form and then
+    # keep correcting it: three of the last five submissions were edited
+    # within a quarter of an hour, and because the pull request was built
+    # from the body as first posted it froze the typos. One of them published
+    # the wrong spelling of a contributor's own name.
+    types: [opened, labeled, edited]
 
 permissions:
   contents: write
   pull-requests: write
   issues: write
 
+# An edit while a run is still going would have two runs pushing the same
+# branch. The later edit is the one the person meant, so cancel the earlier.
+concurrency:
+  group: from-issue-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   convert:
+    # Re-running on an edit is only useful while the issue is still open. Once
+    # its pull request has merged, the issue is closed, the branch is gone,
+    # and rebuilding would open a second pull request for work already done.
+    if: github.event.action != 'edited' || github.event.issue.state == 'open'
     # Runs for every issue and decides below. The gate used to require one of
     # the form labels, but GitHub only attaches a template's labels when the
     # issue is actually created from that template: an issue opened any other

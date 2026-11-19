@@ -215,7 +215,12 @@ def main() -> int:
             warn(f"unknown focus area(s) ignored: {', '.join(unknown)}")
         profile["focus"] = [f for f in wanted if f in KNOWN_FOCUS]
 
-    bio = profile.pop("bio", "") or bio
+    # What the person wrote on the form wins. A bio scraped from GitHub is a
+    # fallback for when they left that question blank: taking it first
+    # replaced "I want to work on machine translation of Cushitic languages"
+    # with a generic developer tagline on a re-run.
+    bio = bio or profile.pop("bio", "") or ""
+    profile.pop("bio", None)
 
     if not profile.get("name"):
         warn("could not determine a name, pass --name")
