@@ -1,6 +1,6 @@
 ---
-name: Kalil Etana
-title: Kalil Etana
+name: Khalil Etana
+title: Khalil Etana
 role: Industrial Engineering Undergraduate Student
 affiliation: Wollega University, Shambu Campus
 order: 900
