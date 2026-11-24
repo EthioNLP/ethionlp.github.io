@@ -155,3 +155,17 @@ jobs:
             else's papers. After merging, the monthly sync fills in the rest.
 
             Closes #${{ github.event.issue.number }}
+
+      # Advisory review of the join pull request, as one comment from
+      # github-actions[bot]. It has to run here: a pull request pushed with
+      # GITHUB_TOKEN triggers no pull_request workflows, so join-pr-review.yml
+      # never sees the bot's own pushes. Runs even if the build failed, so an
+      # edit that breaks the form still refreshes the comment on the open
+      # pull request. Comments only; it never approves or merges.
+      - name: Review the join pull request
+        if: steps.kind.outputs.kind == 'member' && !cancelled()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: python3 scripts/review_join_pr.py --issue "$ISSUE"

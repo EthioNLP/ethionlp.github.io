@@ -107,6 +107,23 @@ def get(fields: dict, *names: str) -> str | None:
 
 # ─── Member ───────────────────────────────────────────────────────────────────
 
+def membership_category(answer: str | None) -> str | None:
+    """Map the "Which describes you?" answer to the `membership:` value.
+
+    Plain membership stays the default and is not written out. The other
+    three are, because a maintainer needs to see which chapter a student
+    belongs to in order to match them to a mentor.
+    """
+    answer = (answer or "").lower()
+    if "high school" in answer or "highschool" in answer:
+        return "highschool"
+    if "bachelor" in answer:
+        return "bachelor"
+    if "affiliate" in answer:
+        return "affiliate"
+    return None
+
+
 def build_member(fields: dict) -> Path:
     name = get(fields, "name")
     if not name:
@@ -135,9 +152,12 @@ def build_member(fields: dict) -> Path:
 
     cmd = [sys.executable, str(ROOT / "scripts" / "new_member.py"), *urls,
            "--name", name, "--force"]
-    for flag, key in (("--role", "role"), ("--affiliation", "affiliation"),
-                      ("--location", "location"), ("--bio", "about")):
-        value = get(fields, key)
+    # The form labels location "Where you are based", so "location" alone
+    # never matched and every submitted location was silently dropped.
+    for flag, keys in (("--role", ("role",)), ("--affiliation", ("affiliation",)),
+                       ("--location", ("location", "where you are based")),
+                       ("--bio", ("about",))):
+        value = get(fields, *keys)
         if value:
             cmd += [flag, value.strip()]
     if focus:
@@ -157,17 +177,7 @@ def build_member(fields: dict) -> Path:
     # written: plain membership is the default, and a field that says what is
     # already assumed is a field that goes stale. The category carries no
     # difference in access; see _data/membership.yml for what it does mean.
-    answer = (get(fields, "which describes you", "membership") or "").lower()
-    # Plain membership stays the default and is not written out. The other
-    # three are, because a maintainer needs to see which chapter a student
-    # belongs to in order to match them to a mentor.
-    category = None
-    if "high school" in answer or "highschool" in answer:
-        category = "highschool"
-    elif "bachelor" in answer:
-        category = "bachelor"
-    elif "affiliate" in answer:
-        category = "affiliate"
+    category = membership_category(get(fields, "which describes you", "membership"))
     if category:
         text = path.read_text(encoding="utf-8")
         if "\nmembership:" not in text:
