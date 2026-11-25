@@ -489,10 +489,6 @@ def review_pull_request(gh: GitHub, pr: dict, dry_run: bool = False) -> int:
     files = [ChangedFile(f["filename"], f.get("status", "added"))
              for f in gh.paged(gh.repo_path(f"/pulls/{number}/files"))]
     members = [f for f in files if f.path.startswith("_members/") and f.path.endswith(".md")]
-    if not members:
-        print(f"#{number} does not change a member profile; skipping.")
-        return 0
-
     profile_text = None
     if len(members) == 1 and members[0].status != "removed":
         # Read as data through the API. The pull request is never checked out.
@@ -502,7 +498,8 @@ def review_pull_request(gh: GitHub, pr: dict, dry_run: bool = False) -> int:
 
     author = (issue.get("user") or {}).get("login", "")
     result = review(body, files, profile_text, author, fetch_openalex_orcid)
-    comment = render(result, issue_number, author, members[0].path, head.get("sha", ""))
+    profile_path = members[0].path if members else ""
+    comment = render(result, issue_number, author, profile_path, head.get("sha", ""))
     if dry_run:
         print(comment)
         return 0
