@@ -214,6 +214,9 @@ def review(
     if profile_file.status == "modified":
         chk(f"`{profile_file.path}` already exists, and this pull request replaces it. "
             "Please confirm it is the same person and nothing curated is lost.")
+    elif profile_file.status == "renamed":
+        chk(f"`{profile_file.path}` renames an existing profile. "
+            "Please confirm it is the same person and nothing curated is lost.")
 
     profile, bio = split_profile(profile_text or "")
     if profile is None:
