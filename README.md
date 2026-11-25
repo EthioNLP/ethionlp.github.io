@@ -147,7 +147,14 @@ Two other workflows run automatically:
 - `sync-data.yml`, nightly data refresh, opens a pull request when anything
   changed.
 - `from-issue.yml`, turns a completed "Join EthioNLP" or "Propose a talk" issue
-  into a pull request adding the file.
+  into a pull request adding the file. For a join request it then runs
+  `scripts/review_join_pr.py`, which compares the proposed profile with the
+  form and keeps one advisory comment from `github-actions[bot]` on the pull
+  request: ready for a maintainer, or questions for the person joining. It
+  rechecks when the issue is edited, and `join-pr-review.yml` rechecks when
+  someone pushes to the pull request. It never approves or merges, and it does
+  not verify identity or consent beyond the form. Tests:
+  `python3 -m unittest discover -s tests`.
 
 ---
 

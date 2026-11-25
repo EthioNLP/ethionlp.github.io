@@ -1,0 +1,56 @@
+name: Join pull request review
+
+# Re-checks a join pull request when a person pushes to it, for example a
+# maintainer correcting a spelling, and keeps the single advisory comment
+# from github-actions[bot] up to date. Changes made by the issue-to-PR
+# workflow itself are reviewed there, because pushes made with GITHUB_TOKEN
+# do not trigger this workflow.
+#
+# Safety: pull_request_target runs with a write token, so this job only ever
+# checks out the base branch. The pull request's files are read through the
+# API as data and nothing from the pull request is executed. It comments
+# only; it never approves, requests changes or merges.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number to review
+        required: true
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: join-pr-review-${{ github.event.pull_request.number || inputs.pr }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (startsWith(github.event.pull_request.head.ref, 'contrib/issue-') &&
+       github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    steps:
+      # The base branch, never the pull request head.
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number || inputs.pr }}
+        run: python3 scripts/review_join_pr.py --pr "$PR"
