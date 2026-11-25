@@ -333,9 +333,19 @@ def review(
           + "). Which tracks should be listed?")
 
     # Consent. The form requires both boxes, but an edited issue can untick them.
-    ticked = " ".join(checked(get(fields, "confirmation") or ""))
+    ticked = set(checked(get(fields, "confirmation") or ""))
+    required_labels = {
+        "public website": (
+            "I am happy for this information to appear on a public website, and I understand "
+            "it lives in a public Git repository that I can edit or remove at any time."
+        ).lower(),
+        "community standards": (
+            "I have read the community standards at https://ethionlp.github.io/standards/ "
+            "and agree to them, including the rules for posting in the Telegram and Discord groups."
+        ).lower(),
+    }
     for needle, what in CONSENT_ITEMS:
-        if needle not in ticked:
+        if required_labels[needle] not in ticked:
             q(f"The form does not confirm {what}. Please tick that box in the issue; "
               "the profile cannot be published without it.")
 
